@@ -9,28 +9,28 @@ import { appRoutes } from './config/routes';
 import { AppComponent } from './components/app.component/app.component';
 
 //  Pages
-import { SuperheroesListPage } from './pages/superheroes-list/superheroes-list.page';
-import { FactionsListPage } from './pages/factions-list/factions-list.page';
+// import { SuperheroesListPage } from './pages/superheroes-list/superheroes-list.page';
+// import { FactionsListPage } from './pages/factions-list/factions-list.page';
 
 //  Services
-import { SuperheroesService } from './services/superheroes.service';
-import { FactionsService } from './services/factions-service';
+// import { SuperheroesService } from './services/superheroes.service';
+// import { FactionsService } from './services/factions-service';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes, { useHash: true })
+    // RouterModule.forRoot(appRoutes, { useHash: true })
   ],
   declarations: [
     AppComponent,
-    SuperheroesListPage,
-    FactionsListPage
+    // SuperheroesListPage,
+    // FactionsListPage
   ],
   bootstrap: [AppComponent],
   providers: [
-    SuperheroesService,
-    FactionsService
+    // SuperheroesService,
+    // FactionsService
   ]
 })
 export class AppModule { }
