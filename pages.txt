@@ -3,14 +3,14 @@
    -- Login
    -- Register
    -- Subscribe
-2.Articles
-   - Show all
-   - Articles details
-	-- Edit article title
-	-- Edit article text
-	-- Write comment /Private
-2.1.Publications - images
-   - Show all
+//2.Articles
+//   - Show all
+//   - Articles details
+//	-- Edit article title
+//	-- Edit article text    
+//	-- Write comment /Private
+2.Images
+   - Show all (hide somewhere comment id)
   	-- Add comment
 	-- Edit comment
 3.Charactors all
@@ -19,23 +19,63 @@
 4.Movies all
    -- Movies details[TODO partial or page]
 5.Profile page
+   
 6.View all products
    -- Customize product / Private - redirect to login
+   -- product overview
 7.About
-8.Embeded games?
+8.Embeded games
 
 [Private]
 1.Add article
 1.1Add image
 2.Profile page - own
    -- publications
-   -- orders
-   -- articles
-2.1.Profile page - own
-   -- publications
-   -- orders
-   -- comments
+   -?-- past orders
+   -- images
 3.Basket
+     --product overview
 4.Finish order [TODO partial or page]
 5.Update profile
 6.Messages?
+
+USER model
+- displayname
+- username
+- firstname
+- lastname
+- passhash
+- avatar {enum}
+- orders [{Products}]
+
+
+Image model
+- comments [{username, content}]
+- username
+- likes [like{user}]
+- dislikes [dislike{user}]
+
+
+Products model
+- name
+- price
+- qntity
+- info
+- category {enum[mug, t-shirt, poster...]}
+- image
+- color
+
+Charecters
+- name
+- origin
+- year
+
+Movies
+- title
+- img
+- story
+- charecters {name, actor}
+- trailerLink
+- rating
+- likes
+- link to imdb
