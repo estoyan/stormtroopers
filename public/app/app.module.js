@@ -11,8 +11,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var http_1 = require('@angular/http');
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('.//app.component');
+var app_component_1 = require('./app.component');
+var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var app_routing_module_1 = require('./routing/app-routing.module');
+var core_module_1 = require('./core/core.module');
 //  Pages
 var cahracter_component_1 = require('./pages/characters/cahracter.component');
 var page_not_fount_component_1 = require('./pages/page-not-fount/page-not-fount.component');
@@ -25,6 +27,8 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 http_1.HttpModule,
+                ng2_bootstrap_1.Ng2BootstrapModule,
+                core_module_1.CoreModule,
                 app_routing_module_1.AppRoutingModule
             ],
             declarations: [

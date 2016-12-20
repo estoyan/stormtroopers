@@ -9,18 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
+var nav_component_1 = require('./navbar/nav.component');
+var CoreModule = (function () {
+    function CoreModule() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'my-app',
-            templateUrl: './app.component.html'
+    CoreModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule, forms_1.FormsModule, router_1.RouterModule
+            ],
+            exports: [
+                common_1.CommonModule, forms_1.FormsModule, router_1.RouterModule, [nav_component_1.NavComponent]
+            ],
+            declarations: [nav_component_1.NavComponent],
+            providers: []
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], CoreModule);
+    return CoreModule;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.CoreModule = CoreModule;
+//# sourceMappingURL=core.module.js.map
