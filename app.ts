@@ -1,4 +1,6 @@
-const config = require('./config');
+'use strict';
+
+const config = require('./config')();
 
 const app = require('./config/application')();
 

@@ -1,4 +1,5 @@
-var config = require('./config');
+'use strict';
+var config = require('./config')();
 var app = require('./config/application')();
 var data = require('./data')({ config: config });
 var controllers = require('./controllers')({ data: data });
