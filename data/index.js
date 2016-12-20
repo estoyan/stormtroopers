@@ -5,20 +5,10 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
 
-module.exports = function() {
+module.exports = function({ config }) {
     mongoose.Promise = global.Promise;
+    mongoose.connect(config.connectionString);
 
-
-    // let User = require('../models/user-model');
-    // let Car = require('../models/car-model');
-    // let CarBrandDetail = require('../models/car-brand-model');
-    // let Rental = require('../models/rental-model');
-    // let models = {
-    //     User,
-    //     Car,
-    //     CarBrandDetail,
-    //     Rental
-    // };
     let models = {};
 
     let data = {};

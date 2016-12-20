@@ -1,35 +1,19 @@
-"use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var core_1 = require('@angular/core');
-require('rxjs/add/operator/toPromise');
-var http_1 = require('@angular/http');
-var FactionsService = (function () {
-    function FactionsService(http) {
-        this.http = http;
-        this.factionsUrl = '/api/factions';
-    }
-    FactionsService.prototype.getAll = function () {
-        return this.http.get(this.factionsUrl)
-            .toPromise()
-            .then(function (response) {
-            var data = response.json();
-            return data.result;
-        });
-    };
-    FactionsService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
-    ], FactionsService);
-    return FactionsService;
-}());
-exports.FactionsService = FactionsService;
-;
+// import { Faction } from '../models/faction.model';
+// import { ResponseResult } from '../models/responseResult';
+// import { Injectable } from '@angular/core';
+// import 'rxjs/add/operator/toPromise';
+// import { Http } from '@angular/http';
+// @Injectable()
+// export class FactionsService {
+//     private factionsUrl = '/api/factions';
+//     constructor(private http: Http) { }
+//     getAll(): Promise<Faction[]> {
+//         return this.http.get(this.factionsUrl)
+//             .toPromise()
+//             .then(response => {
+//                 let data = response.json() as ResponseResult<Faction[]>;
+//                 return data.result;
+//             });
+//     }
+// };
 //# sourceMappingURL=factions-service.js.map
