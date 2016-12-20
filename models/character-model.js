@@ -9,6 +9,6 @@ module.exports = modelRegistrator.register('Character', {
     dead: String,
     story: String,
     species: String,
-    affiliation: String,
+    affiliation: [],
     image: String
 })
