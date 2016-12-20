@@ -1,7 +1,5 @@
-// import { FactionsListPage } from './factions-list/factions-list.page';
-// import { SuperheroesListPage } from './superheroes-list/superheroes-list.page';
+import { CharacterComponent } from './characters/cahracter.component';
 
 export const pages = {
-    // superheroes: SuperheroesListPage,
-    // factions: FactionsListPage
+    characters: CharacterComponent
 };

@@ -1,5 +1,6 @@
-// import { FactionsListPage } from './factions-list/factions-list.page';
-// import { SuperheroesListPage } from './superheroes-list/superheroes-list.page';
 "use strict";
-exports.pages = {};
+var cahracter_component_1 = require('./characters/cahracter.component');
+exports.pages = {
+    characters: cahracter_component_1.CharacterComponent
+};
 //# sourceMappingURL=index.js.map

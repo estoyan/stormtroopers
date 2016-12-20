@@ -1,8 +1,7 @@
 /* globals module */
 
 module.exports = function ({
-    app,
-    controllers
+    app, data
 }) {
 
     app.get('/', (req, res) => {

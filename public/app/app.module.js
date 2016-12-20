@@ -8,16 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var router_1 = require('@angular/router');
 var http_1 = require('@angular/http');
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./components/app.component/app.component');
+var routes_1 = require('./config/routes');
+var app_component_1 = require('.//app.component');
 //  Pages
-// import { SuperheroesListPage } from './pages/superheroes-list/superheroes-list.page';
-// import { FactionsListPage } from './pages/factions-list/factions-list.page';
+var cahracter_component_1 = require('./pages/characters/cahracter.component');
 //  Services
-// import { SuperheroesService } from './services/superheroes.service';
-// import { FactionsService } from './services/factions-service';
 var AppModule = (function () {
     function AppModule() {
     }
@@ -26,9 +25,11 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 http_1.HttpModule,
+                router_1.RouterModule.forRoot(routes_1.appRoutes)
             ],
             declarations: [
                 app_component_1.AppComponent,
+                cahracter_component_1.CharacterComponent
             ],
             bootstrap: [app_component_1.AppComponent],
             providers: []

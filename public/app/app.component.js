@@ -8,8 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-// import { Superhero } from '../../models/superhero.model';
-// import { SuperheroesService } from '../../services/superheroes.service';
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
@@ -18,7 +16,7 @@ var AppComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'my-app',
-            template: "\n  <h1>The Superheroes Universe!</h1>\n  <nav>\n  </nav>\n  "
+            template: "\n  <h1>The Superheroes Universe!</h1>\n  <nav>\n    <a routerLink=\"/characters\" routerLinkActive=\"active\">Characters</a>\n  </nav>\n  <router-outlet>\n  </router-outlet>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

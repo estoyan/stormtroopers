@@ -22,7 +22,7 @@
     "body-parser": "^1.15.2",
     "core-js": "^2.4.1",
     "express": "^4.14.0",
-    "mongoose": "^4.7.3",
+    "mongoose": "^4.7.4",
     "nodemon": "^1.11.0",
     "pug": "^2.0.0-beta6",
     "reflect-metadata": "^0.1.8",

@@ -6,31 +6,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { appRoutes } from './config/routes';
 
-import { AppComponent } from './components/app.component/app.component';
+import { AppComponent } from './/app.component';
 
 //  Pages
-// import { SuperheroesListPage } from './pages/superheroes-list/superheroes-list.page';
-// import { FactionsListPage } from './pages/factions-list/factions-list.page';
-
+import { CharacterComponent } from './pages/characters/cahracter.component';
 //  Services
-// import { SuperheroesService } from './services/superheroes.service';
-// import { FactionsService } from './services/factions-service';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpModule,
-    // RouterModule.forRoot(appRoutes, { useHash: true })
+    RouterModule.forRoot(appRoutes)
   ],
   declarations: [
     AppComponent,
-    // SuperheroesListPage,
-    // FactionsListPage
+    CharacterComponent
   ],
   bootstrap: [AppComponent],
   providers: [
-    // SuperheroesService,
-    // FactionsService
   ]
 })
 export class AppModule { }
