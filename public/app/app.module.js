@@ -8,14 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var router_1 = require('@angular/router');
 var http_1 = require('@angular/http');
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
-var routes_1 = require('./config/routes');
 var app_component_1 = require('.//app.component');
+var app_routing_module_1 = require('./routing/app-routing.module');
 //  Pages
 var cahracter_component_1 = require('./pages/characters/cahracter.component');
+var page_not_fount_component_1 = require('./pages/page-not-fount/page-not-fount.component');
 //  Services
 var AppModule = (function () {
     function AppModule() {
@@ -25,11 +25,12 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 http_1.HttpModule,
-                router_1.RouterModule.forRoot(routes_1.appRoutes)
+                app_routing_module_1.AppRoutingModule
             ],
             declarations: [
                 app_component_1.AppComponent,
-                cahracter_component_1.CharacterComponent
+                cahracter_component_1.CharacterComponent,
+                page_not_fount_component_1.PageNotFoundComponent
             ],
             bootstrap: [app_component_1.AppComponent],
             providers: []

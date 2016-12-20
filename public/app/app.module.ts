@@ -8,19 +8,23 @@ import { appRoutes } from './config/routes';
 
 import { AppComponent } from './/app.component';
 
+import { AppRoutingModule } from './routing/app-routing.module';
+
 //  Pages
 import { CharacterComponent } from './pages/characters/cahracter.component';
+import { PageNotFoundComponent } from './pages/page-not-fount/page-not-fount.component';
 //  Services
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,
-    CharacterComponent
+    CharacterComponent,
+    PageNotFoundComponent
   ],
   bootstrap: [AppComponent],
   providers: [
