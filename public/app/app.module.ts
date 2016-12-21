@@ -15,7 +15,9 @@ import { CoreModule } from './core/core.module';
 import { CharacterComponent } from './pages/characters/cahracter.component';
 import { PageNotFoundComponent } from './pages/page-not-fount/page-not-fount.component';
 import { HomeComponent } from './pages/home/home.component';
+
 //  Services
+import { GalleryService } from './services/gallery/gallery.service';
 
 @NgModule({
   imports: [
@@ -33,6 +35,7 @@ import { HomeComponent } from './pages/home/home.component';
   ],
   bootstrap: [AppComponent],
   providers: [
+    GalleryService
   ]
 })
 export class AppModule { }

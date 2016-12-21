@@ -1,7 +1,9 @@
 .main-wrapper {
     background-image: url('https://i.ytimg.com/vi/voWpbz1De_M/maxresdefault.jpg');
+    background-repeat: repeat;
+    
     width: 100%;
-    height: 1000px;
+    /*height: 1000px;*/
 }
 
 main .wrapper {
@@ -12,5 +14,3 @@ main .wrapper {
     margin-top: -20px;
 }
 
-.main-image {
-}
