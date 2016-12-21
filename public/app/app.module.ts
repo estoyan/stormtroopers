@@ -19,6 +19,7 @@ import { AcStar, AcStars } from './shared/index';
 
 //  Services
 import { PublicatonsService } from './services/publications/publications.service';
+import { ProductsService } from './services/products/products.service';
 
 @NgModule({
   imports: [
@@ -38,7 +39,8 @@ import { PublicatonsService } from './services/publications/publications.service
   ],
   bootstrap: [AppComponent],
   providers: [
-    PublicatonsService
+    PublicatonsService,
+    ProductsService
   ]
 })
 export class AppModule { }
