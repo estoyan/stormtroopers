@@ -21,8 +21,6 @@ let mockedData = [{
     imageUrl: 'http://pre14.deviantart.net/f239/th/pre/i/2014/352/7/9/star_wars_fan_art_by_raf107-d8a97lp.jpg',
     likes: [{
         username: 'Pamy666'
-    }, {
-        username: 'The Rock'
     }],
     dislikes: [{
         username: 'Pesho'
@@ -38,6 +36,8 @@ let mockedData = [{
         username: 'pamy666'
     }, {
         username: 'The Rock'
+    }, {
+        username: 'Gosho ot Pochivka'
     }],
     dislikes: [{
         username: 'Pesho'

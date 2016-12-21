@@ -4,14 +4,14 @@
     </div>
 </div>
 <div class="row text-center">
-    <h3>New products</h3>
+    <h4>NEW PRODUCTS</h4>
 </div>
 <div class="row text-center">
-    <h3>Top Images</h3>
+    <h4>TOP IMAGES</h4>
     <div *ngFor="let image of topImages" class="col-md-4">
         <div class="image-container">
             <img src={{image.imageUrl}} alt="top image">
-
         </div>
+        <ac-stars [rating]="image.likes.length" [isUserLogged]="true" (newRate)="setNewRate($event)"></ac-stars>
     </div>
 </div>

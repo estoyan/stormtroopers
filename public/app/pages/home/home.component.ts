@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PublicatonsService } from '../../services/publications/publications.service';
 
 @Component({
@@ -10,14 +10,17 @@ export class HomeComponent implements OnInit {
   fullPath: string = 'static/app/assets/imgs/rougeone.png'
 
   private topImages: any[];
-
-  constructor(private galleryService: PublicatonsService) {
+  totalRating: number;
+  constructor(private publicatonsService: PublicatonsService) {
 
   }
 
   ngOnInit() {
-    this.galleryService.getTopImages()
+    this.publicatonsService.getTopImages()
       .subscribe(x => this.topImages = x)
   }
 
+  setNewRate(event: any) {
+    console.log('new Rate is: ', event);
+  }
 }

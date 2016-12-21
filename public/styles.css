@@ -1,5 +1,6 @@
-/*h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
-}*/
+body {
+  /*background-image: url('https://i.ytimg.com/vi/voWpbz1De_M/maxresdefault.jpg');*/
+  background-image: url('./app/assets/imgs/background.jpg');
+  background-repeat: repeat;
+  width: 100%;
+}

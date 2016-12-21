@@ -15,6 +15,7 @@ import { CoreModule } from './core/core.module';
 import { CharacterComponent } from './pages/characters/cahracter.component';
 import { PageNotFoundComponent } from './pages/page-not-fount/page-not-fount.component';
 import { HomeComponent } from './pages/home/home.component';
+import { AcStar, AcStars } from './shared/index';
 
 //  Services
 import { PublicatonsService } from './services/publications/publications.service';
@@ -31,7 +32,9 @@ import { PublicatonsService } from './services/publications/publications.service
     AppComponent,
     CharacterComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AcStar,
+    AcStars
   ],
   bootstrap: [AppComponent],
   providers: [
