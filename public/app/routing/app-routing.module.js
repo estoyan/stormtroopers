@@ -15,6 +15,7 @@ var appRoutes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
     { path: 'home', component: index_1.pages.home },
     { path: 'characters', component: index_1.pages.characters },
+    { path: 'publications', loadChildren: 'app/pages/publications/publications.module#PublicationsModule' },
     { path: '**', pathMatch: 'full', component: index_1.pages.pageNotFound }
 ];
 var AppRoutingModule = (function () {

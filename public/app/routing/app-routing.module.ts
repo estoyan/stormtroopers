@@ -7,6 +7,7 @@ const appRoutes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
     { path: 'home', component: pages.home },
     { path: 'characters', component: pages.characters },
+    { path: 'publications', loadChildren: 'app/pages/publications/publications.module#PublicationsModule' },
     { path: '**', pathMatch: 'full', component: pages.pageNotFound }
 ];
 
