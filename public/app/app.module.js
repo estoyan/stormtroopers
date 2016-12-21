@@ -18,6 +18,7 @@ var core_module_1 = require('./core/core.module');
 //  Pages
 var cahracter_component_1 = require('./pages/characters/cahracter.component');
 var page_not_fount_component_1 = require('./pages/page-not-fount/page-not-fount.component');
+var home_component_1 = require('./pages/home/home.component');
 //  Services
 var AppModule = (function () {
     function AppModule() {
@@ -34,6 +35,7 @@ var AppModule = (function () {
             declarations: [
                 app_component_1.AppComponent,
                 cahracter_component_1.CharacterComponent,
+                home_component_1.HomeComponent,
                 page_not_fount_component_1.PageNotFoundComponent
             ],
             bootstrap: [app_component_1.AppComponent],

@@ -12,7 +12,8 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var index_1 = require('../pages/index');
 var appRoutes = [
-    { path: '', pathMatch: 'full', redirectTo: '' },
+    { path: '', pathMatch: 'full', redirectTo: 'home' },
+    { path: 'home', component: index_1.pages.home },
     { path: 'characters', component: index_1.pages.characters },
     { path: '**', pathMatch: 'full', component: index_1.pages.pageNotFound }
 ];
@@ -21,7 +22,7 @@ var AppRoutingModule = (function () {
     }
     AppRoutingModule = __decorate([
         core_1.NgModule({
-            imports: [router_1.RouterModule.forRoot(appRoutes)],
+            imports: [router_1.RouterModule.forRoot(appRoutes, { useHash: true })],
             exports: [router_1.RouterModule],
             providers: []
         }), 

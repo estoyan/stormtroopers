@@ -4,13 +4,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { pages } from '../pages/index';
 
 const appRoutes: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: '' },
+    { path: '', pathMatch: 'full', redirectTo: 'home' },
+    { path: 'home', component: pages.home },
     { path: 'characters', component: pages.characters },
     { path: '**', pathMatch: 'full', component: pages.pageNotFound }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
+  imports: [RouterModule.forRoot(appRoutes, {useHash: true})],
   exports: [RouterModule],
   providers: [
   ]
