@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GalleryService } from '../../services/gallery/gallery.service';
+import { PublicatonsService } from '../../services/publications/publications.service';
 
 @Component({
   moduleId: module.id,
@@ -7,12 +7,11 @@ import { GalleryService } from '../../services/gallery/gallery.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  // private fullPath: string = 'http://cdn.wallpapersafari.com/0/6/73bG4e.jpg';
   fullPath: string = 'static/app/assets/imgs/rougeone.png'
 
   private topImages: any[];
 
-  constructor(private galleryService: GalleryService) {
+  constructor(private galleryService: PublicatonsService) {
 
   }
 

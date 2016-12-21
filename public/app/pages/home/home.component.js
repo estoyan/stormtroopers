@@ -9,11 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var gallery_service_1 = require('../../services/gallery/gallery.service');
+var publications_service_1 = require('../../services/publications/publications.service');
 var HomeComponent = (function () {
     function HomeComponent(galleryService) {
         this.galleryService = galleryService;
-        // private fullPath: string = 'http://cdn.wallpapersafari.com/0/6/73bG4e.jpg';
         this.fullPath = 'static/app/assets/imgs/rougeone.png';
     }
     HomeComponent.prototype.ngOnInit = function () {
@@ -27,7 +26,7 @@ var HomeComponent = (function () {
             templateUrl: './home.component.html',
             styleUrls: ['./home.component.css']
         }), 
-        __metadata('design:paramtypes', [gallery_service_1.GalleryService])
+        __metadata('design:paramtypes', [publications_service_1.PublicatonsService])
     ], HomeComponent);
     return HomeComponent;
 }());

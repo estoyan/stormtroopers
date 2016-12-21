@@ -4,7 +4,7 @@
 const express = require('express');
 
 module.exports = function({ app, controllers }) {
-    let controller = controllers.gallery;
+    let controller = controllers.publications;
 
     let router = new express.Router();
 

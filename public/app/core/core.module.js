@@ -13,6 +13,7 @@ var common_1 = require('@angular/common');
 var forms_1 = require('@angular/forms');
 var router_1 = require('@angular/router');
 var nav_component_1 = require('./navbar/nav.component');
+var footer_component_1 = require('./footer/footer.component');
 var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var CoreModule = (function () {
     function CoreModule() {
@@ -23,9 +24,9 @@ var CoreModule = (function () {
                 common_1.CommonModule, forms_1.FormsModule, router_1.RouterModule, ng2_bootstrap_1.Ng2BootstrapModule
             ],
             exports: [
-                common_1.CommonModule, forms_1.FormsModule, router_1.RouterModule, [nav_component_1.NavComponent]
+                common_1.CommonModule, forms_1.FormsModule, router_1.RouterModule, nav_component_1.NavComponent, footer_component_1.FooterComponent
             ],
-            declarations: [nav_component_1.NavComponent],
+            declarations: [nav_component_1.NavComponent, footer_component_1.FooterComponent],
             providers: []
         }), 
         __metadata('design:paramtypes', [])

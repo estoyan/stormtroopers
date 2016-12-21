@@ -1,3 +1,10 @@
+@font-face {
+  font-family: starWars;
+  src: url('static/app/assets/fonts/STARWARS.woff') format('woff'), /* Super Modern Browsers */
+  url('static/app/assets/fonts/STARWARS.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('static/app/assets/fonts/STARWARS.svg#svgFontName') format('svg');  /* Legacy iOS */
+}
+
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:focus {
   color: white;
@@ -44,7 +51,7 @@
   color: gold;
   text-decoration: none;
   font-size: 1.5em;
-  font-family: "Arial Black", Gadget, sans-serif;
+  font-family: starWars, "Arial Black", Gadget, sans-serif;
 }
 
 .navbar-brand {

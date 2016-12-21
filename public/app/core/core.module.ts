@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { NavComponent } from './navbar/nav.component';
+import { FooterComponent } from './footer/footer.component';
+
 import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 @NgModule({
@@ -11,9 +13,9 @@ import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
         CommonModule, FormsModule, RouterModule, Ng2BootstrapModule
     ],
     exports: [
-        CommonModule, FormsModule, RouterModule, [NavComponent]
+        CommonModule, FormsModule, RouterModule, NavComponent, FooterComponent
     ],
-    declarations: [NavComponent],
+    declarations: [NavComponent, FooterComponent],
     providers: [
     ]
 })

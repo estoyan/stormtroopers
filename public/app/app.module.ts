@@ -17,7 +17,7 @@ import { PageNotFoundComponent } from './pages/page-not-fount/page-not-fount.com
 import { HomeComponent } from './pages/home/home.component';
 
 //  Services
-import { GalleryService } from './services/gallery/gallery.service';
+import { PublicatonsService } from './services/publications/publications.service';
 
 @NgModule({
   imports: [
@@ -35,7 +35,7 @@ import { GalleryService } from './services/gallery/gallery.service';
   ],
   bootstrap: [AppComponent],
   providers: [
-    GalleryService
+    PublicatonsService
   ]
 })
 export class AppModule { }

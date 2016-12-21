@@ -6,7 +6,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
-export class GalleryService {
+export class PublicatonsService {
     private topImages: string = '/api/topimages';
 
     constructor(private _http: Http) {
