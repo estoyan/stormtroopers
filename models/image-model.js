@@ -3,6 +3,14 @@
 const modelRegistrator = require('./utils/model-registrator');
 
 module.exports = modelRegistrator.register('Image', {
+    owner: {
+        type: String,
+        required: true
+    },
+    imageUrl: {
+        type: String,
+        required: true
+    },
     likes: [{
         username: String
     }],
