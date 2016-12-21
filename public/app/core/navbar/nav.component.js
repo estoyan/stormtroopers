@@ -11,12 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var NavComponent = (function () {
     function NavComponent() {
+        this.isCollapsed = true;
     }
     NavComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'st-nav',
             templateUrl: 'nav.component.html',
+            styleUrls: ['nav.component.css']
         }), 
         __metadata('design:paramtypes', [])
     ], NavComponent);

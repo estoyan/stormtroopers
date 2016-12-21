@@ -1,4 +1,26 @@
-<h1>Navbar</h1>
-<a routerLink="/characters" routerLinkActive="active">Characters</a>
-<a routerLink="/publications" routerLinkActive="active">Publications</a>
-<button type="text" class='btn btn-success'>Click</button>
+<nav class="navbar navbar-default " id="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" (click)="isCollapsed = !isCollapsed">
+         <span class = "sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+      </button>
+            <span class="navbar-brand"><a routerLink="/" routerLinkActive="active">STORMTROOPERS</a></span>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" [collapse]="isCollapsed">
+            <ul class="nav navbar-nav">
+                <li><a routerLink="/publications" routerLinkActive="active">PUBLICATIONS</a></li>
+                <li><a routerLink="/characters" routerLinkActive="active">CHARACTERS</a></li>
+                <li><a routerLink="/characters" routerLinkActive="active">MOVIES</a></li>
+                <li><a routerLink="/characters" routerLinkActive="active">PRODUCTS</a></li>
+                <li><a routerLink="/characters" routerLinkActive="active">ABOUT</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a routerLink="/characters" routerLinkActive="active">LOGIN</a></li>
+                <li><a routerLink="/characters" routerLinkActive="active">CREATE ACCOUNT</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

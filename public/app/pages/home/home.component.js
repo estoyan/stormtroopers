@@ -9,28 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
-var forms_1 = require('@angular/forms');
-var router_1 = require('@angular/router');
-var nav_component_1 = require('./navbar/nav.component');
-var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
-var CoreModule = (function () {
-    function CoreModule() {
+var HomeComponent = (function () {
+    function HomeComponent() {
+        this.fullPath = './rougeone.png';
     }
-    CoreModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                common_1.CommonModule, forms_1.FormsModule, router_1.RouterModule, ng2_bootstrap_1.Ng2BootstrapModule
-            ],
-            exports: [
-                common_1.CommonModule, forms_1.FormsModule, router_1.RouterModule, [nav_component_1.NavComponent]
-            ],
-            declarations: [nav_component_1.NavComponent],
-            providers: []
+    HomeComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            templateUrl: './home.component.html',
+            styleUrls: ['./home.component.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], CoreModule);
-    return CoreModule;
+    ], HomeComponent);
+    return HomeComponent;
 }());
-exports.CoreModule = CoreModule;
-//# sourceMappingURL=core.module.js.map
+exports.HomeComponent = HomeComponent;
+//# sourceMappingURL=home.component.js.map
