@@ -8,8 +8,12 @@ const path = require('path');
 module.exports = function({ config }) {
     mongoose.Promise = global.Promise;
     mongoose.connect(config.connectionString);
-
-    let models = {};
+    let User = require('../models/user-model');
+    let Character = require('../models/character-model');
+    let Movie = require('../models/movie-model');
+    let Product = require('../models/product-model');
+    let Publications = require('../models/publication-model');
+    let models = {User,Character,Movie,Product,Publications};
 
     let data = {};
     fs.readdirSync('./data')
