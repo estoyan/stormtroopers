@@ -6,7 +6,8 @@
 module.exports = function () {
     return {
         port : process.env.PORT|| 3000,
-        connectionString: process.env.MONGOLAB_URI||'mongodb://localhost/stormtroopers'
+        connectionString: process.env.MONGOLAB_URI || 'mongodb://localhost/stormtroopers'
+        //
     };
 };
 
