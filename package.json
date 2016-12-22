@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "star wars application",
   "scripts": {
-    "start": "./node_modules/.bin/tsc && node app.js",
+    "start": "node app.js",
     "development": "tsc && concurrently \"tsc -w\" \"nodemon app.js .\" "
   },
   "keywords": [],
