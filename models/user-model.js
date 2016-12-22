@@ -23,7 +23,7 @@ module.exports = modelRegistrator.register('User', {
     },
     email: {
         type: String,
-        unique: true,
+        // unique: true,
     },
     phoneNumber: {
         type: String
