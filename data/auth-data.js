@@ -11,7 +11,6 @@ module.exports = function({ models }) {
                     firstName: user.firstName,
                     lastName: user.lastName,
                     username: user.username,
-                    // googleId: user.googleId,
                     email: user.email,  
                     passhash: user.password
                 });
@@ -42,17 +41,6 @@ module.exports = function({ models }) {
                     return resolve(user);
                 });
             });
-        },
-        findByGoogleId(id) {
-            return new Promise((resolve, reject) => {
-                User.findOne({ googleId: id }, (err, user) => {
-                    if (err) {
-                        return reject(err);
-                    }
-
-                    return resolve(user);
-                });
-            });
-        }
+        }       
     };
 };

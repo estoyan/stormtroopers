@@ -5,19 +5,6 @@ const passport = require('passport');
 const PASWORD_DOES_NOT_MATCH = 'Паролата трябва да бъде минимум 8 символа и да съдържа цифри и латински букви';
 
 let config = {};
-// if (process.env.ENV_MODE === 'PRODUCTION') {
-//     config.GOOGLECREDENTIALS_PROFILE_LOGIN = process.env.GOOGLECREDENTIALS_PROFILE_LOGIN;
-//     config.GOOGLECREDENTIALS_PROFILE_EMAIL = process.env.GOOGLECREDENTIALS_PROFILE_EMAIL;
-// } else {
-//     const googleCredentials = require('./../config/configurationStrings').googleCredentials;
-//     config.GOOGLECREDENTIALS_PROFILE_LOGIN = googleCredentials.profile[0];
-//     config.GOOGLECREDENTIALS_PROFILE_EMAIL = googleCredentials.profile[1];
-// }
-
-// const profile = [
-//     config.GOOGLECREDENTIALS_PROFILE_LOGIN,
-//     config.GOOGLECREDENTIALS_PROFILE_EMAIL
-// ];
 
 module.exports = function ({ data, hashGenerator, validator }) {
     return {
@@ -74,44 +61,6 @@ module.exports = function ({ data, hashGenerator, validator }) {
         signOut(req, res) {
             req.logout();
             return res.redirect('/');
-        },
-        getSignUpForm(req, res) {
-            return res.status(200).render('authentication/sign-up', {
-                result: {
-                    user: req.user
-                }
-            });
-        },
-        getSignInForm(req, res) {
-            return res.status(200).render('authentication/sign-in', {
-                result: {
-                    user: req.user
-                }
-            });
-        },
-        // getSgnInGoogle(req, res, next) {
-        //     const auth = passport.authenticate('google', {
-        //         scope: profile
-        //     }, (error, user) => {
-        //         if (error) {
-        //             next(error);
-        //             return;
-        //         }
-
-        //         if (!user) {
-        //             res.redirect('/auth/sign-in');
-        //         }
-
-        //         req.login(user, error1 => {
-        //             if (error1) {
-        //                 next(error1);
-        //                 return;
-        //             }
-
-        //             res.redirect('/profile');
-        //         });
-        //     });
-        //     auth(req, res, next);
-        // }
+        }
     };
 };
