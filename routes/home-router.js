@@ -5,6 +5,11 @@ module.exports = function ({
 }) {
 
     app.get('/', (req, res) => {
-        return res.render('index');
+        let isProd = process.env.ENV_MODE === 'PRODUCTION';
+        return res.render('index', {
+            result: {
+                isProd
+            }
+        });
     });
 };

@@ -1,0 +1,25 @@
+<div class="row text-center">
+    <div class="col-md-12 image-wrapper">
+        <img class="img-responsive" [src]="fullPath" alt="rogue one">
+    </div>
+</div>
+<br>
+<div class="row text-center">
+    <h4>NEW PRODUCTS</h4>
+    <div *ngFor="let product of recentProducts" class="col-md-4 col-sm-4">
+        <div class="product-container">
+            <img src="{{product.images[0]}}" alt="product image" class="image-list">
+        </div>
+        <span class="pruduct-name">{{product.name}}</span>
+    </div>
+</div>
+<hr>
+<div class="row text-center">
+    <h4>TOP IMAGES</h4>
+    <div *ngFor="let image of topImages" class="col-md-4 col-sm-4">
+        <div class="image-container">
+            <img src={{image.imageUrl}} alt="top fan art image" class="image-list">
+        </div>
+        <ac-stars [rating]="image.likes.length" [isUserLogged]="true" (newRate)="setNewRate($event)"></ac-stars>
+    </div>
+</div>

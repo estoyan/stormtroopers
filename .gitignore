@@ -39,5 +39,4 @@ bower_components
 
 public/app/**/*.js
 public/app/**/*.map
-public/dist/*
 system-config.js*

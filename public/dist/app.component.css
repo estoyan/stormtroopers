@@ -1,0 +1,13 @@
+/*.main-wrapper {
+    background-image: url('https://i.ytimg.com/vi/voWpbz1De_M/maxresdefault.jpg');
+    background-repeat: repeat;
+    width: 100%;
+}*/
+
+main .wrapper {
+    background-color: #151515;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: -20px;
+}
+
