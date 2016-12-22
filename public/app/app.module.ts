@@ -15,6 +15,7 @@ import { CoreModule } from './core/core.module';
 import { CharacterComponent } from './pages/characters/cahracter.component';
 import { PageNotFoundComponent } from './pages/page-not-fount/page-not-fount.component';
 import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
 import { AcStar, AcStars } from './shared/index';
 
 //  Services
@@ -34,6 +35,7 @@ import { ProductsService } from './services/products/products.service';
     CharacterComponent,
     HomeComponent,
     PageNotFoundComponent,
+    LoginComponent,
     AcStar,
     AcStars
   ],
