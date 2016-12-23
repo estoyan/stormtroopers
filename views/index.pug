@@ -13,10 +13,7 @@ html
     script(src="/libs/reflect-metadata/Reflect.js")
     script(src="/libs/systemjs/dist/system.src.js")
 
-    if result.isProd
-      script(src="/static/systemjs.config.js")
-    else
-      script(src="/static/systemjs.config-dev.js")
+    script(src="/static/systemjs.config.js")
     
     script
       | System.import('app').catch(function(err){ console.error(err); });

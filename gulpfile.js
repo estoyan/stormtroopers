@@ -8,7 +8,7 @@ var tsProject = tsc.createProject("tsconfig.json");
  * Remove dist directory.
  */
 gulp.task('clean', (cb) => {
-    return del(["./public/dist"], cb);
+    return del(["./dist"], cb);
 });
  
 /**
@@ -20,31 +20,36 @@ gulp.task("compile", () => {
         .pipe(tsc(tsProject));
     return tsResult.js
         .pipe(sourcemaps.write("."))
-        .pipe(gulp.dest("./public/dist"));
+        .pipe(gulp.dest("./dist"));
 });
  
 /**
  * Copy all resources that are not TypeScript files into dist directory.
  */
 gulp.task("resources", () => {
-    return gulp.src(["./public/app/**/*", "!**/*.ts"])
-        .pipe(gulp.dest("./public/dist"));
+    return gulp.src(["./public/**/*", "!**/*.ts"])
+        .pipe(gulp.dest("./dist"));
 });
- 
+
 /**
  * Copy all required libraries into dist directory.
  */
 gulp.task("libs", () => {
     return gulp.src([
-            'es6-shim/es6-shim.min.js',
             'systemjs/dist/system-polyfills.js',
             'angular2/bundles/angular2-polyfills.js',
             'systemjs/dist/system.src.js',
-            'rxjs/bundles/Rx.js',
+            'rxjs/**/*',
             'angular2/bundles/angular2.dev.js',
-            'angular2/bundles/router.dev.js'
+            'angular2/bundles/router.dev.js',
+            '@angular/**/*',
+            'core-js/client/*.min.js',
+            'angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
+            'ng2-bootstrap/bundles/ng2-bootstrap.umd.js',
+            'moment/moment.js',
+            'zone.js/dist/zone.min.js'
         ], {cwd: "node_modules/**"}) /* Glob required here. */
-        .pipe(gulp.dest("./public/dist/lib"));
+        .pipe(gulp.dest("./dist/lib"));
 });
  
 /**

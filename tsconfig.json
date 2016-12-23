@@ -12,7 +12,7 @@
     "suppressImplicitAnyIndexErrors": true
   },
   "exclude": [
-    "gulpfile.ts",
+    "gulpfile.js",
     "node_modules"
   ]
 }

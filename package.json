@@ -8,7 +8,7 @@
     "clean": "gulp clean",
     "start": "node app.js",
     "development": "tsc && concurrently \"tsc -w\" \"nodemon app.js .\" ",
-    "production": "npm run clean && npm run build && npm start"
+    "production": "tsc && npm run clean && npm run build && npm start"
   },
   "keywords": [],
   "author": "zmei dev",
