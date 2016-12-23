@@ -21,6 +21,7 @@ import { AcStar, AcStars } from './shared/index';
 //  Services
 import { PublicatonsService } from './services/publications/publications.service';
 import { ProductsService } from './services/products/products.service';
+import { AuthService} from './services/authentication/auth.service';
 
 @NgModule({
   imports: [
@@ -42,7 +43,8 @@ import { ProductsService } from './services/products/products.service';
   bootstrap: [AppComponent],
   providers: [
     PublicatonsService,
-    ProductsService
+    ProductsService,
+    AuthService
   ]
 })
 export class AppModule { }

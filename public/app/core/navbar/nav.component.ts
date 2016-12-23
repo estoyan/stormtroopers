@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/authentication/auth.service';
 
 @Component({
     moduleId: module.id,
@@ -8,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class NavComponent {
     public isCollapsed: boolean = true;
+    constructor(private _authService: AuthService) {
+
+    }
 }

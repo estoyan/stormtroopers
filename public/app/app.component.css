@@ -9,5 +9,7 @@ main .wrapper {
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: -20px;
+    min-height: 100%;
+    padding-bottom: 30px;
+    margin-bottom: 100px;
 }
-

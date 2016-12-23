@@ -15,11 +15,10 @@ module.exports = function ({ data, hashGenerator, validator }) {
                 .then((user)=>{
                     if(user){
                           let token = jwt.encode(user, secret);
-                         return res.json({ success: true, token: token }); 
+                         return res.status(200).json({ success: true, token: token }); 
                     }
               
-
-                     return res.status(403).send({success: false, msg: 'Authenticaton failed, wrong password.'});
+                     return res.status(400).json({success: false, msg: 'Authenticaton failed, wrong password.'});
                 })
                 .catch(error => {
                     return res.send(error);
