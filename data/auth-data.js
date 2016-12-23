@@ -8,11 +8,14 @@ module.exports = function({ models }) {
         createUser(user) {
             return new Promise((resolve) => {
                 let newUser = new User({
-                    firstName: user.firstName,
-                    lastName: user.lastName,
+                    firstname: user.firstname,
+                    lastname: user.lastname,
                     username: user.username,
                     email: user.email,  
-                    passhash: user.password
+                    passhash: user.password,
+                    avatar: user.avatar,
+                    role: user.role,
+                    displayname: user.displayname
                 });
                 
                 resolve(newUser);

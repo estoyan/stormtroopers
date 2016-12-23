@@ -3,11 +3,11 @@
 const modelRegistrator = require('./utils/model-registrator');
 
 module.exports = modelRegistrator.register('User', {
-    firstName: {
+    firstname: {
         type: String,
         required: true
     },
-    lastName: {
+    lastname: {
         type: String,
         required: true
     },
@@ -19,7 +19,8 @@ module.exports = modelRegistrator.register('User', {
     displayname: String,
     avatar: {
         type: String,
-        enum: ['stormtrooper, dartVaider', 'jangoFett', 'empire', 'rebels']
+        enum: ['stormtrooper', 'dartVaider', 'jangoFett', 'empire', 'rebels'],
+        default: 'stormtrooper'
     },
     email: {
         type: String,
@@ -28,7 +29,10 @@ module.exports = modelRegistrator.register('User', {
     phoneNumber: {
         type: String
     },
-    userRating: Number,
+    userRating: {
+        type: Number,
+        default: 0
+    },
     passhash: {
         type: String
     },

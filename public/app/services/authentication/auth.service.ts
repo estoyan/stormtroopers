@@ -13,11 +13,11 @@ export class AuthService {
 
     }
 
-    login(usercreds: any) {
-        this.isLoggedin = false;
-        let url = 'http://localhost:3000/authenticate';
+    login(userCreds: any) {
+        console.log('login');
+        let url = '/api/authenticate';
         let headers = new Headers();
-        let creds = 'username=' + usercreds.username + '&password=' + usercreds.password;
+        let creds = `username=${userCreds.username}&password=${userCreds.password}`;
 
         headers.append('Content-Type', 'application/X-www-form-urlencoded');
         return this._requester
@@ -31,5 +31,15 @@ export class AuthService {
     logout() {
         this.isLoggedin = false;
         window.localStorage.removeItem('auth_key');
+    }
+
+    register(userInfo: any) {
+        let url = '/api/sign-up';
+        let headers = new Headers();
+        let userInfoAsString = `username=${userInfo.username}&firstname=${userInfo.firstname}&lastname=${userInfo.lastname}&email=${userInfo.email}&password=${userInfo.password}`
+
+        headers.append('Content-Type', 'application/X-www-form-urlencoded');
+        return this._requester
+            .post(url, userInfoAsString, headers);
     }
 }

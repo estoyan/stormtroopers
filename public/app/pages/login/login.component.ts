@@ -6,7 +6,6 @@ import { AuthService } from '../../services/authentication/auth.service';
     moduleId: module.id,
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css'],
-    providers: []
 })
 export class LoginComponent {
     localUser = {

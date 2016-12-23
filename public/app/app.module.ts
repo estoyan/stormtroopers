@@ -16,6 +16,7 @@ import { CharacterComponent } from './pages/characters/cahracter.component';
 import { PageNotFoundComponent } from './pages/page-not-fount/page-not-fount.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 import { AcStar, AcStars } from './shared/index';
 
 //  Services
@@ -39,6 +40,7 @@ import { ExceptionService } from './services/shared/exception.service';
     HomeComponent,
     PageNotFoundComponent,
     LoginComponent,
+    RegisterComponent,
     AcStar,
     AcStars
   ],
