@@ -7,12 +7,12 @@ import { Product } from '../../models/product.model';
 export class ProductsService {
     private recentProducts: string = '/api/recentproducts';
 
-    constructor(private requester: RequesterService) {
+    constructor(private _requester: RequesterService) {
 
     }
 
     getRecentProducts(): Observable<Product[]> {
-        return this.requester
+        return this._requester
             .getJson<Product[]>(this.recentProducts);
     }
 }

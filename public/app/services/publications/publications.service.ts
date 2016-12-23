@@ -7,12 +7,12 @@ import { Publication } from '../../models/publication.model';
 export class PublicatonsService {
     private topImages: string = '/api/topimages';
 
-    constructor(private requester: RequesterService) {
+    constructor(private _requester: RequesterService) {
 
     }
 
     getTopImages(): Observable<Publication[]> {
-        return this.requester
+        return this._requester
             .getJson<Publication[]>(this.topImages);
     }
 }
