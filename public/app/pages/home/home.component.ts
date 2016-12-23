@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PublicatonsService } from '../../services/publications/publications.service';
 import { ProductsService } from '../../services/products/products.service';
+import { Product } from '../../models/product.model';
+import { Publication } from '../../models/publication.model';
 
 @Component({
   moduleId: module.id,
@@ -10,8 +12,8 @@ import { ProductsService } from '../../services/products/products.service';
 export class HomeComponent implements OnInit {
   fullPath: string = 'static/app/assets/imgs/rougeone.png'
 
-  private topImages: any[];
-  private recentProducts: any[];
+  private topImages: Publication[];
+  private recentProducts: Product[];
 
   totalRating: number;
   constructor(

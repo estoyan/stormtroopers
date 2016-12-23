@@ -22,6 +22,8 @@ import { AcStar, AcStars } from './shared/index';
 import { PublicatonsService } from './services/publications/publications.service';
 import { ProductsService } from './services/products/products.service';
 import { AuthService} from './services/authentication/auth.service';
+import { RequesterService } from './services/shared/requester.service';
+import { ExceptionService } from './services/shared/exception.service';
 
 @NgModule({
   imports: [
@@ -44,7 +46,9 @@ import { AuthService} from './services/authentication/auth.service';
   providers: [
     PublicatonsService,
     ProductsService,
-    AuthService
+    AuthService,
+    RequesterService,
+    ExceptionService
   ]
 })
 export class AppModule { }
