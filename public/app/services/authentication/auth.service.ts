@@ -14,8 +14,7 @@ export class AuthService {
     }
 
     login(userCreds: any) {
-        console.log('login');
-        let url = '/api/authenticate';
+        let url = '/api/sing-in';
         let headers = new Headers();
         let creds = `username=${userCreds.username}&password=${userCreds.password}`;
 
@@ -40,6 +39,7 @@ export class AuthService {
 
         headers.append('Content-Type', 'application/X-www-form-urlencoded');
         return this._requester
-            .post(url, userInfoAsString, headers);
+            .post(url, userInfoAsString, headers)
+            .do(data => console.log(data));
     }
 }

@@ -22,9 +22,14 @@ import { AcStar, AcStars } from './shared/index';
 //  Services
 import { PublicatonsService } from './services/publications/publications.service';
 import { ProductsService } from './services/products/products.service';
-import { AuthService} from './services/authentication/auth.service';
+import { AuthService } from './services/authentication/auth.service';
 import { RequesterService } from './services/shared/requester.service';
 import { ExceptionService } from './services/shared/exception.service';
+import { ToastService } from './services/shared/toast.service';
+
+
+// Guards
+import { AuthGuard } from './guards/authGuard';
 
 @NgModule({
   imports: [
@@ -50,7 +55,9 @@ import { ExceptionService } from './services/shared/exception.service';
     ProductsService,
     AuthService,
     RequesterService,
-    ExceptionService
+    ExceptionService,
+    ToastService,
+    AuthGuard
   ]
 })
 export class AppModule { }
