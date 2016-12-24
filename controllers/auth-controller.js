@@ -1,10 +1,18 @@
 /* globals module */
-var jwt = require('jwt-simple');
+let jwt = require('jwt-simple');
 let secret = 'secret';
-const passport = require('passport');
-const PASWORD_DOES_NOT_MATCH = 'Паролата трябва да бъде минимум 8 символа и да съдържа цифри и латински букви';
+const passport = require('passport'),
+PASWORD_DOES_NOT_MATCH = 'Паролата трябва да бъде минимум 8 символа и да съдържа цифри и латински букви',
+DISPLAYNAME = 'stormtrooper',
+AVATAR = 'stormtrooper',
+ROLE = 'user';
 
 let config = {};
+let trooperId = 1000;
+
+function getNextTrooperId(){
+    return trooperId +=1;
+}
 
 module.exports = function ({ data, hashGenerator, validator }) {
     return {
@@ -15,11 +23,10 @@ module.exports = function ({ data, hashGenerator, validator }) {
                 .then((user)=>{
                     if(user){
                           let token = jwt.encode(user, secret);
-                         return res.json({ success: true, token: token }); 
+                         return res.status(200).json({ success: true, token: token }); 
                     }
               
-
-                     return res.status(403).send({success: false, msg: 'Authenticaton failed, wrong password.'});
+                     return res.status(400).json({success: false, msg: 'Authenticaton failed, wrong password.'});
                 })
                 .catch(error => {
                     return res.send(error);
@@ -27,7 +34,7 @@ module.exports = function ({ data, hashGenerator, validator }) {
         },
         signUp(req, res) {
             let newUser = {};
-            let propoerties = ['username', 'firstName', 'lastName', 'email'];
+            let propoerties = ['username', 'firstname', 'lastname', 'email'];
             propoerties.forEach(property => {
                 if (!property || property.length < 0) {
                     res.status(411).json(`Missing ${property}`);
@@ -44,23 +51,18 @@ module.exports = function ({ data, hashGenerator, validator }) {
             //         // });
             // }
             newUser.password = hashGenerator(req.body.password);
+            newUser.displayname = `${DISPLAYNAME} ${getNextTrooperId()}`;
+            newUser.avatar = AVATAR;
+            newUser.role = ROLE;
+
             data.createUser(newUser)
                 .then(
                 () => {
-                    res.send("succsess");
+                    res.status(200).send({success: true})
                 })
                 .catch(err => {
-                     return res.status(400).send(err);
-                    //     .render('bad-request', {
-                    //         result: {
-                    //             err
-                    //         }
-                    //     });
+                     return res.status(400).send({success: false, msg:'User was not created'});
                 });
-        },
-        signOut(req, res) {
-            req.logout();
-            return res.redirect('/');
         }
     };
 };

@@ -16,11 +16,16 @@ import { CharacterComponent } from './pages/characters/cahracter.component';
 import { PageNotFoundComponent } from './pages/page-not-fount/page-not-fount.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MoviesComponent } from './pages/movies/movie.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 import { AcStar, AcStars } from './shared/index';
 
 //  Services
 import { PublicatonsService } from './services/publications/publications.service';
 import { ProductsService } from './services/products/products.service';
+import { AuthService} from './services/authentication/auth.service';
+import { RequesterService } from './services/shared/requester.service';
+import { ExceptionService } from './services/shared/exception.service';
 
 @NgModule({
   imports: [
@@ -36,13 +41,18 @@ import { ProductsService } from './services/products/products.service';
     HomeComponent,
     MoviesComponent,
     PageNotFoundComponent,
+    LoginComponent,
+    RegisterComponent,
     AcStar,
     AcStars
   ],
   bootstrap: [AppComponent],
   providers: [
     PublicatonsService,
-    ProductsService
+    ProductsService,
+    AuthService,
+    RequesterService,
+    ExceptionService
   ]
 })
 export class AppModule { }

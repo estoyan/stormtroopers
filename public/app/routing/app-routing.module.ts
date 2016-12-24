@@ -5,6 +5,8 @@ import { pages } from '../pages/index';
 
 const appRoutes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
+    { path: 'login', component: pages.login },
+    { path: 'register', component: pages.register },
     { path: 'home', component: pages.home },
     { path: 'characters', component: pages.characters },
     { path: 'movies', component: pages.movies },

@@ -3,7 +3,7 @@
 const modelRegistrator = require('./utils/model-registrator');
 
 module.exports = modelRegistrator.register('Image', {
-    author: {
+    owner: {
         type: String,
         required: true
     },

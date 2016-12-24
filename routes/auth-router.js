@@ -13,9 +13,9 @@ module.exports = function({ app, controllers }) {
 
     router
         .post('/sign-up', controller.signUp)
-         .post('/authenticate', controller.Oauthenticate);
+        .post('/authenticate', controller.Oauthenticate);
          
-    app.use('/', router);
+    app.use('/api', router);
 
     return router;
 };
