@@ -15,6 +15,7 @@ import { CoreModule } from './core/core.module';
 import { CharacterComponent } from './pages/characters/cahracter.component';
 import { PageNotFoundComponent } from './pages/page-not-fount/page-not-fount.component';
 import { HomeComponent } from './pages/home/home.component';
+import { MoviesComponent } from './pages/movies/movie.component';
 import { AcStar, AcStars } from './shared/index';
 
 //  Services
@@ -33,6 +34,7 @@ import { ProductsService } from './services/products/products.service';
     AppComponent,
     CharacterComponent,
     HomeComponent,
+    MoviesComponent,
     PageNotFoundComponent,
     AcStar,
     AcStars

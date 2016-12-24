@@ -19,6 +19,7 @@ var core_module_1 = require('./core/core.module');
 var cahracter_component_1 = require('./pages/characters/cahracter.component');
 var page_not_fount_component_1 = require('./pages/page-not-fount/page-not-fount.component');
 var home_component_1 = require('./pages/home/home.component');
+var movie_component_1 = require('./pages/movies/movie.component');
 var index_1 = require('./shared/index');
 //  Services
 var publications_service_1 = require('./services/publications/publications.service');
@@ -39,6 +40,7 @@ var AppModule = (function () {
                 app_component_1.AppComponent,
                 cahracter_component_1.CharacterComponent,
                 home_component_1.HomeComponent,
+                movie_component_1.MoviesComponent,
                 page_not_fount_component_1.PageNotFoundComponent,
                 index_1.AcStar,
                 index_1.AcStars
