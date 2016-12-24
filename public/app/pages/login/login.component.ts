@@ -24,6 +24,11 @@ export class LoginComponent {
             .subscribe(data => {
                 this._toastService.activate(`Welcome back tropper!`)
                 this._router.navigate(['home']);
+                
+                let userElement = document.getElementById('navbar-name');
+                userElement.setAttribute('href', `/${data.username}`);
+                userElement.innerHTML = data.displayname;
             })
+
     }
 }

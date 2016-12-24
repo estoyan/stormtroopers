@@ -39,7 +39,7 @@ export class AuthService {
 
         headers.append('Content-Type', 'application/X-www-form-urlencoded');
         return this._requester
-            .post(url, userInfoAsString, headers)
-            .do(data => console.log(data));
+            .post(url, userInfoAsString, headers);
+            // .do(data => console.log(data));
     }
 }
