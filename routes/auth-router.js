@@ -13,7 +13,8 @@ module.exports = function({ app, controllers }) {
 
     router
         .post('/sign-up', controller.signUp)
-        .post('/authenticate', controller.Oauthenticate);
+        .post('/sing-in', controller.singIn)
+        .get('/user', controller.getLoggedUser);
          
     app.use('/api', router);
 

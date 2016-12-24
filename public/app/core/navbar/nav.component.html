@@ -22,6 +22,7 @@
                 <li><a routerLink="/register" routerLinkActive="active">CREATE ACCOUNT</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right" *ngIf=_authService.isLoggedin>
+                <li><a>stormtrooper</a></li>
                 <li><a routerLink="/home" routerLinkActive="active" (click)=_authService.logout()>LOGOUT</a></li>
             </ul>
         </div>

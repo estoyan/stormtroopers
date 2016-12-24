@@ -23,9 +23,9 @@ export class RegisterComponent {
         this._authservice.register(this.newUser)
             .subscribe(() => {
                 this._authservice.login({ username: this.newUser.username, password: this.newUser.password })
-                .subscribe(data => {
-                this._router.navigate(['home']);
-            })
+                    .subscribe(data => {
+                        this._router.navigate(['home']);
+                    })
             });
     }
 }
