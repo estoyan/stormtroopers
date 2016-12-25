@@ -10,18 +10,10 @@ import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { AppRoutingModule } from './routing/app-routing.module';
 import { CoreModule } from './core/core.module';
-
-//  Pages
-import { CharacterComponent } from './pages/characters/cahracter.component';
-import { PageNotFoundComponent } from './pages/page-not-fount/page-not-fount.component';
-import { HomeComponent } from './pages/home/home.component';
-import { LoginComponent } from './pages/login/login.component';
-import { AcStar, AcStars } from './shared/index';
+import { PageLoaderModule } from './pages/page-loader.module';
 
 //  Services
-import { PublicatonsService } from './services/publications/publications.service';
-import { ProductsService } from './services/products/products.service';
-import { AuthService} from './services/authentication/auth.service';
+import { AuthService } from './services/authentication/auth.service';
 import { RequesterService } from './services/shared/requester.service';
 import { ExceptionService } from './services/shared/exception.service';
 
@@ -31,21 +23,14 @@ import { ExceptionService } from './services/shared/exception.service';
     HttpModule,
     Ng2BootstrapModule,
     CoreModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PageLoaderModule
   ],
   declarations: [
-    AppComponent,
-    CharacterComponent,
-    HomeComponent,
-    PageNotFoundComponent,
-    LoginComponent,
-    AcStar,
-    AcStars
+    AppComponent
   ],
   bootstrap: [AppComponent],
   providers: [
-    PublicatonsService,
-    ProductsService,
     AuthService,
     RequesterService,
     ExceptionService
