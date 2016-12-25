@@ -62,6 +62,12 @@ module.exports = function ({
                 resolve(mockedData);
 
             })
+        },
+        getAllImages() {
+            return new Promise((resolve, reject) => {
+                // TODO: write query to database here
+                resolve(mockedData);
+            })
         }
     };
 };
