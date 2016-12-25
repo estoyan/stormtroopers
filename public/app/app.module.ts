@@ -11,11 +11,17 @@ import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { AppRoutingModule } from './routing/app-routing.module';
 import { CoreModule } from './core/core.module';
 import { PageLoaderModule } from './pages/page-loader.module';
+import { RegisterComponent } from './pages/register/register.component';
 
 //  Services
 import { AuthService } from './services/authentication/auth.service';
 import { RequesterService } from './services/shared/requester.service';
 import { ExceptionService } from './services/shared/exception.service';
+import { ToastService } from './services/shared/toast.service';
+
+
+// Guards
+import { AuthGuard } from './guards/authGuard';
 
 @NgModule({
   imports: [
@@ -27,13 +33,16 @@ import { ExceptionService } from './services/shared/exception.service';
     PageLoaderModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    RegisterComponent,
   ],
   bootstrap: [AppComponent],
   providers: [
     AuthService,
     RequesterService,
-    ExceptionService
+    ExceptionService,
+    ToastService,
+    AuthGuard
   ]
 })
 export class AppModule { }

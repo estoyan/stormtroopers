@@ -1,0 +1,35 @@
+.toast-container {
+    /*-webkit-transition-property: opacity, bottom, left, right, width, margin, border-radius;
+  transition-property: opacity, bottom, left, right, width, margin, border-radius;
+  -webkit-transition-duration: 1.0s;
+          transition-duration: 1.0s;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;*/
+    position: absolute;
+    right: 0;
+    top: 0;
+    /*left: 50%;*/
+    height: 60px;
+    /*overflow: scroll;*/
+    /*background: rgba(0, 0, 0, 0.4);*/
+    z-index: 9999;
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+}
+
+.toast-card {
+    width: 100%;
+    z-index: 1;
+    padding: 2px;
+    position: relative;
+    background-color: #408000;
+    text-align: center;
+    color: white;
+}
+
+.toast-card .toast-message {
+    margin: 1em 4em 1em 4em;
+    font-size: 1.2em;
+}
