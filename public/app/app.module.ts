@@ -10,6 +10,7 @@ import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { AppRoutingModule } from './routing/app-routing.module';
 import { CoreModule } from './core/core.module';
+<<<<<<< HEAD
 
 //  Pages
 import { CharacterComponent } from './pages/characters/cahracter.component';
@@ -17,12 +18,12 @@ import { PageNotFoundComponent } from './pages/page-not-fount/page-not-fount.com
 import { HomeComponent } from './pages/home/home.component';
 // import { MoviesComponent } from './pages/movies/movies.component';
 import { LoginComponent } from './pages/login/login.component';
+=======
+import { PageLoaderModule } from './pages/page-loader.module';
+>>>>>>> 853a409d5d2438113ddf20d92e6359a465328d55
 import { RegisterComponent } from './pages/register/register.component';
-import { AcStar, AcStars } from './shared/index';
 
 //  Services
-import { PublicatonsService } from './services/publications/publications.service';
-import { ProductsService } from './services/products/products.service';
 import { AuthService } from './services/authentication/auth.service';
 import { RequesterService } from './services/shared/requester.service';
 import { ExceptionService } from './services/shared/exception.service';
@@ -38,23 +39,23 @@ import { AuthGuard } from './guards/authGuard';
     HttpModule,
     Ng2BootstrapModule,
     CoreModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PageLoaderModule
   ],
   declarations: [
     AppComponent,
+<<<<<<< HEAD
     CharacterComponent,
     HomeComponent,
     // MoviesComponent,
     PageNotFoundComponent,
     LoginComponent,
+=======
+>>>>>>> 853a409d5d2438113ddf20d92e6359a465328d55
     RegisterComponent,
-    AcStar,
-    AcStars
   ],
   bootstrap: [AppComponent],
   providers: [
-    PublicatonsService,
-    ProductsService,
     AuthService,
     RequesterService,
     ExceptionService,

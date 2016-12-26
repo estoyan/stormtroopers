@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { Headers } from '@angular/http';
 import { RequesterService } from '../shared/requester.service';
 
 import { Observable } from 'rxjs/Observable';
@@ -9,7 +9,7 @@ import 'rxjs/add/observable/throw';
 export class AuthService {
     isLoggedin: boolean = false;
 
-    constructor(private _http: Http, private _requester: RequesterService) {
+    constructor(private _requester: RequesterService) {
 
     }
 
@@ -39,7 +39,7 @@ export class AuthService {
 
         headers.append('Content-Type', 'application/X-www-form-urlencoded');
         return this._requester
-            .post(url, userInfoAsString, headers)
-            .do(data => console.log(data));
+            .post(url, userInfoAsString, headers);
+            // .do(data => console.log(data));
     }
 }

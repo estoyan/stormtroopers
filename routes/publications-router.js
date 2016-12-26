@@ -9,7 +9,8 @@ module.exports = function({ app, controllers }) {
     let router = new express.Router();
 
     router
-        .get('/topimages', controller.getTopImages);
+        .get('/topimages', controller.getTopImages)
+        .get('/images', controller.getAllImages);
 
     app.use('/api', router);
 
