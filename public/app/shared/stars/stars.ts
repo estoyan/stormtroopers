@@ -10,14 +10,17 @@ import { AcStar } from './star';
         [active]="star <= _rating"
         (rate)="onRate($event)"
         [position]="star"
-        [isUserLogged]="isUserLogged"
       >
       </ac-star>
     </div>
-  `
+  `,
+  styles: [`
+      div.stars {
+          float: left;
+      }
+  `]
 })
 export class AcStars {
-    @Input() isUserLogged: boolean;
     @Input() starCount: number;
     @Input() rating: number;
     // @Output() rate = new EventEmitter();
@@ -29,7 +32,7 @@ export class AcStars {
         const count = this.starCount < 0 ? 5 : this.starCount;
     }
 
-    ngOnInit(){
+    ngOnInit() {
         this._rating = this.rating;
     }
 

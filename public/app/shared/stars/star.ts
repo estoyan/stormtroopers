@@ -19,16 +19,13 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   `]
 })
 export class AcStar {
-    @Input() isUserLogged: boolean;
+    constructor() { }
+
     @Input() active: boolean;
     @Input() position: number;
     @Output() rate = new EventEmitter();
 
     handleRate(event: MouseEvent) {
-        if (!this.isUserLogged) {
-            event.stopPropagation();
-        } else {
-            this.rate.emit(this.position);
-        }
+        this.rate.emit(this.position);
     }
 }
