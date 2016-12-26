@@ -15,7 +15,7 @@ import { CoreModule } from './core/core.module';
 import { CharacterComponent } from './pages/characters/cahracter.component';
 import { PageNotFoundComponent } from './pages/page-not-fount/page-not-fount.component';
 import { HomeComponent } from './pages/home/home.component';
-import { MoviesComponent } from './pages/movies/movie.component';
+// import { MoviesComponent } from './pages/movies/movies.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AcStar, AcStars } from './shared/index';
@@ -44,7 +44,7 @@ import { AuthGuard } from './guards/authGuard';
     AppComponent,
     CharacterComponent,
     HomeComponent,
-    MoviesComponent,
+    // MoviesComponent,
     PageNotFoundComponent,
     LoginComponent,
     RegisterComponent,
