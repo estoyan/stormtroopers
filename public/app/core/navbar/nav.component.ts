@@ -9,7 +9,15 @@ import { AuthService } from '../../services/authentication/auth.service';
 })
 export class NavComponent {
     public isCollapsed: boolean = true;
-    constructor(private _authService: AuthService) {
+    private _displayname: string;
+    constructor(private _authService: AuthService) { }
 
+    get displayname() {
+        let user = JSON.parse(window.localStorage.getItem('user'));
+        if (user) {
+            return user.displayname;
+        }
+
+        return null;
     }
 }
