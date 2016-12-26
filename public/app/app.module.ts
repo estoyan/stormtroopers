@@ -1,4 +1,3 @@
-
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
@@ -18,6 +17,7 @@ import { AuthService } from './services/authentication/auth.service';
 import { RequesterService } from './services/shared/requester.service';
 import { ExceptionService } from './services/shared/exception.service';
 import { ToastService } from './services/shared/toast.service';
+import { UserService } from './services/user/user.service';
 
 
 // Guards
@@ -42,6 +42,7 @@ import { AuthGuard } from './guards/authGuard';
     RequesterService,
     ExceptionService,
     ToastService,
+    UserService,
     AuthGuard
   ]
 })

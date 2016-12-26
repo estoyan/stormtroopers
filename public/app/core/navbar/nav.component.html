@@ -14,15 +14,15 @@
                 <li><a routerLink="/publications" routerLinkActive="active">FAN ART</a></li>
                 <li><a routerLink="/characters" routerLinkActive="active">PRODUCTS</a></li>
                 <li><a routerLink="/characters" routerLinkActive="active">CHARACTERS</a></li>
-                <li><a routerLink="/characters" routerLinkActive="active">MOVIES</a></li>
+                <li><a routerLink="/movies" routerLinkActive="active">MOVIES</a></li>
                 <li><a routerLink="/characters" routerLinkActive="active">ABOUT</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right" *ngIf=!_authService.isLoggedin>
+            <ul class="nav navbar-nav navbar-right" [hidden]=_authService.isLoggedIn()>
                 <li><a routerLink="/login" routerLinkActive="active">LOGIN</a></li>
                 <li><a routerLink="/register" routerLinkActive="active">CREATE ACCOUNT</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right" [hidden]="!_authService.isLoggedin">
-                <li><a id="navbar-name"></a></li>
+            <ul class="nav navbar-nav navbar-right" [hidden]="!_authService.isLoggedIn()">
+                <li><a id="navbar-name" >{{displayname}}</a></li>
                 <li><a routerLink="/home" routerLinkActive="active" (click)=_authService.logout()>LOGOUT</a></li>
             </ul>
         </div>

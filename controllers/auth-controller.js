@@ -3,7 +3,7 @@ let jwt = require('jwt-simple');
 let secret = require('../config/index')().secret;
 const passport = require('passport'),
 PASWORD_DOES_NOT_MATCH = 'Паролата трябва да бъде минимум 8 символа и да съдържа цифри и латински букви',
-DISPLAYNAME = 'stormtrooper',
+DISPLAYNAME = 'Stormtrooper',
 AVATAR = 'stormtrooper',
 ROLE = 'user';
 
@@ -23,7 +23,13 @@ module.exports = function ({ data, hashGenerator, validator }) {
                 .then((user)=>{
                     if(user){
                           let token = jwt.encode(user, secret);
-                         return res.status(200).json({ success: true, token: token }); 
+                         return res.status(200).json({ success: true,
+                            body: {
+                            token: token,
+                            displayname: user.displayname,
+                            username: user.username,
+                            avatar: user.avatar }
+                            }); 
                     }
               
                      return res.status(400).json({success: false, msg: 'Authenticaton failed, wrong password.'});

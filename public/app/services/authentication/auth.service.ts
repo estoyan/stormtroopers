@@ -7,10 +7,7 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class AuthService {
-    isLoggedin: boolean = false;
-
     constructor(private _requester: RequesterService) {
-
     }
 
     login(userCreds: any) {
@@ -22,24 +19,20 @@ export class AuthService {
         return this._requester
             .post(url, creds, headers)
             .do((data: any) => {
-                window.localStorage.setItem('auth_key', data.token);
-                this.isLoggedin = true;
+                window.localStorage.setItem('user', JSON.stringify(data.body));
             });
     }
 
     logout() {
-        this.isLoggedin = false;
-        window.localStorage.removeItem('auth_key');
+        window.localStorage.removeItem('user');
     }
 
-    register(userInfo: any) {
-        let url = '/api/sign-up';
-        let headers = new Headers();
-        let userInfoAsString = `username=${userInfo.username}&firstname=${userInfo.firstname}&lastname=${userInfo.lastname}&email=${userInfo.email}&password=${userInfo.password}`
+    isLoggedIn(): boolean {
+        let isUserLoggedIn = window.localStorage.getItem('user');
+        if (isUserLoggedIn) {
+            return true;
+        }
 
-        headers.append('Content-Type', 'application/X-www-form-urlencoded');
-        return this._requester
-            .post(url, userInfoAsString, headers);
-            // .do(data => console.log(data));
+        return false;
     }
 }

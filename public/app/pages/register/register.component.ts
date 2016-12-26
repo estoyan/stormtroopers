@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user/user.service';
 import { AuthService } from '../../services/authentication/auth.service';
 import { ToastService } from '../../services/shared/toast.service';
 
@@ -18,21 +19,18 @@ export class RegisterComponent {
     }
     highlightInput: boolean;
 
-    constructor(private _authservice: AuthService,
+    constructor(private _userService: UserService,
+        private _authService: AuthService,
         private _router: Router,
         private _toasService: ToastService) { }
 
     onSubmit() {
-        this._authservice.register(this.newUser)
+        this._userService.register(this.newUser)
             .subscribe(() => {
-                this._authservice.login({ username: this.newUser.username, password: this.newUser.password })
+                this._authService.login({ username: this.newUser.username, password: this.newUser.password })
                     .subscribe(data => {
                         this._toasService.activate('Welcome on board trooper!')
                         this._router.navigate(['home']);
-
-                        let userElement = document.getElementById('navbar-name');
-                        userElement.setAttribute('href', `/${data.username}`);
-                        userElement.innerHTML = data.displayname;
                     });
             });
     }
