@@ -24,10 +24,6 @@ export class LoginComponent {
             .subscribe(data => {
                 this._toastService.activate(`Welcome back tropper!`)
                 this._router.navigate(['home']);
-                // console.log(JSON.parse(window.localStorage.getItem('user')));
-                // let userElement = document.getElementById('navbar-name');
-                // userElement.setAttribute('href', `/${data.body.username}`);
-                // userElement.innerHTML = data.body.displayname;
             })
     }
 }

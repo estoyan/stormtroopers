@@ -19,6 +19,9 @@ export class UserService {
         headers.append('Content-Type', 'application/X-www-form-urlencoded');
         return this._requester
             .post(url, userInfoAsString, headers);
-        // .do(data => console.log(data));
+    }
+
+    getUserFromLocalStorage() {
+        return JSON.parse(window.localStorage.getItem('user'));
     }
 }
