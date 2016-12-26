@@ -1,0 +1,14 @@
+<div *ngFor="let p of publications" class="row col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 row col-xs-8 col-xs-offset-2">
+    <div class="title">
+        <strong>{{p.owner}}</strong> posted new image
+    </div>
+
+    <a routerLink="/publications/{{p._id}}" routerLinkActive="active">
+        <div>
+            <img src="{{p.imageUrl}}" alt="" class="publication">
+        </div>
+        <div class="comments">Comments: {{p.comments.length}}</div>
+    </a>
+
+    <auth-ac-stars [rating]="p.likes.length" [ownerUsername]="p.owner" (newRate)="setNewRate($event)"></auth-ac-stars>
+</div>

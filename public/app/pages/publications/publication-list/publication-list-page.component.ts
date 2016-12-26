@@ -4,11 +4,11 @@ import { Publication } from '../../../models/publication.model';
 
 @Component({
   moduleId: module.id,
-  templateUrl: './publication-list.component.html',
-  styleUrls: ['./publication-list.component.css']
+  templateUrl: './publication-list-page.component.html',
+  styleUrls: ['./publication-list-page.component.css']
 })
 
-export class PublicationListComponent implements OnInit {
+export class PublicationListPageComponent implements OnInit {
   publications: Publication[] = [];
 
   constructor(private _publicationService: PublicatonsService) { }

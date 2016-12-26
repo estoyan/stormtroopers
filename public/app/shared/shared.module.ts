@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+
+import { PublicationListComponent } from './publication-list/publication-list.component';
 
 import { AcStar } from './stars/star';
 import { AcStars } from './stars/stars';
+import { AuthAcStars } from './stars/auth-stars';
 
 // imports: imports the module's exports. which are usually
 // declarables(components / directives / pipes) and providers.
@@ -13,8 +17,8 @@ import { AcStars } from './stars/stars';
 // SharedModule does not use CommonModule, but does use FormsModule.
 // Even so, we import/export both of these because most other modules will import SharedModule and will need them.
 @NgModule({
-    imports: [CommonModule, FormsModule],
-    exports: [CommonModule, FormsModule, AcStar, AcStars],
-    declarations: [AcStar, AcStars]
+    imports: [CommonModule, FormsModule, RouterModule],
+    exports: [CommonModule, FormsModule, PublicationListComponent, AcStar, AcStars, AuthAcStars],
+    declarations: [AcStar, AcStars, AuthAcStars, PublicationListComponent]
 })
 export class SharedModule { }

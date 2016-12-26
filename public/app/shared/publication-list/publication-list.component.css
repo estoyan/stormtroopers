@@ -1,0 +1,17 @@
+img.publication {
+    width: 100%;
+    margin-top: 1em;
+}
+div.comments {
+    float: right;
+    font-size: 1.2em;
+    margin-top: 0.9em;
+    margin-bottom: 1.3em;
+}
+title {
+    font-size: 1.2em;
+}
+a {
+    color:inherit;
+    text-decoration: none;
+}

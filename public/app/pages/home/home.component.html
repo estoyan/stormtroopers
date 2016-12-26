@@ -20,6 +20,6 @@
         <div class="image-container">
             <img src={{image.imageUrl}} alt="top fan art image" class="image-list">
         </div>
-        <ac-stars [rating]="image.likes.length" [isUserLogged]="true" (newRate)="setNewRate($event)"></ac-stars>
+        <auth-ac-stars [rating]="image.likes.length" [ownerUsername]="image.owner" (newRate)="setNewRate($event)"></auth-ac-stars>
     </div>
 </div>

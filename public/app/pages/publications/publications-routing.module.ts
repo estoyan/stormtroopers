@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PublicationsComponent } from './publications.component';
-import { PublicationListComponent } from './publication-list/publication-list.component';
+import { PublicationListPageComponent } from './publication-list/publication-list-page.component';
 import { PublicationCreateComponent } from './publication-create/publication-create.component';
 
 const routes: Routes = [
@@ -12,7 +12,7 @@ const routes: Routes = [
         children: [
             {
                 path: '',
-                component: PublicationListComponent
+                component: PublicationListPageComponent
             },
             {
                 path: 'create',
@@ -29,4 +29,4 @@ const routes: Routes = [
 
 export class PublicationsRoutingModule { }
 
-export const routedComponents = [PublicationsComponent, PublicationListComponent, PublicationCreateComponent];
+export const routedComponents = [PublicationsComponent, PublicationListPageComponent, PublicationCreateComponent];
