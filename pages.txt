@@ -1,8 +1,5 @@
 [Public]
 1.Home
-   -- Login
-   -- Register
-   -- Subscribe
 //2.Articles
 //   - Show all
 //   - Articles details
@@ -10,34 +7,69 @@
 //	-- Edit article text    
 //	-- Write comment /Private
 2.Images
-   - Show all (hide somewhere comment id)
+    2.1 Show all (hide somewhere comment id)
   	-- Add comment
 	-- Edit comment
+    2.2 Image details
 3.Charactors all
    -- Charactors slider / animation
    -- Charactors details[TODO partial or page]
 4.Movies all
    -- Movies details[TODO partial or page]
-5.Profile page
    
-6.View all products
+5.Products 
+    2.1 All Products
+   -- products-list.component
+        -- product.component
    -- Customize product / Private - redirect to login
-   -- product overview
-7.About
-8.Embeded games
+   2.2 Product details
+6.About
+7.Login
+8.Register
+9.Embeded games?
+10.Profile page?
 
 [Private]
 1.Add article
 1.1Add image
-2.Profile page - own
-   -- publications
-   -?-- past orders
-   -- images
-3.Basket
-     --product overview
-4.Finish order [TODO partial or page]
-5.Update profile
-6.Messages?
+2.Profile page
+    2.1 User details
+    2.2 Publications
+    2.3 Past orders
+    2.4 Update profile
+3.Basket 
+    3.1 All
+        -- products-list.component
+            -- product.component
+4.Finish order
+    4.1 Order details form
+5.Messages?
+
+_____________________
+
+Nested Components:
+1.Footer
+2.Navigation
+3.Toaster
+4.AcStar
+5.AcStars
+6.Product list
+7.Publication list
+
+_____________________
+
+Pipes:
+1.Sort
+2.Filter
+3.Sum
+
+_____________________
+
+Directives:
+1.ColorAttribute
+
+
+_____________________
 
 USER model
 - displayname

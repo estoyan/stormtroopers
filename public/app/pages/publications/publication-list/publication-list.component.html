@@ -1,3 +1,6 @@
-<div class="row">
-    
+<div *ngFor="let p of publications" class="row col-md-6 col-md-offset-3">
+    <div>
+        <img src="{{p.imageUrl}}" alt="" class="publication">
+    </div>
+    <ac-stars [rating]="p.likes.length" [isUserLogged]="true" (newRate)="setNewRate($event)"></ac-stars>
 </div>
