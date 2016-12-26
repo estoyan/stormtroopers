@@ -3,6 +3,7 @@ import { AcStars } from './stars';
 
 import { ToastService } from '../../services/shared/toast.service';
 import { AuthService } from '../../services/authentication/auth.service';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
     selector: 'auth-ac-stars',
@@ -25,13 +26,15 @@ export class AuthAcStars implements OnInit {
 
     constructor(
         private _toastService: ToastService,
-        private _authService: AuthService
+        private _authService: AuthService,
+        private _userService: UserService
     ) { }
 
     ngOnInit() {
-        this._isLogged = this._authService.isLoggedin;
-        // TODO Call appropriate method from AuthService when implemented
-        this._isOwner = false;
+        this._isLogged = this._authService.isLoggedIn();
+
+        let loggedUser = this._userService.getUserFromLocalStorage() || {};
+        this._isOwner = loggedUser.username === this.ownerUsername;
     }
 
     onRate(star: any) {

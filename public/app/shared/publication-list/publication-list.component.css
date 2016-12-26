@@ -6,10 +6,18 @@ div.comments {
     float: right;
     font-size: 1.2em;
     margin-top: 0.9em;
-    margin-bottom: 1.3em;
 }
-title {
-    font-size: 1.2em;
+div.head {
+    margin-top: 3em;
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+}
+div.title {
+    float: left;
+}
+div.author {
+    float: right;
+    margin-left: 0.2em;
 }
 a {
     color:inherit;

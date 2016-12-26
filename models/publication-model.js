@@ -11,6 +11,10 @@ module.exports = modelRegistrator.register('Image', {
         type: String,
         required: true
     },
+    title: {
+        type: String,
+        required: true
+    },
     likes: [{
         username: String
     }],

@@ -14,6 +14,7 @@ export class PublicationListComponent {
   constructor() { }
 
   setNewRate(event: any) {
+    // TODO implement
     console.log('new Rate is: ', event);
   }
 }
