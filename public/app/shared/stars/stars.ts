@@ -13,12 +13,7 @@ import { AcStar } from './star';
       >
       </ac-star>
     </div>
-  `,
-  styles: [`
-      div.stars {
-          float: left;
-      }
-  `]
+  `
 })
 export class AcStars {
     @Input() starCount: number;
