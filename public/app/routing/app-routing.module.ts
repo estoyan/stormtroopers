@@ -13,6 +13,7 @@ const appRoutes: Routes = [
   { path: 'characters', component: pages.characters },
   { path: 'movies', loadChildren: 'app/pages/movies/movies.module#MoviesModule' },
   { path: 'publications', loadChildren: 'app/pages/publications/publications.module#PublicationsModule' },
+  { path: 'products', loadChildren: 'app/pages/products/products.module#ProductsModule' },
   { path: '**', pathMatch: 'full', component: pages.pageNotFound }
 ];
 
