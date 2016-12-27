@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 
-import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
+// import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { AppRoutingModule } from './routing/app-routing.module';
 import { CoreModule } from './core/core.module';
@@ -17,7 +17,7 @@ import { AuthService } from './services/authentication/auth.service';
 import { RequesterService } from './services/shared/requester.service';
 import { ExceptionService } from './services/shared/exception.service';
 import { ToastService } from './services/shared/toast.service';
-import { UserService } from './services/user/user.service';
+import { UserService } from './services/shared/user.service';
 
 
 // Guards
@@ -27,7 +27,7 @@ import { AuthGuard } from './guards/authGuard';
   imports: [
     BrowserModule,
     HttpModule,
-    Ng2BootstrapModule,
+    // Ng2BootstrapModule,
     CoreModule,
     AppRoutingModule,
     PageLoaderModule

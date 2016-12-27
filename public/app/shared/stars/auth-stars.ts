@@ -3,7 +3,7 @@ import { AcStars } from './stars';
 
 import { ToastService } from '../../services/shared/toast.service';
 import { AuthService } from '../../services/authentication/auth.service';
-import { UserService } from '../../services/user/user.service';
+import { UserService } from '../../services/shared/user.service';
 
 @Component({
     selector: 'auth-ac-stars',

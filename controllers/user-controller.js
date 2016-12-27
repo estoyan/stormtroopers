@@ -2,6 +2,10 @@
 let jwt = require('jwt-simple');
 let secret = require('../config/index')().secret;
 
+function getAvatar() {
+    
+}
+
 module.exports = function ({ data, hashGenerator, validator }) {
     return {
         getLoggedUser(req, res) {
@@ -11,7 +15,13 @@ module.exports = function ({ data, hashGenerator, validator }) {
                 // need to remove 'JWT ' in order to decode it ... (i know it sucks!)
                 let userInfo = jwt.decode(token.split(' ')[1], secret);
                 let user = {
-                    username: userInfo.username
+                    username: userInfo.username,
+                    displayname: userInfo.displayname,
+                    firstname: userInfo.firstname,
+                    lastname: userInfo.lastname,
+                    email: userInfo.email,
+                    avatar: userInfo.avatar,
+
                     // add more info if you need it
                 };
 

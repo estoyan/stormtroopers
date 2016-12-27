@@ -9,7 +9,7 @@ const appRoutes: Routes = [
   { path: 'login', component: pages.login },
   { path: 'register', component: pages.register },
   { path: 'home', component: pages.home },
-  { path: 'user', component: pages.home, canActivate: [AuthGuard] },
+  { path: 'user/:username', loadChildren: 'app/pages/user/user.module#UserModule', canActivate: [AuthGuard] },
   { path: 'characters', component: pages.characters },
   { path: 'movies', loadChildren: 'app/pages/movies/movies.module#MoviesModule' },
   { path: 'publications', loadChildren: 'app/pages/publications/publications.module#PublicationsModule' },

@@ -13,16 +13,17 @@ export class RequesterService {
         private _exceptionService: ExceptionService
     ) { }
 
-    public getJson<T>(url: string): Observable<T> {
+    public getJson<T>(url: string, headers?: Headers): Observable<T> {
+        headers = headers || new Headers();
         return this._http
-            .get(url)
+            .get(url, { headers })
             .map((response: Response) => <T>response.json())
             .catch(this._exceptionService.catchBadResponse);
     }
 
     public post<T>(url: string, body: string, headers: Headers): Observable<T> {
         return this._http
-            .post(url, body, {headers})
+            .post(url, body, { headers })
             .map((response: Response) => <T>response.json())
             .catch(this._exceptionService.catchBadResponse);
     }
