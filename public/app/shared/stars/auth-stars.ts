@@ -16,7 +16,6 @@ import { UserService } from '../../services/shared/user.service';
     `
 })
 export class AuthAcStars implements OnInit {
-    private _isLogged: boolean;
     private _isOwner: boolean;
 
     @Input() ownerUsername: boolean;
@@ -31,14 +30,13 @@ export class AuthAcStars implements OnInit {
     ) { }
 
     ngOnInit() {
-        this._isLogged = this._authService.isLoggedIn();
-
         let loggedUser = this._userService.getUserFromLocalStorage() || {};
         this._isOwner = loggedUser.username === this.ownerUsername;
     }
 
     onRate(star: any) {
-        if (!this._isLogged) {
+        let isLoggedIn = this._authService.isLoggedIn();
+        if (!isLoggedIn) {
             this._toastService.activate("Please login!");
             event.stopPropagation();
         }

@@ -10,7 +10,7 @@ import { PageNotFoundComponent } from './page-not-fount/page-not-fount.component
     imports: [HomeModule, LoginModule, CharacterModule],
     declarations: [PageNotFoundComponent],
     providers: [],
-    exports: [HomeModule, LoginModule, CharacterModule]
+    exports: [HomeModule, LoginModule, CharacterModule, PageNotFoundComponent]
 })
 
 export class PageLoaderModule { }
