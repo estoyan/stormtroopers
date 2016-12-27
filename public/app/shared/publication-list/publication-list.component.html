@@ -4,7 +4,7 @@
         <div class="author">by <strong>{{p.owner}}</strong></div>
     </div>
 
-    <a routerLink="/publications/{{p._id}}" routerLinkActive="active">
+    <a routerLink="['/publications', {{p._id}}]" routerLinkActive="active">
         <div>
             <img src="{{p.imageUrl}}" alt="" class="publication">
         </div>

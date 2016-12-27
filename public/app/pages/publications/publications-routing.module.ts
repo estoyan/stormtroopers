@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PublicationsComponent } from './publications.component';
 import { PublicationListPageComponent } from './publication-list/publication-list-page.component';
 import { PublicationCreateComponent } from './publication-create/publication-create.component';
+import { PublicationDetailComponent } from './publication-detail/publication-detail.component';
 
 const routes: Routes = [
     {
@@ -17,6 +18,10 @@ const routes: Routes = [
             {
                 path: 'create',
                 component: PublicationCreateComponent
+            },
+            {
+                path: ':id',
+                component: PublicationDetailComponent
             }
         ]
     }
@@ -29,4 +34,9 @@ const routes: Routes = [
 
 export class PublicationsRoutingModule { }
 
-export const routedComponents = [PublicationsComponent, PublicationListPageComponent, PublicationCreateComponent];
+export const routedComponents = [
+    PublicationsComponent,
+    PublicationListPageComponent,
+    PublicationCreateComponent,
+    PublicationDetailComponent
+];
