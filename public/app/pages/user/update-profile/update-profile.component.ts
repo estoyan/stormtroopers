@@ -12,7 +12,8 @@ import { User } from '../../../models/user.model';
 })
 
 export class UpdateProfileComponent implements OnInit {
-    currentUser: User = new User();
+    currentUser: User = <User>{};
+    avatarOptions: string[] = ['Stormtrooper', 'Darth Vaider', 'Boba Fett', 'Empire', 'Rebels'];
 
     constructor(private _router: Router,
         private _userService: UserService,
@@ -30,5 +31,9 @@ export class UpdateProfileComponent implements OnInit {
                 this._toasService.activate('trooper info successfully updated!');
                 this._router.navigate([`user/${data.user.username}`])
             });
+    }
+
+    setUserAvatar(value: string) {
+        this.currentUser.avatarName = value;
     }
 }

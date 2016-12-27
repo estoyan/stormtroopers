@@ -21,7 +21,8 @@ module.exports = function ({
                                 token: token,
                                 displayname: user.displayname,
                                 username: user.username,
-                                avatar: user.avatar
+                                avatarName: user.avatarName,
+                                avatarUrl: user.avatarUrl
                             }
                         });
                     }

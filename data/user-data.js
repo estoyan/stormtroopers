@@ -13,7 +13,8 @@ module.exports = function ({ models }) {
                         username: user.username,
                         email: user.email,
                         passhash: user.password,
-                        avatar: user.avatar,
+                        avatarName: user.avatarName,
+                        avatarUrl: user.avatarUrl,
                         role: user.role,
                         displayname: user.displayname
                     });

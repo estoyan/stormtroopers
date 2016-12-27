@@ -5,10 +5,13 @@ h2 {
 
 img {
     background-color: white;
+    width: 128px;
 }
 
 .user-info span {
-    display: inline-block;
+    display: block;
     font-size: 1.2em;
+    color: #DDDDDD;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
 }
-

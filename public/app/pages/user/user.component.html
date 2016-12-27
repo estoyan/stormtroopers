@@ -1,7 +1,7 @@
 <div class="row">
-    <div class="col-md-6 col-md-offset-4">
+    <div class="col-md-12 column">
         <nav class="navbar navbar-default" id="navbar">
-            <div id="navbar">
+            <div>
                 <ul class="nav navbar-nav">
                     <li><a href="#/user/{{username}}" routerLinkActive="active">MY PROFILE</a></li>
                     <li><a routerLink="art" routerLinkActive="active">MY ART</a></li>
@@ -10,6 +10,11 @@
                 </ul>
             </div>
         </nav>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <hr>
     </div>
 </div>
 <router-outlet></router-outlet>

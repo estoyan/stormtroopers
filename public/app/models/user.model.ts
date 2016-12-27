@@ -4,5 +4,9 @@ export class User {
     lastname:string;
     displayname: string; 
     email: string;
-    avatar: string
+    avatarName: string;
+    avatarUrl: string;
+    orders: string[];
+    phoneNumber: string;
+    address: string;
 }

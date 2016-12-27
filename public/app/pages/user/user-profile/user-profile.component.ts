@@ -11,7 +11,7 @@ import { User } from '../../../models/user.model';
 })
 
 export class UserProfileComponent implements OnInit {
-    currentUser: User= <User>{};
+    currentUser: User = <User>{};
 
     constructor(private _router: Router,
         private _userService: UserService) {
@@ -19,6 +19,6 @@ export class UserProfileComponent implements OnInit {
 
     ngOnInit() {
         this._userService.getCurrentUser()
-            .subscribe(x => this.currentUser = x);
+            .subscribe(x => this.currentUser = x );
     }
 }
