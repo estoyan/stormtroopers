@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
 import { UserService } from '../../../services/shared/user.service';
+import { ToastService } from '../../../services/shared/toast.service';
 import { User } from '../../../models/user.model';
 
 @Component({
@@ -14,7 +15,8 @@ export class UpdateProfileComponent implements OnInit {
     currentUser: User = new User();
 
     constructor(private _router: Router,
-        private _userService: UserService) {
+        private _userService: UserService,
+        private _toasService: ToastService) {
     }
 
     ngOnInit() {
@@ -22,14 +24,11 @@ export class UpdateProfileComponent implements OnInit {
             .subscribe(x => this.currentUser = x);
     }
 
-     onSubmit() {
-        // this._userService.update(this.newUser)
-        //     .subscribe((user) => {
-        //         this._authService.login({ username: this.newUser.username, password: this.newUser.password })
-        //             .subscribe(data => {
-        //                 this._toasService.activate('Welcome on board trooper!')
-        //                 this._router.navigate(['home']);
-        //             });
-        //     });
+    onSubmit() {
+        this._userService.updateUser(this.currentUser)
+            .subscribe((data: any) => {
+                this._toasService.activate('trooper info successfully updated!');
+                this._router.navigate([`user/${data.user.username}`])
+            });
     }
 }

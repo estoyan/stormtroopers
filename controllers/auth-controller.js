@@ -1,6 +1,6 @@
 /* globals module */
-let jwt = require('jwt-simple');
-let secret = require('../config/index')().secret;
+'use strict';
+let tokenUtils = require('./utils/token-utils');
 
 let config = {};
 module.exports = function ({
@@ -15,9 +15,8 @@ module.exports = function ({
             data.findUserByCredentials(username, hashGenerator(password))
                 .then((user) => {
                     if (user) {
-                        let token = jwt.encode(user, secret);
+                        let token = tokenUtils.encodeToken(user);
                         return res.status(200).json({
-                            success: true,
                             body: {
                                 token: token,
                                 displayname: user.displayname,
@@ -28,7 +27,6 @@ module.exports = function ({
                     }
 
                     return res.status(400).json({
-                        success: false,
                         msg: 'Authenticaton failed, wrong password.'
                     });
                 })
