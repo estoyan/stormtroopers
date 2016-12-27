@@ -12,7 +12,6 @@ module.exports = function({ app, controllers }) {
     let router = new express.Router();
 
     router
-        .post('/sign-up', controller.signUp)
         .post('/sing-in', controller.singIn);
          
     app.use('/api', router);

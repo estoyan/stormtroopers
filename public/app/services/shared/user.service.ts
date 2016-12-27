@@ -14,6 +14,10 @@ export class UserService {
 
     }
 
+    getToken(): string {
+        return JSON.parse(window.localStorage.getItem('user')).token;
+    }
+
     register(userInfo: any): Observable<Object> {
         let headers = new Headers();
         let userInfoAsString = `username=${userInfo.username}&firstname=${userInfo.firstname}&lastname=${userInfo.lastname}&email=${userInfo.email}&password=${userInfo.password}`
@@ -29,9 +33,13 @@ export class UserService {
 
     getCurrentUser(): Observable<User> {
         let headers = new Headers();
-        headers.append('Authorization', `JWT ${JSON.parse(window.localStorage.getItem('user')).token}`);
+        headers.append('Authorization', `JWT ${this.getToken()}`);
 
         return this._requester
             .getJson<User>(GET_CURRENT_USER_URL, headers);
+    }
+
+    updateUser(user: User) {
+
     }
 }
