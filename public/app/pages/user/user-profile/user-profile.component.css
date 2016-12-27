@@ -1,0 +1,14 @@
+h2 {
+    color: gold;
+    margin-bottom: 30px;
+}
+
+img {
+    background-color: white;
+}
+
+.user-info span {
+    display: inline-block;
+    font-size: 1.2em;
+}
+

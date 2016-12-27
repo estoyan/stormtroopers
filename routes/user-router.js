@@ -4,16 +4,14 @@
 const express = require('express');
 const passport = require('passport');
 
-
 module.exports = function({ app, controllers }) {
 
-    let controller = controllers.auth;
+    let controller = controllers.user;
 
     let router = new express.Router();
 
     router
-        .post('/sign-up', controller.signUp)
-        .post('/sing-in', controller.singIn);
+        .get('/user', passport.authenticate('jwt', { session: false}), controller.getLoggedUser);
          
     app.use('/api', router);
 

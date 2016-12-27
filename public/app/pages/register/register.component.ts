@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../../services/user/user.service';
+import { UserService } from '../../services/shared/user.service';
 import { AuthService } from '../../services/authentication/auth.service';
 import { ToastService } from '../../services/shared/toast.service';
 
@@ -16,8 +16,7 @@ export class RegisterComponent {
         lastname: '',
         password: '',
         email: ''
-    }
-    highlightInput: boolean;
+    };
 
     constructor(private _userService: UserService,
         private _authService: AuthService,
@@ -26,7 +25,7 @@ export class RegisterComponent {
 
     onSubmit() {
         this._userService.register(this.newUser)
-            .subscribe(() => {
+            .subscribe((user) => {
                 this._authService.login({ username: this.newUser.username, password: this.newUser.password })
                     .subscribe(data => {
                         this._toasService.activate('Welcome on board trooper!')

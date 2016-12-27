@@ -13,7 +13,6 @@ export class LoginComponent {
         username: '',
         password: ''
     }
-    highlightInput: boolean;
 
     constructor(private _authservice: AuthService,
         private _router: Router,

@@ -6,8 +6,6 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieComponent } from './movie/movie.component';
 import { MovieResolver } from './shared/movie-resolver.service';
 
-// import { VehicleResolver } from './shared/vehicle-resolver.service';
-
 const routes: Routes = [
   {
     path: '',
