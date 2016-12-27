@@ -18,7 +18,7 @@ import { AuthAcStars } from './stars/auth-stars';
 // Even so, we import/export both of these because most other modules will import SharedModule and will need them.
 @NgModule({
     imports: [CommonModule, FormsModule, RouterModule],
-    exports: [CommonModule, FormsModule, PublicationListComponent, AcStar, AcStars, AuthAcStars],
+    exports: [CommonModule, FormsModule, RouterModule, PublicationListComponent, AcStar, AcStars, AuthAcStars],
     declarations: [AcStar, AcStars, AuthAcStars, PublicationListComponent]
 })
 export class SharedModule { }

@@ -9,7 +9,7 @@ import { Publication } from '../../models/publication.model';
 })
 
 export class PublicationListComponent {
-  @Input() publications: Publication[];
+  @Input() publication: Publication;
 
   constructor() { }
 

@@ -3,8 +3,8 @@ import { Observable } from 'rxjs/Observable';
 import { RequesterService } from '../shared/requester.service';
 import { Publication } from '../../models/publication.model';
 
-const TopImagesUlrl = '/api/topimages';
-const ImagesUrl = '/api/images';
+const TOP_IMAGES_URL = '/api/topimages';
+const IMAGES_URL = '/api/images';
 
 @Injectable()
 export class PublicatonsService {
@@ -14,11 +14,11 @@ export class PublicatonsService {
 
     getTopImages(): Observable<Publication[]> {
         return this._requester
-            .getJson<Publication[]>(TopImagesUlrl);
+            .getJson<Publication[]>(TOP_IMAGES_URL);
     }
 
     getAllImages(): Observable<Publication[]> {
         return this._requester
-            .getJson<Publication[]>(ImagesUrl);
+            .getJson<Publication[]>(IMAGES_URL);
     }
 }

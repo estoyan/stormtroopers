@@ -4,12 +4,10 @@ img.publication {
 }
 div.comments {
     float: right;
-    font-size: 1.2em;
-    margin-top: 0.9em;
+    font-size: 1.1em;
+    margin-top: 1em;
 }
 div.head {
-    margin-top: 3em;
-    font-size: 1.1em;
     margin-bottom: 0.5em;
 }
 div.title {

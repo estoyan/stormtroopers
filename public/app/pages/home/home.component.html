@@ -18,7 +18,11 @@
     <h4>TOP IMAGES</h4>
     <div *ngFor="let image of topImages" class="col-md-4 col-sm-4">
         <div class="image-container">
-            <img src={{image.imageUrl}} alt="top fan art image" class="image-list">
+            <a routerLink="/publications/{{image._id}}" routerLinkActive="active">
+                <div>
+                    <img src={{image.imageUrl}} alt="top fan art image" class="image-list">
+                </div>
+            </a>
         </div>
         <auth-ac-stars [rating]="image.likes.length" [ownerUsername]="image.owner" (newRate)="setNewRate($event)"></auth-ac-stars>
     </div>
