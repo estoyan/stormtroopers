@@ -21,4 +21,10 @@ export class PublicatonsService {
         return this._requester
             .getJson<Publication[]>(IMAGES_URL);
     }
+
+    getPublicationById(id: string): Observable<Publication> {
+        let imageByIdUrl = IMAGES_URL + `/${id}`;
+        return this._requester
+            .getJson<Publication>(imageByIdUrl);
+    }
 }
