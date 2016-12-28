@@ -22,7 +22,20 @@ div.title {
     font-size: 1.2em;
 }
 div.comments {
-    height: 70%;
+    height: 62%;
+    background-color: #e8e9ea;
+}
+div.comment {
+    margin: 1em;
+}
+div.comment strong {
+    color: #3a5b9b;
+}
+div.comment span {
+    color: black;
+    margin-left: 1em;
+}
+.input {
     background-color: #e8e9ea;
 }
 div.row {

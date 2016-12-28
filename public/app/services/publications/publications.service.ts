@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+
 import { RequesterService } from '../shared/requester.service';
+import { LocalStorageService } from '../shared/local-storage.service';
+
 import { Publication } from '../../models/publication.model';
+import { Comment } from '../../models/comment.model';
 
 const TOP_IMAGES_URL = '/api/topimages';
 const IMAGES_URL = '/api/images';
@@ -10,9 +14,10 @@ const RATE_PUBLICATION = '/api/ratepublication';
 
 @Injectable()
 export class PublicatonsService {
-    constructor(private _requester: RequesterService) {
-
-    }
+    constructor(
+        private _requester: RequesterService,
+        private _localeStorageService: LocalStorageService
+    ) { }
 
     getTopImages(): Observable<Publication[]> {
         return this._requester
@@ -30,7 +35,6 @@ export class PublicatonsService {
             .getJson<Publication>(imageByIdUrl);
     }
 
-
     rateProduct(publicationId: string, username: string, rate: number): Observable<Object> {
         let headers = new Headers();
         headers.append('Content-Type', 'application/X-www-form-urlencoded');
@@ -38,5 +42,9 @@ export class PublicatonsService {
         let infoAsString = `id=${publicationId}&username=${username}&rate=${rate}`;
         return this._requester
             .post(RATE_PUBLICATION, infoAsString, headers);
+    }
+
+    addComment(comment: Comment) {
+
     }
 }

@@ -1,3 +1,5 @@
+import { Comment } from './comment.model';
+
 export interface Publication {
     _id: string,
     owner: string,
@@ -6,6 +8,6 @@ export interface Publication {
     rating: [{
         username: string,
         rate: number
-    }],
-    comments: [{}]
+    }]
+    comments: Comment[]
 }
