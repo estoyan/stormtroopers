@@ -3,7 +3,7 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { AcStar } from './star';
 import { ToastService } from '../../services/shared/toast.service';
 import { AuthService } from '../../services/authentication/auth.service';
-import { UserService } from '../../services/shared/user.service';
+import { LocalStorageService } from '../../services/shared/local-storage.service';
 
 @Component({
     selector: 'ac-stars',
@@ -30,13 +30,13 @@ export class AcStars {
     constructor(
         private _toastService: ToastService,
         private _authService: AuthService,
-        private _userService: UserService
+        private _localStorageService: LocalStorageService
     ) {
         const count = this.starCount < 0 ? 5 : this.starCount;
     }
 
     ngOnInit() {
-        let loggedUser = this._userService.getUserFromLocalStorage() || {};
+        let loggedUser = this._localStorageService.getUser() || {};
         this._isOwner = loggedUser.username === this.ownerUsername;
         this._rating = this.rating;
     }
