@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { AuthService } from '../../services/authentication/auth.service';
-import { UserService } from '../../services/shared/user.service';
+import { LocalStorageService } from '../../services/shared/local-storage.service';
 
 @Component({
     moduleId: module.id,
@@ -20,10 +20,10 @@ export class NavComponent {
     status: { isopen: boolean } = { isopen: false };
 
     constructor(private _authService: AuthService,
-        private _userService: UserService) { }
+        private _localeStorageService: LocalStorageService) { }
 
     get displayname() {
-        let user = this._userService.getUserFromLocalStorage();
+        let user = this._localeStorageService.getUser();
         if (user) {
             return user.displayname;
         }
@@ -31,7 +31,7 @@ export class NavComponent {
     }
 
     get username() {
-        let user = this._userService.getUserFromLocalStorage();
+        let user = this._localeStorageService.getUser();
         if (user) {
             return user.username;
         }
@@ -39,7 +39,7 @@ export class NavComponent {
     }
 
     get avatar() {
-        let user = this._userService.getUserFromLocalStorage();
+        let user = this._localeStorageService.getUser();
         if (user) {
             return user.avatarUrl;
         }

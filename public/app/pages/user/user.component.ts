@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { UserService } from '../../services/shared/user.service';
+import { LocalStorageService } from '../../services/shared/local-storage.service';
 
 @Component({
   moduleId: module.id,
@@ -11,10 +11,10 @@ import { UserService } from '../../services/shared/user.service';
 export class UserComponent {
   private _username: string;
   
-  constructor(private _userService: UserService) { }
+  constructor(private _localeStorageService: LocalStorageService) { }
 
   get username() {
-        let user = this._userService.getUserFromLocalStorage();
+        let user = this._localeStorageService.getUser();
         if (user) {
             return user.username;
         }
