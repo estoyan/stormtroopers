@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { MoviesComponent } from './movies.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieComponent } from './movie/movie.component';
-import { MovieResolver } from './shared/movie-resolver.service';
 
 const routes: Routes = [
   {
@@ -18,10 +17,6 @@ const routes: Routes = [
       {
         path: ':title',
         component: MovieComponent,
-        resolve: {
-          movie: MovieResolver
-
-        }
       },
     ]
   },
@@ -30,7 +25,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  providers: [MovieResolver]
 })
 export class MovieRoutingModule { }
 

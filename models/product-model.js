@@ -3,13 +3,13 @@
 const modelRegistrator = require('./utils/model-registrator');
 
 module.exports = modelRegistrator.register('Product', {
-    name: {
+    title: {
         type: String,
         required: true
     },
     price: Number,
     quantity: String,
-    info: String,
+    description: String,
     category: {
         type: String,
         enum: ['mug', 't-shirt', 'poster','gadgets','toys','costumes','books']
@@ -18,3 +18,7 @@ module.exports = modelRegistrator.register('Product', {
     images: [],
     color: String
 })
+
+
+
+

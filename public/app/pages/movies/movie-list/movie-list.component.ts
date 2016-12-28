@@ -12,16 +12,22 @@ import { MovieService } from '../../../services/movies/movie.service';
 })
 export class MovieListComponent implements OnDestroy, OnInit {
   public movies: Movie[];
+  public detailedMovies: Movie[];
   constructor(private movieService: MovieService) {
     this.movies = [];
+    this.detailedMovies=[]
   }
   getMovies() {
     // this.movies = [];
     this.movieService.getMovies()
       .subscribe(newMovies => {
-        this.movies.push(...newMovies[0]);
-        // this.movies = this.filteredVehicles = vehicles;
-        // this.filterComponent.clear();
+        for (let newMovie of newMovies[0]) {
+          this.getMovie(newMovie.Title);
+        }
+        // above code is making multiple http requests TODO check if it is ok
+        // otherwise we miss movie Plots. Bellow  is the simple query.
+        // this.movies.push(...newMovies[0]); 
+        
       },
       error => {
         console.log('error occurred here');
@@ -34,9 +40,10 @@ export class MovieListComponent implements OnDestroy, OnInit {
   getMovie(title:string) {
     this.movieService.getMovie(title)
       .subscribe(movie => {
-        this.movies.push(movie[0]);
+        this.movies.push(movie);
       });
   }
+
   ngOnDestroy() {
     // this.dbResetSubscription.unsubscribe();
   }
@@ -44,7 +51,6 @@ export class MovieListComponent implements OnDestroy, OnInit {
   ngOnInit() {
     // componentHandler.upgradeDom();
     this.getMovie('Rogue One');
-    console.log(this.movies)
     this.getMovies();
     // this.dbResetSubscription = this.vehicleService.onDbReset
     //   .subscribe(() => this.getVehicles());
