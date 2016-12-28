@@ -8,6 +8,16 @@
     color: white;
 }
 
+.navbar {
+    margin: 0;
+    display: inline-block;
+}
+
+.column {
+    text-align: center;
+    float: none;
+}
+
 .navbar-default {
     background-color: transparent;
     border-color: #030033;
@@ -16,16 +26,14 @@
     font-size: 0.9em;
 }
 
-.dropdown-menu>li>a:hover,
-.dropdown-menu>li>a:focus {
-    color: #262626;
-    text-decoration: none;
-    background-color: white;
-    /*change color of links in drop down here*/
-}
-
 .nav>li>a:hover,
 .nav>li>a:focus {
     text-decoration: underline;
     /*Change rollover cell color here*/
+}
+
+hr {
+    border-color: rgba(255, 255, 255, 0.2);
+    width: 70%;
+    margin-top: 0;
 }

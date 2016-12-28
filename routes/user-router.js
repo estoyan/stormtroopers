@@ -11,7 +11,9 @@ module.exports = function({ app, controllers }) {
     let router = new express.Router();
 
     router
-        .get('/user', passport.authenticate('jwt', { session: false}), controller.getLoggedUser);
+        .post('/sign-up', controller.signUp)
+        .get('/user', passport.authenticate('jwt', { session: false}), controller.getLoggedUser)
+        .post('/update', passport.authenticate('jwt', { session: false}), controller.updateUser);
          
     app.use('/api', router);
 

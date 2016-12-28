@@ -17,22 +17,28 @@ module.exports = modelRegistrator.register('User', {
         unique: true
     },
     displayname: String,
-    avatar: {
-        type: String,
-        // enum: ['stormtrooper', 'dartVaider', 'jangoFett', 'empire', 'rebels'],
-        // default: 'stormtrooper'
-        default: 'http://avatarbox.net/avatars/img1/stormtrooper_mask_avatar_picture_32704.png'
-    },
+    // avatar: {
+    //     name: {
+    //         type: String,
+    //         enum: ['Stormtrooper', 'Darth Vaider', 'Boba Fett', 'Empire', 'Rebels'],
+    //         default: 'Stormtrooper'
+    //             // default: 'http://avatarbox.net/avatars/img1/stormtrooper_mask_avatar_picture_32704.png'
+    //     },
+    //     url: String
+    // },
+    avatarName: String,
+    avatarUrl: String,
     email: {
         type: String,
         // unique: true,
     },
     phoneNumber: {
-        type: String
+        type: String,
+        default: ''
     },
-    userRating: {
-        type: Number,
-        default: 0
+    address: {
+        type: String,
+        default: ''
     },
     passhash: {
         type: String

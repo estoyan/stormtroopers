@@ -5,7 +5,7 @@
           transition-duration: 1.0s;
   -webkit-transition-timing-function: ease;
           transition-timing-function: ease;*/
-    position: absolute;
+    position: fixed;
     /*left: 0;*/
     right:0;
     top: 0;

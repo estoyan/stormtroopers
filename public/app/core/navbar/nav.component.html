@@ -22,8 +22,19 @@
                 <li><a routerLink="/register" routerLinkActive="active">CREATE ACCOUNT</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right" [hidden]="!_authService.isLoggedIn()">
-                <li><a routerLink="/user/{{username}}">{{displayname}}</a></li>
-                <li><a routerLink="/home" routerLinkActive="active" (click)=_authService.logout()>LOGOUT</a></li>
+                <li class="btn-group" dropdown [(isOpen)]="status.isopen">
+                    <a id="single-button" class="btn" dropdownToggle>
+                        <span>{{displayname}}</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul dropdownMenu role="menu" aria-labelledby="single-button" class="inner-menu">
+                        <li role="menuitem"><a class="dropdown-item" routerLink="/user/{{username}}">PROFILE</a></li>
+                        <li role="menuitem"><a class="dropdown-item" routerLink="/home" (click)=_authService.logout()>LOG OUT</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <img src={{avatar}} alt="user image">
+                </li>
             </ul>
         </div>
     </div>
