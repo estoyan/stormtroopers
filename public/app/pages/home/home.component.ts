@@ -30,10 +30,9 @@ export class HomeComponent implements OnInit {
   }
 
   setNewRate(event: any, publicationId: string) {
-    let currentUser = JSON.parse(window.localStorage.getItem('user')).username;
     let rate = event;
     let id = publicationId;
-    this._publicatonsService.rateProduct(id, currentUser, rate);
-    console.log(currentUser, rate, id);
+    this._publicatonsService.rateProduct(id, rate)
+      .subscribe(x => x);
   }
 }

@@ -25,7 +25,7 @@ module.exports = function ({ data }) {
         ratePublication(req, res){
             data.ratePublication(req.body.id, req.body.rate, req.body.username)
             .then(result =>{
-                return res.status(200).json({msg: `You gave rating ${req.body.rate}!`})
+                return res.status(200).json(result)
             })
             .catch(err => {
                 res.status(400).json({msg: 'Unsuccessfull rating!'})

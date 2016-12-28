@@ -12,10 +12,7 @@ module.exports = function({ app, controllers }) {
         .get('/publications', controller.getAllPublications)
         .get('/publications/top', controller.getTopPublications)
         .get('/publications/:id', controller.getPublicationById)
-        .post('/ratepublication', (req, res) => {
-            console.log('here');
-        }); //TODO authenticate users
-
+        .post('/ratepublication', controller.ratePublication); //TODO authenticate users
 
     app.use('/api', router);
 

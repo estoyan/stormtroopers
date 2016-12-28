@@ -35,11 +35,13 @@ export class PublicatonsService {
             .getJson<Publication>(imageByIdUrl);
     }
 
-    rateProduct(publicationId: string, username: string, rate: number): Observable<Object> {
+    rateProduct(publicationId: string, rate: number): Observable<Object> {
+        let currentUser = this._localeStorageService.getUser().username;
         let headers = new Headers();
+        headers.append('Authorization', `JWT ${this._localeStorageService.getToken()}`);
         headers.append('Content-Type', 'application/X-www-form-urlencoded');
 
-        let infoAsString = `id=${publicationId}&username=${username}&rate=${rate}`;
+        let infoAsString = `id=${publicationId}&username=${currentUser}&rate=${rate}`;
         return this._requester
             .post(RATE_PUBLICATION, infoAsString, headers);
     }
