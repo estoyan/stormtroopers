@@ -43,7 +43,19 @@ module.exports = modelRegistrator.register('User', {
     passhash: {
         type: String
     },
-    orders: [{}],
+    orders: [
+        {
+            product: {
+                name: String,
+                price: Number,
+                imageUrl: String
+            },
+            state: {
+                type: String,
+                enum: ['completed', 'not-completed']
+            }
+        }
+    ],
     role: [String],
     isDeleted: Boolean
 });

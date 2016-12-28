@@ -15,6 +15,6 @@ module.exports = modelRegistrator.register('Product', {
         enum: ['mug', 't-shirt', 'poster','gadgets','toys','costumes','books']
     },
     isConfigurable: Boolean,
-    images: [],
+    imageUrl: String,
     color: String
 })
