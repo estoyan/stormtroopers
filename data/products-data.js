@@ -1,6 +1,6 @@
 /* globals module */
 'use strict';
-
+let dataUtils = require('./utils/data-utils');
 
 let mockedData = [{
     _id:1,

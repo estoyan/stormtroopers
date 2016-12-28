@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AuthGuard } from '../../guards/authGuard';
+
 import { PublicationsComponent } from './publications.component';
 import { PublicationListPageComponent } from './publication-list/publication-list-page.component';
 import { PublicationCreateComponent } from './publication-create/publication-create.component';
@@ -17,11 +19,13 @@ const routes: Routes = [
             },
             {
                 path: 'create',
-                component: PublicationCreateComponent
+                component: PublicationCreateComponent,
+                canActivate: [AuthGuard]
             },
             {
                 path: ':id',
-                component: PublicationDetailComponent
+                component: PublicationDetailComponent,
+                canActivate: [AuthGuard]
             }
         ]
     }

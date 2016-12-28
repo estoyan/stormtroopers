@@ -7,9 +7,15 @@
             <strong>{{publication?.title}}</strong>
         </div>
         <div class="comments pre-scrollable">
+            <div class="comment" *ngFor="let comment of publication?.comments">
+                <strong>{{comment.username}}:</strong><span>{{comment.content}}</span>
+            </div>
+        </div>
+        <div class="input">
+            <input type="text" #newComment name="newComment" (keyup.enter)="addComment(newComment.value); newComment.value='';" class="form-control" placeholder="Write a comment...">
         </div>
         <div class="likes" *ngIf="publication">
-            <auth-ac-stars [rating]="publication.likes.length" [ownerUsername]="publication.owner" (newRate)="setNewRate($event)"></auth-ac-stars>
+            <ac-stars [rating]="4" [ownerUsername]="publication.owner" (newRate)="setNewRate($event)"></ac-stars>
         </div>
     </div>
 </div>

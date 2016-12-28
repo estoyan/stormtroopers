@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription'
 
 import { AuthService } from '../../services/authentication/auth.service';
-import { UserService } from '../../services/shared/user.service';
+import { LocalStorageService } from '../../services/shared/local-storage.service';
 
 @Component({
     moduleId: module.id,
@@ -14,24 +15,27 @@ export class NavComponent {
     private _displayname: string;
     private _username: string;
     private _avatar: string;
-
     isCollapsed: boolean = true;
     disabled: boolean = false;
     status: { isopen: boolean } = { isopen: false };
 
     constructor(private _authService: AuthService,
-        private _userService: UserService) { }
+        private _localeStorageService: LocalStorageService) { }
 
     get displayname() {
-        let user = this._userService.getUserFromLocalStorage();
+        let user = this._localeStorageService.getUser();
         if (user) {
             return user.displayname;
         }
         return null;
     }
 
+    set displayname(value: string) {
+        this._displayname = value;
+    }
+
     get username() {
-        let user = this._userService.getUserFromLocalStorage();
+        let user = this._localeStorageService.getUser();
         if (user) {
             return user.username;
         }
@@ -39,14 +43,14 @@ export class NavComponent {
     }
 
     get avatar() {
-        let user = this._userService.getUserFromLocalStorage();
+        let user = this._localeStorageService.getUser();
         if (user) {
             return user.avatarUrl;
         }
         return null;
     }
-    
-    public toggleDropdown($event: MouseEvent): void {
+
+    toggleDropdown($event: MouseEvent): void {
         $event.preventDefault();
         $event.stopPropagation();
         this.status.isopen = !this.status.isopen;
