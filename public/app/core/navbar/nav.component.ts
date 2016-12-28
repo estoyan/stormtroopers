@@ -14,7 +14,6 @@ export class NavComponent {
     private _displayname: string;
     private _username: string;
     private _avatar: string;
-
     isCollapsed: boolean = true;
     disabled: boolean = false;
     status: { isopen: boolean } = { isopen: false };
@@ -45,7 +44,7 @@ export class NavComponent {
         }
         return null;
     }
-    
+
     public toggleDropdown($event: MouseEvent): void {
         $event.preventDefault();
         $event.stopPropagation();
