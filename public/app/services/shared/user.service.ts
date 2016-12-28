@@ -1,4 +1,4 @@
-import { Injectable, EventEmitter, Output } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 

@@ -11,7 +11,11 @@ module.exports = function({ app, controllers }) {
     router
         .get('/publications', controller.getAllPublications)
         .get('/publications/top', controller.getTopPublications)
-        .get('/publications/:id', controller.getPublicationById);
+        .get('/publications/:id', controller.getPublicationById)
+        .post('/ratepublication', (req, res) => {
+            console.log('here');
+        }); //TODO authenticate users
+
 
     app.use('/api', router);
 

@@ -12,7 +12,7 @@ import { Publication } from '../../models/publication.model';
 export class HomeComponent implements OnInit {
   fullPath: string = 'static/app/assets/imgs/rougeone.png'
 
-  private topImages: Publication[];
+  private topPublications: Publication[];
   private recentProducts: Product[];
 
   totalRating: number;
@@ -26,10 +26,14 @@ export class HomeComponent implements OnInit {
       .subscribe(x => this.recentProducts = x)
 
     this._publicatonsService.getTopPublications()
-      .subscribe(x => this.topImages = x)
+      .subscribe(x => this.topPublications = x)
   }
 
-  setNewRate(event: any) {
-    console.log('new Rate is: ', event);
+  setNewRate(event: any, publicationId: string) {
+    let currentUser = JSON.parse(window.localStorage.getItem('user')).username;
+    let rate = event;
+    let id = publicationId;
+    this._publicatonsService.rateProduct(id, currentUser, rate);
+    console.log(currentUser, rate, id);
   }
 }

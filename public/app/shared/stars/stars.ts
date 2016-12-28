@@ -1,5 +1,9 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+
 import { AcStar } from './star';
+import { ToastService } from '../../services/shared/toast.service';
+import { AuthService } from '../../services/authentication/auth.service';
+import { LocalStorageService } from '../../services/shared/local-storage.service';
 
 @Component({
     selector: 'ac-stars',
@@ -9,8 +13,7 @@ import { AcStar } from './star';
         *ngFor="let star of stars"
         [active]="star <= _rating"
         (rate)="onRate($event)"
-        [position]="star"
-      >
+        [position]="star">
       </ac-star>
     </div>
   `
@@ -18,22 +21,38 @@ import { AcStar } from './star';
 export class AcStars {
     @Input() starCount: number;
     @Input() rating: number;
-    // @Output() rate = new EventEmitter();
+    @Input() ownerUsername: boolean;
     @Output() newRate = new EventEmitter();
+    private _isOwner: boolean;
     stars: number[] = [1, 2, 3, 4, 5];
     _rating = this.rating;
 
-    constructor() {
+    constructor(
+        private _toastService: ToastService,
+        private _authService: AuthService,
+        private _localStorageService: LocalStorageService
+    ) {
         const count = this.starCount < 0 ? 5 : this.starCount;
     }
 
     ngOnInit() {
+        let loggedUser = this._localStorageService.getUser() || {};
+        this._isOwner = loggedUser.username === this.ownerUsername;
         this._rating = this.rating;
     }
 
     onRate(star: any) {
-        // this.rate.emit(star);
-        this.newRate.emit(star);
-        // this._rating = star;
+        let isLoggedIn = this._authService.isLoggedIn();
+        if (!isLoggedIn) {
+            this._toastService.activate("Please login!");
+            event.stopPropagation();
+        }
+        else if (this._isOwner) {
+            this._toastService.activate("Invalid operation!");
+            event.stopPropagation();
+        }
+        else {
+            this.newRate.emit(star);
+        }
     }
 }

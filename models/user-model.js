@@ -17,15 +17,6 @@ module.exports = modelRegistrator.register('User', {
         unique: true
     },
     displayname: String,
-    // avatar: {
-    //     name: {
-    //         type: String,
-    //         enum: ['Stormtrooper', 'Darth Vaider', 'Boba Fett', 'Empire', 'Rebels'],
-    //         default: 'Stormtrooper'
-    //             // default: 'http://avatarbox.net/avatars/img1/stormtrooper_mask_avatar_picture_32704.png'
-    //     },
-    //     url: String
-    // },
     avatarName: String,
     avatarUrl: String,
     email: {

@@ -5,9 +5,11 @@ import { HomeComponent } from './home.component';
 import { PublicatonsService } from '../../services/publications/publications.service';
 import { ProductsService } from '../../services/products/products.service';
 
+import { SumPipe } from '../../pipes/sum.pipe';
+
 @NgModule({
     imports: [SharedModule],
-    declarations: [HomeComponent],
+    declarations: [HomeComponent, SumPipe],
     exports: [HomeComponent],
     providers: [PublicatonsService, ProductsService]
 })

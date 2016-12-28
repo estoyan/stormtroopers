@@ -15,11 +15,9 @@ module.exports = modelRegistrator.register('Image', {
         type: String,
         required: true
     },
-    likes: [{
-        username: String
-    }],
-    dislikes: [{
-        username: String
+    rating: [{
+        username: String,
+        rate: Number
     }],
     comments: [{
         username: {

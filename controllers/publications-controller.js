@@ -21,6 +21,15 @@ module.exports = function ({ data }) {
                 .then(result => {
                     return res.send(result);
                 });
+        },
+        ratePublication(req, res){
+            data.ratePublication(req.body.id, req.body.rate, req.body.username)
+            .then(result =>{
+                return res.status(200).json({msg: `You gave rating ${req.body.rate}!`})
+            })
+            .catch(err => {
+                res.status(400).json({msg: 'Unsuccessfull rating!'})
+            })
         }
     };
 };
