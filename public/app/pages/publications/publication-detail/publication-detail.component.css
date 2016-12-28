@@ -1,0 +1,33 @@
+div.publication-image {
+    height: 100%;
+    background-color: black;
+    padding: 0;
+    max-width: 30em;
+}
+.publication-image img {
+    height: 100%;
+}
+div.details {
+    padding: 0;
+    height: 100%;
+    max-width: 27.3em;
+    min-width: 18em;
+    background-color: #8d8d8e;
+    font-size: 1.1em;
+}
+div.title {
+    height: 20%;
+    padding-top: 1em;
+    color: #ffd700;
+    font-size: 1.2em;
+}
+div.comments {
+    height: 70%;
+    background-color: #e8e9ea;
+}
+div.row {
+    height: 30em;
+}
+div.likes {
+    padding-left: 1em;
+}

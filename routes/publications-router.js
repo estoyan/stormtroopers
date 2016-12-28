@@ -10,7 +10,8 @@ module.exports = function({ app, controllers }) {
 
     router
         .get('/topimages', controller.getTopImages)
-        .get('/images', controller.getAllImages);
+        .get('/images', controller.getAllImages)
+        .get('/images/:id', controller.getImageById);
 
     app.use('/api', router);
 

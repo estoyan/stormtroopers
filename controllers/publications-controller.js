@@ -14,6 +14,13 @@ module.exports = function ({ data }) {
                 .then(result => {
                     return res.send(result);
                 });
+        },
+        getImageById(req, res) {
+            let id = req.params.id;
+            data.getImageById(id)
+                .then(result => {
+                    return res.send(result);
+                });
         }
     };
 };
