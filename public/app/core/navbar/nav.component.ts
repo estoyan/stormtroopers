@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription'
 
 import { AuthService } from '../../services/authentication/auth.service';
 import { UserService } from '../../services/shared/user.service';
@@ -29,6 +30,10 @@ export class NavComponent {
         return null;
     }
 
+    set displayname(value: string) {
+        this._displayname = value;
+    }
+
     get username() {
         let user = this._userService.getUserFromLocalStorage();
         if (user) {
@@ -45,7 +50,7 @@ export class NavComponent {
         return null;
     }
 
-    public toggleDropdown($event: MouseEvent): void {
+    toggleDropdown($event: MouseEvent): void {
         $event.preventDefault();
         $event.stopPropagation();
         this.status.isopen = !this.status.isopen;

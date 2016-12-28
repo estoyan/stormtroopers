@@ -1,6 +1,6 @@
 /* globals module */
 'use strict';
-
+let dataUtils = require('./utils/data-utils');
 
 let mockedData = [{
     name: 'Boba Fett Mug',
@@ -18,8 +18,7 @@ let mockedData = [{
     category: 't-shirt',
     images: ['http://hideyourarms.com/wp-content/uploads/2011/10/Expressions-Darth-Vader-Shirt-480x380.jpg'],
     color: 'red'
-},
-{
+}, {
     name: 'Star Wars Vintage Poster',
     price: 155,
     quantity: 1,
@@ -42,6 +41,6 @@ module.exports = function ({
                 // TODO: write query to database here
                 resolve(mockedData);
             })
-        }
+        }        
     };
 };

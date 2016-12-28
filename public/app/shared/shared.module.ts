@@ -7,7 +7,6 @@ import { PublicationListComponent } from './publication-list/publication-list.co
 
 import { AcStar } from './stars/star';
 import { AcStars } from './stars/stars';
-import { AuthAcStars } from './stars/auth-stars';
 
 // imports: imports the module's exports. which are usually
 // declarables(components / directives / pipes) and providers.
@@ -25,8 +24,7 @@ import { AuthAcStars } from './stars/auth-stars';
         PublicationListComponent,
         AcStar,
         AcStars,
-        AuthAcStars,
     ],
-    declarations: [AcStar, AcStars, AuthAcStars, PublicationListComponent]
+    declarations: [AcStar, AcStars, PublicationListComponent]
 })
 export class SharedModule { }

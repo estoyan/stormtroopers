@@ -20,14 +20,17 @@
 </div>
 <div class="row text-center">
     <h4>TOP IMAGES</h4>
-    <div *ngFor="let image of topImages" class="col-md-4 col-sm-4">
+    <div *ngFor="let publication of topPublications" class="col-md-4 col-sm-4">
         <div class="image-container">
-            <a routerLink="/publications/{{image._id}}" routerLinkActive="active">
+            <a routerLink="/publications/{{publication._id}}" routerLinkActive="active">
                 <div>
-                    <img src={{image.imageUrl}} alt="top fan art image" class="image-list">
+                    <img src={{publication.imageUrl}} alt="top fan art image" class="image-list">
                 </div>
             </a>
         </div>
-        <auth-ac-stars [rating]="image.likes.length" [ownerUsername]="image.owner" (newRate)="setNewRate($event)"></auth-ac-stars>
+        <ac-stars [rating]="(publication.rating | sumPipe: 'rate') / topPublications.length" 
+                [ownerUsername]="publication.owner" 
+                (newRate)="setNewRate($event, publication._id)">
+        </ac-stars>
     </div>
 </div>

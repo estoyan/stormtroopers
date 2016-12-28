@@ -9,7 +9,7 @@
         <div class="comments pre-scrollable">
         </div>
         <div class="likes" *ngIf="publication">
-            <auth-ac-stars [rating]="publication.likes.length" [ownerUsername]="publication.owner" (newRate)="setNewRate($event)"></auth-ac-stars>
+            <ac-stars [rating]="4" [ownerUsername]="publication.owner" (newRate)="setNewRate($event)"></ac-stars>
         </div>
     </div>
 </div>

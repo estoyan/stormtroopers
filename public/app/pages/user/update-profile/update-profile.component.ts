@@ -29,11 +29,12 @@ export class UpdateProfileComponent implements OnInit {
         this._userService.updateUser(this.currentUser)
             .subscribe((data: any) => {
                 this._toasService.activate('Trooper info successfully updated!');
-                this._router.navigate([`user/${data.user.username}`])
+                document.getElementById('avatar-image').setAttribute('src', data.user.avatarUrl);
+                this._router.navigate([`user/${data.user.username}`]);
             });
     }
 
-    setUserAvatar(value: string) {
+    setUserAvatar(value: string): void {
         this.currentUser.avatarName = value;
     }
 }

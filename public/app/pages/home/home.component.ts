@@ -12,24 +12,28 @@ import { Publication } from '../../models/publication.model';
 export class HomeComponent implements OnInit {
   fullPath: string = 'static/app/assets/imgs/rougeone.png'
 
-  private topImages: Publication[];
+  private topPublications: Publication[];
   private recentProducts: Product[];
 
   totalRating: number;
   constructor(
-    private publicatonsService: PublicatonsService,
-    private productService: ProductsService
+    private _publicatonsService: PublicatonsService,
+    private _productService: ProductsService
   ) { }
 
   ngOnInit() {
-    this.productService.getRecentProducts()
+    this._productService.getRecentProducts()
       .subscribe(x => this.recentProducts = x)
 
-    this.publicatonsService.getTopImages()
-      .subscribe(x => this.topImages = x)
+    this._publicatonsService.getTopImages()
+      .subscribe(x => this.topPublications = x)
   }
 
-  setNewRate(event: any) {
-    console.log('new Rate is: ', event);
+  setNewRate(event: any, publicationId: string) {
+    let currentUser = JSON.parse(window.localStorage.getItem('user')).username;
+    let rate = event;
+    let id = publicationId;
+    this._publicatonsService.rateProduct(id, currentUser, rate);
+    console.log(currentUser, rate, id);
   }
 }

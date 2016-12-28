@@ -10,4 +10,4 @@
     <div class="comments">Comments: {{publication.comments.length}}</div>
 </a>
 
-<auth-ac-stars [rating]="publication.likes.length" [ownerUsername]="publication.owner" (newRate)="setNewRate($event)"></auth-ac-stars>
+<ac-stars [rating]="3" [ownerUsername]="publication.owner" (newRate)="setNewRate($event)"></ac-stars>
