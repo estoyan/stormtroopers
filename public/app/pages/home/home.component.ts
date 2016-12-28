@@ -17,15 +17,15 @@ export class HomeComponent implements OnInit {
 
   totalRating: number;
   constructor(
-    private publicatonsService: PublicatonsService,
-    private productService: ProductsService
+    private _publicatonsService: PublicatonsService,
+    private _productService: ProductsService
   ) { }
 
   ngOnInit() {
-    this.productService.getRecentProducts()
+    this._productService.getRecentProducts()
       .subscribe(x => this.recentProducts = x)
 
-    this.publicatonsService.getTopImages()
+    this._publicatonsService.getTopPublications()
       .subscribe(x => this.topImages = x)
   }
 

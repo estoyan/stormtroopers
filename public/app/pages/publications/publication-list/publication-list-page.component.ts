@@ -14,7 +14,7 @@ export class PublicationListPageComponent implements OnInit {
   constructor(private _publicationService: PublicatonsService) { }
 
   ngOnInit() {
-    this._publicationService.getAllImages()
+    this._publicationService.getAllPublications()
       .subscribe(x => this.publications = x);
   }
 

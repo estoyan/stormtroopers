@@ -9,9 +9,9 @@ module.exports = function({ app, controllers }) {
     let router = new express.Router();
 
     router
-        .get('/topimages', controller.getTopImages)
-        .get('/images', controller.getAllImages)
-        .get('/images/:id', controller.getImageById);
+        .get('/publications', controller.getAllPublications)
+        .get('/publications/top', controller.getTopPublications)
+        .get('/publications/:id', controller.getPublicationById);
 
     app.use('/api', router);
 

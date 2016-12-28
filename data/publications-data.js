@@ -62,13 +62,13 @@ module.exports = function ({
     } = models;
 
     return {
-        getTopImages() {
+        getTopPublications() {
             return new Promise((resolve, reject) => {
                 // TODO: write query to database here
                 resolve(mockedData);
             });
         },
-        getAllImages() {
+        getAllPublications() {
             return new Promise((resolve, reject) => {
                 // TODO: write query to database here
                 resolve(mockedData);
@@ -90,7 +90,7 @@ module.exports = function ({
 
             });
         },
-        getImageById(id) {
+        getPublicationById(id) {
             return new Promise((resolve, reject) => {
                 // TODO: write query to database here
                 resolve(mockedData.find(x => x._id === id));
