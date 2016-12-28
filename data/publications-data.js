@@ -58,7 +58,7 @@ module.exports = function ({
     models
 }) {
     let {
-        Image
+        Publication
     } = models;
 
     return {
@@ -74,6 +74,20 @@ module.exports = function ({
                 // TODO: write query to database here
                 resolve(mockedData);
             })
+        },
+        getUserPublications(username){
+            return new Promise((resolve, reject) =>{
+                resolve(mockedData);
+                // Publication.find()
+                // .where({username})
+                // .exec((err, res) => {
+                //         if (err) {
+                //             reject(err);
+                //         }
+
+                //         resolve(res);
+                //     });
+            });
         }
     };
 };

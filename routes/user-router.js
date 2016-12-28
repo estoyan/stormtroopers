@@ -13,6 +13,7 @@ module.exports = function({ app, controllers }) {
     router
         .post('/sign-up', controller.signUp)
         .get('/user', passport.authenticate('jwt', { session: false}), controller.getLoggedUser)
+        .get('/user/publications', controller.getUserPublications)
         .post('/update', passport.authenticate('jwt', { session: false}), controller.updateUser);
          
     app.use('/api', router);

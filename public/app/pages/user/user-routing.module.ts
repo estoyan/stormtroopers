@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserComponent } from './user.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { UserPublicationsComponent } from './user-publications/user-publications.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
         path: 'update',
         component: UpdateProfileComponent,
       },
+      {
+        path: 'publications',
+        component: UserPublicationsComponent,
+      },
     ]
   },
 ];
@@ -28,4 +33,9 @@ const routes: Routes = [
 })
 export class UserRoutingModule { }
 
-export const routedComponents = [UserProfileComponent, UserComponent, UpdateProfileComponent];
+export const routedComponents = [
+  UserProfileComponent,
+  UserComponent,
+  UpdateProfileComponent,
+  UserPublicationsComponent
+];

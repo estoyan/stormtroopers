@@ -28,7 +28,7 @@ export class UpdateProfileComponent implements OnInit {
     onSubmit() {
         this._userService.updateUser(this.currentUser)
             .subscribe((data: any) => {
-                this._toasService.activate('trooper info successfully updated!');
+                this._toasService.activate('Trooper info successfully updated!');
                 this._router.navigate([`user/${data.user.username}`])
             });
     }

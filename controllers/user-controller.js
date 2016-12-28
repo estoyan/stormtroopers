@@ -26,7 +26,7 @@ function getAvatar(name){
 
 module.exports = function ({ data, hashGenerator, validator }) {
     return {
-         signUp(req, res) {
+        signUp(req, res) {
             let newUser = {};
             USER_BASIC_PROPERTIES.forEach(property => {
                 if (!property || property.length < 0) {
@@ -91,6 +91,18 @@ module.exports = function ({ data, hashGenerator, validator }) {
                     message: 'Please provide token'
                 });
             }
+        },
+        getUserPublications(req, res){
+            const token = req.headers.authorization;
+            let userInfo = tokenUtils.decodeToken(token);
+
+            data.getUserPublications(userInfo.username)
+            .then(publications => {
+                res.status(200).json(publications);
+            })
+            .catch(err => {
+                return res.status(400).send({msg: 'No publications!'});
+            });
         },
         updateUser(req, res){
             const token = req.headers.authorization;

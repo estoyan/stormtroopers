@@ -1,18 +1,23 @@
-import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { Injectable, EventEmitter, Output } from '@angular/core';
+import { Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import { RequesterService } from '../shared/requester.service';
 import { User } from '../../models/user.model';
+import { Publication } from '../../models/publication.model';
 
 const REGISTER_USER_URL = '/api/sign-up'
 const GET_CURRENT_USER_URL = '/api/user';
 const UPDATE_URL = '/api/update';
+const GET_USER_PUBLICATIONS = '/api/user/publications'
 
 @Injectable()
 export class UserService {
-    constructor(private _http: Http, private _requester: RequesterService) {
+    constructor(private _requester: RequesterService) {
+    }
 
+    private getToken(): string {
+        return JSON.parse(window.localStorage.getItem('user')).token;
     }
 
     register(userInfo: any): Observable<Object> {
@@ -22,10 +27,6 @@ export class UserService {
         headers.append('Content-Type', 'application/X-www-form-urlencoded');
         return this._requester
             .post(REGISTER_USER_URL, userInfoAsString, headers);
-    }
-
-    getToken(): string {
-        return JSON.parse(window.localStorage.getItem('user')).token;
     }
 
     getUserFromLocalStorage() {
@@ -52,5 +53,13 @@ export class UserService {
         return this._requester
             .post(UPDATE_URL, userAsString, headers)
             .do((data: any) => window.localStorage.setItem('user', JSON.stringify(data.body)));
+    }
+
+    getUserPublications(): Observable<Publication[]> {
+        let headers = new Headers();
+        headers.append('Authorization', `JWT ${this.getToken()}`);
+
+        return this._requester
+            .getJson<Publication[]>(GET_USER_PUBLICATIONS, headers);
     }
 }
