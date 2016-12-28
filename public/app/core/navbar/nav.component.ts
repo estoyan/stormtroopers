@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import { AuthService } from '../../services/authentication/auth.service';
 import { UserService } from '../../services/shared/user.service';
 
@@ -8,29 +9,28 @@ import { UserService } from '../../services/shared/user.service';
     templateUrl: 'nav.component.html',
     styleUrls: ['nav.component.css']
 })
-export class NavComponent {
-    public isCollapsed: boolean = true;
-    private _displayname: string;
-    private _username: string;
+
+export class NavComponent implements OnInit {
+    displayname: string;
+    username: string;
+    avatar: string;
+    isCollapsed: boolean = true;
+    disabled: boolean = false;
+    status: { isopen: boolean } = { isopen: false };
 
     constructor(private _authService: AuthService,
         private _userService: UserService) { }
-
-    get displayname() {
+   
+    ngOnInit() {
         let user = this._userService.getUserFromLocalStorage();
-        if (user) {
-            return user.displayname;
-        }
-
-        return null;
+        this.avatar = user.avatarUrl;
+        this.displayname = user.displayname;
+        this.username = user.username;
     }
 
-    get username() {
-        let user = this._userService.getUserFromLocalStorage();
-        if (user) {
-            return user.username;
-        }
-
-        return null;
+    public toggleDropdown($event: MouseEvent): void {
+        $event.preventDefault();
+        $event.stopPropagation();
+        this.status.isopen = !this.status.isopen;
     }
 }
