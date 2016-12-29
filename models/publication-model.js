@@ -2,7 +2,7 @@
 
 const modelRegistrator = require('./utils/model-registrator');
 
-module.exports = modelRegistrator.register('Image', {
+module.exports = modelRegistrator.register('Publication', {
     owner: {
         type: String,
         required: true

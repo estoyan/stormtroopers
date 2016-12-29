@@ -12,8 +12,8 @@ module.exports = function({ config }) {
     let Character = require('../models/character-model');
     let Movie = require('../models/movie-model');
     let Product = require('../models/product-model');
-    let Publications = require('../models/publication-model');
-    let models = {User,Character,Movie,Product,Publications};
+    let Publication = require('../models/publication-model');
+    let models = {User,Character,Movie,Product,Publication};
 
     let data = {};
     fs.readdirSync('./data')

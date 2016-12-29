@@ -17,4 +17,8 @@ export class LocalStorageService {
     getUser() {
         return this.getUserItem();
     }
+
+    deleteUser() {
+        window.localStorage.removeItem('user');
+    }
 }
