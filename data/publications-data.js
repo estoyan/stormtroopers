@@ -139,24 +139,22 @@ module.exports = function ({
         },
         ratePublication(id, rate, username) {
             return new Promise((resolve, reject) => {
-                // mockedData.find(x => x._id === id).rating.find(x => x.username === username).rate = rate
-                resolve(rate);
-                // this.findPublicationById(id)
-                //     .then(publication => {
-                //         let hasVoted = publication.rating.some(x => x.username === username);
-                //         if (hasVoted) {
-                //             publication.rating.filter(x => x.username === username).rate = rate;
-                //             resolve(requiredPubl);
-                //         } else {
-                //             publication.rating.push({
-                //                 username,
-                //                 rate
-                //             });
-                //         }
+                this.findPublicationById(id)
+                    .then(publication => {
+                        let hasVoted = publication.rating.some(x => x.username === username);
+                        if (hasVoted) {
+                            console.log(publication.rating.find(x => x.username === username).rate, rate);
+                            publication.rating.find(x => x.username === username).rate = rate;
+                        } else {
+                            publication.rating.push({
+                                username,
+                                rate
+                            });
+                        }
 
-                //         dataUtils.update(publication);
-                //         resolve(publication);
-                //     })
+                        dataUtils.update(publication);
+                        resolve(publication);
+                    })
             });
         },
         addComment(id, content, username) {

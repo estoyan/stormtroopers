@@ -20,7 +20,8 @@ module.exports = {
             orders: user.orders,
             address: user.address,
             phoneNumber: user.phoneNumber,
-            role: user.role
+            role: user.role,
+            side: user.side
         }
 
         return jwt.encode(tokenInfo, secret);
