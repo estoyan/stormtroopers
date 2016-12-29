@@ -8,6 +8,8 @@ import { PublicationListComponent } from './publication-list/publication-list.co
 import { AcStar } from './stars/star';
 import { AcStars } from './stars/stars';
 
+import { SumPipe } from '../pipes/sum.pipe';
+
 // imports: imports the module's exports. which are usually
 // declarables(components / directives / pipes) and providers.
 // in our case the FilterTextModule has a provider.
@@ -24,7 +26,8 @@ import { AcStars } from './stars/stars';
         PublicationListComponent,
         AcStar,
         AcStars,
+        SumPipe
     ],
-    declarations: [AcStar, AcStars, PublicationListComponent]
+    declarations: [AcStar, AcStars, PublicationListComponent, SumPipe]
 })
 export class SharedModule { }

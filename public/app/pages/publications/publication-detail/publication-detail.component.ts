@@ -39,8 +39,4 @@ export class PublicationDetailComponent implements OnInit {
         this._publicationService.addComment(comment);
         this.publication.comments.push(comment);
     }
-
-    setNewRate(event: any) {
-        console.log('new Rate is: ', event);
-    }
 }

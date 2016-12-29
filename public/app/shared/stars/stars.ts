@@ -1,8 +1,9 @@
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnInit } from '@angular/core';
 
 import { AcStar } from './star';
 import { ToastService } from '../../services/shared/toast.service';
 import { AuthService } from '../../services/authentication/auth.service';
+import { PublicatonsService } from '../../services/publications/publications.service';
 import { LocalStorageService } from '../../services/shared/local-storage.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class AcStars {
     @Input() starCount: number;
     @Input() rating: number;
     @Input() ownerUsername: boolean;
-    @Output() newRate = new EventEmitter();
+    @Input() publicationId: string;
     private _isOwner: boolean;
     stars: number[] = [1, 2, 3, 4, 5];
     _rating = this.rating;
@@ -30,6 +31,7 @@ export class AcStars {
     constructor(
         private _toastService: ToastService,
         private _authService: AuthService,
+        private _publicatonsService: PublicatonsService,
         private _localStorageService: LocalStorageService
     ) {
         const count = this.starCount < 0 ? 5 : this.starCount;
@@ -41,7 +43,7 @@ export class AcStars {
         this._rating = this.rating;
     }
 
-    onRate(star: any) {
+    onRate(rate: number) {
         let isLoggedIn = this._authService.isLoggedIn();
         if (!isLoggedIn) {
             this._toastService.activate("Please login!");
@@ -52,7 +54,8 @@ export class AcStars {
             event.stopPropagation();
         }
         else {
-            this.newRate.emit(star);
+            this._publicatonsService.rateProduct(this.publicationId, rate)
+                .subscribe(x => console.log(x));
         }
     }
 }

@@ -12,9 +12,4 @@ export class PublicationListComponent {
   @Input() publication: Publication;
 
   constructor() { }
-
-  setNewRate(event: any) {
-    // TODO implement
-    console.log('new Rate is: ', event);
-  }
 }

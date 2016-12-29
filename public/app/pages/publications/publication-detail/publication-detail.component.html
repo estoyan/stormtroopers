@@ -15,7 +15,11 @@
             <input type="text" #newComment name="newComment" (keyup.enter)="addComment(newComment.value); newComment.value='';" class="form-control" placeholder="Write a comment...">
         </div>
         <div class="likes" *ngIf="publication">
-            <ac-stars [rating]="4" [ownerUsername]="publication.owner" (newRate)="setNewRate($event)"></ac-stars>
+            <ac-stars 
+             [rating]="(publication.rating | sumPipe: 'rate') / publication.rating.length" 
+             [ownerUsername]="publication.owner" 
+             [publicationId]="publication._id">
+            </ac-stars>
         </div>
     </div>
 </div>

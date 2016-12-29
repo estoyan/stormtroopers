@@ -35,7 +35,7 @@ export class PublicatonsService {
             .getJson<Publication>(imageByIdUrl);
     }
 
-    rateProduct(publicationId: string, rate: number): Observable<Object> {
+    rateProduct(publicationId: string, rate: number): Observable<number> {
         let currentUser = this._localeStorageService.getUser().username;
         let headers = new Headers();
         headers.append('Authorization', `JWT ${this._localeStorageService.getToken()}`);
