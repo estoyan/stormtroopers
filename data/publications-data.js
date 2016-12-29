@@ -112,16 +112,14 @@ module.exports = function ({
         },
         getUserPublications(username) {
             return new Promise((resolve, reject) => {
-                resolve(mockedData);
-                // Publication.find()
-                // .where({username})
-                // .exec((err, res) => {
-                //         if (err) {
-                //             reject(err);
-                //         }
+                Publication.find({owner: username})
+                .exec((err, res) => {
+                        if (err) {
+                            reject(err);
+                        }
 
-                //         resolve(res);
-                //     });
+                        resolve(res);
+                    });
 
             });
         },

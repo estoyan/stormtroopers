@@ -16,7 +16,7 @@ function getNextTrooperId() {
 function getAvatar(name){
      let avatarImageUrls = [
         { name: 'Stormtrooper', url: 'http://avatarbox.net/avatars/img1/stormtrooper_mask_avatar_picture_32704.png' },
-        { name: 'Darth Vaider', url: 'http://images.pcworld.com/news/graphics/203344-darth_vader_original.jpg' },
+        { name: 'Darth Vaider', url: 'http://www.theisozone.com/forum/download/file.php?avatar=163958_1459213121.png' },
         { name: 'Boba Fett', url: 'https://s-media-cache-ak0.pinimg.com/236x/50/ed/13/50ed1365c9bcd3830bb8cce37e723593.jpg' },
         { name: 'Empire', url: 'https://images-mm.s3.amazonaws.com/Star_Wars_Dist_Red_Empire_logo_Black_Shirt_POP.jpg' },
         { name: 'Rebels', url: 'http://vignette1.wikia.nocookie.net/starwars/images/7/71/Redstarbird.svg/revision/latest?cb=20080228205026' },
@@ -139,6 +139,18 @@ module.exports = function ({ data, hashGenerator, validator }) {
                     msg: 'User was not updated!'
                 });
             });;
+        },
+        getUserPastOrders(req, res){
+            const token = req.headers.authorization;
+            let userInfo = tokenUtils.decodeToken(token);
+
+            data.getUserPastOrders(userInfo.username)
+            .then(products => {
+                res.status(200).json(products);
+            })
+            .catch(err => {
+                return res.status(400).send({msg: 'No orders!'});
+            });
         }
     };
 };

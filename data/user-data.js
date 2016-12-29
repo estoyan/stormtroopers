@@ -1,6 +1,30 @@
 /* globals module require Promise */
 let dataUtils = require('./utils/data-utils');
 
+let mockedOrders = [
+     {
+            product: {
+                name: 'Star Wars Vintage Poster',
+                price: 155,
+                imageUrl: 'https://i.kinja-img.com/gawker-media/image/upload/s--S24cks6n--/c_scale,f_auto,fl_progressive,q_80,w_800/19fk32sw3nt1wjpg.jpg'
+            },
+            state: {
+                type: 'completed',
+            }
+        },
+        {
+            product: {
+                name: 'Boba Fett Mug',
+                price: 15,
+                imageUrl: 'http://www.bobafettfanclub.com/multimedia/galleries/albums/userpics/10001/boba-fett-mug~0.jpg'
+            },
+            state: {
+                type: 'completed',
+            }
+        }
+    ]
+
+
 module.exports = function ({ models }) {
     let { User } = models;
 
@@ -42,6 +66,20 @@ module.exports = function ({ models }) {
         },
         updateUser(user) {
             return dataUtils.update(user);
+        },
+        getUserPastOrders(username) {
+            return new Promise((resolve, reject) => {
+                resolve(mockedOrders);
+                // User.find()
+                // .where('state.type').equals('completed').
+                // .exec((err, res) =>{
+                //     if(err){
+                //         reject(err);
+                //     }
+
+                //     resolve(res);
+                // });
+            });
         }
     }
 };
