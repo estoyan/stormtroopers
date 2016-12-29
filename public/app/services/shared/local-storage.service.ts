@@ -19,6 +19,10 @@ export class LocalStorageService {
     }
 
     deleteUser() {
-        window.localStorage.removeItem('user');
+        window.localStorage.removeItem(USER_KEY);
+    }
+
+    updateToken(body: string){
+         window.localStorage.setItem(USER_KEY, JSON.stringify(body))
     }
 }

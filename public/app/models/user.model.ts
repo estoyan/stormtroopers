@@ -8,5 +8,6 @@ export interface User {
     avatarUrl: string,
     orders: string[],
     phoneNumber: string,
-    address: string
+    address: string,
+    side: string
 }

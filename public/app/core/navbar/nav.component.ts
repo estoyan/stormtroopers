@@ -15,6 +15,7 @@ export class NavComponent {
     private _displayname: string;
     private _username: string;
     private _avatar: string;
+    private _side: string;
     isCollapsed: boolean = true;
     disabled: boolean = false;
     status: { isopen: boolean } = { isopen: false };
@@ -30,9 +31,9 @@ export class NavComponent {
         return null;
     }
 
-    set displayname(value: string) {
-        this._displayname = value;
-    }
+    // set displayname(value: string) {
+    //     this._displayname = value;
+    // }
 
     get username() {
         let user = this._localeStorageService.getUser();
@@ -48,6 +49,19 @@ export class NavComponent {
             return user.avatarUrl;
         }
         return null;
+    }
+
+    get side() {
+        let user = this._localeStorageService.getUser();
+        if (user) {
+            switch (user.side) {
+                case 'Dark': return 'red'
+                case 'Light': return 'skyblue'
+                default: return 'white'
+            }
+        }
+
+        return 'white';
     }
 
     toggleDropdown($event: MouseEvent): void {

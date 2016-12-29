@@ -3,7 +3,7 @@ import { Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import { RequesterService } from '../shared/requester.service';
-import { LocalStorageService } from './local-storage.service';
+import { LocalStorageService } from '../shared/local-storage.service';
 
 import { User } from '../../models/user.model';
 import { Publication } from '../../models/publication.model';
@@ -44,7 +44,7 @@ export class UserService {
 
         return this._requester
             .postEncoded(UPDATE_URL, userAsString, headers)
-            .do((data: any) => window.localStorage.setItem('user', JSON.stringify(data.body)));
+            .do((data: any) => this._localeStorageService.updateToken(data.body));
     }
 
     getUserPublications(): Observable<Publication[]> {

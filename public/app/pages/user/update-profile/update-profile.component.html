@@ -71,7 +71,24 @@
                        <img src="" alt="avatar image">
                     </div>-->
                 </div>
-            </div>            
+            </div>       
+              <div class="form-group avatar">
+                <label class="bold-label">Avatar</label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <select class="form-control" name="side" #side (change)="setUserSide(side.value)">
+                            <option *ngFor="let opt of sideOptions; let i=index"
+                            [value]=opt
+                            [selected]="opt == currentUser.side">
+                                {{sideOptions[i]}}
+                             </option>
+                        </select>
+                    </div>
+                    <!--<div class="col-md-8">
+                       <img src="" alt="avatar image">
+                    </div>-->
+                </div>
+            </div>                
             <button type="submit" class="btn btn-lg">UPDATE</button>
         </form>
     </div>

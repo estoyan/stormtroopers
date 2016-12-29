@@ -11,11 +11,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse" [collapse]="isCollapsed">
             <ul class="nav navbar-nav">
-                <li><a routerLink="/publications" routerLinkActive="active">FAN ART</a></li>
-                <li><a routerLink="/products" routerLinkActive="active">PRODUCTS</a></li>
-                <li><a routerLink="/characters" routerLinkActive="active">CHARACTERS</a></li>
-                <li><a routerLink="/movies" routerLinkActive="active">MOVIES</a></li>
-                <li><a routerLink="/characters" routerLinkActive="active">ABOUT</a></li>
+                <li><a color={{side}} routerLink="/publications" routerLinkActive="active">FAN ART</a></li>
+                <li><a color={{side}} routerLink="/products" routerLinkActive="active">PRODUCTS</a></li>
+                <li><a color={{side}} routerLink="/characters" routerLinkActive="active">CHARACTERS</a></li>
+                <li><a color={{side}} routerLink="/movies" routerLinkActive="active">MOVIES</a></li>
+                <li><a color={{side}} routerLink="/characters" routerLinkActive="active">ABOUT</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right" [hidden]=_authService.isLoggedIn()>
                 <li><a routerLink="/login" routerLinkActive="active">LOGIN</a></li>

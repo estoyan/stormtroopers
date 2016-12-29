@@ -9,6 +9,8 @@ import { NavComponent } from './navbar/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { ToastComponent } from './toast/toast.component';
 
+import { ColorDirective } from '../directives/color.directive';
+
 
 @NgModule({
     imports: [
@@ -29,7 +31,8 @@ import { ToastComponent } from './toast/toast.component';
     declarations: [
         NavComponent,
         FooterComponent,
-        ToastComponent],
+        ToastComponent,
+        ColorDirective],
     providers: []
 })
 export class CoreModule {
