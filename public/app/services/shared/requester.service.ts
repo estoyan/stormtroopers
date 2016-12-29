@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+
 import { ExceptionService } from './exception.service';
+import { LocalStorageService } from './local-storage.service';
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
@@ -10,7 +13,8 @@ import 'rxjs/add/operator/catch';
 export class RequesterService {
     constructor(
         private _http: Http,
-        private _exceptionService: ExceptionService
+        private _exceptionService: ExceptionService,
+        private _localeStorageService: LocalStorageService
     ) { }
 
     public createBody(obj: Object): string {
@@ -39,5 +43,11 @@ export class RequesterService {
         headers.append('Content-Type', 'application/X-www-form-urlencoded');
 
         return this.post(url, body, headers);
+    }
+
+    public postAuthorized<T>(url: string, body: string, headers: Headers = new Headers()): Observable<T> {
+        headers.append('Authorization', `JWT ${this._localeStorageService.getToken()}`);
+
+        return this.postEncoded(url, body, headers);
     }
 }

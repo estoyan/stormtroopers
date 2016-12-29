@@ -13,6 +13,7 @@ module.exports = function({ app, controllers }) {
         .get('/publications', controller.getAllPublications)
         .get('/publications/top', controller.getTopPublications)
         .get('/publications/:id', controller.getPublicationById)
+        .post('/publication', passport.authenticate('jwt', { session: false}), controller.addPublication)
         .post('/ratepublication', controller.ratePublication) //TODO authenticate users
         .post('/publication/comment', passport.authenticate('jwt', { session: false}), controller.addComment);
 

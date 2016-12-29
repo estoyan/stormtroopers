@@ -1,0 +1,26 @@
+<div class="row wrapper">
+    <div class="col-md-4 col-md-offset-4">
+        <h2>Share your greate ideas</h2>
+        <br>
+        <form #publicationForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <strong [hidden]="title.valid || title.pristine" class="alert alert-danger">
+                    Title is required!
+                  </strong>
+                <input type="text" class="form-control" id="title" name="title" required [(ngModel)]="publication.title" #title="ngModel"
+                    autofocus>
+            </div>
+
+            <div class="form-group">
+                <label for="imageUrl">Image URL</label>
+                <strong [hidden]="imageUrl.valid || imageUrl.pristine" class="alert alert-danger">
+                    Image URL is required!
+                </strong>
+                <input type="text" class="form-control" id="imageUrl" name="imageUrl" required [(ngModel)]="publication.imageUrl" #imageUrl="ngModel"
+                    autofocus>
+            </div>
+            <button type="submit" class="btn btn-lg" [disabled]="!publicationForm.form.valid">ADD</button>
+        </form>
+    </div>
+</div>
