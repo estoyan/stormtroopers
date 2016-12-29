@@ -2,3 +2,10 @@ div.publications {
     margin-top: 3em;
     font-size: 1.1em;
 }
+div.head {
+    float: right;
+    margin: 1em;
+}
+h2 {
+    color: gold;
+}

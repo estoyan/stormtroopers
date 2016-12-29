@@ -1,5 +1,6 @@
 /* globals module require */
 'use strict';
+let tokenUtils = require('./utils/token-utils');
 
 module.exports = function ({ data }) {
     return {
@@ -46,7 +47,24 @@ module.exports = function ({ data }) {
                     return res.status(200).json(result);
                 })
                 .catch(err => {
-                    res.status(500).json({ msg: 'Unsuccessfull comment addition!' })
+                    res.status(500).json({ msg: 'Unsuccessfull comment add!' })
+                });
+        },
+        addPublication(req, res) {
+            let token = req.headers.authorization,
+                userInfo = tokenUtils.decodeToken(token),
+                publicationInfo = {
+                    title: req.body.title,
+                    imageUrl: req.body.imageUrl,
+                    owner: userInfo.username
+                }
+
+            data.addPublication(publicationInfo)
+                .then(result => {
+                    return res.status(200).json(result);
+                })
+                .catch(err => {
+                    res.status(500).json({ msg: 'Unsuccessfull publication add!' })
                 });
         }
     };
