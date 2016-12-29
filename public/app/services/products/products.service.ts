@@ -6,6 +6,7 @@ import { Product } from '../../models/product.model';
 const RECENT_PRODUCTS_URL: string = '/api/recentproducts';
 const PRODUCTS_URL: string = '/api/allProducts';
 const PRODUCTS_FROM_BASKET_URL: string = '/api/products/basket';
+const ADD_PRODUCT_TO_BASKET_URL: string = '/api/addProduct';
 
 @Injectable()
 export class ProductsService {
@@ -29,5 +30,11 @@ export class ProductsService {
     getProductsFromBasket() {
         return this._requester
             .getJsonAuthorized<Product[]>(PRODUCTS_FROM_BASKET_URL);
+    }
+    addProductToBasket(product: Product) {
+        let _id = product._id,
+            body = this._requester.createBody({_id});
+        return this._requester
+            .postAuthorized<Product[]>(ADD_PRODUCT_TO_BASKET_URL,body);
     }
 }
