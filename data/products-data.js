@@ -5,9 +5,10 @@ let dataUtils = require('./utils/data-utils');
 let mockedData = [{
 
     _id: 3,
-    name: 'Darth Vader T-shirt',
+    name: 'D',
+    // arth Vader T-shirt',
     description: "",
-    price: 55,
+    price: 100055,
     quantity: 10,
     info: 'Join the dark side',
     category: 't-shirt',
@@ -17,7 +18,8 @@ let mockedData = [{
 },
 {
     _id: 2,
-    name: 'Star Wars Vintage Poster',
+    name: 'L',
+    // Star Wars Vintage Poster',
     price: 155,
     quantity: 1,
     description: "",
@@ -29,7 +31,8 @@ let mockedData = [{
 },
 {
     _id: 1,
-    name: 'Boba Fett Mug',
+    name: 'B',
+    // oba Fett Mug',
     price: 15,
     quantity: 20,
     description: "Alabala Cuki mnnogo go izpolzva. Joda is the best jeday master",

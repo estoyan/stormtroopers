@@ -1,3 +1,10 @@
 .button{
     background: grey
 }
+
+#sort-by option{
+    color: black;
+}
+.filter input {
+    color: black;
+}

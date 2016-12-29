@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 
 import { PublicationListComponent } from './publication-list/publication-list.component';
-import { FilterTextModule } from './filter-text/filter-text.module'
+// import { FilterTextModule } from './filter-text/filter-text.module'
 
 import { AcStar } from './stars/star';
 import { AcStars } from './stars/stars';
@@ -29,7 +29,7 @@ import { SumPipe } from '../pipes/sum.pipe';
         AcStar,
         AcStars,
         SumPipe,
-        FilterTextModule
+        // FilterTextModule
     ],
     declarations: [AcStar, AcStars, PublicationListComponent, SumPipe]
 })
