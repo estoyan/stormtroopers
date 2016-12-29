@@ -32,6 +32,12 @@ export class RequesterService {
             .catch(this._exceptionService.catchBadResponse);
     }
 
+    public getJsonAuthorized<T>(url: string, headers: Headers = new Headers()): Observable<T> {
+        headers.append('Authorization', `JWT ${this._localeStorageService.getToken()}`);
+
+        return this.getJson(url, headers);
+    }
+
     public post<T>(url: string, body: string, headers: Headers): Observable<T> {
         return this._http
             .post(url, body, { headers })
