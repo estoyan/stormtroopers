@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 
 import { PublicationListComponent } from './publication-list/publication-list.component';
 import { FilterSortModule } from './filterSort/filterSortModule';
+
 import { ProductOverviewComponent } from './product-overview/product-overview.component';
 
 import { AcStar } from './stars/star';
