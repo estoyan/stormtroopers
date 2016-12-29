@@ -34,6 +34,11 @@ module.exports = modelRegistrator.register('User', {
     passhash: {
         type: String
     },
+    side: {
+        type: String,
+        enum:  ['Dark', 'Light', 'Neutral'],
+        default: 'Neutral'
+    },
     orders: [
         {
             product: {

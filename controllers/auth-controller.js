@@ -22,7 +22,8 @@ module.exports = function ({
                                 displayname: user.displayname,
                                 username: user.username,
                                 avatarName: user.avatarName,
-                                avatarUrl: user.avatarUrl
+                                avatarUrl: user.avatarUrl,
+                                side: user.side
                             }
                         });
                     }
