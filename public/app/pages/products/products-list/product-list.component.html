@@ -1,6 +1,6 @@
 <h1>Products List Page</h1>
 <sotmtroopers-filter-text (changed)="filterChanged($event)"></sotmtroopers-filter-text>
-<div class="wrapper" *ngFor="let product of filteredProducts ">
+<div class="wrapper" *ngFor="let product of filteredProducts | customSort :'price'">
     <product-overview [product]=" product "> </product-overview>
-    <button class="button btn-primary " ng-disabled=(isLogedIn)><a href=" ">Add to Basket</a></button>
+    <button class="button btn-primary "><a href=" ">Add to Basket</a></button>
 </div>
