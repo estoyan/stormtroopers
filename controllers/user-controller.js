@@ -5,8 +5,9 @@ const PASWORD_DOES_NOT_MATCH = 'Паролата трябва да бъде ми
     DISPLAYNAME = 'Stormtrooper',
     AVATAR = 'Stormtrooper',
     ROLE = 'user',
+    SIDE = 'Neutral',
     USER_BASIC_PROPERTIES = ['username', 'firstname', 'lastname', 'email'],
-    USER_FULL_PROPERTIES = ['username', 'firstname', 'lastname', 'email', 'phoneNumber', 'address'];
+    USER_FULL_PROPERTIES = ['username', 'firstname', 'lastname', 'email', 'phoneNumber', 'address', 'side'];
     
 function getNextTrooperId() {
     return Math.floor((Math.random() * 9000) + 1000);
@@ -48,6 +49,7 @@ module.exports = function ({ data, hashGenerator, validator }) {
             newUser.role = ROLE;
             newUser.avatarName = AVATAR;
             newUser.avatarUrl = getAvatar(AVATAR);
+            newUser.side = SIDE;
             newUser.phoneNumber = '';
             newUser.address = '';
 
@@ -81,7 +83,8 @@ module.exports = function ({ data, hashGenerator, validator }) {
                     phoneNumber: userInfo.phoneNumber,
                     address: userInfo.address,
                     orders: userInfo.orders,
-                    role: userInfo.role
+                    role: userInfo.role,
+                    side: userInfo.side
                     // add more info if you need it
                 };
 
@@ -125,7 +128,8 @@ module.exports = function ({ data, hashGenerator, validator }) {
                      displayname: user.displayname,
                      username: user.username,
                      avatarName: user.avatarName,
-                     avatarUrl: user.avatarUrl
+                     avatarUrl: user.avatarUrl,
+                     side: user.side
                  }
                   
                 res.status(200).json({user, body});

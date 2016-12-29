@@ -1,5 +1,4 @@
 import { Injectable, Output } from '@angular/core';
-import { Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import { RequesterService } from '../shared/requester.service';
@@ -15,10 +14,11 @@ const GET_USER_PUBLICATIONS = '/api/user/publications'
 
 @Injectable()
 export class UserService {
+
     constructor(
         private _requester: RequesterService,
         private _localeStorageService: LocalStorageService
-        ) {
+    ) {
     }
 
     register(userInfo: any): Observable<Object> {
@@ -29,29 +29,20 @@ export class UserService {
     }
 
     getCurrentUser(): Observable<User> {
-        let headers = new Headers();
-        headers.append('Authorization', `JWT ${this._localeStorageService.getToken()}`);
-
         return this._requester
-            .getJson<User>(GET_CURRENT_USER_URL, headers);
+            .getJsonAuthorized<User>(GET_CURRENT_USER_URL);
     }
 
     updateUser(user: User): Observable<Object> {
         let userAsString: string = this._requester.createBody(user);
 
-        let headers = new Headers();
-        headers.append('Authorization', `JWT ${this._localeStorageService.getToken()}`);
-
         return this._requester
-            .postEncoded(UPDATE_URL, userAsString, headers)
+            .postAuthorized(UPDATE_URL, userAsString)
             .do((data: any) => this._localeStorageService.updateToken(data.body));
     }
 
     getUserPublications(): Observable<Publication[]> {
-        let headers = new Headers();
-        headers.append('Authorization', `JWT ${this._localeStorageService.getToken()}`);
-
         return this._requester
-            .getJson<Publication[]>(GET_USER_PUBLICATIONS, headers);
+            .getJsonAuthorized<Publication[]>(GET_USER_PUBLICATIONS);
     }
 }

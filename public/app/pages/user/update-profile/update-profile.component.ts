@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
 import { UserService } from '../../../services/user/user.service';
+import { NavbarService } from '../../../services/shared/navbar.service';
 import { ToastService } from '../../../services/shared/toast.service';
 import { User } from '../../../models/user.model';
 
@@ -18,6 +19,7 @@ export class UpdateProfileComponent implements OnInit {
 
     constructor(private _router: Router,
         private _userService: UserService,
+        private _navbarService: NavbarService,
         private _toasService: ToastService) {
     }
 
@@ -29,6 +31,7 @@ export class UpdateProfileComponent implements OnInit {
     onSubmit() {
         this._userService.updateUser(this.currentUser)
             .subscribe((data: any) => {
+                this._navbarService.updateUserInfo(data.body);
                 this._toasService.activate('Trooper info successfully updated!');
                 this._router.navigate([`user/${data.user.username}`]);
             });

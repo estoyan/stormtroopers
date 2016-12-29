@@ -18,6 +18,7 @@ import { RequesterService } from './services/shared/requester.service';
 import { ExceptionService } from './services/shared/exception.service';
 import { ToastService } from './services/shared/toast.service';
 import { UserService } from './services/user/user.service';
+import { NavbarService } from './services/shared/navbar.service';
 import { LocalStorageService } from './services/shared/local-storage.service';
 
 
@@ -46,7 +47,8 @@ import { AuthGuard } from './guards/authGuard';
     ToastService,
     UserService,
     AuthGuard,
-    LocalStorageService
+    LocalStorageService,
+    NavbarService
   ]
 })
 export class AppModule { }

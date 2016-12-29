@@ -10,7 +10,7 @@ module.exports = function ({ data }) {
                     res.status(200).json(publications);
                 })
                 .catch(err => {
-                    return res.status(500).send({ msg: 'Server error!' });
+                    return res.status(500).send({ msg: 'Server error!', err });
                 });
         },
         getAllPublications(req, res) {
@@ -19,7 +19,7 @@ module.exports = function ({ data }) {
                     res.status(200).json(publications);
                 })
                 .catch(err => {
-                    return res.status(500).send({ msg: 'Server error!' });
+                    return res.status(500).send({ msg: 'Server error!', err });
                 });
         },
         getPublicationById(req, res) {
@@ -29,7 +29,7 @@ module.exports = function ({ data }) {
                     res.status(200).json(publication);
                 })
                 .catch(err => {
-                    return res.status(500).send({ msg: 'Server error!' });
+                    return res.status(500).send({ msg: 'Server error!', err });
                 });
         },
         ratePublication(req, res) {
@@ -38,7 +38,7 @@ module.exports = function ({ data }) {
                     return res.status(200).json(result)
                 })
                 .catch(err => {
-                    res.status(400).json({ msg: 'Unsuccessfull rating!' })
+                    res.status(400).json({ msg: 'Unsuccessfull rating!', err })
                 })
         },
         addComment(req, res) {
@@ -47,7 +47,7 @@ module.exports = function ({ data }) {
                     return res.status(200).json(result);
                 })
                 .catch(err => {
-                    res.status(500).json({ msg: 'Unsuccessfull comment add!' })
+                    res.status(500).json({ msg: 'Unsuccessfull comment add!', err })
                 });
         },
         addPublication(req, res) {
@@ -64,7 +64,7 @@ module.exports = function ({ data }) {
                     return res.status(200).json(result);
                 })
                 .catch(err => {
-                    res.status(500).json({ msg: 'Unsuccessfull publication add!' })
+                    res.status(500).json({ msg: 'Unsuccessfull publication add!', err })
                 });
         }
     };

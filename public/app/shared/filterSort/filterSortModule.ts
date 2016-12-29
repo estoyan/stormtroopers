@@ -10,4 +10,4 @@ import { FilterSortComponent } from './filterSortComponent';
   declarations: [FilterSortComponent],
   providers: []
 })
-export class FilterTextModule { }
+export class FilterSortModule { }

@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, OnChanges } from '@angular/core';
 
 import { AcStar } from './star';
 import { ToastService } from '../../services/shared/toast.service';
@@ -17,7 +17,6 @@ import { Publication } from '../../models/publication.model';
         (rate)="onRate($event)"
         [position]="star">
       </ac-star>
-     
     </div>
     <span *ngIf="!isOwner" class="user-rating">your rating: {{userRating}}</span>
   `,
@@ -29,7 +28,7 @@ import { Publication } from '../../models/publication.model';
     ]
 })
 
-export class AcStars {
+export class AcStars implements OnInit {
     @Input() starCount: number;
     @Input() rating: number;
     @Input() publication: Publication;
@@ -52,7 +51,7 @@ export class AcStars {
         this.isOwner = loggedUser.username === this.publication.owner;
         this._rating = this.rating;
         let givenRate = this.publication.rating.find((x: any) => x.username === loggedUser.username);
-        if(givenRate){
+        if (givenRate) {
             this.userRating = givenRate.rate;
         }
     }
@@ -69,8 +68,12 @@ export class AcStars {
         }
         else {
             this._publicatonsService.rateProduct(this.publication._id, rate)
-                .subscribe(x => {
+                .subscribe((p: Publication) => {
                     this.userRating = rate;
+                    let sum = 0;
+                    p.rating.forEach(x => sum += x.rate)
+                    let count = p.rating.length;
+                    this._rating = sum / count;
                 });
         }
     }
