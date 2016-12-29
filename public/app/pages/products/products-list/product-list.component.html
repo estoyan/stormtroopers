@@ -1,6 +1,7 @@
 <h1>Products List Page</h1>
-<sotmtroopers-filter-text (changed)="filterChanged($event)"></sotmtroopers-filter-text>
-<div class="wrapper" *ngFor="let product of filteredProducts | customSort :'price'">
+<stormtroopers-filter-sort-text class='filter' (changed)="filterChanged($event)" (sort)="sortCollection($event)" [sortProp]="sortProp"></stormtroopers-filter-sort-text>
+
+<div class="wrapper" *ngFor="let product of products | customSort :sortCriteria| customFilter:searchText:filterProp">
     <product-overview [product]=" product "> </product-overview>
     <button class="button btn-primary "><a href=" ">Add to Basket</a></button>
 </div>

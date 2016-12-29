@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { } from '@angular/core'
 
@@ -15,7 +15,6 @@ import 'rxjs/add/operator/switchMap';
     //styleUrl: './style.component.css
 })
 export class MovieComponent {
-    // @Input() movie: Movie;
      movie: Movie;
     constructor(private route: ActivatedRoute,
         private router: Router,

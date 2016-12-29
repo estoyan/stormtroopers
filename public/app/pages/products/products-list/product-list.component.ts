@@ -1,8 +1,7 @@
 import { Component,OnInit,ViewChild } from '@angular/core';
 import { Product } from '../../../models/product.model';
 import { ProductsService } from '../../../services/products/products.service';
-import { FilterTextComponent} from '../../../shared/filter-text/filter-text.component';
-import { FilterTextService} from '../../../shared/filter-text/filter-text.service';
+import {FilterSortComponent } from '../../../shared/filterSort/filterSortComponent';
 @Component({
 
   moduleId: module.id,
@@ -11,21 +10,49 @@ import { FilterTextService} from '../../../shared/filter-text/filter-text.servic
 })
 
 export class ProductListComponent implements OnInit {
-
+  sortCriteria: string;
   products: Product[] = [];
-  filteredProducts = this.products;
-  @ViewChild(FilterTextComponent) filterComponent: FilterTextComponent;
+  filterProp: Array<string>;
+  searchText: String;
   isLogedIn = false;
-  constructor(private _productService: ProductsService,  private _filterService: FilterTextService) { }
+  sortProp:Array<Object>;
+  constructor(private _productService: ProductsService) { 
+    this.sortCriteria ='category';
+    this.filterProp = ['name', 'description'];
+    this.sortProp = [
+      {
+        queryParam: 'price true',
+        displayValue: 'Price: Low to High'
+      },
+      {
+        queryParam: 'price false',
+        displayValue: 'Price: High to Low'
+      } ,
+      {
+        queryParam: 'name',
+        displayValue: 'Product Name'
+      },
+      // {
+      //   queryParam: '',
+      //   displayValue: 'Newest Arrivals'
+      // }
+      // TODO add property dateOfArrival
+       
+      
+      ];
+    this.searchText = '';
+  }
 
   filterChanged(searchText: string) {
-    this.filteredProducts = this._filterService.filter(searchText, ['name','description'], this.products);
-    console.log(this.filteredProducts)
+    this.searchText = searchText;
+  }
+  sortCollection(sortCriteria: string) {
+    this.sortCriteria = sortCriteria;
   }
   
   ngOnInit() {
     this._productService.getAllProducts()
-      .subscribe(x => this.products =this.filteredProducts= x);
+      .subscribe(x => this.products = x);
   }
 
 }
