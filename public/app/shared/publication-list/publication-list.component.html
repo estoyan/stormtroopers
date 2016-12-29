@@ -10,6 +10,5 @@
 </a>
 <ac-stars
     [rating]="(publication.rating | sumPipe: 'rate') / publication.rating.length" 
-    [ownerUsername]="publication.owner"
-    [publicationId]="publication._id">
+    [publication]="publication">
 </ac-stars>

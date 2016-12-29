@@ -26,9 +26,9 @@
                 <img src={{publication.imageUrl}} alt="top fan art image" class="image-list">
             </a>
         </div>
-        <ac-stars [rating]="(publication.rating | sumPipe: 'rate') / publication.rating.length" 
-                [ownerUsername]="publication.owner" 
-                [publicationId]="publication._id">
+        <ac-stars 
+            [rating]="(publication.rating | sumPipe: 'rate') / publication.rating.length" 
+            [publication]="publication">
         </ac-stars>
     </div>
 </div>
