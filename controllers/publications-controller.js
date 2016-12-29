@@ -3,33 +3,51 @@
 
 module.exports = function ({ data }) {
     return {
-        getTopImages(req, res) {
-            data.getTopImages()
-                .then(result => {
-                    return res.send(result);
+        getTopPublications(req, res) {
+            data.getTopPublications()
+                .then(publications => {
+                    res.status(200).json(publications);
+                })
+                .catch(err => {
+                    return res.status(500).send({ msg: 'Server error!' });
                 });
         },
-        getAllImages(req, res) {
-            data.getAllImages()
-                .then(result => {
-                    return res.send(result);
+        getAllPublications(req, res) {
+            data.getAllPublications()
+                .then(publications => {
+                    res.status(200).json(publications);
+                })
+                .catch(err => {
+                    return res.status(500).send({ msg: 'Server error!' });
                 });
         },
-        getImageById(req, res) {
+        getPublicationById(req, res) {
             let id = req.params.id;
-            data.getImageById(id)
-                .then(result => {
-                    return res.send(result);
+            data.getPublicationById(id)
+                .then(publication => {
+                    res.status(200).json(publication);
+                })
+                .catch(err => {
+                    return res.status(500).send({ msg: 'Server error!' });
                 });
         },
-        ratePublication(req, res){
+        ratePublication(req, res) {
             data.ratePublication(req.body.id, req.body.rate, req.body.username)
-            .then(result =>{
-                return res.status(200).json(result)
-            })
-            .catch(err => {
-                res.status(400).json({msg: 'Unsuccessfull rating!'})
-            })
+                .then(result => {
+                    return res.status(200).json(result)
+                })
+                .catch(err => {
+                    res.status(400).json({ msg: 'Unsuccessfull rating!' })
+                })
+        },
+        addComment(req, res) {
+            data.addComment(req.body.id, req.body.content, req.body.username)
+                .then(result => {
+                    return res.status(200).json(result);
+                })
+                .catch(err => {
+                    res.status(500).json({ msg: 'Unsuccessfull comment addition!' })
+                });
         }
     };
 };

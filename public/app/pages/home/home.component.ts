@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
     this._productService.getRecentProducts()
       .subscribe(x => this.recentProducts = x)
 
-    this._publicatonsService.getTopImages()
+    this._publicatonsService.getTopPublications()
       .subscribe(x => this.topPublications = x)
   }
 }

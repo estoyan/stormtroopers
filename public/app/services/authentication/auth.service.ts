@@ -1,35 +1,36 @@
 import { Injectable } from '@angular/core';
-import { Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 
 import { RequesterService } from '../shared/requester.service';
+import { LocalStorageService } from '../shared/local-storage.service';
 
 const LOGIN_URL = '/api/sing-in';
 
 @Injectable()
 export class AuthService {
-    constructor(private _requester: RequesterService) {
+    constructor(
+        private _requester: RequesterService,
+        private _localeStarageService: LocalStorageService
+        ) {
     }
 
     login(userCreds: any): Observable<Object> {
-        let headers = new Headers();
-        let creds = `username=${userCreds.username}&password=${userCreds.password}`;
-        headers.append('Content-Type', 'application/X-www-form-urlencoded');
+        let body = `username=${userCreds.username}&password=${userCreds.password}`;
 
         return this._requester
-            .post(LOGIN_URL, creds, headers)
+            .postEncoded(LOGIN_URL, body)
             .do((data: any) => {
                 window.localStorage.setItem('user', JSON.stringify(data.body));
             });
     }
 
     logout(): void {
-        window.localStorage.removeItem('user');
+        this._localeStarageService.deleteUser();
     }
 
     isLoggedIn(): boolean {
-        let isUserLoggedIn = window.localStorage.getItem('user');
+        let isUserLoggedIn = this._localeStarageService.getUser();
         if (isUserLoggedIn) {
             return true;
         }

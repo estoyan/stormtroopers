@@ -8,9 +8,10 @@ import { LocalStorageService } from '../shared/local-storage.service';
 import { Publication } from '../../models/publication.model';
 import { Comment } from '../../models/comment.model';
 
-const TOP_IMAGES_URL = '/api/topimages';
-const IMAGES_URL = '/api/images';
+const TOP_PUBLICATIONS_URL = 'api/publications/top';
+const PUBLICATIONS_URL = 'api/publications';
 const RATE_PUBLICATION = '/api/ratepublication';
+const PUBLICATION_COMMENT_URL = '/api/publication/comment';
 
 @Injectable()
 export class PublicatonsService {
@@ -19,18 +20,18 @@ export class PublicatonsService {
         private _localeStorageService: LocalStorageService
     ) { }
 
-    getTopImages(): Observable<Publication[]> {
+    getTopPublications(): Observable<Publication[]> {
         return this._requester
-            .getJson<Publication[]>(TOP_IMAGES_URL);
+            .getJson<Publication[]>(TOP_PUBLICATIONS_URL);
     }
 
-    getAllImages(): Observable<Publication[]> {
+    getAllPublications(): Observable<Publication[]> {
         return this._requester
-            .getJson<Publication[]>(IMAGES_URL);
+            .getJson<Publication[]>(PUBLICATIONS_URL);
     }
 
     getPublicationById(id: string): Observable<Publication> {
-        let imageByIdUrl = IMAGES_URL + `/${id}`;
+        let imageByIdUrl = PUBLICATIONS_URL + `/${id}`;
         return this._requester
             .getJson<Publication>(imageByIdUrl);
     }
@@ -39,14 +40,20 @@ export class PublicatonsService {
         let currentUser = this._localeStorageService.getUser().username;
         let headers = new Headers();
         headers.append('Authorization', `JWT ${this._localeStorageService.getToken()}`);
-        headers.append('Content-Type', 'application/X-www-form-urlencoded');
 
         let infoAsString = `id=${publicationId}&username=${currentUser}&rate=${rate}`;
         return this._requester
-            .post(RATE_PUBLICATION, infoAsString, headers);
+            .postEncoded(RATE_PUBLICATION, infoAsString, headers);
     }
 
-    addComment(comment: Comment) {
+    addComment(publicationId: string, comment: Comment): Observable<Object> {
+        let headers = new Headers();
+        headers.append('Authorization', `JWT ${this._localeStorageService.getToken()}`);
 
+        let bodyObj: any = comment;
+        bodyObj.id = publicationId;
+        let body = this._requester.createBody(bodyObj);
+        
+        return this._requester.postEncoded(PUBLICATION_COMMENT_URL, body, headers);
     }
 }

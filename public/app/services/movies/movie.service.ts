@@ -47,13 +47,10 @@ export class MovieService {
 
 
   getMovie(title: string) {
-    // this.spinnerService.show();
     title = title.replace(/([ ])/g, '%20');
-
-    console.log(`${omdbapi}/?t=${title}&plot=full`);
     return <Observable<Movie>>this.http
       .get(`${omdbapi}?t=${title}&plot=full`)
-      .map(res => this.extractData<[Movie[], Number]>(res))
+      .map(res => res = res.json())
       .catch(this.exceptionService.catchBadResponse);
     //   .finally(() => this.spinnerService.hide());
   }

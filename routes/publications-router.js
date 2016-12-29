@@ -2,6 +2,7 @@
 'use strict';
 
 const express = require('express');
+const passport = require('passport');
 
 module.exports = function({ app, controllers }) {
     let controller = controllers.publications;
@@ -9,10 +10,11 @@ module.exports = function({ app, controllers }) {
     let router = new express.Router();
 
     router
-        .get('/topimages', controller.getTopImages)
-        .get('/images', controller.getAllImages)
-        .get('/images/:id', controller.getImageById)
-        .post('/ratepublication', controller.ratePublication); //TODO authenticate users
+        .get('/publications', controller.getAllPublications)
+        .get('/publications/top', controller.getTopPublications)
+        .get('/publications/:id', controller.getPublicationById)
+        .post('/ratepublication', controller.ratePublication) //TODO authenticate users
+        .post('/publication/comment', passport.authenticate('jwt', { session: false}), controller.addComment);
 
     app.use('/api', router);
 

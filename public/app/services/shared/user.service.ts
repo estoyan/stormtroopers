@@ -22,12 +22,10 @@ export class UserService {
     }
 
     register(userInfo: any): Observable<Object> {
-        let headers = new Headers();
-        let userInfoAsString = `username=${userInfo.username}&firstname=${userInfo.firstname}&lastname=${userInfo.lastname}&email=${userInfo.email}&password=${userInfo.password}`
+        let userInfoAsString = this._requester.createBody(userInfo);
 
-        headers.append('Content-Type', 'application/X-www-form-urlencoded');
         return this._requester
-            .post(REGISTER_USER_URL, userInfoAsString, headers);
+            .postEncoded(REGISTER_USER_URL, userInfoAsString);
     }
 
     getCurrentUser(): Observable<User> {
@@ -39,16 +37,13 @@ export class UserService {
     }
 
     updateUser(user: User): Observable<Object> {
-        let userAsString: string = '';
-        let keys = Object.keys(user);
-        Object.keys(user).forEach(key => userAsString += `${key}=${user[key]}&`);
+        let userAsString: string = this._requester.createBody(user);
 
         let headers = new Headers();
         headers.append('Authorization', `JWT ${this._localeStorageService.getToken()}`);
-        headers.append('Content-Type', 'application/X-www-form-urlencoded');
 
         return this._requester
-            .post(UPDATE_URL, userAsString, headers)
+            .postEncoded(UPDATE_URL, userAsString, headers)
             .do((data: any) => window.localStorage.setItem('user', JSON.stringify(data.body)));
     }
 

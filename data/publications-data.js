@@ -77,18 +77,42 @@ module.exports = function ({
             });
 
         },
-        getTopImages() {
+        getTopPublications() {
             return new Promise((resolve, reject) => {
-                // TODO: write query to database here
+                // TODO: Uncomment
                 resolve(mockedData);
+                // Publication.find()
+                //     .exec((err, res) => {
+                //         if (err) {
+                //             return reject(err);
+                //         }
+
+                //         return resolve(res);
+                //     })
+                //     .then(res => {
+                //         let top = res.sort((a, b) => {
+                //                 return b.rating.reduce((acc, val) => acc + val.rate, 0)
+                //                         - a.rating.reduce((acc, val) => acc + val.rate, 0);
+                //             })
+                //             .slice(0, 3);
+
+                //         return Promise.resolve(top);
+                //     });
             });
         },
-        getAllImages() {
+        getAllPublications() {
             return new Promise((resolve, reject) => {
-                // TODO: write query to database here
+                // TODO: Uncomment
                 resolve(mockedData);
+                // Publication.find()
+                //     .exec((err, res) => {
+                //         if (err) {
+                //             return reject(err);
+                //         }
 
-            })
+                //         return resolve(res);
+                //     });
+            });
         },
         getUserPublications(username) {
             return new Promise((resolve, reject) => {
@@ -105,10 +129,18 @@ module.exports = function ({
 
             });
         },
-        getImageById(id) {
+        getPublicationById(id) {
             return new Promise((resolve, reject) => {
-                // TODO: write query to database here
+                // TODO: Uncomment
                 resolve(mockedData.find(x => x._id === id));
+                // Publication.findById(id)
+                //     .exec((err, res) => {
+                //         if (err) {
+                //             return reject(err);
+                //         }
+
+                //         return resolve(res);
+                //     });
             });
         },
         ratePublication(id, rate, username) {
@@ -132,6 +164,16 @@ module.exports = function ({
                 //         resolve(publication);
                 //     })
             });
+        },
+        addComment(id, content, username) {
+            // TODO: Uncomment
+            return Promise.resolve({});
+            // return this.getPublicationById(id)
+            //     .then(publication => {
+            //         publication.comments.push({username, content})
+
+            //         return dataUtils.update(publication);
+            //     });
         }
     };
 };

@@ -13,6 +13,13 @@ export class RequesterService {
         private _exceptionService: ExceptionService
     ) { }
 
+    public createBody(obj: Object): string {
+        let body: string = '';
+        let keys = Object.keys(obj);
+        Object.keys(obj).forEach(key => body += `${key}=${obj[key]}&`);
+        return body.slice(0, body.length - 1);
+    }
+
     public getJson<T>(url: string, headers?: Headers): Observable<T> {
         headers = headers || new Headers();
         return this._http
@@ -26,5 +33,11 @@ export class RequesterService {
             .post(url, body, { headers })
             .map((response: Response) => <T>response.json())
             .catch(this._exceptionService.catchBadResponse);
+    }
+
+    public postEncoded<T>(url: string, body: string, headers: Headers = new Headers()): Observable<T> {
+        headers.append('Content-Type', 'application/X-www-form-urlencoded');
+
+        return this.post(url, body, headers);
     }
 }
