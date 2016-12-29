@@ -66,6 +66,12 @@ module.exports = function ({
                 //check in DB how what should be the query mockedData.find(x => x._id == id) or ====
                 resolve(mockedData.find(x => x._id == id));
             });
+        },
+        getProductsFromBasket(username) {
+            return new Promise((resolve, reject) => {
+                // TODO: write query to database here
+                resolve(mockedData);
+            });
         }
     };
 };

@@ -9,7 +9,7 @@ import { Publication } from '../../../models/publication.model';
 })
 
 export class PublicationListPageComponent implements OnInit {
-  publications: Publication[] = [];
+  publications: Publication[];
 
   constructor(private _publicationService: PublicatonsService) { }
 
