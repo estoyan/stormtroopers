@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
+
 import { PublicationListComponent } from './publication-list/publication-list.component';
+import { FilterTextModule } from './filter-text/filter-text.module'
 
 import { AcStar } from './stars/star';
 import { AcStars } from './stars/stars';
@@ -24,6 +26,7 @@ import { AcStars } from './stars/stars';
         PublicationListComponent,
         AcStar,
         AcStars,
+        FilterTextModule
     ],
     declarations: [AcStar, AcStars, PublicationListComponent]
 })

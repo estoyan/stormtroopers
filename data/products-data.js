@@ -15,6 +15,7 @@ let mockedData = [{
 }, {
     _id:3,    
     name: 'Darth Vader T-shirt',
+    description:"",
     price: 55,
     quantity: 10,
     info: 'Join the dark side',
@@ -28,6 +29,7 @@ let mockedData = [{
     name: 'Star Wars Vintage Poster',
     price: 155,
     quantity: 1,
+    description:"",
     info: 'Star Wars IV vintage poster. One of its kind!',
     category: 'poster',
     images: ['https://i.kinja-img.com/gawker-media/image/upload/s--S24cks6n--/c_scale,f_auto,fl_progressive,q_80,w_800/19fk32sw3nt1wjpg.jpg'],
