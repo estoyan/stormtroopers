@@ -143,7 +143,6 @@ module.exports = function ({
                     .then(publication => {
                         let hasVoted = publication.rating.some(x => x.username === username);
                         if (hasVoted) {
-                            console.log(publication.rating.find(x => x.username === username).rate, rate);
                             publication.rating.find(x => x.username === username).rate = rate;
                         } else {
                             publication.rating.push({

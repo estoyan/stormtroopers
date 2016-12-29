@@ -15,10 +15,11 @@ const GET_USER_PUBLICATIONS = '/api/user/publications'
 
 @Injectable()
 export class UserService {
+
     constructor(
         private _requester: RequesterService,
         private _localeStorageService: LocalStorageService
-        ) {
+    ) {
     }
 
     register(userInfo: any): Observable<Object> {
