@@ -23,14 +23,12 @@
     <div *ngFor="let publication of topPublications" class="col-md-4 col-sm-4">
         <div class="image-container">
             <a routerLink="/publications/{{publication._id}}" routerLinkActive="active">
-                <div>
-                    <img src={{publication.imageUrl}} alt="top fan art image" class="image-list">
-                </div>
+                <img src={{publication.imageUrl}} alt="top fan art image" class="image-list">
             </a>
         </div>
-        <ac-stars [rating]="(publication.rating | sumPipe: 'rate') / topPublications.length" 
-                [ownerUsername]="publication.owner" 
-                (newRate)="setNewRate($event, publication._id)">
+        <ac-stars 
+            [rating]="(publication.rating | sumPipe: 'rate') / publication.rating.length" 
+            [publication]="publication">
         </ac-stars>
     </div>
 </div>

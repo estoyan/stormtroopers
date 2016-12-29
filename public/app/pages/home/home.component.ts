@@ -28,11 +28,4 @@ export class HomeComponent implements OnInit {
     this._publicatonsService.getTopPublications()
       .subscribe(x => this.topPublications = x)
   }
-
-  setNewRate(event: any, publicationId: string) {
-    let rate = event;
-    let id = publicationId;
-    this._publicatonsService.rateProduct(id, rate)
-      .subscribe(x => x);
-  }
 }

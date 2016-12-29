@@ -36,7 +36,7 @@ export class PublicatonsService {
             .getJson<Publication>(imageByIdUrl);
     }
 
-    rateProduct(publicationId: string, rate: number): Observable<Object> {
+    rateProduct(publicationId: string, rate: number): Observable<number> {
         let currentUser = this._localeStorageService.getUser().username;
 
         let infoAsString = `id=${publicationId}&username=${currentUser}&rate=${rate}`;

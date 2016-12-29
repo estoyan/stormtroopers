@@ -139,7 +139,8 @@ module.exports = function ({
         },
         ratePublication(id, rate, username) {
             return new Promise((resolve, reject) => {
-                resolve(mockedData.find(x => x._id === id).rating.find(x => x.username === username).rate = rate);
+                // mockedData.find(x => x._id === id).rating.find(x => x.username === username).rate = rate
+                resolve(rate);
                 // this.findPublicationById(id)
                 //     .then(publication => {
                 //         let hasVoted = publication.rating.some(x => x.username === username);

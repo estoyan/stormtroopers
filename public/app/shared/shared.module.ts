@@ -3,10 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
+
 import { PublicationListComponent } from './publication-list/publication-list.component';
+import { FilterTextModule } from './filter-text/filter-text.module'
 
 import { AcStar } from './stars/star';
 import { AcStars } from './stars/stars';
+
+import { SumPipe } from '../pipes/sum.pipe';
 
 // imports: imports the module's exports. which are usually
 // declarables(components / directives / pipes) and providers.
@@ -24,7 +28,9 @@ import { AcStars } from './stars/stars';
         PublicationListComponent,
         AcStar,
         AcStars,
+        SumPipe,
+        FilterTextModule
     ],
-    declarations: [AcStar, AcStars, PublicationListComponent]
+    declarations: [AcStar, AcStars, PublicationListComponent, SumPipe]
 })
 export class SharedModule { }

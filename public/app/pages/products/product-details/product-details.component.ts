@@ -5,7 +5,8 @@
 import 'rxjs/add/operator/switchMap';
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-
+import {ProductsService } from '../../../services/products/products.service'
+import {Product } from '../../../models/product.model'
 // import { slideInDownAnimation } from '../animations';
 
 // import { Hero, HeroService }  from './hero.service';
@@ -13,42 +14,33 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   moduleId: module.id,
-  templateUrl: './product-details.component.html'
+  templateUrl: './product-details.component.html',
+  styleUrls:['./product-details.componenet.css']
+
 })
 
-// export class ProductDetailsComponent {
-//   constructor(
-//     private route: ActivatedRoute,
-//     private router: Router,
-//   ){
-
-//   }
-// }
 
 export class ProductDetailsComponent implements OnInit {
   // @HostBinding('@routeAnimation') routeAnimation = true;
   // @HostBinding('style.display')   display = 'block';
   // @HostBinding('style.position')  position = 'absolute';
-
-  // hero: Hero;
-
+  product: Product;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private _productService: ProductsService
   ) {}
 
   ngOnInit() {
     this.route.params
       // (+) converts string 'id' to a number
-      .switchMap((params: Params) => params['id'])
-      .subscribe((id) =>console.log(id));
+      .switchMap((params: Params) => this._productService.getProductById(params['id']))
+       .subscribe((p: Product) => this.product = p);
+    // .switchMap((params: Params) => this.service.getMovie(params['title']))
+    //         .subscribe((m: Movie) => this.movie = m);
   }
 
-  gotoHeroes() {
-    // let heroId = this.hero ? this.hero.id : null;
-    // Pass along the hero id if available
-    // so that the HeroList component can select that hero.
-    // Include a junk 'foo' property for fun.
-    this.router.navigate(['', { id: "heroId", foo: 'foo' }]);
-  }
 }
+
+
+
