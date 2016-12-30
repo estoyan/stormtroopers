@@ -1,12 +1,13 @@
-import{Component,Input, Output} from '@angular/core'
+import { Component, Input, Output } from '@angular/core'
 import { Product } from '../../models/product.model';
 
 @Component({
-    selector: 'product-overview',
+  selector: 'product-overview',
   moduleId: module.id,
-  templateUrl: './product-overview.component.html'
+  templateUrl: './product-overview.component.html',
+  styleUrls: ['./product-overview.component.css']
 })
-export class ProductOverviewComponent{
+export class ProductOverviewComponent {
   @Input() product: Product;
 
   constructor() { }

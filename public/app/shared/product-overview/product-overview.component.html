@@ -1,9 +1,9 @@
-  <div  id="product.id" class="product">
-        <a href="" [routerLink]="[ product._id]" routerLinkActive="active" title="{{product.name}}">
-            <img class="really-lazy prodlist-img-lrg" width="194" height="194" src="{{product.images}}" alt="{{product.name}}">
-            <h4>{{product.name}}</h4>
-        </a>
-        <p class="sale-price">{{product.price|currency:'EUR':true}}
-            <!--<span class="sale-tag">Sale</span></p>-->
-            <!--<p> <span class="sale-savings">	Save up to 63%</span></p>-->
-    </div>
+<div id="{{product._id}}" class="product">
+    <a href="" [routerLink]="[ product._id]" routerLinkActive="active" title="{{product.title}}">
+        <img class="really-lazy prodlist-img-lrg" width="194" height="194" src="{{product.imageUrl}}" alt="{{product.title}}">
+        <h4>{{product.title}}</h4>
+    </a>
+    <p class="sale-price">{{product.price|currency:'EUR':true}}
+        <!--<span class="sale-tag">Sale</span></p>-->
+        <!--<p> <span class="sale-savings">	Save up to 63%</span></p>-->
+</div>

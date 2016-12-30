@@ -9,3 +9,11 @@ div.head {
 h2 {
     color: gold;
 }
+.btn.btn-lg {
+    border-radius: 0;
+    background-color: #00C000;
+}
+.btn.btn-lg {
+    background-color: #408000;
+    color: white;
+}

@@ -1,0 +1,56 @@
+.btn {
+    background-color: #00C000;
+    border-radius: 0;
+}
+.btn:hover {
+    background-color: #408000;
+    color: white;
+}
+.btn.btn-danger,
+.btn.inactive {
+    background-color: #f72825;    
+}
+.btn.btn-danger,
+.btn.inactive:hover {
+    background-color: #c13634;
+}
+
+#qty {
+    width: 3em;
+    display: inline-block;
+}
+.order-info {
+    padding-left: 1em;
+}
+.order-info input[type='checkbox'] {
+    display: none;
+}
+.left {
+    float: left;
+}
+product-overview {
+    margin-right: 1em;
+    margin-left: 1em;
+}
+
+.btn span.glyphicon-remove {
+    display: inline;
+}
+.btn span.glyphicon-ok {
+    display: none;
+}
+.btn.active span.glyphicon-remove {
+    display: none;
+}
+.btn.active span.glyphicon-ok {
+    display: inline;
+}
+
+button.btn.btn-primary {
+    background-color: white;
+    color: black;
+}
+button.btn.btn-primary,
+.dropdown-menu ul li {
+    width: 4em;
+}
