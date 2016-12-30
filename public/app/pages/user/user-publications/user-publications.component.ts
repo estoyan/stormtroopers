@@ -4,7 +4,7 @@ import { Router } from '@angular/router'
 import { UserService } from '../../../services/user/user.service';
 import { User } from '../../../models/user.model';
 import { Publication } from '../../../models/publication.model';
-import { PublicationListComponent } from '../../../shared/publication-list/publication-list.component';
+import { PublicationsOverviewModule } from '../../../shared/publication-overview/publications-overview.module';
 
 @Component({
     moduleId: module.id,
@@ -13,7 +13,7 @@ import { PublicationListComponent } from '../../../shared/publication-list/publi
 })
 
 export class UserPublicationsComponent implements OnInit {
-    @ViewChild('wrapper') publicationList: PublicationListComponent;
+    @ViewChild('wrapper') publicationList: PublicationsOverviewModule;
     publications: Publication[];
 
     constructor(private _router: Router,

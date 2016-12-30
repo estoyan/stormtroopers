@@ -5,12 +5,14 @@ import { RequesterService } from '../shared/requester.service';
 import { LocalStorageService } from '../shared/local-storage.service';
 
 import { User } from '../../models/user.model';
+import { Product } from '../../models/product.model';
 import { Publication } from '../../models/publication.model';
 
 const REGISTER_USER_URL = '/api/sign-up'
 const GET_CURRENT_USER_URL = '/api/user';
-const UPDATE_URL = '/api/update';
+const UPDATE_URL = '/api/user/update';
 const GET_USER_PUBLICATIONS = '/api/user/publications'
+const GET_USER_PAST_ORDERS = '/api/user/pastorders'
 
 @Injectable()
 export class UserService {
@@ -44,5 +46,10 @@ export class UserService {
     getUserPublications(): Observable<Publication[]> {
         return this._requester
             .getJsonAuthorized<Publication[]>(GET_USER_PUBLICATIONS);
+    }
+
+    getPastOrders(): Observable<Product[]> {
+        return this._requester
+            .getJsonAuthorized<Product[]>(GET_USER_PAST_ORDERS);
     }
 }

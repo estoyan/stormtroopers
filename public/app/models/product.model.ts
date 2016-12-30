@@ -5,9 +5,9 @@ export interface Product {
     price: number;
     quantity: number;
     category: category,
-    isConfigurable: Boolean,
+    isConfigurable: boolean,
     imageUrl: string,    
-    color: String
+    color: string
 }
 
 enum category {

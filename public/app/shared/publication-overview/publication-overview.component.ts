@@ -3,12 +3,12 @@ import { Publication } from '../../models/publication.model';
 
 @Component({
   moduleId: module.id,
-  selector: 'st-publication-list',
-  templateUrl: './publication-list.component.html',
-  styleUrls: ['./publication-list.component.css']
+  selector: 'st-publication-overview',
+  templateUrl: './publication-overview.component.html',
+  styleUrls: ['./publication-overview.component.css']
 })
 
-export class PublicationListComponent {
+export class PublicationOverviewComponent {
   @Input() publication: Publication;
 
   constructor() { }

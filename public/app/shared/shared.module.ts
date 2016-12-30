@@ -1,38 +1,26 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 
+import { PublicationsOverviewModule } from './publication-overview/publications-overview.module';
+import { ProductOverviewModule } from './product-overview/product-overview.module';
+import { StarsModule } from './stars/stars.module';
+import { FilterModule } from './filter/filter.module';
+import { SortModule } from './sort/sort.module';
 
-import { PublicationListComponent } from './publication-list/publication-list.component';
-import { FilterTextModule } from './filter-text/filter-text.module';
-import { ProductOverviewComponent } from './product-overview/product-overview.component';
-
-import { AcStar } from './stars/star';
-import { AcStars } from './stars/stars';
-
-import { SumPipe } from '../pipes/sum.pipe';
-
-// imports: imports the module's exports. which are usually
-// declarables(components / directives / pipes) and providers.
-// in our case the FilterTextModule has a provider.
-//
-// exports: exports modules AND declarables (components/directives/pipes) that other modules may want to use
-// SharedModule does not use CommonModule, but does use FormsModule.
-// Even so, we import/export both of these because most other modules will import SharedModule and will need them.
 @NgModule({
-    imports: [CommonModule, FormsModule, RouterModule],
+    imports: [
+        FilterModule,
+        SortModule,
+        StarsModule,
+        ProductOverviewModule,
+        PublicationsOverviewModule
+        ],
     exports: [
-        CommonModule,
-        FormsModule,
-        RouterModule,
-        PublicationListComponent,
-        AcStar,
-        AcStars,
-        SumPipe,
-        FilterTextModule,
-        ProductOverviewComponent
+        FilterModule,
+        SortModule,
+        StarsModule, 
+        ProductOverviewModule,
+        PublicationsOverviewModule
     ],
-    declarations: [AcStar, AcStars, PublicationListComponent, SumPipe, ProductOverviewComponent]
+    declarations: []
 })
 export class SharedModule { }

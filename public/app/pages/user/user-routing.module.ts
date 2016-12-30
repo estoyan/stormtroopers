@@ -5,6 +5,7 @@ import { UserComponent } from './user.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { UserPublicationsComponent } from './user-publications/user-publications.component';
+import { PastOrdersComponent } from './past-orders/past-orders.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
         path: 'publications',
         component: UserPublicationsComponent,
       },
+       {
+        path: 'pastorders',
+        component: PastOrdersComponent,
+      },
     ]
   },
 ];
@@ -37,5 +42,6 @@ export const routedComponents = [
   UserProfileComponent,
   UserComponent,
   UpdateProfileComponent,
-  UserPublicationsComponent
+  UserPublicationsComponent,
+  PastOrdersComponent
 ];

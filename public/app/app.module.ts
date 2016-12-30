@@ -10,17 +10,14 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './routing/app-routing.module';
 import { CoreModule } from './core/core.module';
 import { PageLoaderModule } from './pages/page-loader.module';
-import { RegisterComponent } from './pages/register/register.component';
 
 //  Services
 import { AuthService } from './services/authentication/auth.service';
 import { RequesterService } from './services/shared/requester.service';
 import { ExceptionService } from './services/shared/exception.service';
 import { ToastService } from './services/shared/toast.service';
-import { UserService } from './services/user/user.service';
 import { NavbarService } from './services/shared/navbar.service';
 import { LocalStorageService } from './services/shared/local-storage.service';
-
 
 // Guards
 import { AuthGuard } from './guards/authGuard';
@@ -36,8 +33,7 @@ import { AuthGuard } from './guards/authGuard';
     PageLoaderModule
   ],
   declarations: [
-    AppComponent,
-    RegisterComponent,
+    AppComponent
   ],
   bootstrap: [AppComponent],
   providers: [
@@ -45,10 +41,9 @@ import { AuthGuard } from './guards/authGuard';
     RequesterService,
     ExceptionService,
     ToastService,
-    UserService,
     AuthGuard,
     LocalStorageService,
-    NavbarService
+    NavbarService,
   ]
 })
 export class AppModule { }

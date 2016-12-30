@@ -55,7 +55,9 @@ Nested Components:
 5.AcStars
 6.Product list
 7.Publication list
-
+8.Filter
+9.Sort
+10.Product details
 _____________________
 
 Pipes:

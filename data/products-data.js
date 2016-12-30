@@ -5,9 +5,10 @@ let dataUtils = require('./utils/data-utils');
 let mockedData = [{
 
     _id: 3,
-    title: 'Darth Vader T-shirt',
+    title: 'D',
+    // arth Vader T-shirt',
     description: "",
-    price: 55,
+    price: 100055,
     quantity: 10,
     info: 'Join the dark side',
     category: 't-shirt',
@@ -17,7 +18,8 @@ let mockedData = [{
 },
 {
     _id: 2,
-    title: 'Star Wars Vintage Poster',
+    title: 'L',
+    // Star Wars Vintage Poster',
     price: 155,
     quantity: 1,
     description: "",
@@ -29,7 +31,8 @@ let mockedData = [{
 },
 {
     _id: 1,
-    title: 'Boba Fett Mug',
+    title: 'B',
+    // oba Fett Mug',
     price: 15,
     quantity: 20,
     description: "Alabala Cuki mnnogo go izpolzva. Joda is the best jeday master",
@@ -71,6 +74,14 @@ module.exports = function ({
             return new Promise((resolve, reject) => {
                 // TODO: write query to database here
                 resolve(mockedData);
+            });
+        },
+        addProductToBasket(username, product) {
+            console.log(username);
+            console.log(product);
+            return new Promise((resolve, reject) => {
+                // TODO: write query to database here
+                resolve({success:true});
             });
         }
     };
