@@ -1,0 +1,28 @@
+h2 {
+    color: gold;
+    margin-bottom: 30px;
+}
+
+.movie-container {
+    background-color: #282727;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.image {
+    padding-left: 0;
+}
+
+.info-container {
+    margin-top: 30px;
+    padding-left: 0;
+}
+
+.category {
+    color: #969595;
+    margin-bottom: 10px;
+}
+
+.category span {
+    color: white;
+}
