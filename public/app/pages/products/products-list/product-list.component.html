@@ -1,7 +1,10 @@
 <h1>Products List Page</h1>
 <stormtroopers-filter-sort-text class='filter' (changed)="filterChanged($event)" (sort)="sortCollection($event)" [sortProp]="sortProp"></stormtroopers-filter-sort-text>
+<form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="wrapper" *ngFor="let product of products | customSort :sortCriteria| customFilter:searchText:filterProp">
+        <product-overview [product]=" product "> </product-overview>
+        <!--<button  type="submit" class="button btn-primary"  [disabled]="loginForm.form.valid">Add to Basket</button>-->
+        <button type="submit" class="btn btn-lg" [disabled]="!isLogedIn" (click)="addToBascket([$event,product])">Add to Basket</button>
 
-<div class="wrapper" *ngFor="let product of products | customSort :sortCriteria| customFilter:searchText:filterProp">
-    <product-overview [product]=" product "> </product-overview>
-    <button class="button btn-primary "><a href=" ">Add to Basket</a></button>
-</div>
+    </div>
+</form>

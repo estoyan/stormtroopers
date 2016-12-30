@@ -35,6 +35,20 @@ module.exports = function ({ data }) {
                 .catch(err => {
                     res.status(500).json({ msg: 'Server error!', err })
                 });
+        },
+        addProductToBasket(req, res) {
+
+            let token = req.headers.authorization,
+                username = tokenUtils.decodeToken(token).username,
+                product = data.getProductById(req.body._id)
+            // console.log(product);
+            data.addProductToBasket(username, product)
+                .then(result => {
+                    return res.status(200).json(result);
+                })
+                .catch(err => {
+                    res.status(500).json({ msg: 'Server error!', err })
+                });
         }
     };
 };

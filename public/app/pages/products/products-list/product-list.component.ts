@@ -1,7 +1,12 @@
-import { Component,OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FilterSortComponent } from '../../../shared/filterSort/filterSortComponent';
+
 import { Product } from '../../../models/product.model';
+
 import { ProductsService } from '../../../services/products/products.service';
-import {FilterSortComponent } from '../../../shared/filterSort/filterSortComponent';
+import { AuthService } from '../../../services/authentication/auth.service';
+import { ToastService } from '../../../services/shared/toast.service';
+
 @Component({
 
   moduleId: module.id,
@@ -10,14 +15,20 @@ import {FilterSortComponent } from '../../../shared/filterSort/filterSortCompone
 })
 
 export class ProductListComponent implements OnInit {
+  private basketUrl: string;
   sortCriteria: string;
   products: Product[] = [];
   filterProp: Array<string>;
   searchText: String;
   isLogedIn = false;
-  sortProp:Array<Object>;
-  constructor(private _productService: ProductsService) { 
-    this.sortCriteria ='category';
+  sortProp: Array<Object>;
+  constructor(private _productService: ProductsService,
+    private _authService: AuthService,
+    private _toasterService: ToastService
+  ) {
+     
+
+    this.sortCriteria = 'category';
     this.filterProp = ['name', 'description'];
     this.sortProp = [
       {
@@ -27,7 +38,7 @@ export class ProductListComponent implements OnInit {
       {
         queryParam: 'price false',
         displayValue: 'Price: High to Low'
-      } ,
+      },
       {
         queryParam: 'name',
         displayValue: 'Product Name'
@@ -37,9 +48,9 @@ export class ProductListComponent implements OnInit {
       //   displayValue: 'Newest Arrivals'
       // }
       // TODO add property dateOfArrival
-       
-      
-      ];
+
+
+    ];
     this.searchText = '';
   }
 
@@ -49,10 +60,19 @@ export class ProductListComponent implements OnInit {
   sortCollection(sortCriteria: string) {
     this.sortCriteria = sortCriteria;
   }
-  
+  addToBascket(event: any) {
+    event[0].preventDefault();
+    let product = event[1];
+    this._productService.addProductToBasket(product)
+      .subscribe(data => {
+                this._toasterService.activate('Product was added to basket!')
+            });
+  }
+
   ngOnInit() {
     this._productService.getAllProducts()
       .subscribe(x => this.products = x);
+    this.isLogedIn = this._authService.isLoggedIn();
   }
 
 }
