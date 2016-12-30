@@ -3,12 +3,6 @@
         <h2>Star Wars Characters</h2>
     </div>
 </div>
-<!--<div class="row text-center">
-    <div class="col-md-12 input-group">
-        <input type="text" class="form-control" placeholder="Search" autofocus
-            [(ngModel)]="searchText">
-    </div>
-</div>-->
 <st-filter (changed)="filterChanged($event)"></st-filter>
 <div class="row character-container" *ngFor="let character of characters | customFilter:searchText:filterProp">
     <div class="col-md-2 image">
