@@ -8,9 +8,11 @@
     <h4>NEW PRODUCTS</h4>
     <div *ngFor="let product of recentProducts" class="col-md-4 col-sm-4">
         <div class="product-container">
-            <img src="{{product.imageUrl}}" alt="product image" class="image-list">
+            <a routerLink="/products/{{product._id}}" routerLinkActive="active">
+                <img src="{{product.imageUrl}}" alt="product image" class="image-list">
+            </a>
         </div>
-        <span class="pruduct-name">{{product.name}}</span>
+        <span class="pruduct-name">{{product.title}}</span>
     </div>
 </div>
 <div class="row">

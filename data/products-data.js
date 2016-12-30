@@ -15,8 +15,7 @@ let mockedData = [{
     imageUrl: 'http://hideyourarms.com/wp-content/uploads/2011/10/Expressions-Darth-Vader-Shirt-480x380.jpg',
     color: 'red',
     isConfigurable: false
-},
-{
+}, {
     _id: 2,
     title: 'L',
     // Star Wars Vintage Poster',
@@ -28,8 +27,7 @@ let mockedData = [{
     imageUrl: 'https://i.kinja-img.com/gawker-media/image/upload/s--S24cks6n--/c_scale,f_auto,fl_progressive,q_80,w_800/19fk32sw3nt1wjpg.jpg',
     color: 'multy',
     isConfigurable: true,
-},
-{
+}, {
     _id: 1,
     title: 'B',
     // oba Fett Mug',
@@ -53,8 +51,14 @@ module.exports = function ({
     return {
         getRecentProducts() {
             return new Promise((resolve, reject) => {
-                // TODO: write query to database here
-                resolve(mockedData);
+                Product.find()
+                    .exec((err, res) => {
+                        if (err) {
+                            return reject(err);
+                        }
+
+                        return resolve(res.slice(0, 3));
+                    });
             })
         },
         getAllProducts() {
@@ -68,6 +72,15 @@ module.exports = function ({
                 // TODO: write query to database here
                 //check in DB how what should be the query mockedData.find(x => x._id == id) or ====
                 resolve(mockedData.find(x => x._id == id));
+                // Product.findOne({
+                //     _id: id
+                // }, (err, res) => {
+                //     if (err) {
+                //         return reject(err);
+                //     }
+
+                //     resolve(res);
+                // });
             });
         },
         getProductsFromBasket(username) {
@@ -81,7 +94,9 @@ module.exports = function ({
             console.log(product);
             return new Promise((resolve, reject) => {
                 // TODO: write query to database here
-                resolve({success:true});
+                resolve({
+                    success: true
+                });
             });
         }
     };
