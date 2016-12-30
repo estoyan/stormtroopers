@@ -6,8 +6,7 @@ import { FilterComponent } from './filter.component';
 @NgModule({
     imports: [FormsModule],
     exports: [FilterComponent],
-    declarations: [FilterComponent],
-    providers: []
+    declarations: [FilterComponent]
 })
 
 export class FilterModule { }
