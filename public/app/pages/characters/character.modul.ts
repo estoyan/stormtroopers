@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 
 
 import { CharacterComponent } from './character.component';
-import {PipeModule} from '../../pipes/pipe.module';
+import { PipeModule } from '../../pipes/pipe.module';
+import { FilterModule } from '../../shared/filter/filter.module';
 // import { CustomFilterPipe } from '../../pipes/filter.pipe'
 
 @NgModule({
-    imports: [CommonModule, FormsModule, PipeModule],
+    imports: [CommonModule, FormsModule, PipeModule, FilterModule],
     declarations: [CharacterComponent],
 })
 

@@ -8,6 +8,7 @@ import { CharacterService } from '../../services/character/character.service';
     templateUrl: './character.component.html',
     styleUrls: ['./character.component.css']
 })
+
 export class CharacterComponent implements OnInit {
     characters: Character[];
     filterProp: string[];
@@ -22,5 +23,9 @@ export class CharacterComponent implements OnInit {
             .subscribe((data: any) => {
                 this.characters = data.body
             });
+    }
+
+    filterChanged(searchText: string) {
+        this.searchText = searchText;
     }
 }
