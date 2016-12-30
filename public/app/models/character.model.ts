@@ -1,3 +1,10 @@
 export interface Character {
-    // TODO
+    name: string,
+    homeland: string,
+    born: string,
+    dead: string,
+    story: string,
+    species: string,
+    affiliation: string[],
+    image: string
 }

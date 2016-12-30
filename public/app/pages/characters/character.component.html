@@ -3,6 +3,37 @@
         <h2>Star Wars Characters</h2>
     </div>
 </div>
-<div class="row">
-    
+<div class="row text-center">
+    <div class="col-md-12 input-group">
+        <input type="text" class="form-control" placeholder="Search" autofocus
+            [(ngModel)]="searchText">
+    </div>
+</div>
+<div class="row character-container" *ngFor="let character of characters | customFilter:searchText:filterProp">
+    <div class="col-md-2 image">
+        <img src={{character.image}} alt={{character.image}}>
+    </div>
+    <div class="col-md-9 col-md-offset-1 info-container">
+        <h3>{{character.name}}</h3>
+        <div class="info">
+            <div>
+                <span class="category">Homeland: </span>{{character.homeland}}
+            </div>
+            <div>
+                <span class="category">Born: </span>{{character.born}}
+            </div>
+            <div>
+                <span class="category">Dead: </span>{{character.dead}}
+            </div>
+            <div>
+                <span class="category">Species: </span>{{character.species}}
+            </div>
+            <div>
+                <span class="category">Affiliations: </span>
+                <span>{{character.affiliation.join()}} </span>
+            </div>
+        </div>
+        <br>
+        <p class="info">{{character.story}}</p>
+    </div>
 </div>

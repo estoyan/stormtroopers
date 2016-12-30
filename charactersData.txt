@@ -1,4 +1,4 @@
-use stormtroopers
+﻿use stormtroopers
 db.characters.insertMany([{
     name: 'Yoda',
     homeland: 'N/A',
@@ -27,7 +27,7 @@ db.characters.insertMany([{
         'New Republic[',
         'Luke Skywalker\'s Jedi'
     ],
-    image: 'http://www.sideshowtoy.com/photo.php?sku=902436'
+    image: 'http://images.fun.com/products/21512/1-1/73-luke-skywalker-giant-wall-decal-.jpg'
 }, {
     name: 'Darth Vader',
     homeland: 'Tatooine',
@@ -41,7 +41,7 @@ db.characters.insertMany([{
         'Jedi',
         'Galactic Republic'
     ],
-    image: 'https://upload.wikimedia.org/wikipedia/en/7/76/Darth_Vader.jpg'
+    image: 'http://vignette1.wikia.nocookie.net/theforceunleashed/images/3/3f/Darth_Vader_TFU.jpg/revision/latest?cb=20090322024214&path-prefix=en'
 }, {
     name: 'Obi-Wan Kenobi',
     homeland: 'Stewjon',
@@ -67,7 +67,7 @@ db.characters.insertMany([{
         'Galactic Republic',
         'Rebel Alliance'
     ],
-    image: 'http://vignette4.wikia.nocookie.net/starwars/images/5/5b/Ahsoka_Tano_Rebels_Profile.png/revision/latest?cb=20150313020047'
+    image: 'http://vignette4.wikia.nocookie.net/starwarsrebels/images/e/ee/Ahsoka_rebels_1.png/revision/latest?cb=20150303094719'
 }, {
     name: 'Darth Sidious',
     homeland: 'Naboo',
@@ -105,7 +105,7 @@ db.characters.insertMany([{
         'Knights of Ren',
         'New Jedi Order (formerly)'
     ],
-    image: 'http://static.comicvine.com/uploads/original/11124/111240586/4966620-kylo+ren+afbeelding.jpg'
+    image: 'http://cdn1.bigcommerce.com/n-ou1isn/ydriczk/products/87583/images/88961/Kylo_Ren_Star_Wars_The_Force_Awakens_Lifesize_Cardboard_Cutout_Adam_Driver_available_now_at_starstills__12344.1449392324.1280.1280.jpg?c=2'
 }, {
     name: 'Boba Fett',
     homeland: 'Kamino',

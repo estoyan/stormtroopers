@@ -6,7 +6,6 @@ export class CustomFilterPipe<T> implements PipeTransform {
     transform<T>(originalList: Array<T>, data: string, props: Array<string>) {
         let filteredList: any[];
         if (data && props && originalList) {
-            console.log(data);    
             data = data.toLowerCase();
             let filtered = originalList.filter(item => {
                 let match = false;
