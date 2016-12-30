@@ -1,32 +1,26 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 
-import { PipeModule } from '../pipes/pipe.module';
-
-import { PublicationListComponent } from './publication-list/publication-list.component';
-import { FilterSortModule } from './filterSort/filterSortModule';
-
-import { ProductOverviewModule} from './product-overview/product-overview.module';
-
-import { AcStar } from './stars/star';
-import { AcStars } from './stars/stars';
-
+import { PublicationsOverviewModule } from './publication-overview/publications-overview.module';
+import { ProductOverviewModule } from './product-overview/product-overview.module';
+import { StarsModule } from './stars/stars.module';
+import { FilterModule } from './filter/filter.module';
+import { SortModule } from './sort/sort.module';
 
 @NgModule({
-    imports: [CommonModule, FormsModule, RouterModule, PipeModule],
+    imports: [
+        FilterModule,
+        SortModule,
+        StarsModule,
+        ProductOverviewModule,
+        PublicationsOverviewModule
+        ],
     exports: [
-        CommonModule,
-        FormsModule,
-        RouterModule,
-        FilterSortModule,
-        PipeModule,
-        AcStar,
-        AcStars,
-        PublicationListComponent,
-        ProductOverviewModule
+        FilterModule,
+        SortModule,
+        StarsModule, 
+        ProductOverviewModule,
+        PublicationsOverviewModule
     ],
-    declarations: [AcStar, AcStars, PublicationListComponent]
+    declarations: []
 })
 export class SharedModule { }

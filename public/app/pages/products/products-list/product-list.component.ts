@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FilterSortComponent } from '../../../shared/filterSort/filterSortComponent';
 
 import { Product } from '../../../models/product.model';
 
