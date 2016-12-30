@@ -1,12 +1,12 @@
 export interface Product {
     _id: number;
-    title: string,
+    name: string,
     description: string,
     price: number;
     quantity: number;
     category: category,
     isConfigurable: boolean,
-    images: [URL],    
+    imageUrl: string,    
     color: string
 }
 

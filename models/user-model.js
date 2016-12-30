@@ -1,6 +1,7 @@
 /* globals require module */
 
 const modelRegistrator = require('./utils/model-registrator');
+const mongoose = require('mongoose');
 
 module.exports = modelRegistrator.register('User', {
     firstname: {
@@ -42,6 +43,7 @@ module.exports = modelRegistrator.register('User', {
     orders: [
         {
             product: {
+                _id: mongoose.Schema.Types.ObjectId,
                 name: String,
                 price: Number,
                 imageUrl: String
@@ -49,6 +51,11 @@ module.exports = modelRegistrator.register('User', {
             state: {
                 type: String,
                 enum: ['completed', 'not-completed']
+            },
+            quantity: Number,
+            total: {
+                type: Number,
+                default: 1
             }
         }
     ],
