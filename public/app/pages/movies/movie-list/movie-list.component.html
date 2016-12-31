@@ -43,3 +43,11 @@
   </div>
   <div class="module-spinner" style="top: 1390px;"> <span class="loader"></span> </div>
 </section>
+
+<div class="row">
+  <div class="col-lg-6" >
+    <hr/>
+    <pagination [totalItems]="totalMovies" [(ngModel)]="currentPage" [maxSize]="maxSize" class="pagination-sm"
+                [boundaryLinks]="true" [rotate]="false" (pageChanged)="pageChanged($event)">></pagination>
+  </div>
+</div>
