@@ -35,10 +35,12 @@ export class MovieService {
     return [results, total];
   }
 
-  getMovies() {
+  getMovies(page=1 ) {
     // this.spinnerService.show();
-    return <Observable<[Movie[], Number]>>this.http
-      .get(omdbapi + starWarsmoviesSearch)
+    
+  
+    return <Observable<[Movie[], number]>>this.http
+      .get(omdbapi + starWarsmoviesSearch+`&page=${page}`)
       .map(res => this.extractData<[Movie[], Number]>(res))
       .catch(this.exceptionService.catchBadResponse);
     //   .finally(() => this.spinnerService.hide());

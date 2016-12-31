@@ -7,16 +7,24 @@
 
 <div class="row movie-container" *ngFor="let movie of movies" id="movie-[i]">
     <div class="col-md-2 image">
-       <a class=movie-title href="" [routerLink]="[ movie.Title]" routerLinkActive="active">
+                            <a class=movie-title href="" [routerLink]="[ movie.Title]" routerLinkActive="active">
           <img src={{movie.Poster}} alt={{movie.Poster}}>
-       </a>
-    </div>
-    <div class="col-md-9 col-md-offset-1 info-container">
+                            </a>
+                          </div>
+    <div class="col-md-9 info-container">
         <h3>{{movie.Title | uppercase}}</h3>
         <div class="info">
             <div>
                 <span class="category"></span>{{movie.Plot}}
-            </div>
-        </div>
-    </div>
+                        </div>
+                      </div>
+                    </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-6" >
+    <hr/>
+    <pagination [totalItems]="totalMovies" [(ngModel)]="currentPage" [maxSize]="maxSize" class="pagination-sm"
+                [boundaryLinks]="true" [rotate]="false" (pageChanged)="pageChanged($event)">></pagination>
+  </div>
 </div>

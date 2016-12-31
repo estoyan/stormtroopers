@@ -26,9 +26,9 @@
             // other libraries
             'rxjs': 'npm:rxjs',
             'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
-            'moment': 'npm:moment/moment.js',   
+            'moment': 'npm:moment/moment.js',
             'ng2-bootstrap/ng2-bootstrap': 'npm:ng2-bootstrap/bundles/ng2-bootstrap.umd.js',
-            'angular2-infinite-scroll': 'npm:angular2-infinite-scroll'
+  
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
@@ -39,9 +39,10 @@
             rxjs: {
                 defaultExtension: 'js'
             },
-            "angular2-infinite-scroll": {
-                defaultExtension: 'js'
-            }
+            
+            // 'ng2-pagination': {
+            //     format: 'cjs', main: '/dist/ng2-pagination-bundle.js', defaultExtension: 'js'
+            // },
         }
     });
 })(this);

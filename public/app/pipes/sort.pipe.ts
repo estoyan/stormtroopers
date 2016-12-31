@@ -10,6 +10,7 @@ export class CustomSortPipe<T> implements PipeTransform {
         let temp = filter.split(" ");
         let filterCriteria = temp[0];
         let isAscending = temp[1];
+        
         var result=value.sort((a: T, b: T) => {
                 if (a[filterCriteria] < b[filterCriteria]) { return -1; }
                 if (a[filterCriteria] > b[filterCriteria]) { return 1; }
