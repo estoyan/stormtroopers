@@ -37,13 +37,14 @@ export class ToastComponent implements OnInit, OnDestroy {
 
     private show() {
         this._toastElement.style.opacity = 1;
-        this._toastElement.style.zIndex = 1;
+        this._toastElement.style.zIndex = 9999;
 
         window.setTimeout(() => this.hide(), 2000);
     }
 
     private hide() {
         this._toastElement.style.opacity = 0;
+        this._toastElement.style.zIndex = 0;
         window.setTimeout(() => this._toastElement.style.zIndex = 0, 400);
     }
 }

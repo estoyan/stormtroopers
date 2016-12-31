@@ -6,11 +6,22 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
 import { BasketRoutingModule, routedComponents } from './basket-routing.module';
 
+import { StickFirstChildDirective } from '../../directives/stick-first-child.directive';
+
 import { ProductsService } from '../../services/products/products.service';
 
 @NgModule({
-    imports: [CommonModule, FormsModule, BasketRoutingModule, SharedModule, DropdownModule.forRoot()],
-    declarations: [routedComponents],
+    imports: [
+        CommonModule,
+        FormsModule,
+        BasketRoutingModule,
+        SharedModule,
+        DropdownModule.forRoot()
+    ],
+    declarations: [
+        routedComponents,
+        StickFirstChildDirective
+    ],
     providers: [ProductsService]
 })
 
