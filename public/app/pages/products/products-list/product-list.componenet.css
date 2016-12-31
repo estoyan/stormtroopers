@@ -1,5 +1,8 @@
 .button{
-    background: grey
+    margin-left: 20px;
+    background-color: cadetblue
+    /*#282727;*/
+
 }
 
 #sort-by option{
@@ -8,3 +11,7 @@
 .filter input {
     color: black;
 }
+.wrapper{
+    display: inline-block;
+    float: left;
+  }

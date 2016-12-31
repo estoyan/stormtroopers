@@ -5,6 +5,6 @@
 <form #productForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="wrapper" *ngFor="let product of products|customFilter:searchText:filterProp | customSort :sortCriteria ">
         <product-overview [product]=" product "> </product-overview>
-        <button type="submit" class="btn btn-lg" [disabled]="!isLogedIn" (click)="addToBascket([$event,product])">Add to Basket</button>
+        <button type="submit" class="btn btn-sm button" [disabled]="!isLogedIn" (click)="addToBascket([$event,product])">Add to Basket</button>
     </div>
 </form>
