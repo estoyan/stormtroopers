@@ -1,12 +1,39 @@
-
-<h1>{{movie?.Title}}</h1>
-<div>
-    <img src="{{movie?.Poster}}" alt="">
+<div class="row text-center">
+    <div class="col-md-12">
+        <h2>{{movie?.Title}}</h2>
+    </div>
 </div>
-<div>
-    {{movie?.Plot}}
+<div class="row movie-container">
+    <div class="col-md-4 image">
+        <img src="{{movie?.Poster}}" alt="">
+    </div>
+    <div class="col-md-7 info-container">
+        <div class="category">
+            <span>Director: </span>{{movie?.Director}}
+        </div>
+        <div class="category">
+            <span>Writers: </span>{{movie?.Writer}}
+        </div>
+        <div class="category">
+            <span>Year: </span>{{movie?.Year}}
+        </div>
+        <div class="category">
+            <span>Country: </span>{{movie?.Country}}
+        </div>
+        <div class="category">
+            <span>Genre: </span>{{movie?.Genre}}
+        </div>
+        <div class="category">
+            <span>Time: </span>{{movie?.Runtime}}
+        </div>
+        <div class="category">
+            <span>Actors: </span>{{movie?.Actors}}
+        </div>
+        <div class="category">
+            <span>IMDB Rating: </span>{{movie?.imdbRating}}
+        </div>
+        <div class="category">
+            {{movie?.Plot}}
+        </div>
+    </div>
 </div>
-<div>
-    <span>{{movie?.imdb}}</span>
-</div>
-

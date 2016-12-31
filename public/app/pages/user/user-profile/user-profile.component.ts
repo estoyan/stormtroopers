@@ -13,11 +13,18 @@ import { User } from '../../../models/user.model';
 export class UserProfileComponent implements OnInit {
     currentUser: User = <User>{};
 
-    constructor(private _userService: UserService) {
+    constructor(private _userService: UserService,
+        private _router: Router) {
     }
 
     ngOnInit() {
         this._userService.getCurrentUser()
-            .subscribe(x => this.currentUser = x);
+            .subscribe(x => {
+                if(x.username !== this._router.url.split('/')[2]){
+                    this._router.navigate(['/wronguser']);
+                }
+
+                this.currentUser = x
+            });
     }
 }

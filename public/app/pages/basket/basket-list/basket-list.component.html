@@ -1,5 +1,31 @@
 <div class="row">
-    <div *ngFor="let product of products" class="col-md-4 col-sm-4">
-        <product-overview [product]="product"></product-overview>
+    <div *ngFor="let order of orders, let i = index">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="row">
+                <div>
+                    <product-overview class="text-center left" [product]="order"></product-overview>
+                    <div class="order-info">
+                        <div class="form-group">
+                            <label for="qty">Quantity:</label>
+                            <div (click)="$event.preventDefault()" class="btn-group" dropdown keyboardNav="true">
+                                <button id="simple-btn-keyboard-nav" type="button" class="btn btn-primary" dropdownToggle [disabled]="!selectionQuantities[i].isSelected">
+                                    {{selectionQuantities[i].quantity}} <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+                                    <li role="menuitem" *ngFor="let option of options">
+                                        <a class="dropdown-item" (click)="onPriceSelect(option, i)" href="#">{{option}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <label class="btn btn-success" [class.active]="!selectionQuantities[i].isSelected" [class.inactive]="selectionQuantities[i].isSelected">
+                            <input type="checkbox" autocomplete="off" checked (click)="onProductSelect(i)">
+                            <span class="glyphicon glyphicon-ok"></span>
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

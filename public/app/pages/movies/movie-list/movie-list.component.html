@@ -1,48 +1,25 @@
-<h1 class= title>Movies</h1>
+<div class="row text-center">
+  <div class="col-md-12">
+    <h2 class=t itle>Star Wars Movies</h2>
+  </div>
+</div>
 
-<section class="module display-view display" data-module="display" *ngFor="let movie of movies"  id="movie-[i]">
-  <div class="bound layout-right">
-    <div class="blocks-bound">
-      <div class="blocks-container ref-1-[i]">
-        <ul class="blocks-list-view active el3_1A">
-          <div class="building-block-config el3_1A films-content    full image-left content-height-fixed ratio-2x1 short  mob-width-full mob-image-top           ">
-            <div class="building-block     ">
-              <div class="building-block-aspect">
-                <div class="building-block-padding">
-                  <div class="building-block-wrapper">
-                    <div class="image-wrapper">
-                      <div class="aspect">
-                        <a class=movie-title href="" [routerLink]="[ movie.Title]" routerLinkActive="active"> <img  src={{movie.Poster}}
-                            class="thumb reserved-ratio" alt="{{movie.Title}}"> </a>
-                      </div>
-                    </div>
-                    <div class="content-wrapper   ">
-                      <div class="bedazzlement"></div>
-                      <div class="content-bumper">
-                        <div class="content-info">
-                          <h3 class="title">
-                             <a class=movie-title href="" [routerLink]="[ movie.Title]" routerLinkActive="active"> <span class="long-title">{{movie.Title | uppercase}}</span> </a>
-                          </h3>
-                          <div class="desc-sizer">
+
+<div class="row movie-container" *ngFor="let movie of movies" id="movie-[i]">
+    <div class="col-md-2 image">
                             <a class=movie-title href="" [routerLink]="[ movie.Title]" routerLinkActive="active">
-                              <p class="desc">{{movie.Plot}}.</p>
+          <img src={{movie.Poster}} alt={{movie.Poster}}>
                             </a>
                           </div>
+    <div class="col-md-9 info-container">
+        <h3>{{movie.Title | uppercase}}</h3>
+        <div class="info">
+            <div>
+                <span class="category"></span>{{movie.Plot}}
                         </div>
                       </div>
-                      <div class="decal"></div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="module-spinner" style="top: 1390px;"> <span class="loader"></span> </div>
-</section>
+</div>
 
 <div class="row">
   <div class="col-lg-6" >

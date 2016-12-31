@@ -10,9 +10,8 @@ import 'rxjs/add/operator/switchMap';
 
 @Component({
     moduleId: module.id,
-    selector: 'app-movie',
     templateUrl: './movie.componenet.html',
-    //styleUrl: './style.component.css
+    styleUrls: ['./movie.component.css']
 })
 export class MovieComponent {
      movie: Movie;
