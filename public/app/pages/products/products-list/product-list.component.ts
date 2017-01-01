@@ -21,7 +21,7 @@ export class ProductListComponent implements OnInit {
   searchText: String;
   isLogedIn = false;
   sortProp: Array<Object>;
-  constructor(private _productService: ProductsService,
+  constructor(private _productService:   ProductsService,
     private _authService: AuthService,
     private _toasterService: ToastService
   ) {
