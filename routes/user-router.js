@@ -15,8 +15,9 @@ module.exports = function({ app, controllers }) {
         .get('/user', passport.authenticate('jwt', { session: false}), controller.getLoggedUser)
         .get('/user/publications', passport.authenticate('jwt', { session: false}), controller.getUserPublications)
         .get('/user/pastorders', passport.authenticate('jwt', { session: false}), controller.getUserPastOrders)
-        .post('/user/update', passport.authenticate('jwt', { session: false}), controller.updateUser);
-         
+        .post('/user/update', passport.authenticate('jwt', { session: false}), controller.updateUser)
+        .post('/addproduct', passport.authenticate('jwt', { session: false }), controller.addProductToBasket);
+
     app.use('/api', router);
 
     return router;

@@ -28,7 +28,7 @@ export class ProductListComponent implements OnInit {
      
 
     this.sortCriteria = 'category';
-    this.filterProp = ['name', 'description'];
+    this.filterProp = ['title', 'description'];
     this.sortProp = [
       {
         queryParam: 'price true',
@@ -39,8 +39,8 @@ export class ProductListComponent implements OnInit {
         displayValue: 'Price: High to Low'
       },
       {
-        queryParam: 'name',
-        displayValue: 'Product Name'
+        queryParam: 'title',
+        displayValue: 'Product Title'
       },
       // {
       //   queryParam: '',
@@ -56,9 +56,11 @@ export class ProductListComponent implements OnInit {
   filterChanged(searchText: string) {
     this.searchText = searchText;
   }
+
   sortCollection(sortCriteria: string) {
     this.sortCriteria = sortCriteria;
   }
+
   addToBascket(event: any) {
     event[0].preventDefault();
     let product = event[1];

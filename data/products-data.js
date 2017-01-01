@@ -3,10 +3,8 @@
 let dataUtils = require('./utils/data-utils');
 
 let mockedData = [{
-
     _id: 3,
-    title: 'D',
-    // arth Vader T-shirt',
+    title: 'Darth Vader T-shirt',
     description: "",
     price: 100055,
     quantity: 10,
@@ -17,8 +15,7 @@ let mockedData = [{
     isConfigurable: false
 }, {
     _id: 2,
-    title: 'L',
-    // Star Wars Vintage Poster',
+    title: 'Star Wars Vintage Poster',
     price: 155,
     quantity: 1,
     description: "",
@@ -29,8 +26,7 @@ let mockedData = [{
     isConfigurable: true,
 }, {
     _id: 1,
-    title: 'B',
-    // oba Fett Mug',
+    title: 'Boba Fett Mug',
     price: 15,
     quantity: 20,
     description: "Alabala Cuki mnnogo go izpolzva. Joda is the best jeday master",
@@ -64,39 +60,37 @@ module.exports = function ({
         getAllProducts() {
             return new Promise((resolve, reject) => {
                 // TODO: write query to database here
-                resolve(mockedData);
+                // resolve(mockedData);
+                Product.find()
+                 .exec((err, res) => {
+                        if (err) {
+                            return reject(err);
+                        }
+
+                        return resolve(res);
+                    });
             })
         },
         getProductById(id) {
             return new Promise((resolve, reject) => {
                 // TODO: write query to database here
                 //check in DB how what should be the query mockedData.find(x => x._id == id) or ====
-                resolve(mockedData.find(x => x._id == id));
-                // Product.findOne({
-                //     _id: id
-                // }, (err, res) => {
-                //     if (err) {
-                //         return reject(err);
-                //     }
+                // resolve(mockedData.find(x => x._id == id));
+                Product.findOne({
+                    _id: id
+                }, (err, res) => {
+                    if (err) {
+                        return reject(err);
+                    }
 
-                //     resolve(res);
-                // });
+                    resolve(res);
+                });
             });
         },
         getProductsFromBasket(username) {
             return new Promise((resolve, reject) => {
                 // TODO: write query to database here
                 resolve(mockedData);
-            });
-        },
-        addProductToBasket(username, product) {
-            console.log(username);
-            console.log(product);
-            return new Promise((resolve, reject) => {
-                // TODO: write query to database here
-                resolve({
-                    success: true
-                });
             });
         }
     };

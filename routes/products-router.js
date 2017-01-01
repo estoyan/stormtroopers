@@ -13,11 +13,7 @@ module.exports = function ({ app, controllers }) {
         .get('/recentproducts', controller.getRecentProducts)
         .get('/allProducts', controller.getAllProducts)
         .get('/products/basket', passport.authenticate('jwt', { session: false }), controller.getProductsFromBasket)
-        .get('/allProducts/:id', controller.getProductById)
-        
-    
-        .post('/addProduct', passport.authenticate('jwt', { session: false }), controller.addProductToBasket);
-
+        .get('/allProducts/:id', controller.getProductById);
 
     app.use('/api', router);
 
