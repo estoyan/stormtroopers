@@ -5,3 +5,7 @@ h2 {
 .order-details {
     margin-left: 20px;
 }
+
+.wrapper {
+    display: inline-block;
+}

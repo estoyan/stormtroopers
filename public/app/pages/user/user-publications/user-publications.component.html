@@ -4,7 +4,7 @@
     </div>
 </div>
 <div class="row">
-    <div *ngFor="let publication of publications" class="col-md-4">
+    <div *ngFor="let publication of publications" class="row col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 row col-xs-8 col-xs-offset-2">
         <div class="publications">
             <st-publication-overview [publication]="publication"></st-publication-overview>
         </div>
