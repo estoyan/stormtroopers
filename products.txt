@@ -1,10 +1,9 @@
 use stormtroopers
 db.products.insertMany([{
     title: 'Darth Vader T-shirt',
-    description: "",
     price: 100055,
     quantity: 10,
-    info: 'Join the dark side',
+    description: 'Join the dark side',
     category: 't-shirt',
     imageUrl: 'http://hideyourarms.com/wp-content/uploads/2011/10/Expressions-Darth-Vader-Shirt-480x380.jpg',
     color: 'red',
@@ -13,8 +12,7 @@ db.products.insertMany([{
     title: 'Star Wars Vintage Poster',
     price: 155,
     quantity: 1,
-    description: "",
-    info: 'Star Wars IV vintage poster. One of its kind!',
+    description: 'Star Wars IV vintage poster. One of its kind!',
     category: 'poster',
     imageUrl: 'https://i.kinja-img.com/gawker-media/image/upload/s--S24cks6n--/c_scale,f_auto,fl_progressive,q_80,w_800/19fk32sw3nt1wjpg.jpg',
     color: 'multy',
@@ -23,8 +21,7 @@ db.products.insertMany([{
     title: 'Boba Fett Mug',
     price: 15,
     quantity: 20,
-    description: "Alabala Cuki mnnogo go izpolzva. Joda is the best jeday master",
-    info: 'Ideal for bear',
+    description: "Ideal for bear",
     category: 'mug',
     imageUrl: 'http://www.bobafettfanclub.com/multimedia/galleries/albums/userpics/10001/boba-fett-mug~0.jpg',
     color: 'green'
