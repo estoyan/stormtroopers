@@ -3,6 +3,9 @@ import { ToastService } from '../../services/shared/toast.service';
 
 import { Subscription } from 'rxjs/Subscription'
 
+const SUCCESS_COLOR: string = '#408000';
+const FAIL_COLOR: string = '#FF0000';
+
 @Component({
     moduleId: module.id,
     selector: 'st-toast',
@@ -15,10 +18,11 @@ export class ToastComponent implements OnInit, OnDestroy {
     private _toastSubscription: Subscription;
 
     message: string;
+    bgColor: string;
 
     constructor(private _toastService: ToastService) {
-        this._toastSubscription = this._toastService.toastState.subscribe(toastMessage => {
-            this.activate(toastMessage);
+        this._toastSubscription = this._toastService.toastState.subscribe((data: any) => {
+            this.activate(data.message, data.success);
         })
     }
 
@@ -30,8 +34,10 @@ export class ToastComponent implements OnInit, OnDestroy {
         this._toastSubscription.unsubscribe();
     }
 
-    activate(message: string) {
+    activate(message: string, success?: boolean) {
+        console.log(success);
         this.message = message;
+        this.bgColor = success ? SUCCESS_COLOR : FAIL_COLOR;
         this.show();
     }
 

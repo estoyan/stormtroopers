@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this._productService.getRecentProducts()
-    .do(x => console.log(x))
       .subscribe(x => this.recentProducts = x)
 
     this._publicatonsService.getTopPublications()
