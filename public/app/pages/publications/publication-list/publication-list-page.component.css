@@ -4,15 +4,16 @@ div.publications {
 }
 div.head {
     float: right;
-    margin: 1em;
+    margin-top: 2em;
+    margin-left: 1em;
 }
 h2 {
     color: gold;
 }
 .btn.btn-lg {
     border-radius: 0;
-    background-color: #00C000;
 }
+
 .btn.btn-lg {
     background-color: #408000;
     color: white;

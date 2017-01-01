@@ -32,10 +32,10 @@ h2 {
 
 .btn.btn-lg {
     border-radius: 0;
-    background-color: #00C000;
+    background-color: #408000;
 }
 
 .btn.btn-lg:hover {
-    background-color: #408000;
+    background-color: #00C000;
     color: white;
 }
