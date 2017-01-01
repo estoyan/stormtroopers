@@ -8,7 +8,6 @@ import { ProductOverviewModule } from '../../shared/product-overview/product-ove
 import { PipeModule } from '../../pipes/pipe.module';
 
 import { ProductsRoutingModule, routedComponents } from './products-routing.module';
-import { ProductDetailsComponent } from './product-details/product-details.component'
 
 @NgModule({
   imports: [
@@ -18,10 +17,10 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     FilterModule,
     SortModule,
     ProductOverviewModule,
-    PipeModule],
+    PipeModule,
+  ],
   declarations: [
     routedComponents,
-    ProductDetailsComponent,
   ],
   providers: []
 })

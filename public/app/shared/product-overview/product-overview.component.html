@@ -1,9 +1,15 @@
-<div id="{{product._id}}" class="product">
-    <a href="" [routerLink]="[ product._id]" routerLinkActive="active" title="{{product.title}}">
-        <img class="really-lazy prodlist-img-lrg" width="194" height="194" src="{{product.imageUrl}}" alt="{{product.title}}">
-        <h4>{{product.title}}</h4>
-    </a>
-    <p class="sale-price">{{product.price|currency:'EUR':true}}
-        <!--<span class="sale-tag">Sale</span></p>-->
-        <!--<p> <span class="sale-savings">	Save up to 63%</span></p>-->
+<div class="row  product-container">
+    <div class="row-md-4 image">
+        <img class="image" src="{{product.imageUrl}}" alt="{{product.title}}">
+        <!--</a>-->
+    </div>
+    <div class="row-md-7 info-container">
+        <div class="title">
+            {{product.title}}
+        </div>
+        <div class="price">
+            <span>Price </span>{{product.price|currency:'EUR':true}}
+        </div>
+        <modal-product [product]="product"></modal-product>
+    </div>
 </div>

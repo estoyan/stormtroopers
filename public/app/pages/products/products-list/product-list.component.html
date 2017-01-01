@@ -3,9 +3,8 @@
 <st-filter (changed)="filterChanged($event)"></st-filter>
 <st-sort (sort)="sortCollection($event)" [sortProp]="sortProp"></st-sort>
 <form #productForm="ngForm" (ngSubmit)="onSubmit()">
-    <div class="wrapper" *ngFor="let product of products | customSort :sortCriteria | customFilter:searchText:filterProp">
+    <div class="wrapper" *ngFor="let product of products|customFilter:searchText:filterProp | customSort :sortCriteria ">
         <product-overview [product]=" product "> </product-overview>
-        <!--<button  type="submit" class="button btn-primary"  [disabled]="productForm.form.valid">Add to Basket</button>-->
-        <button type="submit" class="btn btn-lg" [disabled]="!isLogedIn" (click)="addToBascket([$event,product])">Add to Basket</button>
+        <button type="submit" class="btn btn-sm button" [disabled]="!isLogedIn" (click)="addToBascket([$event,product])">Add to Basket</button>
     </div>
 </form>

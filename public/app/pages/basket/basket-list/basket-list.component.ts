@@ -15,6 +15,7 @@ export class BasketListComponent implements OnInit {
     orders: Product[];
     selectionQuantities: any[] = [];
     options: number[] = [];
+    totals: number[] = [];
 
     constructor(private _productsService: ProductsService) { }
 
@@ -26,7 +27,9 @@ export class BasketListComponent implements OnInit {
                     this.selectionQuantities.push({
                         isSelected: true,
                         quantity: 1
-                    })
+                    });
+
+                    this.totals.push(o.price);
                 });
             });
 
@@ -41,5 +44,17 @@ export class BasketListComponent implements OnInit {
 
     onPriceSelect(value: number, index: number) {
         this.selectionQuantities[index].quantity = value;
+        this.totals[index] = value * this.orders[index].price;
+    }
+
+    sumTotal(): number {
+        let sum = 0;
+        for (let i=0; i < this.totals.length; i += 1) {
+            if (this.selectionQuantities[i].isSelected) {
+                sum += this.totals[i];
+            }
+        }
+
+        return sum;
     }
 }

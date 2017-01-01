@@ -30,7 +30,8 @@ import { AuthGuard } from './guards/authGuard';
     // Ng2BootstrapModule,
     CoreModule,
     AppRoutingModule,
-    PageLoaderModule
+    PageLoaderModule,
+    
   ],
   declarations: [
     AppComponent

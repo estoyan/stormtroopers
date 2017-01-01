@@ -1,4 +1,17 @@
 <div class="row">
+    <div class="head col-md-6 col-sm-6 col-xs-12" stick-first-child>
+        <div>
+            <strong class="left total">Total: {{sumTotal() | currency:'EUR':true}}</strong>
+            <label class="right btn btn-lg">PROCEED</label>
+        </div>
+    </div>
+    <div class="head col-md-6 col-sm-6 col-xs-12">
+        <div>
+            <label class="right btn btn-danger btn-lg">REMOVE</label>
+        </div>
+    </div>
+</div>
+<div class="row">
     <div *ngFor="let order of orders, let i = index">
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="row">
@@ -23,6 +36,10 @@
                             <span class="glyphicon glyphicon-ok"></span>
                             <span class="glyphicon glyphicon-remove"></span>
                         </label>
+                        <div class="total">
+                            <span>Total:</span>
+                            <strong>{{totals[i] | currency:'EUR':true}}</strong>
+                        </div>
                     </div>
                 </div>
             </div>

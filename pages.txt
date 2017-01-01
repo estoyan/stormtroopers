@@ -69,7 +69,7 @@ _____________________
 
 Directives:
 1.ColorAttribute
-
+2.StickChild
 
 _____________________
 

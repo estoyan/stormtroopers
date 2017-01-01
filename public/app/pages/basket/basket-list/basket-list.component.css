@@ -28,6 +28,9 @@
 .left {
     float: left;
 }
+.right {
+    float: right;
+}
 product-overview {
     margin-right: 1em;
     margin-left: 1em;
@@ -51,6 +54,32 @@ button.btn.btn-primary {
     color: black;
 }
 button.btn.btn-primary,
-.dropdown-menu ul li {
+.dropdown-menu ul li а {
     width: 4em;
+}
+.total {
+    margin-top: 1.5em;
+    font-size: 1.1em;
+}
+.head {
+    height: 5em;
+}
+.head div {
+    z-index: 100;
+    height: inherit;
+    background-color: #151515;
+    opacity: 0.9;
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+    max-width: 25em;
+    min-width: 20em;
+}
+.head div.stick {
+    width: 100%;
+    min-width: 0;
+}
+.head div strong.total {
+    font-size: 1.2em;
+    margin-top: 0.5em;
+    color: gold;
 }

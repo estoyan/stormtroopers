@@ -10,7 +10,6 @@
     right:0;
     top: 0;
     height: 60px;
-    z-index: 9999;
     opacity: 0;
     -webkit-transition: opacity 400ms ease-in;
     -moz-transition: opacity 400ms ease-in;
