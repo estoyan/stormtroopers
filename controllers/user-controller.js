@@ -8,13 +8,13 @@ const PASWORD_DOES_NOT_MATCH = 'Паролата трябва да бъде ми
     SIDE = 'Neutral',
     USER_BASIC_PROPERTIES = ['username', 'firstname', 'lastname', 'email'],
     USER_FULL_PROPERTIES = ['username', 'firstname', 'lastname', 'email', 'phoneNumber', 'address', 'side'];
-    
+
 function getNextTrooperId() {
     return Math.floor((Math.random() * 9000) + 1000);
 }
 
-function getAvatar(name){
-     let avatarImageUrls = [
+function getAvatar(name) {
+    let avatarImageUrls = [
         { name: 'Stormtrooper', url: 'http://avatarbox.net/avatars/img1/stormtrooper_mask_avatar_picture_32704.png' },
         { name: 'Darth Vaider', url: 'http://www.theisozone.com/forum/download/file.php?avatar=163958_1459213121.png' },
         { name: 'Boba Fett', url: 'https://s-media-cache-ak0.pinimg.com/236x/50/ed/13/50ed1365c9bcd3830bb8cce37e723593.jpg' },
@@ -95,24 +95,24 @@ module.exports = function ({ data, hashGenerator, validator }) {
                 });
             }
         },
-        getUserPublications(req, res){
+        getUserPublications(req, res) {
             const token = req.headers.authorization;
             let userInfo = tokenUtils.decodeToken(token);
 
             data.getUserPublications(userInfo.username)
-            .then(publications => {
-                res.status(200).json(publications);
-            })
-            .catch(err => {
-                return res.status(400).send({msg: 'No publications!'});
-            });
+                .then(publications => {
+                    res.status(200).json(publications);
+                })
+                .catch(err => {
+                    return res.status(400).send({ msg: 'No publications!' });
+                });
         },
-        updateUser(req, res){
+        updateUser(req, res) {
             const token = req.headers.authorization;
             let userInfo = tokenUtils.decodeToken(token);
-            
+
             data.getUserByUsername(userInfo.username)
-            .then(user =>{
+                .then(user => {
                     USER_FULL_PROPERTIES.forEach(property => {
                         user[property] = req.body[property] || user[property];
                     });
@@ -120,37 +120,62 @@ module.exports = function ({ data, hashGenerator, validator }) {
                     user.avatarUrl = getAvatar(user.avatarName);
 
                     return data.updateUser(user);
-            })
-            .then(user => {
-                 let token = tokenUtils.encodeToken(user);
-                 let body = {
-                     token: token,
-                     displayname: user.displayname,
-                     username: user.username,
-                     avatarName: user.avatarName,
-                     avatarUrl: user.avatarUrl,
-                     side: user.side
-                 }
-                  
-                res.status(200).json({user, body});
-            })
-            .catch(err => {
-                return res.status(400).send({
-                    msg: 'User was not updated!'
-                });
-            });;
+                })
+                .then(user => {
+                    let token = tokenUtils.encodeToken(user);
+                    let body = {
+                        token: token,
+                        displayname: user.displayname,
+                        username: user.username,
+                        avatarName: user.avatarName,
+                        avatarUrl: user.avatarUrl,
+                        side: user.side
+                    }
+
+                    res.status(200).json({ user, body });
+                })
+                .catch(err => {
+                    return res.status(400).send({
+                        msg: 'User was not updated!'
+                    });
+                });;
         },
-        getUserPastOrders(req, res){
+        getUserPastOrders(req, res) {
             const token = req.headers.authorization;
             let userInfo = tokenUtils.decodeToken(token);
 
             data.getUserPastOrders(userInfo.username)
-            .then(products => {
-                res.status(200).json(products);
-            })
-            .catch(err => {
-                return res.status(400).send({msg: 'No orders!'});
-            });
+                .then(products => {
+                    res.status(200).json(products);
+                })
+                .catch(err => {
+                    return res.status(400).send({ msg: 'No orders!' });
+                });
+        },
+        getUserOrdersFromBasket(req, res) {
+            let token = req.headers.authorization,
+                username = tokenUtils.decodeToken(token).username;
+
+            data.getUserOrdersFromBasket(username)
+                .then(result => {
+                    return res.status(200).json(result);
+                })
+                .catch(err => {
+                    res.status(500).json({ msg: 'Server error!', err })
+                });
+        },
+        proceedUserOrders(req, res) {
+            let token = req.headers.authorization,
+                username = tokenUtils.decodeToken(token).username
+                orders = req.body.orders;
+
+            data.proceedUserOrders(username, orders)
+                .then(result => {
+                    return res.status(200).json(result);
+                })
+                .catch(err => {
+                    res.status(500).json({ msg: 'Server error!', err })
+                });
         }
     };
 };

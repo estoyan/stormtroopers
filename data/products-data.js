@@ -83,12 +83,6 @@ module.exports = function ({
                 // });
             });
         },
-        getProductsFromBasket(username) {
-            return new Promise((resolve, reject) => {
-                // TODO: write query to database here
-                resolve(mockedData);
-            });
-        },
         addProductToBasket(username, product) {
             console.log(username);
             console.log(product);

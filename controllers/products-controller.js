@@ -24,18 +24,6 @@ module.exports = function ({ data }) {
                     return res.send(result);
                 });
         },
-        getProductsFromBasket(req, res) {
-            let token = req.headers.authorization,
-                username = tokenUtils.decodeToken(token).username;
-
-            data.getProductsFromBasket(username)
-                .then(result => {
-                    return res.status(200).json(result);
-                })
-                .catch(err => {
-                    res.status(500).json({ msg: 'Server error!', err })
-                });
-        },
         addProductToBasket(req, res) {
 
             let token = req.headers.authorization,

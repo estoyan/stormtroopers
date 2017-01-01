@@ -12,7 +12,6 @@ module.exports = function ({ app, controllers }) {
     router
         .get('/recentproducts', controller.getRecentProducts)
         .get('/allProducts', controller.getAllProducts)
-        .get('/products/basket', passport.authenticate('jwt', { session: false }), controller.getProductsFromBasket)
         .get('/allProducts/:id', controller.getProductById)
         
     
