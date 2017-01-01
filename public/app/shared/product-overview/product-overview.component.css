@@ -1,7 +1,7 @@
 .product-container {
     width: 220px;
     background-color: #282727;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     margin: 20px;
     padding: 10px;
 }
@@ -16,4 +16,8 @@
 .info-container {
     margin-top: 10px;
     padding-left: 0;
+}
+
+.title, .price {
+    margin-bottom: 10px;
 }
