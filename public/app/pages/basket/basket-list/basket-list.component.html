@@ -7,7 +7,17 @@
     </div>
     <div class="head col-md-6 col-sm-6 col-xs-12">
         <div>
-            <label class="right btn btn-danger btn-lg">REMOVE</label>
+            <div class="right btn-group" id="remove-dropdown" dropdown (click)="$event.preventDefault()">
+                <button id="remove-button" type="button" class="right btn btn-danger" (click)="onRemove()" [disabled]="!removeSelection">REMOVE</button>
+                <button type="button" class="right btn btn-danger dropdown-toggle-split" dropdownToggle>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="split-button">
+                    <li role="menuitem" *ngFor="let option of removeOptions">
+                        <a class="dropdown-item" (click)="removeSelection = option" href="#">{{option}}</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
@@ -16,29 +26,29 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="row">
                 <div>
-                    <product-overview class="text-center left" [product]="order"></product-overview>
+                    <product-overview class="text-center left" [product]="order.product"></product-overview>
                     <div class="order-info">
                         <div class="form-group">
                             <label for="qty">Quantity:</label>
                             <div (click)="$event.preventDefault()" class="btn-group" dropdown keyboardNav="true">
-                                <button id="simple-btn-keyboard-nav" type="button" class="btn btn-primary" dropdownToggle [disabled]="!selectionQuantities[i].isSelected">
-                                    {{selectionQuantities[i].quantity}} <span class="caret"></span>
+                                <button type="button" class="btn btn-primary" dropdownToggle [disabled]="!selections[i].isSelected">
+                                    {{orders[i].quantity}} <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="simple-btn-keyboard-nav">
-                                    <li role="menuitem" *ngFor="let option of options">
+                                    <li role="menuitem" *ngFor="let option of quantityOptions">
                                         <a class="dropdown-item" (click)="onPriceSelect(option, i)" href="#">{{option}}</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        <label class="btn btn-success" [class.active]="!selectionQuantities[i].isSelected" [class.inactive]="selectionQuantities[i].isSelected">
+                        <label class="btn btn-success" [class.active]="!selections[i].isSelected" [class.inactive]="selections[i].isSelected">
                             <input type="checkbox" autocomplete="off" checked (click)="onProductSelect(i)">
                             <span class="glyphicon glyphicon-ok"></span>
                             <span class="glyphicon glyphicon-remove"></span>
                         </label>
                         <div class="total">
                             <span>Total:</span>
-                            <strong>{{totals[i] | currency:'EUR':true}}</strong>
+                            <strong>{{this.orders[i].total | currency:'EUR':true}}</strong>
                         </div>
                     </div>
                 </div>

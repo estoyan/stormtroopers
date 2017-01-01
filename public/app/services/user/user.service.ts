@@ -6,13 +6,16 @@ import { LocalStorageService } from '../shared/local-storage.service';
 
 import { User } from '../../models/user.model';
 import { Product } from '../../models/product.model';
+import { Order } from '../../models/order.model';
 import { Publication } from '../../models/publication.model';
 
 const REGISTER_USER_URL = '/api/sign-up'
 const GET_CURRENT_USER_URL = '/api/user';
 const UPDATE_URL = '/api/user/update';
-const GET_USER_PUBLICATIONS = '/api/user/publications'
-const GET_USER_PAST_ORDERS = '/api/user/pastorders'
+const GET_USER_PUBLICATIONS_URL = '/api/user/publications';
+const GET_USER_PAST_ORDERS_URL = '/api/user/pastorders';
+const GET_USER_BASKET_URL = '/api/user/basket';
+const PROCEED_USER_ORDERS_URL = '/api/user/basket/proceed'
 
 @Injectable()
 export class UserService {
@@ -45,11 +48,22 @@ export class UserService {
 
     getUserPublications(): Observable<Publication[]> {
         return this._requester
-            .getJsonAuthorized<Publication[]>(GET_USER_PUBLICATIONS);
+            .getJsonAuthorized<Publication[]>(GET_USER_PUBLICATIONS_URL);
     }
 
+    // TODO get Order[]
     getPastOrders(): Observable<Product[]> {
         return this._requester
-            .getJsonAuthorized<Product[]>(GET_USER_PAST_ORDERS);
+            .getJsonAuthorized<Product[]>(GET_USER_PAST_ORDERS_URL);
+    }
+
+    getUserOrdersFromBasket(): Observable<Order[]> {
+        return this._requester
+            .getJsonAuthorized<Order[]>(GET_USER_BASKET_URL);
+    }
+
+    proceedUserOrders(orders: Order[]) {
+        return this._requester
+            .getJsonAuthorized<Order[]>(PROCEED_USER_ORDERS_URL);
     }
 }

@@ -29,12 +29,6 @@ module.exports = function ({ data }) {
                 username = tokenUtils.decodeToken(token).username;
 
             data.getProductsFromBasket(username)
-                .then(result => {
-                    return res.status(200).json(result);
-                })
-                .catch(err => {
-                    res.status(500).json({ msg: 'Server error!', err })
-                });
         }
     };
 };

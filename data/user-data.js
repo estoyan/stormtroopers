@@ -22,6 +22,32 @@ let mockedOrders = [
                 type: 'completed',
             }
         }
+    ],
+    mockedBasket = [
+     {
+            product: {
+                name: 'Star Wars Vintage Poster',
+                price: 155,
+                imageUrl: 'https://i.kinja-img.com/gawker-media/image/upload/s--S24cks6n--/c_scale,f_auto,fl_progressive,q_80,w_800/19fk32sw3nt1wjpg.jpg'
+            },
+            state: {
+                type: 'not-completed',
+            },
+            quantity: 1,
+            total: 155
+        },
+        {
+            product: {
+                name: 'Boba Fett Mug',
+                price: 15,
+                imageUrl: 'http://www.bobafettfanclub.com/multimedia/galleries/albums/userpics/10001/boba-fett-mug~0.jpg'
+            },
+            state: {
+                type: 'not-completed',
+            },
+            quantity: 1,
+            total: 15
+        }
     ]
 
 
@@ -93,6 +119,15 @@ module.exports = function ({ models }) {
                     resolve(orders);
                 });
             });
+        },
+        getUserOrdersFromBasket(username) {
+            return new Promise((resolve, reject) => {
+                // TODO: write query to database here
+                resolve(mockedBasket);
+            });
+        },
+        proceedUserOrders(username, orders) {
+
         }
     }
 };

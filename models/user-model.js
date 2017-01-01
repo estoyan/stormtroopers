@@ -37,7 +37,7 @@ module.exports = modelRegistrator.register('User', {
     },
     side: {
         type: String,
-        enum:  ['Dark', 'Light', 'Neutral'],
+        enum: ['Dark', 'Light', 'Neutral'],
         default: 'Neutral'
     },
     orders: [
@@ -50,13 +50,14 @@ module.exports = modelRegistrator.register('User', {
             },
             state: {
                 type: String,
-                enum: ['completed', 'not-completed']
+                enum: ['completed', 'not-completed', 'proceeding']
             },
             quantity: Number,
             total: {
                 type: Number,
                 default: 1
-            }
+            },
+            isDeleted: Boolean
         }
     ],
     role: [String],

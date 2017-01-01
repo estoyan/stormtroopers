@@ -8,6 +8,7 @@ const PRODUCTS_URL: string = '/api/allProducts';
 const PRODUCTS_FROM_BASKET_URL: string = '/api/products/basket';
 const ADD_PRODUCT_TO_BASKET_URL: string = '/api/addproduct';
 
+
 @Injectable()
 export class ProductsService {
     constructor(private _requester: RequesterService) {
@@ -26,10 +27,6 @@ export class ProductsService {
         let productUrl = PRODUCTS_URL + `/${id}`;
         return this._requester
             .getJson<Product>(productUrl);
-    }
-    getProductsFromBasket() {
-        return this._requester
-            .getJsonAuthorized<Product[]>(PRODUCTS_FROM_BASKET_URL);
     }
     addProductToBasket(product: Product) {
         let _id = product._id,

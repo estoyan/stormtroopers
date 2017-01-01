@@ -14,13 +14,11 @@ const routes: Routes = [
         children: [
             {
                 path: '',
-                component: BasketListComponent,
-                canActivate: [AuthGuard]
+                component: BasketListComponent
             },
             {
                 path: 'buy',
-                component: BasketBuyComponent,
-                canActivate: [AuthGuard]
+                component: BasketBuyComponent
             }
         ]
     }

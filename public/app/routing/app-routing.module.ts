@@ -15,7 +15,7 @@ const appRoutes: Routes = [
   { path: 'movies', loadChildren: 'app/pages/movies/movies.module#MoviesModule' },
   { path: 'publications', loadChildren: 'app/pages/publications/publications.module#PublicationsModule' },
   { path: 'products', loadChildren: 'app/pages/products/products.module#ProductsModule' },
-  { path: 'basket', loadChildren: 'app/pages/basket/basket.module#BasketModule' },
+  { path: 'basket', loadChildren: 'app/pages/basket/basket.module#BasketModule', canActivate: [AuthGuard] },
   { path: '**', pathMatch: 'full', component: pages.pageNotFound }
 ];
 
