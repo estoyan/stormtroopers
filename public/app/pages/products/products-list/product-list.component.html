@@ -1,9 +1,13 @@
-<h1>Products List Page</h1>
-<st-filter (changed)="filterChanged($event)"></st-filter>
-<st-sort (sort)="sortCollection($event)" [sortProp]="sortProp"></st-sort>
-<form #productForm="ngForm" (ngSubmit)="onSubmit()">
-    <div class="wrapper  text-center " *ngFor="let product of products|customFilter:searchText:filterProp | customSort :sortCriteria ">
-        <st-product-overview [product]=" product "> </st-product-overview>
-        <button type="submit" class="btn btn-success add-to-basket-btn" [disabled]="!isLogedIn" (click)="addToBascket([$event,product])">ADD TO BASKET</button>
+<div class="row text-center">
+    <div class="col-md-12">
+        <h2>Products List Page</h2>
+        <st-filter (changed)="filterChanged($event)"></st-filter>
+        <st-sort (sort)="sortCollection($event)" [sortProp]="sortProp"></st-sort>
+        <form #productForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="wrapper" *ngFor="let product of products|customFilter:searchText:filterProp | customSort :sortCriteria ">
+                <st-product-overview [product]=" product "> </st-product-overview>
+                <button type="submit" class="btn btn-success add-to-basket-btn" [disabled]="!isLogedIn" (click)="addToBascket([$event,product])">ADD TO BASKET</button>
+            </div>
+        </form>
     </div>
-</form>
+</div>

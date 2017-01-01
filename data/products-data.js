@@ -50,7 +50,7 @@ module.exports = function ({
                             return reject(err);
                         }
 
-                        return resolve(res.slice(0, 3));
+                        return resolve(res.slice(0, 4));
                     });
             })
         },

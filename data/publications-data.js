@@ -92,7 +92,7 @@ module.exports = function ({
                                 return b.rating.reduce((acc, val) => acc + val.rate, 0)
                                         - a.rating.reduce((acc, val) => acc + val.rate, 0);
                             })
-                            .slice(0, 3);
+                            .slice(0, 4);
 
                         return Promise.resolve(top);
                     });

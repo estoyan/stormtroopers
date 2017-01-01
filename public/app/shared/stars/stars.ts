@@ -19,6 +19,7 @@ import { Publication } from '../../models/publication.model';
       </ac-star>
     </div>
     <span *ngIf="!isOwner" class="user-rating">your rating: {{userRating}}</span>
+    <span *ngIf="isOwner" class="user-rating">it's your image</span>
   `,
     styles: [
         `.user-rating { 
