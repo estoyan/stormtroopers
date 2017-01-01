@@ -6,7 +6,7 @@
 <div class="row">
     <div *ngFor="let order of pastOrders" class="col-md-4">
         <div class="orders">
-            <product-overview [product]="order.product"></product-overview>
+            <st-product-overview [product]="order.product"></st-product-overview>
             <div class="order-details">
                 <p>Quantity: {{order.quantity}}</p>
                 <p>Total paid: {{order.total|currency:'EUR':true}}</p>
