@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../guards/authGuard';
+import { LoggedInGuard } from '../guards/loggedInGuard';
 
 import { pages } from '../pages/index';
 
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: 'login', component: pages.login },
-  { path: 'register', component: pages.register },
+  { path: 'login', component: pages.login, canActivate: [LoggedInGuard] },
+  { path: 'register', component: pages.register, canActivate: [LoggedInGuard] },
   { path: 'home', component: pages.home },
   { path: 'user/:username', loadChildren: 'app/pages/user/user.module#UserModule', canActivate: [AuthGuard] },
   { path: 'characters', component: pages.characters },

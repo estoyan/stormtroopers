@@ -21,6 +21,7 @@ import { LocalStorageService } from './services/shared/local-storage.service';
 
 // Guards
 import { AuthGuard } from './guards/authGuard';
+import { LoggedInGuard } from './guards/loggedInGuard';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { AuthGuard } from './guards/authGuard';
     ExceptionService,
     ToastService,
     AuthGuard,
+    LoggedInGuard,
     LocalStorageService,
     NavbarService,
   ]

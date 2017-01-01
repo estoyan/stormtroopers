@@ -12,7 +12,8 @@
                             </a>
                           </div>
     <div class="col-md-9 info-container">
-        <h3>{{movie.Title | uppercase}}</h3>
+        <!--<h3><a href="" [routerLink]="[ movie.Title]" >{{movie.Title | uppercase}}</a></h3>-->
+        <h3>{{movie.Title| uppercase}}</h3>
         <div class="info">
             <div>
                 <span class="category"></span>{{movie.Plot}}
@@ -24,7 +25,7 @@
 <div class="row">
   <div class="col-lg-6" >
     <hr/>
-    <pagination [totalItems]="totalMovies" [(ngModel)]="currentPage" [maxSize]="maxSize" class="pagination-sm"
+    <pagination [totalItems]="totalMovies" [(ngModel)]="currentPage" [maxSize]="maxSize" class="pagination, pagination-sm"
                 [boundaryLinks]="true" [rotate]="false" (pageChanged)="pageChanged($event)">></pagination>
   </div>
 </div>
