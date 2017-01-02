@@ -1,11 +1,9 @@
 import { Component, ViewChild, Input, OnInit } from '@angular/core';
 import { ModalDirective } from 'ng2-bootstrap/ng2-bootstrap';
 
-import { Product } from '../../models/product.model'
-
 import { ProductsService } from "../../services/products/products.service";
 import { ToastService } from '../../services/shared/toast.service';
-import { AuthService } from '../../services/authentication/auth.service'
+import { AuthService } from '../../services/authentication/auth.service';
 
 
 @Component({
@@ -38,7 +36,10 @@ export class ProductDetailsModalComponent implements OnInit {
         let product = event[1];
         this._productService.addProductToBasket(product)
             .subscribe(data => {
-                this._toasterService.activate('Product was added to basket!', true)
+                this._toasterService.activate('Product was added to basket!', true);
+            },
+            err => {
+                this._toasterService.activate(err, false);
             });
     }
 

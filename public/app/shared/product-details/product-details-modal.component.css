@@ -3,7 +3,6 @@
 }
 
 .product-container {
-    /*width:840px;*/
     background-color: #282727;
     border-radius: 10px;
     margin: 20px;
@@ -30,10 +29,12 @@
     text-align: right;
 }
 
-span {
-    color: blue;
+.category {
+    color: white;
 }
-
+.info {
+    color: #969595;
+}
 .btn-success {
     background-color: #408000;
     border: 0;

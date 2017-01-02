@@ -59,6 +59,13 @@ module.exports = modelRegistrator.register('User', {
                 type: Number,
                 default: 1
             },
+            deliveryDetails: {
+                firstname: String,
+                lastname: String,
+                phoneNumber: String,
+                address: String,
+                paymentMethod: Number
+            },
             isDeleted: {
                 type: Boolean,
                 default: false

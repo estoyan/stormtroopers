@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 
-import { CustomFilterPipe } from './filter.pipe'
-import { CustomSortPipe } from './sort.pipe'
-import { SumPipe } from './sum.pipe'
+import { CustomFilterPipe } from './filter.pipe';
+import { CustomSortPipe } from './sort.pipe';
+import { SumPipe } from './sum.pipe';
 
 @NgModule({
     imports: [],

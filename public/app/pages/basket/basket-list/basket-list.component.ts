@@ -70,7 +70,7 @@ export class BasketListComponent implements OnInit {
             this._userService.removeUserOrdersFromBasket(ordersToRemove)
                 .subscribe(_ => {
                     let newOrders: Order[] = [];
-                    for (let i =0; i < this.orders.length; i += 1){
+                    for (let i = 0; i < this.orders.length; i += 1) {
                         if (!this.selections[i].isSelected) {
                             newOrders.push(this.orders[i]);
                         }
@@ -89,7 +89,7 @@ export class BasketListComponent implements OnInit {
     onProceed() {
         let ordersToProceed: Order[] = this.getSelectedOrders();
         this._userService.proceedUserOrders(ordersToProceed)
-            .subscribe(_ => this._router.navigate(['/basket/proceed']))
+            .subscribe(_ => this._router.navigate(['/basket/proceed']));
     }
 
     private getSelectedOrders(): Order[] {

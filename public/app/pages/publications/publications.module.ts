@@ -7,6 +7,8 @@ import { PublicationsOverviewModule } from '../../shared/publication-overview/pu
 import { PipeModule } from '../../pipes/pipe.module';
 import { StarsModule } from '../../shared/stars/stars.module';
 import { PaginationModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { FilterModule } from '../../shared/filter/filter.module';
+import { SortModule } from '../../shared/sort/sort.module';
 
 
 import { PublicatonsService } from '../../services/publications/publications.service';
@@ -15,6 +17,8 @@ import { PublicatonsService } from '../../services/publications/publications.ser
     imports: [
         FormsModule,
         CommonModule,
+        FilterModule,
+        SortModule,
         PublicationsRoutingModule,
         PublicationsOverviewModule,
         PipeModule,
