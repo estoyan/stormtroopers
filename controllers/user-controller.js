@@ -140,6 +140,31 @@ module.exports = function ({ data, hashGenerator, validator }) {
                     });
                 });;
         },
+        addProductToBasket(req, res) {
+            let token = req.headers.authorization,
+                username = tokenUtils.decodeToken(token).username;
+                data.getProductById(req.body._id)
+                .then(product => {
+                    let order = {
+                        product: {
+                        _id: product._id,
+                        title: product.title,
+                        price: product.price,
+                        imageUrl: product.imageUrl
+                        },
+                        state: 'not-completed',
+                        quantity: 1,
+                        total: product.price
+                    }
+                    return data.addProductToBasket(username, order)
+                })            
+                .then(result => {
+                    return res.status(200).json(result);
+                })
+                .catch(err => {
+                    res.status(500).json({ msg: 'Server error!', err })
+                });
+        },
         getUserPastOrders(req, res) {
             const token = req.headers.authorization;
             let userInfo = tokenUtils.decodeToken(token);
@@ -179,3 +204,4 @@ module.exports = function ({ data, hashGenerator, validator }) {
         }
     };
 };
+    

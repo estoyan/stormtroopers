@@ -1,5 +1,5 @@
 <button class="btn btn-primary" (click)="lgModal.show()" (click)="$event.preventDefault()">Details</button>
- 
+
 <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -7,12 +7,46 @@
         <button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title">Large modal</h4>
+        <h1 class="modal-title">{{product.title}}</h1>
       </div>
       <div class="modal-body">
-          <img src="{{product.imageUrl}}" alt="">
+        <div class="row  product-container">
+          <div class="col-md-6 image">
+            <img class="image" src="{{product.imageUrl}}" alt="{{product.title}}">
+          </div>
+          <div class="col-md-6 info-container">
+            <!--<div class="title">
+              <h2>{{product.title}}</h2>
+            </div>-->
+            <div class="description">
+              <h3>Description:</h3>
+              <hr>
+              <p>
+                {{product.description}}
+              </p>
+              <hr>
+            </div>
+            <div class="row">
+              <div class=" col-md-6 color">
+                <span>color:</span> {{product.color}}
+              </div>
+              <div class=" col-md-6  category">
+                <span>Category:</span> {{product.category}}
+              </div>
+            </div>
+            <div class=" row price">
+              <span>Price:</span> {{product.price|currency:'EUR':true}}
+            </div>
+            <div class="row">
+              <div class="col-md-8"></div>
+              <div class="col-md-4">
+                <button type="submit" class="btn btn-success add-to-basket-btn" [disabled]="!isLogedIn" (click)="addToBascket([$event,product])">ADD TO BASKET</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </div>
- 

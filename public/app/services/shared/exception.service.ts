@@ -5,7 +5,6 @@ export class ExceptionService {
     constructor() { }
 
     catchBadResponse<T>(errorResponse: any): Observable<T> {
-        console.log('this is error: ' + errorResponse);
-        return Observable.throw(errorResponse.json().error || 'Server error');
+        return Observable.throw(errorResponse.json().msg || 'Server error');
     };
 }

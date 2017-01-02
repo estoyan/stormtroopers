@@ -1,10 +1,13 @@
-<h1>Products List Page</h1>
-<!--<stormtroopers-filter-sort-text class='filter' (changed)="filterChanged($event)" (sort)="sortCollection($event)" [sortProp]="sortProp"></stormtroopers-filter-sort-text>-->
-<st-filter (changed)="filterChanged($event)"></st-filter>
-<st-sort (sort)="sortCollection($event)" [sortProp]="sortProp"></st-sort>
-<form #productForm="ngForm" (ngSubmit)="onSubmit()">
-    <div class="wrapper" *ngFor="let product of products|customFilter:searchText:filterProp | customSort :sortCriteria ">
-        <product-overview [product]=" product "> </product-overview>
-        <button type="submit" class="btn btn-sm button" [disabled]="!isLogedIn" (click)="addToBascket([$event,product])">Add to Basket</button>
+<div class="row text-center">
+    <div class="col-md-12">
+        <h2>Products List Page</h2>
+        <st-filter (changed)="filterChanged($event)"></st-filter>
+        <st-sort (sort)="sortCollection($event)" [sortProp]="sortProp"></st-sort>
+        <form #productForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="wrapper" *ngFor="let product of products|customFilter:searchText:filterProp | customSort :sortCriteria ">
+                <st-product-overview [product]=" product "> </st-product-overview>
+                <button type="submit" class="btn btn-success add-to-basket-btn" [disabled]="!isLogedIn" (click)="addToBascket([$event,product])">ADD TO BASKET</button>
+            </div>
+        </form>
     </div>
-</form>
+</div>

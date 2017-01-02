@@ -1,18 +1,15 @@
 <div class="row text-center">
-    <div class="col-md-12 image-wrapper">
+    <div class="col-md-12 main-image-wrapper">
         <img class="img-responsive" [src]="fullPath" alt="rogue one">
     </div>
 </div>
 <br>
 <div class="row text-center">
-    <h4>NEW PRODUCTS</h4>
-    <div *ngFor="let product of recentProducts" class="col-md-4 col-sm-4">
-        <div class="product-container">
-            <a routerLink="/products/{{product._id}}" routerLinkActive="active">
-                <img src="{{product.imageUrl}}" alt="product image" class="image-list">
-            </a>
+    <div class="col-md-12">
+        <h4>NEW PRODUCTS</h4>
+        <div class="wrapper" *ngFor="let product of recentProducts">
+            <st-product-overview [product]="product"></st-product-overview>
         </div>
-        <span class="pruduct-name">{{product.title}}</span>
     </div>
 </div>
 <div class="row">
@@ -20,17 +17,17 @@
         <hr>
     </div>
 </div>
-<div class="row text-center">
+<div class="text-center">
     <h4>TOP IMAGES</h4>
-    <div *ngFor="let publication of topPublications" class="col-md-4 col-sm-4">
+    <div class="wrapper" *ngFor="let publication of topPublications">
         <div class="image-container">
             <a routerLink="/publications/{{publication._id}}" routerLinkActive="active">
-                <img src={{publication.imageUrl}} alt="top fan art image" class="image-list">
+                <div class="image">
+                    <img src={{publication.imageUrl}} alt="top fan art image" class="single-image">
+                </div>
             </a>
         </div>
-        <ac-stars 
-            [rating]="(publication.rating | sumPipe: 'rate') / publication.rating.length" 
-            [publication]="publication">
+        <ac-stars [rating]="(publication.rating | sumPipe: 'rate') / publication.rating.length" [publication]="publication">
         </ac-stars>
     </div>
 </div>

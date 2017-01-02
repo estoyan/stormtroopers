@@ -36,23 +36,24 @@
                     Last Name is required!
                 </strong>
                 <input type="text" class="form-control" id="lastname" name="lastname"
-                required 
-                [(ngModel)]="newUser.lastname" 
-                 #lastname="ngModel"
-                 autofocus>
+                    required 
+                    [(ngModel)]="newUser.lastname" 
+                    #lastname="ngModel"
+                    autofocus>
             </div>
            
             <div class="form-group">
                 <label for="email">Email Address</label>
                 <strong [hidden]="email.valid || email.pristine"
                     class="alert alert-danger">
-                    Email Address is required!
+                    Invalid email!
                 </strong>
                 <input type="text" class="form-control" id="email" name="email"
-                required 
-                [(ngModel)]="newUser.email" 
-                 #email="ngModel"
-                 autofocus>
+                    required 
+                    [(ngModel)]="newUser.email"
+                    pattern="^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$" 
+                    #email="ngModel"
+                    autofocus>
             </div>
 
             <div class="form-group">

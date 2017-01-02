@@ -1,3 +1,11 @@
 h2 {
     color: gold;
 }
+
+.order-details {
+    margin-left: 20px;
+}
+
+.wrapper {
+    display: inline-block;
+}

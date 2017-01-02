@@ -93,18 +93,31 @@ module.exports = function ({ models }) {
         updateUser(user) {
             return dataUtils.update(user);
         },
+        addProductToBasket(username, order) {
+            return new Promise((resolve, reject) => {
+                this.getUserByUsername(username)
+                .then(user => {
+                    user.orders.push(order);
+
+                   return dataUtils.update(user);
+                })
+                .then(res => {
+                    resolve(res);
+                })
+            });
+        },
         getUserPastOrders(username) {
             return new Promise((resolve, reject) => {
-                resolve(mockedOrders);
-                // User.find()
-                // .where('state.type').equals('completed').
-                // .exec((err, res) =>{
-                //     if(err){
-                //         reject(err);
-                //     }
+                User.find()
+                .select('orders')
+                .exec((err, res) =>{
+                    if(err){
+                        reject(err);
+                    }
+                let orders = res[1].orders.filter(x => x.state === 'completed');
 
-                //     resolve(res);
-                // });
+                    resolve(orders);
+                });
             });
         },
         getUserOrdersFromBasket(username) {

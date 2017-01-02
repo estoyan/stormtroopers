@@ -1,21 +1,20 @@
 .product-container {
-   width:220px;
+    width: 220px;
     background-color: #282727;
-  border-radius: 10px;
-  margin: 20px;
-  padding: 10px;
+    margin: 20px;
+    padding: 10px;
 }
 
 .image {
-     width: 200px;
+    width: 200px;
     height: 200px;
     border-radius: 5px;
-    padding-left: 0;
-    
 }
 
 .info-container {
     margin-top: 10px;
-    padding-left: 0;
 }
 
+.title, .price {
+    margin-bottom: 10px;
+}

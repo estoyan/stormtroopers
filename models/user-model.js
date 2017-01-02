@@ -44,7 +44,7 @@ module.exports = modelRegistrator.register('User', {
         {
             product: {
                 _id: mongoose.Schema.Types.ObjectId,
-                name: String,
+                title: String,
                 price: Number,
                 imageUrl: String
             },

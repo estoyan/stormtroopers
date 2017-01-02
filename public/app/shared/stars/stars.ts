@@ -19,6 +19,7 @@ import { Publication } from '../../models/publication.model';
       </ac-star>
     </div>
     <span *ngIf="!isOwner" class="user-rating">your rating: {{userRating}}</span>
+    <span *ngIf="isOwner" class="user-rating">it's your image</span>
   `,
     styles: [
         `.user-rating { 
@@ -59,11 +60,11 @@ export class AcStars implements OnInit {
     onRate(rate: number) {
         let isLoggedIn = this._authService.isLoggedIn();
         if (!isLoggedIn) {
-            this._toastService.activate("Please login!");
+            this._toastService.activate("Please login!", false);
             event.stopPropagation();
         }
         else if (this.isOwner) {
-            this._toastService.activate("Invalid operation!");
+            this._toastService.activate("Invalid operation!", false);
             event.stopPropagation();
         }
         else {

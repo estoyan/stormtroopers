@@ -12,6 +12,7 @@ module.exports = function ({ app, controllers }) {
 
     router
         .post('/sign-up', controller.signUp)
+        .post('/addproduct', passport.authenticate('jwt', { session: false }), controller.addProductToBasket)
         .get('/user', passport.authenticate('jwt', { session: false }), controller.getLoggedUser)
         .get('/user/publications', passport.authenticate('jwt', { session: false }), controller.getUserPublications)
         .get('/user/pastorders', passport.authenticate('jwt', { session: false }), controller.getUserPastOrders)

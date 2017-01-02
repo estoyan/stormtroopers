@@ -3,10 +3,16 @@
         <h2>Past Orders</h2>
     </div>
 </div>
-<div class="row">
-    <div *ngFor="let order of pastOrders" class="col-md-4">
-        <div class="orders">
-            <product-overview [product]="order"></product-overview>
+<div class="row text-center">
+    <div class="col-md-12">
+        <div *ngFor="let order of pastOrders" class="wrapper">
+            <div class="orders">
+                <st-product-overview [product]="order.product"></st-product-overview>
+                <div class="order-details">
+                    <p>Quantity: {{order.quantity}}</p>
+                    <p>Total paid: {{order.total|currency:'EUR':true}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

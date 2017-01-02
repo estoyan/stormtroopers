@@ -46,6 +46,14 @@ export class MovieService {
     //   .finally(() => this.spinnerService.hide());
   }
 
+  searchMovies(pattern: string) {
+    return <Observable<[Movie[], number]>>this.http
+      .get(omdbapi + '?s='+pattern)
+      .map(res => this.extractData<[Movie[], Number]>(res))
+      .catch(this.exceptionService.catchBadResponse);
+    
+  }
+
 
 
   getMovie(title: string) {

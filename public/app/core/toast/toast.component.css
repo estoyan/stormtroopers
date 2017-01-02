@@ -1,13 +1,6 @@
 .toast-container {
-    /*-webkit-transition-property: opacity, bottom, left, right, width, margin, border-radius;
-  transition-property: opacity, bottom, left, right, width, margin, border-radius;
-  -webkit-transition-duration: 1.0s;
-          transition-duration: 1.0s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;*/
     position: fixed;
-    /*left: 0;*/
-    right:0;
+    right: 0;
     top: 0;
     height: 60px;
     opacity: 0;
@@ -21,7 +14,7 @@
     z-index: 1;
     padding: 2px;
     position: relative;
-    background-color: #408000;
+    /*background-color: #408000;*/
     text-align: center;
     color: white;
 }

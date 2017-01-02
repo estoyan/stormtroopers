@@ -1,17 +1,25 @@
-.button{
-    margin-left: 20px;
-    background-color: cadetblue
-    /*#282727;*/
-
-}
-
-#sort-by option{
+#sort-by option {
     color: black;
 }
+
 .filter input {
     color: black;
 }
-.wrapper{
+
+.wrapper {
     display: inline-block;
-    float: left;
-  }
+}
+
+.add-to-basket-btn {
+    width: 220px;
+    border-radius: 0;
+}
+
+.btn-success {
+    background-color: #408000;
+    border: 0;
+}
+
+h2 {
+    color: gold;
+}
