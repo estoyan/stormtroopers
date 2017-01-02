@@ -32,5 +32,7 @@
         <p class="info">{{character.story}}</p>
     </div>
 </div>
-<pagination [itemsPerPage]="itemsPerPage" [totalItems]="totalCharacters" [(ngModel)]="currentPage" [maxSize]="maxSize"
-    class="pagination pagination-sm" [boundaryLinks]="true" [rotate]="false" (pageChanged)="pageChanged($event)"></pagination>
+<div class="row text-center">
+    <pagination [itemsPerPage]="itemsPerPage" [totalItems]="totalCharacters" [(ngModel)]="currentPage" [maxSize]="maxSize" class="pagination pagination-sm"
+        [boundaryLinks]="true" [rotate]="false" (pageChanged)="pageChanged($event)"></pagination>
+</div>

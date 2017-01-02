@@ -30,8 +30,8 @@ img {
 .link-title{
     color: inherit; 
 }
-.pagination li {
-    background-color: black;
+.pagination  {
+    display: block;
 }
 
 li {
