@@ -11,13 +11,5 @@ main .wrapper {
     margin-top: -20px;
     min-height: 100%;
     padding-bottom: 30px;
-    margin-bottom: 100px;
-    /*padding-bottom:100px;*/
-    /*min-height: 1080px;*/
-    
-}
-
-.main-wrapper {
-    min-height:100% !important;
-	position:relative !important;
+    margin-bottom: 100px;    
 }

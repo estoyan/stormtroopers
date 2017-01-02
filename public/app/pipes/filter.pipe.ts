@@ -21,6 +21,7 @@ export class CustomFilterPipe<T> implements PipeTransform {
         } else {
             filteredList = originalList;
         }
+
         return filteredList;
 
 

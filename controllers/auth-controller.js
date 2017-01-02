@@ -27,7 +27,7 @@ module.exports = function ({
                             }
                         });
                     }
-console.log(true);
+
                     return res.status(400).json({
                         msg: 'Wrong username or password!'
                     });
