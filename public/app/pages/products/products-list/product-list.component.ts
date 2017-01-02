@@ -46,14 +46,7 @@ export class ProductListComponent implements OnInit {
       {
         queryParam: 'title',
         displayValue: 'Product Title'
-      },
-      // {
-      //   queryParam: '',
-      //   displayValue: 'Newest Arrivals'
-      // }
-      // TODO add property dateOfArrival
-
-
+      }
     ];
     this.searchText = '';
     this.firstItemToShow = 0;

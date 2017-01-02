@@ -1,14 +1,8 @@
 <div class="row text-center">
   <div class="col-md-12">
-    <h2 class=t itle>Star Wars Movies</h2>
+    <h2 class="title">Star Wars Movies</h2>
   </div>
 </div>
-
-<!--<div class="row text-center">
-  <div class="col-md-12 input-group">
-    <input type="text" class="form-control" placeholder="Search" autofocus [formControl]="filter">
-  </div>
-</div>-->
 
 <div class="row movie-container" *ngFor="let movie of movies" id="movie-[i]">
   <div class="col-md-2 image">
@@ -17,7 +11,6 @@
     </a>
   </div>
   <div class="col-md-9 info-container">
-    <!--<h3><a href="" [routerLink]="[ movie.Title]" >{{movie.Title | uppercase}}</a></h3>-->
     <h3>{{movie.Title| uppercase}}</h3>
     <div class="info">
       <div>
