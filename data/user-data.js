@@ -108,14 +108,14 @@ module.exports = function ({ models }) {
         },
         getUserPastOrders(username) {
             return new Promise((resolve, reject) => {
-                User.find()
+                User.find({username})
                     .select('orders')
                     .exec((err, res) => {
                         if (err) {
                             reject(err);
                         }
 
-                        let orders = res[1] ? res[1].orders.filter(x => x.state === 'completed') : [];
+                        let orders = res[0] ? res[0].orders.filter(x => x.state === 'completed') : [];
 
                         resolve(orders);
                     });
