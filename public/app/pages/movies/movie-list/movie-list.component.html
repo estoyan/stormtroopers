@@ -11,7 +11,9 @@
     </a>
   </div>
   <div class="col-md-9 info-container">
+    <a class="link-title" href="" [routerLink]="[ movie.Title]" routerLinkActive="active">
     <h3>{{movie.Title| uppercase}}</h3>
+    </a>
     <div class="info">
       <div>
         <span class="category"></span>{{movie.Plot}}

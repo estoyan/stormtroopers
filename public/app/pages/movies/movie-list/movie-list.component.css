@@ -27,16 +27,12 @@ img {
 .category {
     color: white;
 }
-
+.link-title{
+    color: inherit; 
+}
 .pagination li {
     background-color: black;
 }
-
-
-/*.info-container h4 a{
-    color: white;
-    text-decoration: none;  
-}*/
 
 li {
     list-style: none;
