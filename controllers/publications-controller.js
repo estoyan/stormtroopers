@@ -7,7 +7,6 @@ module.exports = function ({ data }) {
         getTopPublications(req, res) {
             data.getTopPublications()
                 .then(publications => {
-                    console.log(publications.length);
                     res.status(200).json(publications);
                 })
                 .catch(err => {
