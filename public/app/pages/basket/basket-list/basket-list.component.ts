@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { ToastService } from '../../../services/shared/toast.service';
 import { UserService } from '../../../services/user/user.service';
 import { Order } from '../../../models/order.model';
 
@@ -23,7 +24,8 @@ export class BasketListComponent implements OnInit {
 
     constructor(
         private _userService: UserService,
-        private _router: Router
+        private _router: Router,
+        private _toastService: ToastService
     ) {
         this.removeOptions = [SELECTED, ALL];
     }
@@ -37,7 +39,8 @@ export class BasketListComponent implements OnInit {
                         isSelected: true
                     });
                 });
-            });
+            },
+            err => this._toastService.activate(err, false));
 
         for (let i = 1; i <= SELECTION_COUNT; i += 1) {
             this.quantityOptions.push(i);
@@ -65,31 +68,32 @@ export class BasketListComponent implements OnInit {
     }
 
     onRemove() {
-        if (this.removeSelection === SELECTED) {
-            let ordersToRemove: Order[] = this.getSelectedOrders();
-            this._userService.removeUserOrdersFromBasket(ordersToRemove)
-                .subscribe(_ => {
-                    let newOrders: Order[] = [];
-                    for (let i = 0; i < this.orders.length; i += 1) {
-                        if (!this.selections[i].isSelected) {
-                            newOrders.push(this.orders[i]);
-                        }
-                    }
+        let selectedOrders = this.getSelectedOrders();
 
-                    this.orders = newOrders;
-                });
+        if (this.removeSelection === SELECTED) {
+            if (selectedOrders.length === 0) {
+                this._toastService.activate('Please select orders', false);
+                return;
+            }
+
+            this.removeSelectedOrders(selectedOrders);
         } else if (this.removeSelection === ALL) {
-            this._userService.removeUserOrdersFromBasket(this.orders)
-                .subscribe(_ => {
-                    this.orders = [];
-                });
+            this.removeAllOrders();
         }
     }
 
     onProceed() {
-        let ordersToProceed: Order[] = this.getSelectedOrders();
-        this._userService.proceedUserOrders(ordersToProceed)
-            .subscribe(_ => this._router.navigate(['/basket/proceed']));
+        let selectedOrders: Order[] = this.getSelectedOrders();
+        if (selectedOrders.length === 0) {
+            this._toastService.activate('Please select orders', false);
+            return;
+        }
+
+        this._userService.proceedUserOrders(selectedOrders)
+            .subscribe(_ => {
+                this._router.navigate(['/basket/proceed']);
+            },
+            err => this._toastService.activate(err, false));
     }
 
     private getSelectedOrders(): Order[] {
@@ -101,5 +105,30 @@ export class BasketListComponent implements OnInit {
         }
 
         return selectedOrders;
+    }
+
+    private removeSelectedOrders(selectedOrders: Order[]) {
+        this._userService.removeUserOrdersFromBasket(selectedOrders)
+            .subscribe(_ => {
+                let newOrders: Order[] = [];
+                for (let i = 0; i < this.orders.length; i += 1) {
+                    if (!this.selections[i].isSelected) {
+                        newOrders.push(this.orders[i]);
+                    }
+                }
+
+                this.orders = newOrders;
+                this._toastService.activate('Successfully removed from basket', true);
+            },
+            err => this._toastService.activate(err, false));
+    }
+
+    private removeAllOrders() {
+        this._userService.removeUserOrdersFromBasket(this.orders)
+            .subscribe(_ => {
+                this.orders = [];
+                this._toastService.activate('Successfully removed from basket', true);
+            },
+            err => this._toastService.activate(err, false));
     }
 }

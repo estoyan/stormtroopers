@@ -23,8 +23,8 @@
 </div>
 <div class="row">
     <div *ngFor="let order of orders, let i = index">
-        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+            <div id=" order">
                 <st-product-overview class="text-center left" [product]="order.product"></st-product-overview>
                 <div class="order-info">
                     <div class="form-group">
@@ -45,10 +45,10 @@
                         <label [hidden]="selections[i].isSelected">Select:</label>
                     </div>
                     <label class="btn btn-success" [class.active]="!selections[i].isSelected" [class.inactive]="selections[i].isSelected">
-                            <input type="checkbox" autocomplete="off" checked (click)="onProductSelect(i)">
-                            <span class="glyphicon glyphicon-ok"></span>
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </label>
+                        <input type="checkbox" autocomplete="off" checked (click)="onProductSelect(i)">
+                        <span class="glyphicon glyphicon-ok"></span>
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </label>
                     <div class="total">
                         <span>Total:</span>
                         <strong>{{this.orders[i].total | currency:'EUR':true}}</strong>

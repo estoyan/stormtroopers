@@ -38,20 +38,24 @@ export class BasketProceedComponent implements OnInit {
 
     constructor(
         private _userService: UserService,
-        private _router: Router
+        private _router: Router,
+        private _toastService: ToastService
     ) {
         this.paymentOptions = [ON_DELIVERY];
     }
 
     ngOnInit() {
         this._userService.getCurrentUser()
-            .subscribe(user => this.formModel = user);
+            .subscribe(user => {
+                this.formModel = user;
+            },
+            err => this._toastService.activate(err, false));
 
         this._userService.getUserProceedingOrders()
             .subscribe(orders => {
                 this.orders = orders;
-                console.log(this.orders);
-            });
+            },
+            err => this._toastService.activate(err, false));
     }
 
     onSubmit() {
@@ -66,6 +70,8 @@ export class BasketProceedComponent implements OnInit {
         this._userService.payUserProceedingOrders(this.orders, deliveryDetails)
             .subscribe(_ => {
                 this._router.navigate(['/home']);
-            });
+                this._toastService.activate('Successfully ordered products', true);
+            },
+            err => this._toastService.activate(err, false));
     }
 }
