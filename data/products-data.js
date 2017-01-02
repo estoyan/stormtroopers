@@ -84,21 +84,6 @@ module.exports = function ({
                 //     resolve(res);
                 // });
             });
-        },
-        getProductsFromBasket(username) {
-            return new Promise((resolve, reject) => {
-                // TODO: write query to database here
-                resolve(mockedData);
-            });
-        },
-        addProductToBasket(username, product) {
-            console.log('Data');
-            return new Promise.resolve({ success: true });
-                // ((resolve, reject) => {
-                // // TODO: write query to database here
-                // resolve({ success: true });
-            // });
         }
-
     };
 };
