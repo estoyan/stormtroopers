@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../../models/movie.model';
 import { MovieService } from '../../../services/movies/movie.service';
-import { FormControl } from '@angular/forms';
+import {ToastService } from'../../../services/shared/toast.service'
 
 @Component({
   moduleId: module.id,
@@ -17,62 +17,36 @@ export class MovieListComponent implements OnInit {
   public currentPage: number = 1;
   public maxSize: number = 5;
   public searchText = '';
-  filter = new FormControl();
 
-  constructor(private movieService: MovieService) {
+  constructor(private _movieService: MovieService,  private _toasterService: ToastService) {
     this.movies = [];
     this.detailedMovies = [];
-    this.filter.valueChanges
-      .debounceTime(400)
-      .subscribe(filter => this.searchMovie(filter));
-        // .movieService.search(term).then(items => this.items = items));
-  }
+   }
   getMovies(page = 1) {
     this.movies = [];
-    this.movieService.getMovies(page)
+    this._movieService.getMovies(page)
       .subscribe(newMovies => {
         this.totalMovies = newMovies[1];
         for (let newMovie of newMovies[0]) {
           this.getMovie(newMovie.Title);
         }
-        // above code is making multiple http requests TODO check if it is ok
-        // otherwise we miss movie Plots. Bellow  is the simple query.
-        // this.movies.push(...newMovies[0]); 
-
       },
       error => {
-        console.log('error occurred here');
-        console.log(error);
+        this._toasterService.activate('Movies cannot be retireved at the moment', false);
       });
   }
 
   private getMovie(title: string) {
-    this.movieService.getMovie(title)
+    this._movieService.getMovie(title)
       .subscribe(movie => {
         this.movies.push(movie);
       });
-  }
-
-  searchMovie(filter: string) {
-    this.movies = [];
-    this.movieService.searchMovies(filter)
-      .subscribe(newMovies => {
-        this.totalMovies = newMovies[1];
-        for (let newMovie of newMovies[0]) {
-          this.getMovie(newMovie.Title);
-        }
-      },
-      error => {
-        console.log('error occurred here');
-        console.log(error);
-      });
-
   }
 
   ngOnInit() {
     this.getMovies();
   }
   public pageChanged(event: any): void {
-    this.getMovies(event.page)
+    this.getMovies(event.page);
   }
 }

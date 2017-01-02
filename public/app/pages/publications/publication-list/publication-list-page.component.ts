@@ -10,7 +10,7 @@ import { Publication } from '../../../models/publication.model';
 })
 
 export class PublicationListPageComponent implements OnInit {
-  publications: Publication[];
+  publications: Publication[]= [];
   public totalPublications: number;
   public currentPage: number = 1;
   public maxSize: number = 10;

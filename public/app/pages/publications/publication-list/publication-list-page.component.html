@@ -24,5 +24,7 @@
         </h2>
     </div>
 </div>
-<pagination [itemsPerPage]="itemsPerPage" [totalItems]="totalPublications" [(ngModel)]="currentPage" [maxSize]="maxSize"
-    class="pagination pagination-sm" [boundaryLinks]="true" [rotate]="false" (pageChanged)="pageChanged($event)"></pagination>
+<div class="row text-center">
+    <pagination [itemsPerPage]="itemsPerPage" [totalItems]="totalPublications" [(ngModel)]="currentPage" [maxSize]="maxSize"
+        class="pagination pagination-sm" [boundaryLinks]="true" [rotate]="false" (pageChanged)="pageChanged($event)"></pagination>
+</div>

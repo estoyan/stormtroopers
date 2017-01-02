@@ -33,11 +33,13 @@
                     </ul>
                 </li>
                 <li>
-                    <img src={{avatar}} alt="avatar image" id="avatar-image">
+                    <a class="avatar" routerLink="/user/{{username}}">
+                        <img src={{avatar}} alt="avatar image" id="avatar-image">
+                    </a>
                 </li>
                 <li>
-                    <a routerLink="/basket">
-                        <span id="basket" class="glyphicon glyphicon-shopping-cart"></span>
+                    <a class="basket-container" routerLink="/basket">
+                        <img class="basket" src="static/app/assets/imgs/shopping-cart.png" alt="shopping cart">
                     </a>
                 </li>
             </ul>
