@@ -37,7 +37,7 @@ export class PublicationDetailComponent implements OnInit {
     addComment(content: string) {
         let comment: Comment = { username: this._username, content };
         let publicationId = this.publication._id;
-        
+
         this._publicationService.addComment(publicationId, comment)
             .subscribe(_ => this.publication.comments.push(comment));
     }

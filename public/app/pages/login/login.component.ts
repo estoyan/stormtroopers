@@ -22,7 +22,7 @@ export class LoginComponent {
     localUser = {
         username: '',
         password: ''
-    }
+    };
 
     constructor(private _authservice: AuthService,
         private _toastService: ToastService,
@@ -31,7 +31,7 @@ export class LoginComponent {
     onSubmit() {
         this._authservice.login(this.localUser)
             .subscribe((data: any) => {
-                this._toastService.activate(`Welcome back tropper!`, true)
+                this._toastService.activate(`Welcome back tropper!`, true);
                 this._location.back();
             },
             err => this._toastService.activate(err, false));

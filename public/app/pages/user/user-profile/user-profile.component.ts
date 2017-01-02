@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { UserService } from '../../../services/user/user.service';
 import { User } from '../../../models/user.model';
@@ -21,11 +21,11 @@ export class UserProfileComponent implements OnInit {
     ngOnInit() {
         this._userService.getCurrentUser()
             .subscribe(x => {
-                if(x.username !== this._activatedRoute.snapshot.params['username']){
+                if (x.username !== this._activatedRoute.snapshot.params['username']) {
                     this._router.navigate(['/wronguser']);
                 }
 
-                this.currentUser = x
+                this.currentUser = x;
             });
     }
 }

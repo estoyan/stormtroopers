@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 import { UserService } from '../../../services/user/user.service';
 import { NavbarService } from '../../../services/shared/navbar.service';
@@ -26,7 +26,7 @@ export class UpdateProfileComponent implements OnInit {
     ngOnInit() {
         this._userService.getCurrentUser()
             .subscribe(x => this.currentUser = x,
-                        err => this._toasService.activate(err, false));
+            err => this._toasService.activate(err, false));
     }
 
     onSubmit() {

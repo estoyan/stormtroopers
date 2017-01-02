@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 import { UserService } from '../../../services/user/user.service';
-import { User } from '../../../models/user.model';
 import { Publication } from '../../../models/publication.model';
 import { PublicationsOverviewModule } from '../../../shared/publication-overview/publications-overview.module';
 
@@ -23,5 +22,5 @@ export class UserPublicationsComponent implements OnInit {
     ngOnInit() {
         this._userService.getUserPublications()
             .subscribe((publ: Publication[]) => this.publications = publ);
-    }  
+    }
 }

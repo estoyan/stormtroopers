@@ -17,7 +17,6 @@ export class PublicationListPageComponent implements OnInit {
   public showedPublications: Publication[];
 
   constructor(private _publicationService: PublicatonsService) {
-    // this.totalPublications = 11;
   }
 
   ngOnInit() {
@@ -29,9 +28,6 @@ export class PublicationListPageComponent implements OnInit {
       });
   }
 
-  setNewRate(event: any) {
-    console.log('new Rate is: ', event);
-  }
   public pageChanged(event: any): void {
     let currentItem = (event.page-1) * this.itemsPerPage;
     this.showedPublications = this.publications.slice(currentItem, this.itemsPerPage + currentItem);
