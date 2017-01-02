@@ -46,7 +46,8 @@ export class ProductListComponent implements OnInit {
       {
         queryParam: 'title',
         displayValue: 'Product Title'
-      }];
+      }
+    ];
     this.searchText = '';
     this.firstItemToShow = 0;
     this.lastItemToShow = this.itemsPerPage;
