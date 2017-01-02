@@ -1,0 +1,20 @@
+div.publications {
+    margin-top: 3em;
+    font-size: 1.1em;
+}
+div.head {
+    float: right;
+    margin-top: 2em;
+    margin-left: 1em;
+}
+h2 {
+    color: gold;
+}
+.btn.btn-lg {
+    border-radius: 0;
+}
+
+.btn.btn-lg {
+    background-color: #408000;
+    color: white;
+}

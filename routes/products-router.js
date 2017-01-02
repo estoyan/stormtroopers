@@ -15,6 +15,7 @@ module.exports = function ({ app, controllers }) {
         .get('/products/basket', passport.authenticate('jwt', { session: false }), controller.getProductsFromBasket)
         .get('/allProducts/:id', controller.getProductById)
 
+
     app.use('/api', router);
 
     return router;

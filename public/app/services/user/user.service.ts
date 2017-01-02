@@ -16,6 +16,7 @@ const GET_USER_PUBLICATIONS_URL = '/api/user/publications';
 const GET_USER_PAST_ORDERS_URL = '/api/user/pastorders';
 const GET_USER_BASKET_URL = '/api/user/basket';
 const PROCEED_USER_ORDERS_URL = '/api/user/basket/proceed'
+const REMOVE_USER_BASKET_URL = '/api/user/basket/remove'
 
 @Injectable()
 export class UserService {
@@ -62,8 +63,19 @@ export class UserService {
             .getJsonAuthorized<Order[]>(GET_USER_BASKET_URL);
     }
 
-    proceedUserOrders(orders: Order[]) {
+    proceedUserOrders(orders: Order[]): Observable<Order[]> {
+        let bodyObj = { orders: JSON.stringify(orders) };
+        let body = this._requester.createBody(bodyObj);
+
         return this._requester
-            .getJsonAuthorized<Order[]>(PROCEED_USER_ORDERS_URL);
+            .postAuthorized<Order[]>(PROCEED_USER_ORDERS_URL, body);
+    }
+
+    removeUserOrdersFromBasket(orders: Order[]): Observable<Order[]> {
+        let bodyObj = { orders: JSON.stringify(orders) };
+        let body = this._requester.createBody(bodyObj);
+
+        return this._requester
+            .postAuthorized<Order[]>(REMOVE_USER_BASKET_URL, body);
     }
 }

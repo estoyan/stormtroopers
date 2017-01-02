@@ -6,7 +6,7 @@ import { Product } from '../../models/product.model';
 const RECENT_PRODUCTS_URL: string = '/api/recentproducts';
 const PRODUCTS_URL: string = '/api/allProducts';
 const PRODUCTS_FROM_BASKET_URL: string = '/api/products/basket';
-const ADD_PRODUCT_TO_BASKET_URL: string = '/api/addproduct';
+const ADD_PRODUCT_TO_BASKET_URL: string = '/api/user/addproduct';
 
 
 @Injectable()

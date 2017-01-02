@@ -1,0 +1,14 @@
+<div class="head">
+    <div class="title"><strong>{{publication.title}}</strong></div>
+    <div class="author">by <strong>{{publication.owner}}</strong></div>
+</div>
+<a routerLink="/publications/{{publication._id}}" routerLinkActive="active">
+    <div>
+        <img src="{{publication.imageUrl}}" alt="" class="publication">
+    </div>
+    <div class="comments">Comments: {{publication.comments.length}}</div>
+</a>
+<ac-stars
+    [rating]="(publication.rating | sumPipe: 'rate') / publication.rating.length" 
+    [publication]="publication">
+</ac-stars>

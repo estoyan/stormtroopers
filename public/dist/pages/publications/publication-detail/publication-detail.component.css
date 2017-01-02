@@ -1,0 +1,55 @@
+h2 {
+    color: gold;
+    margin-bottom: 1em;
+}
+
+div.publication-image {
+    height: 100%;
+    background-color: black;
+    padding: 0;
+    max-width: 30em;
+}
+.publication-image img {
+    height: 100%;
+}
+div.details {
+    padding: 0;
+    height: 100%;
+    max-width: 27.3em;
+    min-width: 18em;
+    background-color: #282727;
+    font-size: 1.1em;
+}
+div.title {
+    height: 20%;
+    padding-top: 1.5em;
+    color: white;
+}
+div.title strong{
+    font-size: 1.2em;
+    
+}
+div.comments {
+    height: 62%;
+    background-color: #e8e9ea;
+}
+div.comment {
+    margin: 1em;
+}
+div.comment strong {
+    color: #3a5b9b;
+}
+div.comment span {
+    color: black;
+    margin-left: 1em;
+}
+.input {
+    background-color: #e8e9ea;
+}
+div.row.image-container {
+    height: 30em;
+    margin-bottom: 2em;
+}
+div.likes {
+    padding-left: 1em;
+}

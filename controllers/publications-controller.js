@@ -10,7 +10,7 @@ module.exports = function ({ data }) {
                     res.status(200).json(publications);
                 })
                 .catch(err => {
-                    return res.status(500).send({ msg: 'Server error!', err });
+                    return res.status(500).send({ msg: 'Error getting top publications!', err });
                 });
         },
         getAllPublications(req, res) {
@@ -19,7 +19,7 @@ module.exports = function ({ data }) {
                     res.status(200).json(publications);
                 })
                 .catch(err => {
-                    return res.status(500).send({ msg: 'Server error!', err });
+                    return res.status(500).send({ msg: 'Error getting all publications!', err });
                 });
         },
         getPublicationById(req, res) {
@@ -29,7 +29,7 @@ module.exports = function ({ data }) {
                     res.status(200).json(publication);
                 })
                 .catch(err => {
-                    return res.status(500).send({ msg: 'Server error!', err });
+                    return res.status(500).send({ msg: 'Error getting publication!', err });
                 });
         },
         ratePublication(req, res) {

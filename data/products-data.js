@@ -57,7 +57,6 @@ module.exports = function ({
         },
         getAllProducts() {
             return new Promise((resolve, reject) => {
-                // TODO: write query to database here
                 // resolve(mockedData);
                 Product.find()
                  .exec((err, res) => {
@@ -71,8 +70,6 @@ module.exports = function ({
         },
         getProductById(id) {
             return new Promise((resolve, reject) => {
-                // TODO: write query to database here
-                //check in DB how what should be the query mockedData.find(x => x._id == id) or ====
                 // resolve(mockedData.find(x => x._id == id));
                 Product.findOne({
                     _id: id
@@ -83,12 +80,6 @@ module.exports = function ({
 
                     resolve(res);
                 });
-            });
-        },
-        getProductsFromBasket(username) {
-            return new Promise((resolve, reject) => {
-                // TODO: write query to database here
-                resolve(mockedData);
             });
         }
     };

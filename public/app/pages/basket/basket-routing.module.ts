@@ -5,7 +5,7 @@ import { AuthGuard } from '../../guards/authGuard';
 
 import { BasketComponent } from './basket.component';
 import { BasketListComponent } from './basket-list/basket-list.component';
-import { BasketBuyComponent } from './basket-buy/basket-buy.component';
+import { BasketProceedComponent } from './basket-proceed/basket-proceed.component';
 
 const routes: Routes = [
     {
@@ -17,8 +17,8 @@ const routes: Routes = [
                 component: BasketListComponent
             },
             {
-                path: 'buy',
-                component: BasketBuyComponent
+                path: 'proceed',
+                component: BasketProceedComponent
             }
         ]
     }
@@ -33,6 +33,6 @@ export class BasketRoutingModule { }
 
 export const routedComponents = [
     BasketComponent,
-    BasketBuyComponent,
+    BasketProceedComponent,
     BasketListComponent
 ];

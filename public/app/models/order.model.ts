@@ -5,6 +5,7 @@ export interface Order {
     state: string;
     quantity: number;
     total: number;
+    _id: string;
     color: string;
     cateogry: string;
 }

@@ -21,7 +21,10 @@ export class BasketListComponent implements OnInit {
     removeOptions: string[];
     removeSelection: string;
 
-    constructor(private _userService: UserService) {
+    constructor(
+        private _userService: UserService,
+        private _router: Router
+    ) {
         this.removeOptions = [SELECTED, ALL];
     }
 
@@ -62,10 +65,41 @@ export class BasketListComponent implements OnInit {
     }
 
     onRemove() {
-        console.log(this.removeSelection);
+        if (this.removeSelection === SELECTED) {
+            let ordersToRemove: Order[] = this.getSelectedOrders();
+            this._userService.removeUserOrdersFromBasket(ordersToRemove)
+                .subscribe(_ => {
+                    let newOrders: Order[] = [];
+                    for (let i =0; i < this.orders.length; i += 1){
+                        if (!this.selections[i].isSelected) {
+                            newOrders.push(this.orders[i]);
+                        }
+                    }
+
+                    this.orders = newOrders;
+                });
+        } else if (this.removeSelection === ALL) {
+            this._userService.removeUserOrdersFromBasket(this.orders)
+                .subscribe(_ => {
+                    this.orders = [];
+                });
+        }
     }
 
     onProceed() {
+        let ordersToProceed: Order[] = this.getSelectedOrders();
+        this._userService.proceedUserOrders(ordersToProceed)
+            .subscribe(_ => this._router.navigate(['/basket/proceed']))
+    }
 
+    private getSelectedOrders(): Order[] {
+        let selectedOrders: Order[] = [];
+        for (let i = 0; i < this.orders.length; i += 1) {
+            if (this.selections[i].isSelected) {
+                selectedOrders.push(this.orders[i]);
+            }
+        }
+
+        return selectedOrders;
     }
 }

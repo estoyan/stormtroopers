@@ -12,21 +12,38 @@ var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var forms_1 = require('@angular/forms');
 var router_1 = require('@angular/router');
+var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
+var ng2_bootstrap_2 = require('ng2-bootstrap/ng2-bootstrap');
 var nav_component_1 = require('./navbar/nav.component');
 var footer_component_1 = require('./footer/footer.component');
-var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
+var toast_component_1 = require('./toast/toast.component');
+var color_directive_1 = require('../directives/color.directive');
 var CoreModule = (function () {
     function CoreModule() {
     }
     CoreModule = __decorate([
         core_1.NgModule({
             imports: [
-                common_1.CommonModule, forms_1.FormsModule, router_1.RouterModule, ng2_bootstrap_1.Ng2BootstrapModule
+                common_1.CommonModule,
+                forms_1.FormsModule,
+                router_1.RouterModule,
+                ng2_bootstrap_1.Ng2BootstrapModule,
+                ng2_bootstrap_2.DropdownModule.forRoot()
             ],
             exports: [
-                common_1.CommonModule, forms_1.FormsModule, router_1.RouterModule, nav_component_1.NavComponent, footer_component_1.FooterComponent
+                common_1.CommonModule,
+                forms_1.FormsModule,
+                router_1.RouterModule,
+                nav_component_1.NavComponent,
+                footer_component_1.FooterComponent,
+                toast_component_1.ToastComponent
             ],
-            declarations: [nav_component_1.NavComponent, footer_component_1.FooterComponent],
+            declarations: [
+                nav_component_1.NavComponent,
+                footer_component_1.FooterComponent,
+                toast_component_1.ToastComponent,
+                color_directive_1.ColorDirective
+            ],
             providers: []
         }), 
         __metadata('design:paramtypes', [])
@@ -34,4 +51,5 @@ var CoreModule = (function () {
     return CoreModule;
 }());
 exports.CoreModule = CoreModule;
+
 //# sourceMappingURL=core.module.js.map

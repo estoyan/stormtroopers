@@ -6,7 +6,7 @@ import { Movie } from '../../models/movie.model';
 import { ExceptionService } from '../shared/exception.service';
 // import { CONFIG, ExceptionService, MessageService, SpinnerService } from '../../core';
 
-let omdbapi = 'http://www.omdbapi.com/';
+let omdbapi = 'https://www.omdbapi.com/';
 let starWarsmoviesSearch = '?s=%22Star%20Wars%22&type=movie';
 
 @Injectable()

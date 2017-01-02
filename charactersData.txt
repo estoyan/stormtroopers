@@ -1,4 +1,4 @@
-﻿use stormtroopers
+﻿use stormtroopers;
 db.characters.insertMany([{
     name: 'Yoda',
     homeland: 'N/A',
