@@ -33,9 +33,9 @@ button.btn.btn-danger:hover,
 .order-info input[type='checkbox'] {
     display: none;
 }
-/*.left {
+.left {
     float: left;
-}*/
+}
 .right {
     float: right;
 }
