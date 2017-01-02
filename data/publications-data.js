@@ -79,23 +79,19 @@ module.exports = function ({
         },
         getTopPublications() {
             return new Promise((resolve, reject) => {
-                Publication.find()
-                    .exec((err, res) => {
-                        if (err) {
-                            return reject(err);
-                        }
+                Publication.find({}, (err, res) => {
+                    if (err) {
+                        reject(err);
+                    }
 
-                        return resolve(res);
-                    })
-                    .then(res => {
-                        let top = res.sort((a, b) => {
-                                return b.rating.reduce((acc, val) => acc + val.rate, 0)
-                                        - a.rating.reduce((acc, val) => acc + val.rate, 0);
-                            })
-                            .slice(0, 4);
+                    let top = res.sort((a, b) => {
+                            return b.rating.reduce((acc, val) => acc + val.rate, 0) -
+                                a.rating.reduce((acc, val) => acc + val.rate, 0);
+                        })
+                        .slice(0, 4);
 
-                        return Promise.resolve(top);
-                    });
+                    resolve(top);
+                })
             });
         },
         getAllPublications() {
@@ -112,8 +108,10 @@ module.exports = function ({
         },
         getUserPublications(username) {
             return new Promise((resolve, reject) => {
-                Publication.find({owner: username})
-                .exec((err, res) => {
+                Publication.find({
+                        owner: username
+                    })
+                    .exec((err, res) => {
                         if (err) {
                             reject(err);
                         }
@@ -157,7 +155,10 @@ module.exports = function ({
         addComment(id, content, username) {
             return this.getPublicationById(id)
                 .then(publication => {
-                    publication.comments.push({username, content})
+                    publication.comments.push({
+                        username,
+                        content
+                    })
 
                     return dataUtils.update(publication);
                 });
