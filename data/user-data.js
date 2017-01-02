@@ -115,7 +115,7 @@ module.exports = function ({ models }) {
                             reject(err);
                         }
 
-                        let orders = res[1] ? res[1].orders.filter(x => x.state === 'completed') : [];
+                        let orders = res[0].orders.filter(x => x.state === 'completed');
 
                         resolve(orders);
                     });
@@ -160,6 +160,32 @@ module.exports = function ({ models }) {
                     user.orders = user.orders.map(order => {
                         if (orders.find(x => x._id == order._id)) {
                             order.isDeleted = true;
+                        }
+
+                        return order;
+                    });
+
+                    return this.updateUser(user);
+                })
+                .then(user => {
+                    return Promise.resolve(user.orders);
+                });
+        },
+        getUserProceedingOrders(username) {
+            return this.getUserByUsername(username)
+                .then(user => {
+                    let proceedingOrders = user.orders.filter(order => order.state === 'proceeding');
+
+                    return Promise.resolve(proceedingOrders);
+                });
+        },
+        payUserProceedingOrders(username, orders, deliveryDetails) {
+            return this.getUserByUsername(username)
+                .then(user => {
+                    user.orders = user.orders.map(order => {
+                        if (order.state === 'proceeding' && orders.find(x => x._id == order._id)) {
+                            order.state = 'completed';
+                            order.deliveryDetails = deliveryDetails;
                         }
 
                         return order;
