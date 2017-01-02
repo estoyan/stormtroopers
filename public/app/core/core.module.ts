@@ -11,7 +11,6 @@ import { ToastComponent } from './toast/toast.component';
 
 import { ColorDirective } from '../directives/color.directive';
 
-
 @NgModule({
     imports: [
         CommonModule,
@@ -32,7 +31,8 @@ import { ColorDirective } from '../directives/color.directive';
         NavComponent,
         FooterComponent,
         ToastComponent,
-        ColorDirective],
+        ColorDirective
+    ],
     providers: []
 })
 export class CoreModule {

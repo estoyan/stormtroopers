@@ -31,7 +31,7 @@ export class LoginComponent {
     onSubmit() {
         this._authservice.login(this.localUser)
             .subscribe((data: any) => {
-                this._toastService.activate(`Welcome back tropper!`)
+                this._toastService.activate(`Welcome back tropper!`, true)
                 this._location.back();
             })
     }

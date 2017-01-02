@@ -25,7 +25,7 @@ export class PublicationCreateComponent {
     onSubmit() {
         this._publicationsService.addPublication(this.publication.title, this.publication.imageUrl)
             .subscribe(data => {
-                this._toastService.activate('Successfully added publication!')
+                this._toastService.activate('Successfully added publication!', true)
                 this._router.navigate(['publications']);
             });
     }

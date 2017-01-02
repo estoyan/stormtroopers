@@ -66,7 +66,7 @@ export class ProductListComponent implements OnInit {
     let product = event[1];
     this._productService.addProductToBasket(product)
       .subscribe(data => {
-                this._toasterService.activate('Product was added to basket!')
+                this._toasterService.activate('Product was added to basket!', true)
             });
   }
 
