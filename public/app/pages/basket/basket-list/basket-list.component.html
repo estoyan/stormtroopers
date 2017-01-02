@@ -2,7 +2,7 @@
     <div class="head col-md-6 col-sm-6 col-xs-12" stick-first-child>
         <div>
             <strong class="left total">Total: {{sumTotal() | currency:'EUR':true}}</strong>
-            <label class="right btn btn-lg">PROCEED</label>
+            <label class="right btn btn-lg" (click)="onProceed()">PROCEED</label>
         </div>
     </div>
     <div class="head col-md-6 col-sm-6 col-xs-12">

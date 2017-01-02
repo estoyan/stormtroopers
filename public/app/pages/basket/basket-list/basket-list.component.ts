@@ -21,7 +21,10 @@ export class BasketListComponent implements OnInit {
     removeOptions: string[];
     removeSelection: string;
 
-    constructor(private _userService: UserService) {
+    constructor(
+        private _userService: UserService,
+        private _router: Router
+    ) {
         this.removeOptions = [SELECTED, ALL];
     }
 
@@ -66,6 +69,14 @@ export class BasketListComponent implements OnInit {
     }
 
     onProceed() {
+        let ordersToProceed: Order[] = [];
+        for (let i = 0; i < this.orders.length; i += 1) {
+            if (this.selections[i].isSelected) {
+                ordersToProceed.push(this.orders[i]);
+            }
+        }
 
+        this._userService.proceedUserOrders(ordersToProceed)
+            .subscribe(_ => this._router.navigate(['/basket/proceed']))
     }
 }

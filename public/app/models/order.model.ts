@@ -4,5 +4,6 @@ export interface Order {
     product: Product,
     state: string,
     quantity: number,
-    total: number
+    total: number,
+    _id: string
 }
