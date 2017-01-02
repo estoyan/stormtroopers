@@ -44,45 +44,45 @@ module.exports = function ({
     return {
         getRecentProducts() {
             return new Promise((resolve, reject) => {
-                resolve(mockedData);
-                // Product.find()
-                //     .exec((err, res) => {
-                //         if (err) {
-                //             return reject(err);
-                //         }
+                // resolve(mockedData);
+                Product.find()
+                    .exec((err, res) => {
+                        if (err) {
+                            return reject(err);
+                        }
 
-                //         return resolve(res.slice(0, 4));
-                //     });
+                        return resolve(res.slice(0, 4));
+                    });
             })
         },
         getAllProducts() {
             return new Promise((resolve, reject) => {
                 // TODO: write query to database here
-                resolve(mockedData);
-                // Product.find()
-                //  .exec((err, res) => {
-                //         if (err) {
-                //             return reject(err);
-                //         }
+                // resolve(mockedData);
+                Product.find()
+                 .exec((err, res) => {
+                        if (err) {
+                            return reject(err);
+                        }
 
-                //         return resolve(res);
-                //     });
+                        return resolve(res);
+                    });
             })
         },
         getProductById(id) {
             return new Promise((resolve, reject) => {
                 // TODO: write query to database here
                 //check in DB how what should be the query mockedData.find(x => x._id == id) or ====
-                resolve(mockedData.find(x => x._id == id));
-                // Product.findOne({
-                //     _id: id
-                // }, (err, res) => {
-                //     if (err) {
-                //         return reject(err);
-                //     }
+                // resolve(mockedData.find(x => x._id == id));
+                Product.findOne({
+                    _id: id
+                }, (err, res) => {
+                    if (err) {
+                        return reject(err);
+                    }
 
-                //     resolve(res);
-                // });
+                    resolve(res);
+                });
             });
         }
     };
