@@ -18,9 +18,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     }
   `]
 })
-export class AcStar {
-    constructor() { }
 
+export class AcStar {
     @Input() active: boolean;
     @Input() position: number;
     @Output() rate = new EventEmitter();

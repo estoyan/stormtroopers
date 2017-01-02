@@ -46,15 +46,7 @@ export class ProductListComponent implements OnInit {
       {
         queryParam: 'title',
         displayValue: 'Product Title'
-      },
-      // {
-      //   queryParam: '',
-      //   displayValue: 'Newest Arrivals'
-      // }
-      // TODO add property dateOfArrival
-
-
-    ];
+      }];
     this.searchText = '';
     this.firstItemToShow = 0;
     this.lastItemToShow = this.itemsPerPage;
@@ -94,5 +86,4 @@ export class ProductListComponent implements OnInit {
       });
     this.isLogedIn = this._authService.isLoggedIn();
   }
-
 }

@@ -1,5 +1,4 @@
 export interface Comment {
-    // TODO
-    username: string,
-    content: string
+    username: string;
+    content: string;
 }

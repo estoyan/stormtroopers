@@ -24,13 +24,6 @@ const ON_DELIVERY = 'On Delivery';
 })
 
 export class BasketProceedComponent implements OnInit {
-    private emptyForm = {
-        firstname: '',
-        lastname: '',
-        phoneNumber: '',
-        address: ''
-    };
-
     formModel: any = {};
     paymentSelection: string;
     paymentOptions: string[];
@@ -50,7 +43,6 @@ export class BasketProceedComponent implements OnInit {
         this._userService.getUserProceedingOrders()
             .subscribe(orders => {
                 this.orders = orders;
-                console.log(this.orders);
             });
     }
 

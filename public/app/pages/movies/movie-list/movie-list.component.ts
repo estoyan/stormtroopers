@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../../models/movie.model';
 import { MovieService } from '../../../services/movies/movie.service';
-import { FormControl } from "@angular/forms"
+import { FormControl } from '@angular/forms';
 
 @Component({
   moduleId: module.id,
@@ -53,7 +53,6 @@ export class MovieListComponent implements OnInit {
       });
   }
 
-  // for  search implementation have to be decided how to search only for Star Wars Movies!!!
   searchMovie(filter: string) {
     this.movies = [];
     this.movieService.searchMovies(filter)
@@ -67,7 +66,7 @@ export class MovieListComponent implements OnInit {
         console.log('error occurred here');
         console.log(error);
       });
-    
+
   }
 
   ngOnInit() {

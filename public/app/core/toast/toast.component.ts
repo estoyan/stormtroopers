@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ToastService } from '../../services/shared/toast.service';
 
-import { Subscription } from 'rxjs/Subscription'
+import { Subscription } from 'rxjs/Subscription';
 
-const SUCCESS_COLOR: string = '#408000';
-const FAIL_COLOR: string = '#FF0000';
+const SUCCESS_COLOR = '#408000';
+const FAIL_COLOR = '#FF0000';
 
 @Component({
     moduleId: module.id,
@@ -23,7 +23,7 @@ export class ToastComponent implements OnInit, OnDestroy {
     constructor(private _toastService: ToastService) {
         this._toastSubscription = this._toastService.toastState.subscribe((data: any) => {
             this.activate(data.message, data.success);
-        })
+        });
     }
 
     ngOnInit() {

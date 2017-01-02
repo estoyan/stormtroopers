@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-
 @Pipe({ name: 'customSort' })
 export class CustomSortPipe<T> implements PipeTransform {
     transform<T>(value: T[], filter: string) {

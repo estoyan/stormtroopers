@@ -1,5 +1,4 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
 
 import { User } from '../../models/user.model';
 

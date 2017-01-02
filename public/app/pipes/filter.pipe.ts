@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-
 @Pipe({ name: 'customFilter' })
 export class CustomFilterPipe<T> implements PipeTransform {
     transform<T>(originalList: Array<T>, data: string, props: Array<string>) {
@@ -23,7 +22,5 @@ export class CustomFilterPipe<T> implements PipeTransform {
         }
 
         return filteredList;
-
-
     }
 }
