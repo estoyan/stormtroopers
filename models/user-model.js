@@ -57,7 +57,10 @@ module.exports = modelRegistrator.register('User', {
                 type: Number,
                 default: 1
             },
-            isDeleted: Boolean
+            isDeleted: {
+                type: Boolean,
+                default: false
+            }
         }
     ],
     role: [String],

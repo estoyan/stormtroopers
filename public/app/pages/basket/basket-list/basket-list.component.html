@@ -2,14 +2,14 @@
     <div class="head col-md-6 col-sm-6 col-xs-12" stick-first-child>
         <div>
             <strong class="left total">Total: {{sumTotal() | currency:'EUR':true}}</strong>
-            <label class="right btn btn-lg" (click)="onProceed()">PROCEED</label>
+            <button class="right btn btn-lg" (click)="onProceed()" [disabled]="!orders.length">PROCEED</button>
         </div>
     </div>
     <div class="head col-md-6 col-sm-6 col-xs-12">
         <div>
             <div class="right btn-group" id="remove-dropdown" dropdown (click)="$event.preventDefault()">
                 <button id="remove-button" type="button" class="right btn btn-danger" (click)="onRemove()" [disabled]="!removeSelection">REMOVE</button>
-                <button type="button" class="right btn btn-danger dropdown-toggle-split" dropdownToggle>
+                <button type="button" class="right btn btn-danger dropdown-toggle-split" dropdownToggle [disabled]="!orders.length">
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="split-button">

@@ -63,10 +63,8 @@ export class UserService {
     }
 
     proceedUserOrders(orders: Order[]) {
-        // let bodyObj = { orders };
-        // console.log(bodyObj);
-        let body = `orders=${JSON.stringify(orders)}`;
-        console.log(body);
+        let bodyObj = { orders: JSON.stringify(orders) };
+        let body = this._requester.createBody(bodyObj);
 
         return this._requester
             .postAuthorized<Order[]>(PROCEED_USER_ORDERS_URL, body);

@@ -96,34 +96,38 @@ module.exports = function ({ models }) {
         addProductToBasket(username, order) {
             return new Promise((resolve, reject) => {
                 this.getUserByUsername(username)
-                .then(user => {
-                    user.orders.push(order);
+                    .then(user => {
+                        user.orders.push(order);
 
-                   return dataUtils.update(user);
-                })
-                .then(res => {
-                    resolve(res);
-                })
+                        return dataUtils.update(user);
+                    })
+                    .then(res => {
+                        resolve(res);
+                    })
             });
         },
         getUserPastOrders(username) {
             return new Promise((resolve, reject) => {
                 User.find()
-                .select('orders')
-                .exec((err, res) =>{
-                    if(err){
-                        reject(err);
-                    }
-                let orders = res[1].orders.filter(x => x.state === 'completed');
+                    .select('orders')
+                    .exec((err, res) => {
+                        if (err) {
+                            reject(err);
+                        }
 
-                    resolve(orders);
-                });
+                        let orders = res[1] ? res[1].orders.filter(x => x.state === 'completed') : [];
+
+                        resolve(orders);
+                    });
             });
         },
         getUserOrdersFromBasket(username) {
             return this.getUserByUsername(username)
                 .then((user) => {
-                    let ordersFromBasket = user.orders.filter(x => x.state === 'proceeding' || x.state === 'not-completed');
+                    let ordersFromBasket = user.orders.filter(x =>
+                        !x.isDeleted &&
+                        x.state === 'proceeding' ||
+                        x.state === 'not-completed');
 
                     return Promise.resolve(ordersFromBasket);
                 });
@@ -131,29 +135,29 @@ module.exports = function ({ models }) {
         proceedUserOrders(username, orders) {
             return this.getUserByUsername(username)
                 .then(user => {
-                    orders.forEach(o => {
-                        o.state = 'proceeding';
+                    orders = orders.map(order => {
+                        order.state = 'proceeding';
+                        return order;
                     });
 
-                    let updatedOrders = [];
-                    user.orders.forEach(o => {
-                        if (o.state === 'proceeding') {
-                            o.state = 'not-completed';
+                    user.orders = user.orders.map(order => {
+                        if (order.state === 'proceeding') {
+                            order.state = 'not-completed';
                         }
 
-                        let newOrder = orders.find(x => {
-                            return x._id === o._id;
-                        }) || o;
-                        updatedOrders.push(newOrder);
-                    });
+                        order = orders.find(x => x._id == order._id) || order;
 
-                    user.orders = updatedOrders;
+                        return order;
+                    });
 
                     return this.updateUser(user);
                 })
-                .then(usre => {
+                .then(user => {
                     return Promise.resolve(user.orders);
                 });
+        },
+        deleteUserOrders(username, orders) {
+
         }
     }
 };
