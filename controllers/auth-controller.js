@@ -27,9 +27,9 @@ module.exports = function ({
                             }
                         });
                     }
-
+console.log(true);
                     return res.status(400).json({
-                        msg: 'Authenticaton failed, wrong password.'
+                        msg: 'Wrong username or password!'
                     });
                 })
                 .catch(error => {

@@ -25,7 +25,8 @@ export class UpdateProfileComponent implements OnInit {
 
     ngOnInit() {
         this._userService.getCurrentUser()
-            .subscribe(x => this.currentUser = x);
+            .subscribe(x => this.currentUser = x,
+                        err => this._toasService.activate(err, false));
     }
 
     onSubmit() {
@@ -34,7 +35,8 @@ export class UpdateProfileComponent implements OnInit {
                 this._navbarService.updateUserInfo(data.body);
                 this._toasService.activate('Trooper info successfully updated!', true);
                 this._router.navigate([`user/${data.user.username}`]);
-            });
+            },
+            err => this._toasService.activate(err, false));
     }
 
     setUserAvatar(value: string): void {

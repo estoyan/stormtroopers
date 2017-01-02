@@ -17,10 +17,9 @@ import { AuthService } from '../../services/authentication/auth.service'
 })
 export class ProductDetailsModalComponent implements OnInit {
     @ViewChild('childModal') public childModal: ModalDirective;
-    @Input() product: Product;
+    @Input() product: number;
 
     public isLogedIn: boolean;
-    public safeImageUrl:any;
 
     constructor(private _productService: ProductsService, private _authService: AuthService, private _toasterService: ToastService) {
 

@@ -70,7 +70,6 @@ module.exports = function ({
         },
         getProductById(id) {
             return new Promise((resolve, reject) => {
-              
                 // resolve(mockedData.find(x => x._id == id));
                 Product.findOne({
                     _id: id
@@ -89,7 +88,5 @@ module.exports = function ({
                 resolve(mockedData);
             });
         }
-     
-
     };
 };
