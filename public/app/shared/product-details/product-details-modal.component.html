@@ -13,25 +13,25 @@
           <div class="col-md-6 image">
             <img class="image" src="{{product.imageUrl}}" alt="{{product.title}}">
           </div>
-          <div class="col-md-6 info-container">
+          <div class="col-md-6 info-container info ">
             <div class="description">
-              <h3>Description:</h3>
+              <h3 class="category">Description:</h3>
               <hr>
-              <p>
+              <p class="info">
                 {{product.description}}
               </p>
               <hr>
             </div>
             <div class="row">
               <div class=" col-md-6 color">
-                <span>color:</span> {{product.color}}
+                <span class="category">color:</span> {{product.color}}
               </div>
-              <div class=" col-md-6  category">
-                <span>Category:</span> {{product.category}}
+              <div class=" col-md-6">
+                <span class="category">Category:</span> {{product.category}}
               </div>
             </div>
             <div class=" row price">
-              <span>Price:</span> {{product.price|currency:'EUR':true}}
+              <span class="category">Price:</span> {{product.price|currency:'EUR':true}}
             </div>
             <div class="row">
               <div class="col-md-8"></div>

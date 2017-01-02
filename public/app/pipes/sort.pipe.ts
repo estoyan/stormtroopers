@@ -7,16 +7,16 @@ export class CustomSortPipe<T> implements PipeTransform {
         if (!value || !value.sort) {
             return value;
         }
-        let temp = filter.split(" ");
+        let temp = filter.split(' ');
         let filterCriteria = temp[0];
         let isAscending = temp[1];
-        
-        var result=value.sort((a: T, b: T) => {
-                if (a[filterCriteria] < b[filterCriteria]) { return -1; }
-                if (a[filterCriteria] > b[filterCriteria]) { return 1; }
-                return 0;
-            });
-        if (isAscending==='true') {
+
+        let result = value.sort((a: T, b: T) => {
+            if (a[filterCriteria] < b[filterCriteria]) { return -1; }
+            if (a[filterCriteria] > b[filterCriteria]) { return 1; }
+            return 0;
+        });
+        if (isAscending === 'true') {
             return result;
         } else {
             return result.reverse();
