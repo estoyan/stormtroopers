@@ -28,6 +28,6 @@ module.exports = function ({ data }) {
                 username = tokenUtils.decodeToken(token).username;
 
             data.getProductsFromBasket(username)
-        }
+        },
     };
 };

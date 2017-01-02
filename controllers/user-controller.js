@@ -150,12 +150,15 @@ module.exports = function ({ data, hashGenerator, validator }) {
                         _id: product._id,
                         title: product.title,
                         price: product.price,
-                        imageUrl: product.imageUrl
+                        imageUrl: product.imageUrl,
+                        color: product.color,
+                        category: product.category
                         },
                         state: 'not-completed',
                         quantity: 1,
                         total: product.price
                     }
+                    
                     return data.addProductToBasket(username, order)
                 })            
                 .then(result => {

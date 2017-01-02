@@ -1,0 +1,33 @@
+<div class="row wrapper"  [@flyInOut]="true" >
+    <div class="col-md-4 col-md-offset-4">
+        <h2>Fill in your details trooper</h2>
+        <br>
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="username">Username</label>
+                 <strong [hidden]="username.valid || username.pristine"
+                    class="alert alert-danger">
+                    Username is required!
+                  </strong>
+                <input type="text" class="form-control" id="username" name="username"
+                required 
+                [(ngModel)]="localUser.username" 
+                 #username="ngModel"
+                 autofocus>
+            </div>
+           
+            <div class="form-group">
+                <label for="password">Password</label>
+                <strong [hidden]="password.valid || password.pristine"
+                    class="alert alert-danger">
+                    Password is required!
+                </strong>
+                <input type="password" class="form-control" id="password" name="password"
+                 required
+                 [(ngModel)]="localUser.password"
+                 #password="ngModel">
+            </div>
+            <button type="submit" class="btn btn-lg" [disabled]="!loginForm.form.valid">SUBMIT</button>
+        </form>
+    </div>
+</div>

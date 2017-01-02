@@ -10,9 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var authGuard_1 = require('../../guards/authGuard');
 var publications_component_1 = require('./publications.component');
-var publication_list_component_1 = require('./publication-list/publication-list.component');
+var publication_list_page_component_1 = require('./publication-list/publication-list-page.component');
 var publication_create_component_1 = require('./publication-create/publication-create.component');
+var publication_detail_component_1 = require('./publication-detail/publication-detail.component');
 var routes = [
     {
         path: '',
@@ -20,11 +22,17 @@ var routes = [
         children: [
             {
                 path: '',
-                component: publication_list_component_1.PublicationListComponent
+                component: publication_list_page_component_1.PublicationListPageComponent
             },
             {
                 path: 'create',
-                component: publication_create_component_1.PublicationCreateComponent
+                component: publication_create_component_1.PublicationCreateComponent,
+                canActivate: [authGuard_1.AuthGuard]
+            },
+            {
+                path: ':id',
+                component: publication_detail_component_1.PublicationDetailComponent,
+                canActivate: [authGuard_1.AuthGuard]
             }
         ]
     }
@@ -42,5 +50,10 @@ var PublicationsRoutingModule = (function () {
     return PublicationsRoutingModule;
 }());
 exports.PublicationsRoutingModule = PublicationsRoutingModule;
-exports.routedComponents = [publications_component_1.PublicationsComponent, publication_list_component_1.PublicationListComponent, publication_create_component_1.PublicationCreateComponent];
+exports.routedComponents = [
+    publications_component_1.PublicationsComponent,
+    publication_list_page_component_1.PublicationListPageComponent,
+    publication_create_component_1.PublicationCreateComponent,
+    publication_detail_component_1.PublicationDetailComponent
+];
 //# sourceMappingURL=publications-routing.module.js.map

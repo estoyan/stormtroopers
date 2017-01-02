@@ -46,7 +46,9 @@ module.exports = modelRegistrator.register('User', {
                 _id: mongoose.Schema.Types.ObjectId,
                 title: String,
                 price: Number,
-                imageUrl: String
+                imageUrl: String,
+                color: String,
+                category: String
             },
             state: {
                 type: String,

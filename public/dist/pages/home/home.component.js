@@ -12,20 +12,17 @@ var core_1 = require('@angular/core');
 var publications_service_1 = require('../../services/publications/publications.service');
 var products_service_1 = require('../../services/products/products.service');
 var HomeComponent = (function () {
-    function HomeComponent(publicatonsService, productService) {
-        this.publicatonsService = publicatonsService;
-        this.productService = productService;
+    function HomeComponent(_publicatonsService, _productService) {
+        this._publicatonsService = _publicatonsService;
+        this._productService = _productService;
         this.fullPath = 'static/app/assets/imgs/rougeone.png';
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.productService.getRecentProducts()
+        this._productService.getRecentProducts()
             .subscribe(function (x) { return _this.recentProducts = x; });
-        this.publicatonsService.getTopImages()
-            .subscribe(function (x) { return _this.topImages = x; });
-    };
-    HomeComponent.prototype.setNewRate = function (event) {
-        console.log('new Rate is: ', event);
+        this._publicatonsService.getTopPublications()
+            .subscribe(function (x) { return _this.topPublications = x; });
     };
     HomeComponent = __decorate([
         core_1.Component({

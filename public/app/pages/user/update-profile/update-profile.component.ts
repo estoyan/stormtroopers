@@ -46,4 +46,4 @@ export class UpdateProfileComponent implements OnInit {
     setUserSide(value: string): void {
         this.currentUser.side = value;
     }
-}
+}    

@@ -9,29 +9,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
-var Observable_1 = require('rxjs/Observable');
-require('rxjs/add/operator/map');
-require('rxjs/add/operator/do');
-require('rxjs/add/operator/catch');
+var requester_service_1 = require('../shared/requester.service');
+var RECENT_PRODUCTS_URL = '/api/recentproducts';
+var PRODUCTS_URL = '/api/allProducts';
+var PRODUCTS_FROM_BASKET_URL = '/api/products/basket';
+var ADD_PRODUCT_TO_BASKET_URL = '/api/user/addproduct';
 var ProductsService = (function () {
-    function ProductsService(_http) {
-        this._http = _http;
-        this.recentProducts = '/api/recentproducts';
+    function ProductsService(_requester) {
+        this._requester = _requester;
     }
     ProductsService.prototype.getRecentProducts = function () {
-        return this._http
-            .get(this.recentProducts)
-            .map(function (response) { return response.json(); })
-            .catch(this.handleError);
+        return this._requester
+            .getJson(RECENT_PRODUCTS_URL);
     };
-    ProductsService.prototype.handleError = function (error) {
-        console.log('this is error: ' + error);
-        return Observable_1.Observable.throw(error.json().error || 'Server error');
+    ProductsService.prototype.getAllProducts = function () {
+        return this._requester
+            .getJson(PRODUCTS_URL);
+    };
+    ProductsService.prototype.getProductById = function (id) {
+        var productUrl = PRODUCTS_URL + ("/" + id);
+        return this._requester
+            .getJson(productUrl);
+    };
+    ProductsService.prototype.addProductToBasket = function (product) {
+        var _id = product._id, body = this._requester.createBody({ _id: _id });
+        return this._requester
+            .postAuthorized(ADD_PRODUCT_TO_BASKET_URL, body);
     };
     ProductsService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
+        __metadata('design:paramtypes', [requester_service_1.RequesterService])
     ], ProductsService);
     return ProductsService;
 }());

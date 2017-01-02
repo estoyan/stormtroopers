@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-12 column">
+        <nav class="navbar navbar-default" id="navbar">
+            <div>
+                <ul class="nav navbar-nav">
+                    <li><a href="#/user/{{username}}" routerLinkActive="active">MY PROFILE</a></li>
+                    <li><a routerLink="publications" routerLinkActive="active">MY ART</a></li>
+                    <li><a routerLink="pastorders" routerLinkActive="active">PAST ORDERS</a></li>
+                    <li><a routerLink="update" routerLinkActive="active">UPDATE PROFILE</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <hr>
+    </div>
+</div>
+<router-outlet></router-outlet>

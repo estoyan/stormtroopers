@@ -1,0 +1,39 @@
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
+    color: white;
+    /*Sets the text hover color on navbar*/
+}
+
+.navbar-default .navbar-nav a {
+    color: white;
+}
+
+.navbar {
+    margin: 0;
+    display: inline-block;
+}
+
+.column {
+    text-align: center;
+    float: none;
+}
+
+.navbar-default {
+    background-color: transparent;
+    border-color: #030033;
+    border-radius: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9em;
+}
+
+.nav>li>a:hover,
+.nav>li>a:focus {
+    text-decoration: underline;
+    /*Change rollover cell color here*/
+}
+
+hr {
+    border-color: rgba(255, 255, 255, 0.2);
+    width: 70%;
+    margin-top: 0;
+}

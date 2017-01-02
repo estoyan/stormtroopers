@@ -8,22 +8,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+// import { RouterModule } from '@angular/router';
 var http_1 = require('@angular/http');
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
-var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
+// import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 var app_routing_module_1 = require('./routing/app-routing.module');
 var core_module_1 = require('./core/core.module');
-//  Pages
-var cahracter_component_1 = require('./pages/characters/cahracter.component');
-var page_not_fount_component_1 = require('./pages/page-not-fount/page-not-fount.component');
-var home_component_1 = require('./pages/home/home.component');
-var movie_component_1 = require('./pages/movies/movie.component');
-var index_1 = require('./shared/index');
+var page_loader_module_1 = require('./pages/page-loader.module');
 //  Services
-var publications_service_1 = require('./services/publications/publications.service');
-var products_service_1 = require('./services/products/products.service');
+var auth_service_1 = require('./services/authentication/auth.service');
+var requester_service_1 = require('./services/shared/requester.service');
+var exception_service_1 = require('./services/shared/exception.service');
+var toast_service_1 = require('./services/shared/toast.service');
+var navbar_service_1 = require('./services/shared/navbar.service');
+var local_storage_service_1 = require('./services/shared/local-storage.service');
+// Guards
+var authGuard_1 = require('./guards/authGuard');
+var loggedInGuard_1 = require('./guards/loggedInGuard');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -32,23 +35,24 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 http_1.HttpModule,
-                ng2_bootstrap_1.Ng2BootstrapModule,
+                // Ng2BootstrapModule,
                 core_module_1.CoreModule,
-                app_routing_module_1.AppRoutingModule
+                app_routing_module_1.AppRoutingModule,
+                page_loader_module_1.PageLoaderModule
             ],
             declarations: [
-                app_component_1.AppComponent,
-                cahracter_component_1.CharacterComponent,
-                home_component_1.HomeComponent,
-                movie_component_1.MoviesComponent,
-                page_not_fount_component_1.PageNotFoundComponent,
-                index_1.AcStar,
-                index_1.AcStars
+                app_component_1.AppComponent
             ],
             bootstrap: [app_component_1.AppComponent],
             providers: [
-                publications_service_1.PublicatonsService,
-                products_service_1.ProductsService
+                auth_service_1.AuthService,
+                requester_service_1.RequesterService,
+                exception_service_1.ExceptionService,
+                toast_service_1.ToastService,
+                authGuard_1.AuthGuard,
+                loggedInGuard_1.LoggedInGuard,
+                local_storage_service_1.LocalStorageService,
+                navbar_service_1.NavbarService,
             ]
         }), 
         __metadata('design:paramtypes', [])

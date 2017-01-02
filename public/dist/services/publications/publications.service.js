@@ -9,29 +9,53 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
-var Observable_1 = require('rxjs/Observable');
-require('rxjs/add/operator/map');
-require('rxjs/add/operator/do');
-require('rxjs/add/operator/catch');
+var requester_service_1 = require('../shared/requester.service');
+var local_storage_service_1 = require('../shared/local-storage.service');
+var TOP_PUBLICATIONS_URL = 'api/publications/top';
+var PUBLICATIONS_URL = 'api/publications';
+var RATE_PUBLICATION = '/api/ratepublication';
+var PUBLICATION_COMMENT_URL = '/api/publication/comment';
+var PUBLICATION_URL = 'api/publication';
 var PublicatonsService = (function () {
-    function PublicatonsService(_http) {
-        this._http = _http;
-        this.topImages = '/api/topimages';
+    function PublicatonsService(_requester, _localeStorageService) {
+        this._requester = _requester;
+        this._localeStorageService = _localeStorageService;
     }
-    PublicatonsService.prototype.getTopImages = function () {
-        return this._http
-            .get(this.topImages)
-            .map(function (response) { return response.json(); })
-            .catch(this.handleError);
+    PublicatonsService.prototype.getTopPublications = function () {
+        return this._requester
+            .getJson(TOP_PUBLICATIONS_URL);
     };
-    PublicatonsService.prototype.handleError = function (error) {
-        console.log('this is error: ' + error);
-        return Observable_1.Observable.throw(error.json().error || 'Server error');
+    PublicatonsService.prototype.getAllPublications = function () {
+        return this._requester
+            .getJson(PUBLICATIONS_URL);
+    };
+    PublicatonsService.prototype.getPublicationById = function (id) {
+        var imageByIdUrl = PUBLICATIONS_URL + ("/" + id);
+        return this._requester
+            .getJson(imageByIdUrl);
+    };
+    PublicatonsService.prototype.rateProduct = function (publicationId, rate) {
+        var currentUser = this._localeStorageService.getUser().username;
+        var infoAsString = "id=" + publicationId + "&username=" + currentUser + "&rate=" + rate;
+        return this._requester
+            .postAuthorized(RATE_PUBLICATION, infoAsString);
+    };
+    PublicatonsService.prototype.addComment = function (publicationId, comment) {
+        var bodyObj = comment;
+        bodyObj.id = publicationId;
+        var body = this._requester.createBody(bodyObj);
+        return this._requester.postAuthorized(PUBLICATION_COMMENT_URL, body);
+    };
+    PublicatonsService.prototype.addPublication = function (title, imageUrl) {
+        var publication = {
+            title: title,
+            imageUrl: imageUrl
+        }, body = this._requester.createBody(publication);
+        return this._requester.postAuthorized(PUBLICATION_URL, body);
     };
     PublicatonsService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
+        __metadata('design:paramtypes', [requester_service_1.RequesterService, local_storage_service_1.LocalStorageService])
     ], PublicatonsService);
     return PublicatonsService;
 }());

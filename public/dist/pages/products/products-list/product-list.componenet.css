@@ -1,0 +1,25 @@
+#sort-by option {
+    color: black;
+}
+
+.filter input {
+    color: black;
+}
+
+.wrapper {
+    display: inline-block;
+}
+
+.add-to-basket-btn {
+    width: 220px;
+    border-radius: 0;
+}
+
+.btn-success {
+    background-color: #408000;
+    border: 0;
+}
+
+h2 {
+    color: gold;
+}

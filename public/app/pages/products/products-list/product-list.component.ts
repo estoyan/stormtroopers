@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Product } from '../../../models/product.model';
 
@@ -66,7 +66,7 @@ export class ProductListComponent implements OnInit {
     let product = event[1];
     this._productService.addProductToBasket(product)
       .subscribe(data => {
-                this._toasterService.activate('Product was added to basket!', true)
+                this._toasterService.activate('Product was added to basket!', true);
             });
   }
 
