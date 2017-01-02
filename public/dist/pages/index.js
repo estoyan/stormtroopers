@@ -15,4 +15,5 @@ exports.pages = {
     login: login_component_1.LoginComponent,
     register: register_component_1.RegisterComponent
 };
+
 //# sourceMappingURL=index.js.map
