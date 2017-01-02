@@ -1,0 +1,20 @@
+.product-container {
+    width: 220px;
+    background-color: #282727;
+    margin: 20px;
+    padding: 10px;
+}
+
+.image {
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+}
+
+.info-container {
+    margin-top: 10px;
+}
+
+.title, .price {
+    margin-bottom: 10px;
+}

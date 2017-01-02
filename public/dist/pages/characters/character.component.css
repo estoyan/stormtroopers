@@ -1,0 +1,35 @@
+h2 {
+    color: gold;
+    margin-bottom: 30px;
+}
+
+img {
+    width: 200px;
+}
+
+.image {
+    padding-left: 0;
+    display: inline-block;
+    height: 250px;
+    width: 200px;
+    overflow: hidden;
+}
+
+.character-container {
+    margin-bottom: 30px;
+    background-color: #282727;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.info {
+    color: #969595;
+}
+
+.category {
+    color: white;
+}
+
+li {
+    list-style: none;
+}

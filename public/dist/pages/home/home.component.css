@@ -1,21 +1,45 @@
-.image-wrapper {
+.main-image-wrapper {
     padding: 0;
+}
+
+.image-container {
+    width: 220px;
+    background-color: #282727;
+    margin: 20px;
+    margin-bottom: 0;
+    padding: 10px;
 }
 
 h4 {
     color: gold;
 }
 
-.image-list {
-    width: 150px;
-    height: 200px;
+.single-image {
+    width: 250px;
+    border-radius: 5px;
+    overflow: hidden;
+    
+}
+
+.image {
+     height: 250px;
+    width: 200px;
+    overflow: hidden;
 }
 
 .pruduct-name {
     font-size: 1.2em;
 }
 
+.product-container img {
+    margin-bottom: 10px;
+}
+
 hr {
     border-color: rgba(255, 255, 255, 0.2);
-    width: 1000px;
+    width: 90%;
+}
+
+.wrapper {
+    display: inline-block;
 }

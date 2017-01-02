@@ -1,25 +1,41 @@
 <nav class="navbar navbar-default " id="navbar">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" (click)="isCollapsed = !isCollapsed">
-         <span class = "sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-      </button>
             <span class="navbar-brand"><a routerLink="/" routerLinkActive="active">STORMTROOPERS</a></span>
+            <button type="button" class="navbar-toggle collapsed" (click)="isCollapsed = !isCollapsed">
+                <span class = "sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
         </div>
         <div id="navbar" class="navbar-collapse collapse" [collapse]="isCollapsed">
             <ul class="nav navbar-nav">
-                <li><a routerLink="/publications" routerLinkActive="active">FAN ART</a></li>
-                <li><a routerLink="/characters" routerLinkActive="active">PRODUCTS</a></li>
-                <li><a routerLink="/characters" routerLinkActive="active">CHARACTERS</a></li>
-                <li><a routerLink="/characters" routerLinkActive="active">MOVIES</a></li>
-                <li><a routerLink="/characters" routerLinkActive="active">ABOUT</a></li>
+                <li><a color={{side}} routerLink="/publications" routerLinkActive="active">FAN ART</a></li>
+                <li><a color={{side}} routerLink="/products" routerLinkActive="active">PRODUCTS</a></li>
+                <li><a color={{side}} routerLink="/characters" routerLinkActive="active">CHARACTERS</a></li>
+                <li><a color={{side}} routerLink="/movies" routerLinkActive="active">MOVIES</a></li>
+                <li><a color={{side}} routerLink="/characters" routerLinkActive="active">ABOUT</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a routerLink="/characters" routerLinkActive="active">LOGIN</a></li>
-                <li><a routerLink="/characters" routerLinkActive="active">CREATE ACCOUNT</a></li>
+            <ul class="nav navbar-nav navbar-right" [hidden]=_authService.isLoggedIn()>
+                <li><a routerLink="/login" routerLinkActive="active">LOGIN</a></li>
+                <li><a routerLink="/register" routerLinkActive="active">CREATE ACCOUNT</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" [hidden]="!_authService.isLoggedIn()">
+                <li class="btn-group" dropdown [(isOpen)]="status.isopen">
+                    <a id="single-button" class="btn" dropdownToggle>
+                        <span>{{displayname}}</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul dropdownMenu role="menu" aria-labelledby="single-button" class="inner-menu">
+                        <li role="menuitem"><a class="dropdown-item" routerLink="/user/{{username}}">PROFILE</a></li>
+                        <li role="menuitem"><a class="dropdown-item" routerLink="/basket">BASKET</a></li>
+                        <li role="menuitem"><a class="dropdown-item" routerLink="/home" (click)=_authService.logout()>LOG OUT</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <img src={{avatar}} alt="avatar image" id="avatar-image">
+                </li>
             </ul>
         </div>
     </div>

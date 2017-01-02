@@ -15,7 +15,10 @@ var PageNotFoundComponent = (function () {
     PageNotFoundComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            template: "\n    <article>\n      <h4>Opps! The force just has left you trooper.</h4>\n    </article>\n  "
+            template: "\n    <div class=\"row\">\n      <div class=\"col-md-12 text-center\">\n        <h2>Opps! It's Vaider's private place. You are not supposed to be here!</h2>\n      </div>\n      <div class=\"col-md-6 col-md-offset-3 col-xs-6 col-xs-offset-3 text-center\">\n        <img src=\"http://wallpapercave.com/wp/9nkg2PZ.png\" alt=\"stormtrooper image\"  class=\"img-responsive\">\n      </div>\n    </div>\n  ",
+            styles: [
+                "h2 {\n      color: gold;\n    }\n    img {\n      width: 600px;\n    }"
+            ]
         }), 
         __metadata('design:paramtypes', [])
     ], PageNotFoundComponent);

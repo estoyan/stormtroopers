@@ -1,0 +1,7 @@
+<div class="row text-center">
+    <div class="col-md-12">
+        <select class="form-control" id="sort" name="sort" #sortChoice (change)="sortCriteria = sortChoice.value" (change)="sortCollection($event)"> 
+            <option  *ngFor="let prop of sortProp" value="{{prop.queryParam}}" >{{prop.displayValue}}</option>
+        </select>
+    </div>
+</div>

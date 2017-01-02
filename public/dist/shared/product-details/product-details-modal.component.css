@@ -1,0 +1,42 @@
+.modal-content{
+    background: #282727;
+}
+
+.product-container {
+   /*width:840px;*/
+    background-color: #282727;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 10px;
+}
+
+.image {
+     width:350px;
+    height: 350px;
+    border-radius: 5px;
+    display: inline-block
+    
+}
+
+.info-container {
+    float:  right;  
+}
+
+.price{
+    margin:50px;
+    text-align: right;
+}
+.basket{
+    text-align: right;
+}
+
+span{
+    color: blue;
+}
+.btn-success {
+    background-color: #408000;
+    border: 0;
+}
+.add-to-basket-btn {
+    border-radius: 0;
+}
