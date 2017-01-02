@@ -34,8 +34,7 @@ export class ToastComponent implements OnInit, OnDestroy {
         this._toastSubscription.unsubscribe();
     }
 
-    activate(message: string, success?: boolean) {
-        console.log(success);
+    activate(message: string, success: boolean) {
         this.message = message;
         this.bgColor = success ? SUCCESS_COLOR : FAIL_COLOR;
         this.show();

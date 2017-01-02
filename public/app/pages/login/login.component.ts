@@ -33,6 +33,7 @@ export class LoginComponent {
             .subscribe((data: any) => {
                 this._toastService.activate(`Welcome back tropper!`, true)
                 this._location.back();
-            })
+            },
+            err => this._toastService.activate(err, false));
     }
 }

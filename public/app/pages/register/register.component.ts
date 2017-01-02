@@ -1,5 +1,6 @@
 import { Component , trigger, state, style, transition, animate } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { UserService } from '../../services/user/user.service';
 import { AuthService } from '../../services/authentication/auth.service';
 import { ToastService } from '../../services/shared/toast.service';
@@ -40,7 +41,8 @@ export class RegisterComponent {
                     .subscribe(data => {
                         this._toasService.activate('Welcome on board trooper!', true)
                         this._router.navigate(['home']);
-                    });
+                    },
+                    err => this._toasService.activate(err, false));
             });
     }
 }
