@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Movie } from '../../../models/movie.model';
 import { MovieService } from '../../../services/movies/movie.service';
-
+import { FormControl } from "@angular/forms"
 
 @Component({
   moduleId: module.id,
@@ -16,10 +16,16 @@ export class MovieListComponent implements OnInit {
   public totalMovies: number;
   public currentPage: number = 1;
   public maxSize: number = 5;
+  public searchText = '';
+  filter = new FormControl();
 
   constructor(private movieService: MovieService) {
     this.movies = [];
     this.detailedMovies = [];
+    this.filter.valueChanges
+      .debounceTime(400)
+      .subscribe(filter => this.searchMovie(filter));
+        // .movieService.search(term).then(items => this.items = items));
   }
   getMovies(page = 1) {
     this.movies = [];
@@ -39,12 +45,31 @@ export class MovieListComponent implements OnInit {
         console.log(error);
       });
   }
+
   private getMovie(title: string) {
     this.movieService.getMovie(title)
       .subscribe(movie => {
         this.movies.push(movie);
       });
   }
+
+  // for  search implementation have to be decided how to search only for Star Wars Movies!!!
+  searchMovie(filter: string) {
+    this.movies = [];
+    this.movieService.searchMovies(filter)
+      .subscribe(newMovies => {
+        this.totalMovies = newMovies[1];
+        for (let newMovie of newMovies[0]) {
+          this.getMovie(newMovie.Title);
+        }
+      },
+      error => {
+        console.log('error occurred here');
+        console.log(error);
+      });
+    
+  }
+
   ngOnInit() {
     this.getMovies();
   }

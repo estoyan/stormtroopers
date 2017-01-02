@@ -44,14 +44,15 @@ module.exports = function ({
     return {
         getRecentProducts() {
             return new Promise((resolve, reject) => {
-                Product.find()
-                    .exec((err, res) => {
-                        if (err) {
-                            return reject(err);
-                        }
+                resolve(mockedData);
+                // Product.find()
+                //     .exec((err, res) => {
+                //         if (err) {
+                //             return reject(err);
+                //         }
 
-                        return resolve(res.slice(0, 4));
-                    });
+                //         return resolve(res.slice(0, 4));
+                //     });
             })
         },
         getAllProducts() {
@@ -89,6 +90,15 @@ module.exports = function ({
                 // TODO: write query to database here
                 resolve(mockedData);
             });
+        },
+        addProductToBasket(username, product) {
+            console.log('Data');
+            return new Promise.resolve({ success: true });
+                // ((resolve, reject) => {
+                // // TODO: write query to database here
+                // resolve({ success: true });
+            // });
         }
+
     };
 };

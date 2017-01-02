@@ -10,15 +10,30 @@ import { Publication } from '../../../models/publication.model';
 
 export class PublicationListPageComponent implements OnInit {
   publications: Publication[];
+  public totalPublications: number;
+  public currentPage: number = 1;
+  public maxSize: number = 10;
+  public itemsPerPage: number = 5;
+  public showedPublications: Publication[];
 
-  constructor(private _publicationService: PublicatonsService) { }
+  constructor(private _publicationService: PublicatonsService) {
+    // this.totalPublications = 11;
+  }
 
   ngOnInit() {
     this._publicationService.getAllPublications()
-      .subscribe(x => this.publications = x);
+      .subscribe(x => {
+        this.totalPublications = x.length;
+        this.publications = x;
+        this.showedPublications = this.publications.slice(0, this.itemsPerPage);
+      });
   }
 
   setNewRate(event: any) {
     console.log('new Rate is: ', event);
+  }
+  public pageChanged(event: any): void {
+    let currentItem = (event.page-1) * this.itemsPerPage;
+    this.showedPublications = this.publications.slice(currentItem, this.itemsPerPage + currentItem);
   }
 }

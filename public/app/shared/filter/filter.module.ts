@@ -1,6 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+
 import { FilterComponent } from './filter.component';
 
 @NgModule({
