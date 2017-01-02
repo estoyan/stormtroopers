@@ -143,24 +143,24 @@ module.exports = function ({ data, hashGenerator, validator }) {
         addProductToBasket(req, res) {
             let token = req.headers.authorization,
                 username = tokenUtils.decodeToken(token).username;
-                data.getProductById(req.body._id)
+            data.getProductById(req.body._id)
                 .then(product => {
                     let order = {
                         product: {
-                        _id: product._id,
-                        title: product.title,
-                        price: product.price,
-                        imageUrl: product.imageUrl,
-                        color: product.color,
-                        category: product.category
+                            _id: product._id,
+                            title: product.title,
+                            price: product.price,
+                            imageUrl: product.imageUrl,
+                            color: product.color,
+                            category: product.category
                         },
                         state: 'not-completed',
                         quantity: 1,
                         total: product.price
                     }
-                    
+
                     return data.addProductToBasket(username, order)
-                })            
+                })
                 .then(result => {
                     return res.status(200).json(result);
                 })
@@ -195,7 +195,7 @@ module.exports = function ({ data, hashGenerator, validator }) {
         proceedUserOrders(req, res) {
             let token = req.headers.authorization,
                 username = tokenUtils.decodeToken(token).username
-                orders = JSON.parse(req.body.orders);
+            orders = JSON.parse(req.body.orders);
 
             data.proceedUserOrders(username, orders)
                 .then(result => {
@@ -207,7 +207,7 @@ module.exports = function ({ data, hashGenerator, validator }) {
         },
         removeUserOrdersFromBasket(req, res) {
             let token = req.headers.authorization,
-                username = tokenUtils.decodeToken(token).username
+                username = tokenUtils.decodeToken(token).username,
                 orders = JSON.parse(req.body.orders);
 
             data.removeUserOrdersFromBasket(username, orders)
@@ -217,7 +217,32 @@ module.exports = function ({ data, hashGenerator, validator }) {
                 .catch(err => {
                     res.status(500).json({ msg: 'Error removing orders!', err })
                 });
+        },
+        getUserProceedingOrders(req, res) {
+            let token = req.headers.authorization,
+                username = tokenUtils.decodeToken(token).username;
+
+            data.getUserProceedingOrders(username)
+                .then(result => {
+                    return res.status(200).json(result);
+                })
+                .catch(err => {
+                    res.status(500).json({ msg: 'Error getting proceeding orders!', err })
+                });
+        },
+        payUserProceedingOrders(req, res) {
+            let token = req.headers.authorization,
+                username = tokenUtils.decodeToken(token).username,
+                orders = JSON.parse(req.body.orders),
+                deliveryDetails = JSON.parse(req.body.deliveryDetails);
+
+            data.payUserProceedingOrders(username, orders, deliveryDetails)
+                .then(result => {
+                    return res.status(200).json(result);
+                })
+                .catch(err => {
+                    res.status(500).json({ msg: 'Error on orders payment!', err })
+                });
         }
     };
 };
-    
