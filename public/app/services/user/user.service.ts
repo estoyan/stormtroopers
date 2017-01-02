@@ -1,4 +1,4 @@
-import { Injectable, Output } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { RequesterService } from '../shared/requester.service';
@@ -54,7 +54,6 @@ export class UserService {
             .getJsonAuthorized<Publication[]>(GET_USER_PUBLICATIONS_URL);
     }
 
-    // TODO get Order[]
     getPastOrders(): Observable<Product[]> {
         return this._requester
             .getJsonAuthorized<Product[]>(GET_USER_PAST_ORDERS_URL);

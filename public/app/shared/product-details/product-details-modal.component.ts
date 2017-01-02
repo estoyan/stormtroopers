@@ -1,7 +1,7 @@
 import { Component, ViewChild, Input, OnInit } from '@angular/core';
 import { ModalDirective } from 'ng2-bootstrap/ng2-bootstrap';
 
-import { ProductsService } from "../../services/products/products.service";
+import { ProductsService } from '../../services/products/products.service';
 import { ToastService } from '../../services/shared/toast.service';
 import { AuthService } from '../../services/authentication/auth.service';
 

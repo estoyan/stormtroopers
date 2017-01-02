@@ -18,8 +18,7 @@ export class RequesterService {
     ) { }
 
     public createBody(obj: Object): string {
-        let body: string = '';
-        let keys = Object.keys(obj);
+        let body = '';
         Object.keys(obj).forEach(key => body += `${key}=${obj[key]}&`);
         return body.slice(0, body.length - 1);
     }

@@ -1,6 +1,5 @@
-import { Component, Input, Output, OnInit, OnChanges } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
-import { AcStar } from './star';
 import { ToastService } from '../../services/shared/toast.service';
 import { AuthService } from '../../services/authentication/auth.service';
 import { PublicatonsService } from '../../services/publications/publications.service';
@@ -44,7 +43,6 @@ export class AcStars implements OnInit {
         private _publicatonsService: PublicatonsService,
         private _localStorageService: LocalStorageService
     ) {
-        const count = this.starCount < 0 ? 5 : this.starCount;
     }
 
     ngOnInit() {
@@ -60,19 +58,17 @@ export class AcStars implements OnInit {
     onRate(rate: number) {
         let isLoggedIn = this._authService.isLoggedIn();
         if (!isLoggedIn) {
-            this._toastService.activate("Please login!", false);
+            this._toastService.activate('Please login!', false);
             event.stopPropagation();
-        }
-        else if (this.isOwner) {
-            this._toastService.activate("Invalid operation!", false);
+        } else if (this.isOwner) {
+            this._toastService.activate('Invalid operation!', false);
             event.stopPropagation();
-        }
-        else {
+        } else {
             this._publicatonsService.rateProduct(this.publication._id, rate)
                 .subscribe((p: Publication) => {
                     this.userRating = rate;
                     let sum = 0;
-                    p.rating.forEach(x => sum += x.rate)
+                    p.rating.forEach(x => sum += x.rate);
                     let count = p.rating.length;
                     this._rating = sum / count;
                 });

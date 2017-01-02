@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AuthGuard } from '../../guards/authGuard';
-
 import { BasketComponent } from './basket.component';
 import { BasketListComponent } from './basket-list/basket-list.component';
 import { BasketProceedComponent } from './basket-proceed/basket-proceed.component';

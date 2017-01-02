@@ -29,12 +29,16 @@
                     </a>
                     <ul dropdownMenu role="menu" aria-labelledby="single-button" class="inner-menu">
                         <li role="menuitem"><a class="dropdown-item" routerLink="/user/{{username}}">PROFILE</a></li>
-                        <li role="menuitem"><a class="dropdown-item" routerLink="/basket">BASKET</a></li>
                         <li role="menuitem"><a class="dropdown-item" routerLink="/home" (click)=_authService.logout()>LOG OUT</a></li>
                     </ul>
                 </li>
                 <li>
                     <img src={{avatar}} alt="avatar image" id="avatar-image">
+                </li>
+                <li>
+                    <a routerLink="/basket">
+                        <span id="basket" class="glyphicon glyphicon-shopping-cart"></span>
+                    </a>
                 </li>
             </ul>
         </div>

@@ -1,6 +1,14 @@
+@font-face {
+    font-family: starWars;
+    src: url('static/app/assets/fonts/STARWARS.woff') format('woff'), /* Super Modern Browsers */
+    url('static/app/assets/fonts/STARWARS.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('static/app/assets/fonts/STARWARS.svg#svgFontName') format('svg');
+}
+
 footer {
-    /*position: absolute;
-    bottom: 0;*/
+    position: fixed;
+    bottom: 0;
+    left: 0;
     width: 100%;
     height: 60px;
     background-color: #222222;
@@ -15,6 +23,9 @@ img {
     padding: 20px;
 }
 
-.social-media{
-    padding: 10px;
+.logo {
+    color: gold;
+    font-size: 1.5em;
+    margin-top: 20px;
+    font-family: starWars, "Arial Black", Gadget, sans-serif;
 }

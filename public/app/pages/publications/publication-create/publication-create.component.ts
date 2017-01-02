@@ -14,7 +14,7 @@ export class PublicationCreateComponent {
     publication = {
         title: '',
         imageUrl: ''
-    }
+    };
 
     constructor(
         private _publicationsService: PublicatonsService,
@@ -27,6 +27,7 @@ export class PublicationCreateComponent {
             .subscribe(data => {
                 this._toastService.activate('Successfully added publication!', true);
                 this._router.navigate(['publications']);
-            });
+            },
+            err => this._toastService.activate(err, false));
     }
 }

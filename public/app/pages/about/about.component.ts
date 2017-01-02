@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-
 @Component({
     moduleId: module.id,
     templateUrl: './about.component.html',
@@ -8,5 +7,4 @@ import { Component } from '@angular/core';
 })
 
 export class AboutComponent {
-
 }

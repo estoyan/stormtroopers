@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PublicatonsService } from '../../../services/publications/publications.service';
+import { ToastService } from '../../../services/shared/toast.service';
 import { Publication } from '../../../models/publication.model';
 
 @Component({
@@ -23,15 +24,18 @@ export class PublicationListPageComponent implements OnInit {
   public sortProp: Array<Object>;
 
 
-  constructor(private _publicationService: PublicatonsService) {
+  constructor(
+    private _publicationService: PublicatonsService,
+    private _toastService: ToastService
+  ) {
     this.sortCriteria = 'createdAt false';
     this.filterProp = ['title'];
     this.sortProp = [
-    {
+      {
         queryParam: 'createdAt false',
         displayValue: 'Newest'
       },
-    {
+      {
         queryParam: 'createdAt true',
         displayValue: 'Oldest'
       },
@@ -71,7 +75,8 @@ export class PublicationListPageComponent implements OnInit {
         }
         this.totalPublications = x.length;
         this.publications = x;
-      });
+      },
+      err => this._toastService.activate(err, false));
   }
 
   public pageChanged(event: any): void {

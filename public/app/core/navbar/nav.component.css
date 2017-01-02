@@ -3,7 +3,6 @@
   src: url('static/app/assets/fonts/STARWARS.woff') format('woff'), /* Super Modern Browsers */
   url('static/app/assets/fonts/STARWARS.ttf') format('truetype'), /* Safari, Android, iOS */
   url('static/app/assets/fonts/STARWARS.svg#svgFontName') format('svg');
-  /* Legacy iOS */
 }
 
 .navbar-default .navbar-nav>li>a:hover,
@@ -89,4 +88,8 @@ img {
   width: 50px;
   height: 50px;
   margin-top: 5px;
+}
+
+span#basket {
+  font-size: 1.5em;
 }

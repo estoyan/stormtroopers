@@ -51,5 +51,4 @@ export class MovieService {
       .map(res => res = res.json())
       .catch(this.exceptionService.catchBadResponse);
   }
-
 }

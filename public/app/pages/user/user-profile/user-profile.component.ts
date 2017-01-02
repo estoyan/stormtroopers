@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { UserService } from '../../../services/user/user.service';
+import { ToastService } from '../../../services/shared/toast.service';
 import { User } from '../../../models/user.model';
 
 @Component({
@@ -14,6 +15,7 @@ export class UserProfileComponent implements OnInit {
     currentUser: User = <User>{};
 
     constructor(private _userService: UserService,
+        private _toastService: ToastService,
         private _router: Router,
         private _activatedRoute: ActivatedRoute) {
     }
@@ -26,6 +28,7 @@ export class UserProfileComponent implements OnInit {
                 }
 
                 this.currentUser = x;
-            });
+            },
+            err => this._toastService.activate(err, false));
     }
 }

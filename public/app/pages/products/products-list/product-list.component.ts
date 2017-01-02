@@ -87,5 +87,4 @@ export class ProductListComponent implements OnInit {
       });
     this.isLogedIn = this._authService.isLoggedIn();
   }
-
 }

@@ -3,10 +3,9 @@ import { Observable } from 'rxjs/Observable';
 import { RequesterService } from '../shared/requester.service';
 import { Product } from '../../models/product.model';
 
-const RECENT_PRODUCTS_URL: string = '/api/recentproducts';
-const PRODUCTS_URL: string = '/api/allProducts';
-const PRODUCTS_FROM_BASKET_URL: string = '/api/products/basket';
-const ADD_PRODUCT_TO_BASKET_URL: string = '/api/user/addproduct';
+const RECENT_PRODUCTS_URL = '/api/recentproducts';
+const PRODUCTS_URL = '/api/allProducts';
+const ADD_PRODUCT_TO_BASKET_URL = '/api/user/addproduct';
 
 
 @Injectable()

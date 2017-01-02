@@ -16,7 +16,6 @@ export class SortComponent {
     }
 
     sortCollection(event: any) {
-        // event.preventDefault();
         this.sort.emit(this.sortCriteria);
     }
 }
