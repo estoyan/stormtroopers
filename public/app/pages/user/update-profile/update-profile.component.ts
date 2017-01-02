@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 import { UserService } from '../../../services/user/user.service';
 import { NavbarService } from '../../../services/shared/navbar.service';
@@ -15,7 +15,7 @@ import { User } from '../../../models/user.model';
 export class UpdateProfileComponent implements OnInit {
     currentUser: User = <User>{};
     avatarOptions: string[] = ['Stormtrooper', 'Darth Vaider', 'Boba Fett', 'Empire', 'Rebels'];
-    sideOptions: string[] = ['Dark', 'Light', 'Neutral']
+    sideOptions: string[] = ['Dark', 'Light', 'Neutral'];
 
     constructor(private _router: Router,
         private _userService: UserService,
@@ -26,7 +26,7 @@ export class UpdateProfileComponent implements OnInit {
     ngOnInit() {
         this._userService.getCurrentUser()
             .subscribe(x => this.currentUser = x,
-                        err => this._toasService.activate(err, false));
+            err => this._toasService.activate(err, false));
     }
 
     onSubmit() {
@@ -46,4 +46,4 @@ export class UpdateProfileComponent implements OnInit {
     setUserSide(value: string): void {
         this.currentUser.side = value;
     }
-}    
+}

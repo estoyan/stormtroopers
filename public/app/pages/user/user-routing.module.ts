@@ -24,7 +24,7 @@ const routes: Routes = [
         path: 'publications',
         component: UserPublicationsComponent,
       },
-       {
+      {
         path: 'pastorders',
         component: PastOrdersComponent,
       },

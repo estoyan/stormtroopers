@@ -81,12 +81,6 @@ module.exports = function ({
                     resolve(res);
                 });
             });
-        },
-        getProductsFromBasket(username) {
-            return new Promise((resolve, reject) => {
-                // TODO: write query to database here
-                resolve(mockedData);
-            });
         }
     };
 };

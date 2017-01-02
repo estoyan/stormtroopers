@@ -1,3 +1,8 @@
+h2 {
+    color: gold;
+    margin-bottom: 1em;
+}
+
 #sort-by option {
     color: black;
 }
@@ -18,8 +23,4 @@
 .btn-success {
     background-color: #408000;
     border: 0;
-}
-
-h2 {
-    color: gold;
 }

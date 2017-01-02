@@ -21,9 +21,7 @@
             No publications were found trooper!
             <br> Be the first to create...
         </h2>
-
-
     </div>
 </div>
 <pagination [itemsPerPage]="itemsPerPage" [totalItems]="totalPublications" [(ngModel)]="currentPage" [maxSize]="maxSize"
-    class="pagination, pagination-sm" [boundaryLinks]="true" [rotate]="false" (pageChanged)="pageChanged($event)"></pagination>
+    class="pagination pagination-sm" [boundaryLinks]="true" [rotate]="false" (pageChanged)="pageChanged($event)"></pagination>

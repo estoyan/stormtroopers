@@ -55,6 +55,7 @@ export class PublicationListPageComponent implements OnInit {
 
   sortCollection(sortCriteria: string) {
     this.sortCriteria = sortCriteria;
+
   }
 
   ngOnInit() {
@@ -73,9 +74,6 @@ export class PublicationListPageComponent implements OnInit {
       });
   }
 
-  setNewRate(event: any) {
-    console.log('new Rate is: ', event);
-  }
   public pageChanged(event: any): void {
     this.firstItemToShow = (event.page - 1) * this.itemsPerPage;
     this.lastItemToShow = this.firstItemToShow + this.itemsPerPage;

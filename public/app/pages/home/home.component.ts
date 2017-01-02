@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PublicatonsService } from '../../services/publications/publications.service';
 import { ProductsService } from '../../services/products/products.service';
 import { Product } from '../../models/product.model';
@@ -23,9 +23,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this._productService.getRecentProducts()
-      .subscribe(x => this.recentProducts = x)
+      .subscribe(x => this.recentProducts = x);
 
     this._publicatonsService.getTopPublications()
-      .subscribe(x => this.topPublications = x)
+      .subscribe(x => this.topPublications = x);
   }
 }

@@ -39,7 +39,7 @@ export class RegisterComponent {
             .subscribe((user) => {
                 this._authService.login({ username: this.newUser.username, password: this.newUser.password })
                     .subscribe(data => {
-                        this._toasService.activate('Welcome on board trooper!', true)
+                        this._toasService.activate('Welcome on board trooper!', true);
                         this._router.navigate(['home']);
                     },
                     err => this._toasService.activate(err, false));

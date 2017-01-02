@@ -29,7 +29,6 @@
 
 <div class="row">
   <div class="col-lg-6">
-    <hr/>
     <pagination [totalItems]="totalMovies" [(ngModel)]="currentPage" [maxSize]="maxSize" class="pagination, pagination-sm" [boundaryLinks]="true"
       [rotate]="false" (pageChanged)="pageChanged($event)">></pagination>
   </div>

@@ -16,6 +16,7 @@ const appRoutes: Routes = [
   { path: 'publications', loadChildren: 'app/pages/publications/publications.module#PublicationsModule' },
   { path: 'products', loadChildren: 'app/pages/products/products.module#ProductsModule' },
   { path: 'basket', loadChildren: 'app/pages/basket/basket.module#BasketModule', canActivate: [AuthGuard] },
+  { path: 'about', component: pages.about },
   { path: '**', pathMatch: 'full', component: pages.pageNotFound }
 ];
 

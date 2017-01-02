@@ -189,20 +189,33 @@ module.exports = function ({ data, hashGenerator, validator }) {
                     return res.status(200).json(result);
                 })
                 .catch(err => {
-                    res.status(500).json({ msg: 'Server error!', err })
+                    res.status(500).json({ msg: 'Error loading orders!', err })
                 });
         },
         proceedUserOrders(req, res) {
             let token = req.headers.authorization,
                 username = tokenUtils.decodeToken(token).username
-                orders = req.body.orders;
+                orders = JSON.parse(req.body.orders);
 
             data.proceedUserOrders(username, orders)
                 .then(result => {
                     return res.status(200).json(result);
                 })
                 .catch(err => {
-                    res.status(500).json({ msg: 'Server error!', err })
+                    res.status(500).json({ msg: 'Error proceeding orders!', err })
+                });
+        },
+        removeUserOrdersFromBasket(req, res) {
+            let token = req.headers.authorization,
+                username = tokenUtils.decodeToken(token).username
+                orders = JSON.parse(req.body.orders);
+
+            data.removeUserOrdersFromBasket(username, orders)
+                .then(result => {
+                    return res.status(200).json(result);
+                })
+                .catch(err => {
+                    res.status(500).json({ msg: 'Error removing orders!', err })
                 });
         }
     };

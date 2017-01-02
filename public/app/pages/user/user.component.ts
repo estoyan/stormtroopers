@@ -9,8 +9,6 @@ import { LocalStorageService } from '../../services/shared/local-storage.service
 })
 
 export class UserComponent {
-  private _username: string;
-  
   constructor(private _localeStorageService: LocalStorageService) { }
 
   get username() {
