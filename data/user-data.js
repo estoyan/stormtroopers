@@ -125,9 +125,7 @@ module.exports = function ({ models }) {
             return this.getUserByUsername(username)
                 .then((user) => {
                     let ordersFromBasket = user.orders.filter(x =>
-                        !x.isDeleted &&
-                        x.state === 'proceeding' ||
-                        x.state === 'not-completed');
+                        !x.isDeleted && (x.state === 'proceeding' || x.state === 'not-completed'));
 
                     return Promise.resolve(ordersFromBasket);
                 });
@@ -156,8 +154,22 @@ module.exports = function ({ models }) {
                     return Promise.resolve(user.orders);
                 });
         },
-        deleteUserOrders(username, orders) {
+        removeUserOrdersFromBasket(username, orders) {
+            return this.getUserByUsername(username)
+                .then(user => {
+                    user.orders = user.orders.map(order => {
+                        if (orders.find(x => x._id == order._id)) {
+                            order.isDeleted = true;
+                        }
 
+                        return order;
+                    });
+
+                    return this.updateUser(user);
+                })
+                .then(user => {
+                    return Promise.resolve(user.orders);
+                });
         }
     }
 };

@@ -201,6 +201,19 @@ module.exports = function ({ data, hashGenerator, validator }) {
                 .catch(err => {
                     res.status(500).json({ msg: 'Error proceeding orders!', err })
                 });
+        },
+        removeUserOrdersFromBasket(req, res) {
+            let token = req.headers.authorization,
+                username = tokenUtils.decodeToken(token).username
+                orders = JSON.parse(req.body.orders);
+
+            data.removeUserOrdersFromBasket(username, orders)
+                .then(result => {
+                    return res.status(200).json(result);
+                })
+                .catch(err => {
+                    res.status(500).json({ msg: 'Error removing orders!', err })
+                });
         }
     };
 };
