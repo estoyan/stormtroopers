@@ -89,3 +89,7 @@ img {
   height: 50px;
   margin-top: 5px;
 }
+
+span#basket {
+  font-size: 1.5em;
+}

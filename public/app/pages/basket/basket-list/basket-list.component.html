@@ -23,33 +23,35 @@
 </div>
 <div class="row">
     <div *ngFor="let order of orders, let i = index">
-        <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="row">
-                <div>
-                    <st-product-overview class="text-center left" [product]="order.product"></st-product-overview>
-                    <div class="order-info">
-                        <div class="form-group">
-                            <label for="qty">Quantity:</label>
-                            <div (click)="$event.preventDefault()" class="btn-group" dropdown keyboardNav="true">
-                                <button type="button" class="btn btn-primary" dropdownToggle [disabled]="!selections[i].isSelected">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+            <div id=" order">
+                <st-product-overview class="text-center left" [product]="order.product"></st-product-overview>
+                <div class="order-info">
+                    <div class="form-group">
+                        <label for="qty">Quantity:</label>
+                        <div (click)="$event.preventDefault()" class="btn-group" dropdown keyboardNav="true">
+                            <button type="button" class="btn btn-primary" dropdownToggle [disabled]="!selections[i].isSelected">
                                     {{orders[i].quantity}} <span class="caret"></span>
                                 </button>
-                                <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="simple-btn-keyboard-nav">
-                                    <li role="menuitem" *ngFor="let option of quantityOptions">
-                                        <a class="dropdown-item" (click)="onPriceSelect(option, i)" href="#">{{option}}</a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+                                <li role="menuitem" *ngFor="let option of quantityOptions">
+                                    <a class="dropdown-item" (click)="onPriceSelect(option, i)" href="#">{{option}}</a>
+                                </li>
+                            </ul>
                         </div>
-                        <label class="btn btn-success" [class.active]="!selections[i].isSelected" [class.inactive]="selections[i].isSelected">
-                            <input type="checkbox" autocomplete="off" checked (click)="onProductSelect(i)">
-                            <span class="glyphicon glyphicon-ok"></span>
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </label>
-                        <div class="total">
-                            <span>Total:</span>
-                            <strong>{{this.orders[i].total | currency:'EUR':true}}</strong>
-                        </div>
+                    </div>
+                    <div class="left" id="select-label">
+                        <label [hidden]="!selections[i].isSelected">Discard:</label>
+                        <label [hidden]="selections[i].isSelected">Select:</label>
+                    </div>
+                    <label class="btn btn-success" [class.active]="!selections[i].isSelected" [class.inactive]="selections[i].isSelected">
+                        <input type="checkbox" autocomplete="off" checked (click)="onProductSelect(i)">
+                        <span class="glyphicon glyphicon-ok"></span>
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </label>
+                    <div class="total">
+                        <span>Total:</span>
+                        <strong>{{this.orders[i].total | currency:'EUR':true}}</strong>
                     </div>
                 </div>
             </div>
