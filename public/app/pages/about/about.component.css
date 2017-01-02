@@ -1,6 +1,6 @@
 h2 {
     color: gold;
-    margin-bottom: 30px;
+    margin-bottom: 1em;
 }
 
 .wrapper {
@@ -25,6 +25,6 @@ h4 {
     color: white;
 }
 
-h4.force{
+h4.force {
     text-align: center;
 }

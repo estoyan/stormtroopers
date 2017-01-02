@@ -1,6 +1,6 @@
 h2 {
     color: gold;
-    margin-bottom: 30px;
+    margin-bottom: 1em;
 }
 
 img {
@@ -29,13 +29,17 @@ img {
 .category {
     color: white;
 }
-.pagination li{
+
+.pagination li {
     background-color: black;
 }
+
+
 /*.info-container h4 a{
     color: white;
     text-decoration: none;  
 }*/
+
 li {
     list-style: none;
 }
