@@ -21,7 +21,7 @@ export class CharacterComponent implements OnInit {
         this.searchText = '';
         this._characterService.getCharacters()
             .subscribe((data: any) => {
-                this.characters = data.body
+                this.characters = data.body;
             });
     }
 

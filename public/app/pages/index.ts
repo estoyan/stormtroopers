@@ -4,7 +4,9 @@ import { PublicationsComponent } from './publications/publications.component';
 import { MoviesComponent } from './movies/movies.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import {RegisterComponent} from './register/register.component';
+import { RegisterComponent } from './register/register.component';
+import { AboutComponent } from './about/about.component';
+
 
 export const pages = {
     pageNotFound: PageNotFoundComponent,
@@ -13,5 +15,6 @@ export const pages = {
     publications: PublicationsComponent,
     home: HomeComponent,
     login: LoginComponent,
-    register: RegisterComponent
+    register: RegisterComponent,
+    about: AboutComponent
 };

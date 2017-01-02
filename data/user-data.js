@@ -108,7 +108,7 @@ module.exports = function ({ models }) {
         },
         getUserPastOrders(username) {
             return new Promise((resolve, reject) => {
-                User.find()
+                User.find({username})
                     .select('orders')
                     .exec((err, res) => {
                         if (err) {
