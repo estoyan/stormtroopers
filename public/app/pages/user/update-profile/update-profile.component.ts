@@ -32,7 +32,7 @@ export class UpdateProfileComponent implements OnInit {
         this._userService.updateUser(this.currentUser)
             .subscribe((data: any) => {
                 this._navbarService.updateUserInfo(data.body);
-                this._toasService.activate('Trooper info successfully updated!');
+                this._toasService.activate('Trooper info successfully updated!', true);
                 this._router.navigate([`user/${data.user.username}`]);
             });
     }
@@ -44,4 +44,4 @@ export class UpdateProfileComponent implements OnInit {
     setUserSide(value: string): void {
         this.currentUser.side = value;
     }
-}
+}    

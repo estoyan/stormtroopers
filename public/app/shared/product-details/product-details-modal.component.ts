@@ -1,9 +1,11 @@
 import { Component, ViewChild, Input, OnInit } from '@angular/core';
 import { ModalDirective } from 'ng2-bootstrap/ng2-bootstrap';
 
+import { Product } from '../../models/product.model'
+
 import { ProductsService } from "../../services/products/products.service";
 import { ToastService } from '../../services/shared/toast.service';
-import { AuthService} from '../../services/authentication/auth.service'
+import { AuthService } from '../../services/authentication/auth.service'
 
 
 @Component({
@@ -15,12 +17,13 @@ import { AuthService} from '../../services/authentication/auth.service'
 })
 export class ProductDetailsModalComponent implements OnInit {
     @ViewChild('childModal') public childModal: ModalDirective;
-    @Input() product: number;
-    
+    @Input() product: Product;
+
     public isLogedIn: boolean;
-    
-    constructor(private _productService: ProductsService,private _authService:AuthService,  private _toasterService:ToastService){
-        
+    public safeImageUrl:any;
+
+    constructor(private _productService: ProductsService, private _authService: AuthService, private _toasterService: ToastService) {
+
     }
 
     public showChildModal(): void {
@@ -32,15 +35,15 @@ export class ProductDetailsModalComponent implements OnInit {
     }
 
     addToBascket(event: any) {
-    event[0].preventDefault();
-    let product = event[1];
-    this._productService.addProductToBasket(product)
-      .subscribe(data => {
-                this._toasterService.activate('Product was added to basket!')
+        event[0].preventDefault();
+        let product = event[1];
+        this._productService.addProductToBasket(product)
+            .subscribe(data => {
+                this._toasterService.activate('Product was added to basket!', true)
             });
     }
-   
-  ngOnInit() {
-    this.isLogedIn = this._authService.isLoggedIn();
-  }  
+
+    ngOnInit() {
+        this.isLogedIn = this._authService.isLoggedIn();
+    }
 }

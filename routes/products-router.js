@@ -16,7 +16,6 @@ module.exports = function ({ app, controllers }) {
         .get('/allProducts/:id', controller.getProductById)
 
         
-        .post('/addProduct', passport.authenticate('jwt', { session: false }), controller.addProductToBasket);
 
     app.use('/api', router);
 

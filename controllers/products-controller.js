@@ -29,19 +29,5 @@ module.exports = function ({ data }) {
 
             data.getProductsFromBasket(username)
         },
-        addProductToBasket(req, res) {
-            let token = req.headers.authorization,
-                username = tokenUtils.decodeToken(token).username,
-                product = data.getProductById(req.body._id);
-            return res.status(200).json({ success: true });
-            // data.addProductToBasket(username, product)
-            //     .then(result => {
-            //         console.log(result);
-            //         return res.status(200).json(result);
-            //     })
-            //     .catch(err => {
-            //         res.status(500).json({ msg: 'Server error!', err })
-            //     });
-        }
     };
 };
