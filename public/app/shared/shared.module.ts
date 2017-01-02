@@ -17,7 +17,7 @@ import { SortModule } from './sort/sort.module';
     exports: [
         FilterModule,
         SortModule,
-        StarsModule, 
+        StarsModule,
         ProductOverviewModule,
         PublicationsOverviewModule
     ],
