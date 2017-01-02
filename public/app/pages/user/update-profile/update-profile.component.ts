@@ -15,7 +15,7 @@ import { User } from '../../../models/user.model';
 export class UpdateProfileComponent implements OnInit {
     currentUser: User = <User>{};
     avatarOptions: string[] = ['Stormtrooper', 'Darth Vaider', 'Boba Fett', 'Empire', 'Rebels'];
-    sideOptions: string[] = ['Dark', 'Light', 'Neutral']
+    sideOptions: string[] = ['Dark', 'Light', 'Neutral'];
 
     constructor(private _router: Router,
         private _userService: UserService,

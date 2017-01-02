@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription'
+import { Subscription } from 'rxjs/Subscription';
 
 import { AuthService } from '../../services/authentication/auth.service';
 import { NavbarService } from '../../services/shared/navbar.service';
@@ -14,6 +14,7 @@ import { User } from '../../models/user.model';
 })
 
 export class NavComponent {
+    private _updateUserInfoSubsciption: Subscription;
     displayname: string;
     username: string;
     avatar: string;
@@ -26,12 +27,11 @@ export class NavComponent {
         private _navbarService: NavbarService,
         private _localeStorageService: LocalStorageService) { }
 
-    private _updateUserInfoSubsciption: Subscription;
 
     ngOnInit() {
         this._updateUserInfoSubsciption = this._navbarService.getEmittedValue()
             .subscribe((newInfo: User) => {
-                this.displayname = newInfo.displayname
+                this.displayname = newInfo.displayname;
                 this.username = newInfo.username;
                 this.avatar = newInfo.avatarUrl;
                 this.side = this.getSideColor(newInfo.side);
@@ -52,9 +52,9 @@ export class NavComponent {
 
     private getSideColor(side: string): string {
         switch (side) {
-            case 'Dark': return 'red'
-            case 'Light': return 'skyblue'
-            default: return 'white'
+            case 'Dark': return 'red';
+            case 'Light': return 'skyblue';
+            default: return 'white';
         }
     }
 
