@@ -2,19 +2,21 @@ div.publications {
     margin-top: 3em;
     font-size: 1.1em;
 }
+
 div.head {
-    float: right;
-    margin-top: 2em;
-    margin-left: 1em;
+    margin-top: 3em;
 }
+
 h2 {
     color: gold;
 }
-.btn.btn-lg {
-    border-radius: 0;
-}
 
 .btn.btn-lg {
+    border-radius: 0;
     background-color: #408000;
+ }
+
+.btn.btn-lg:hover {
+    background-color: #00C000;
     color: white;
 }

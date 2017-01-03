@@ -11,28 +11,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var user_service_1 = require('../../../services/user/user.service');
-var publications_overview_module_1 = require('../../../shared/publication-overview/publications-overview.module');
+var toast_service_1 = require('../../../services/shared/toast.service');
 var UserPublicationsComponent = (function () {
-    function UserPublicationsComponent(_router, _userService) {
+    function UserPublicationsComponent(_router, _userService, _toastService) {
         this._router = _router;
         this._userService = _userService;
+        this._toastService = _toastService;
     }
     UserPublicationsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._userService.getUserPublications()
-            .subscribe(function (publ) { return _this.publications = publ; });
+            .subscribe(function (publ) { return _this.publications = publ; }, function (err) { return _this._toastService.activate(err, false); });
     };
-    __decorate([
-        core_1.ViewChild('wrapper'), 
-        __metadata('design:type', publications_overview_module_1.PublicationsOverviewModule)
-    ], UserPublicationsComponent.prototype, "publicationList", void 0);
     UserPublicationsComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             templateUrl: './user-publications.component.html',
             styleUrls: ['./user-publications.component.css']
         }), 
-        __metadata('design:paramtypes', [router_1.Router, user_service_1.UserService])
+        __metadata('design:paramtypes', [router_1.Router, user_service_1.UserService, toast_service_1.ToastService])
     ], UserPublicationsComponent);
     return UserPublicationsComponent;
 }());

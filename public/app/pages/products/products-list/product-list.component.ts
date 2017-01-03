@@ -36,6 +36,10 @@ export class ProductListComponent implements OnInit {
     this.filterProp = ['title', 'description'];
     this.sortProp = [
       {
+        queryParam: 'category true',
+        displayValue: 'Category  '
+      },
+      {
         queryParam: 'price true',
         displayValue: 'Price: Low to High'
       },

@@ -10,21 +10,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var character_service_1 = require('../../services/character/character.service');
+var toast_service_1 = require('../../services/shared/toast.service');
 var CharacterComponent = (function () {
-    function CharacterComponent(_characterService) {
+    function CharacterComponent(_characterService, _toastService) {
         this._characterService = _characterService;
+        this._toastService = _toastService;
+        this.currentPage = 1;
+        this.maxSize = 10;
+        this.itemsPerPage = 5;
     }
     CharacterComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.filterProp = ['name', 'homeland'];
         this.searchText = '';
+        this.firstItemToShow = 0;
+        this.lastItemToShow = this.itemsPerPage;
         this._characterService.getCharacters()
             .subscribe(function (data) {
+            _this.totalCharacters = data.body.length;
             _this.characters = data.body;
-        });
+        }, function (err) { return _this._toastService.activate(err, false); });
     };
     CharacterComponent.prototype.filterChanged = function (searchText) {
         this.searchText = searchText;
+    };
+    CharacterComponent.prototype.pageChanged = function (event) {
+        this.firstItemToShow = (event.page - 1) * this.itemsPerPage;
+        this.lastItemToShow = this.firstItemToShow + this.itemsPerPage;
     };
     CharacterComponent = __decorate([
         core_1.Component({
@@ -32,7 +44,7 @@ var CharacterComponent = (function () {
             templateUrl: './character.component.html',
             styleUrls: ['./character.component.css']
         }), 
-        __metadata('design:paramtypes', [character_service_1.CharacterService])
+        __metadata('design:paramtypes', [character_service_1.CharacterService, toast_service_1.ToastService])
     ], CharacterComponent);
     return CharacterComponent;
 }());

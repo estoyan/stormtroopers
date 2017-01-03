@@ -4,10 +4,12 @@
         <st-filter (changed)="filterChanged($event)"></st-filter>
         <st-sort (sort)="sortCollection($event)" [sortProp]="sortProp"></st-sort>
         <form #productForm="ngForm" (ngSubmit)="onSubmit()">
-            <div class="wrapper" *ngFor="let product of products|customFilter:searchText:filterProp | customSort :sortCriteria ">
+            <div class="wrapper" *ngFor="let product of products|customFilter:searchText:filterProp | customSort :sortCriteria | slice:[firstItemToShow]:[lastItemToShow]">
                 <st-product-overview [product]=" product "> </st-product-overview>
                 <button type="submit" class="btn btn-success add-to-basket-btn" [disabled]="!isLogedIn" (click)="addToBascket([$event,product])">ADD TO BASKET</button>
             </div>
         </form>
     </div>
+    <pagination [itemsPerPage]="itemsPerPage" [totalItems]="totalPublications" [(ngModel)]="currentPage" [maxSize]="maxSize"
+        class="pagination, pagination-sm" [boundaryLinks]="true" [rotate]="false" (pageChanged)="pageChanged($event)"></pagination>
 </div>

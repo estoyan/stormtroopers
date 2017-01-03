@@ -10,14 +10,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var user_service_1 = require('../../../services/user/user.service');
+var toast_service_1 = require('../../../services/shared/toast.service');
 var PastOrdersComponent = (function () {
-    function PastOrdersComponent(_userService) {
+    function PastOrdersComponent(_userService, _toastService) {
         this._userService = _userService;
+        this._toastService = _toastService;
     }
     PastOrdersComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._userService.getPastOrders()
-            .subscribe(function (products) { return _this.pastOrders = products; });
+            .subscribe(function (products) { return _this.pastOrders = products; }, function (err) { return _this._toastService.activate(err, false); });
     };
     PastOrdersComponent = __decorate([
         core_1.Component({
@@ -25,7 +27,7 @@ var PastOrdersComponent = (function () {
             templateUrl: './past-orders.component.html',
             styleUrls: ['./past-orders.component.css']
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService])
+        __metadata('design:paramtypes', [user_service_1.UserService, toast_service_1.ToastService])
     ], PastOrdersComponent);
     return PastOrdersComponent;
 }());

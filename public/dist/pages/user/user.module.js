@@ -15,7 +15,6 @@ var common_1 = require('@angular/common');
 var user_routing_module_1 = require('./user-routing.module');
 var publications_overview_module_1 = require('../../shared/publication-overview/publications-overview.module');
 var product_overview_module_1 = require('../../shared/product-overview/product-overview.module');
-// import { SharedModule } from '../../shared/shared.module';
 var stars_module_1 = require('../../shared/stars/stars.module');
 var user_routing_module_2 = require('./user-routing.module');
 var UserModule = (function () {

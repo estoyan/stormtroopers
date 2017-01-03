@@ -6,6 +6,7 @@ var movies_component_1 = require('./movies/movies.component');
 var home_component_1 = require('./home/home.component');
 var login_component_1 = require('./login/login.component');
 var register_component_1 = require('./register/register.component');
+var about_component_1 = require('./about/about.component');
 exports.pages = {
     pageNotFound: page_not_fount_component_1.PageNotFoundComponent,
     characters: character_component_1.CharacterComponent,
@@ -13,7 +14,8 @@ exports.pages = {
     publications: publications_component_1.PublicationsComponent,
     home: home_component_1.HomeComponent,
     login: login_component_1.LoginComponent,
-    register: register_component_1.RegisterComponent
+    register: register_component_1.RegisterComponent,
+    about: about_component_1.AboutComponent
 };
 
 //# sourceMappingURL=index.js.map

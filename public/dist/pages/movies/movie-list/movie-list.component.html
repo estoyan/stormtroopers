@@ -1,14 +1,8 @@
 <div class="row text-center">
   <div class="col-md-12">
-    <h2 class=t itle>Star Wars Movies</h2>
+    <h2 class="title">Star Wars Movies</h2>
   </div>
 </div>
-
-<!--<div class="row text-center">
-  <div class="col-md-12 input-group">
-    <input type="text" class="form-control" placeholder="Search" autofocus [formControl]="filter">
-  </div>
-</div>-->
 
 <div class="row movie-container" *ngFor="let movie of movies" id="movie-[i]">
   <div class="col-md-2 image">
@@ -17,8 +11,9 @@
     </a>
   </div>
   <div class="col-md-9 info-container">
-    <!--<h3><a href="" [routerLink]="[ movie.Title]" >{{movie.Title | uppercase}}</a></h3>-->
+    <a class="link-title" href="" [routerLink]="[ movie.Title]" routerLinkActive="active">
     <h3>{{movie.Title| uppercase}}</h3>
+    </a>
     <div class="info">
       <div>
         <span class="category"></span>{{movie.Plot}}
@@ -26,11 +21,7 @@
     </div>
   </div>
 </div>
-
-<div class="row">
-  <div class="col-lg-6">
-    <hr/>
+<div class="row text-center">
     <pagination [totalItems]="totalMovies" [(ngModel)]="currentPage" [maxSize]="maxSize" class="pagination, pagination-sm" [boundaryLinks]="true"
       [rotate]="false" (pageChanged)="pageChanged($event)">></pagination>
-  </div>
 </div>

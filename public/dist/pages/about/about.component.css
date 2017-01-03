@@ -1,0 +1,30 @@
+h2 {
+    color: gold;
+    margin-bottom: 1em;
+}
+
+.wrapper {
+    background-color: #282727;
+    padding: 20px;
+    color: #969595;
+}
+
+.wrapper a {
+    color: gold;
+}
+
+.wrapper li {
+    list-style: none;
+}
+
+.wrapper ul {
+    margin-bottom: 30px;
+}
+
+h4 {
+    color: white;
+}
+
+h4.force {
+    text-align: center;
+}
