@@ -9,5 +9,4 @@ var category;
     category[category['costumes'] = 5] = 'costumes';
     category[category['books'] = 6] = 'books';
 })(category || (category = {}));
-
 //# sourceMappingURL=product.model.js.map

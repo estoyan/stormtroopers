@@ -26,16 +26,7 @@ var BasketListComponent = (function () {
         this.removeOptions = [SELECTED, ALL];
     }
     BasketListComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this._userService.getUserOrdersFromBasket()
-            .subscribe(function (orders) {
-            _this.orders = orders;
-            orders.forEach(function (o) {
-                _this.selections.push({
-                    isSelected: true
-                });
-            });
-        }, function (err) { return _this._toastService.activate(err, false); });
+        this.loadOrders();
         for (var i = 1; i <= SELECTION_COUNT; i += 1) {
             this.quantityOptions.push(i);
         }
@@ -80,6 +71,26 @@ var BasketListComponent = (function () {
             .subscribe(function (_) {
             _this._router.navigate(['/basket/proceed']);
         }, function (err) { return _this._toastService.activate(err, false); });
+    };
+    BasketListComponent.prototype.onAddToBasket = function (orders) {
+        this.loadOrders();
+    };
+    BasketListComponent.prototype.loadOrders = function () {
+        var _this = this;
+        this._userService.getUserOrdersFromBasket()
+            .subscribe(function (orders) {
+            _this.orders = orders;
+            _this.populatSelections(_this.orders);
+        }, function (err) { return _this._toastService.activate(err, false); });
+    };
+    BasketListComponent.prototype.populatSelections = function (orders) {
+        var _this = this;
+        this.selections = [];
+        orders.forEach(function (o) {
+            _this.selections.push({
+                isSelected: true
+            });
+        });
     };
     BasketListComponent.prototype.getSelectedOrders = function () {
         var selectedOrders = [];

@@ -26,5 +26,4 @@ var SumPipe = (function () {
     return SumPipe;
 }());
 exports.SumPipe = SumPipe;
-
 //# sourceMappingURL=sum.pipe.js.map

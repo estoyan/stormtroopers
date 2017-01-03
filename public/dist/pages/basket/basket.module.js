@@ -12,7 +12,7 @@ var core_1 = require('@angular/core');
 var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var common_1 = require('@angular/common');
 var forms_1 = require('@angular/forms');
-var shared_module_1 = require('../../shared/shared.module');
+var product_overview_module_1 = require('../../shared/product-overview/product-overview.module');
 var basket_routing_module_1 = require('./basket-routing.module');
 var stick_first_child_directive_1 = require('../../directives/stick-first-child.directive');
 var products_service_1 = require('../../services/products/products.service');
@@ -25,7 +25,7 @@ var BasketModule = (function () {
                 common_1.CommonModule,
                 forms_1.FormsModule,
                 basket_routing_module_1.BasketRoutingModule,
-                shared_module_1.SharedModule,
+                product_overview_module_1.ProductOverviewModule,
                 ng2_bootstrap_1.DropdownModule.forRoot()
             ],
             declarations: [

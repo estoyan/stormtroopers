@@ -42,5 +42,4 @@ var CustomFilterPipe = (function () {
     return CustomFilterPipe;
 }());
 exports.CustomFilterPipe = CustomFilterPipe;
-
 //# sourceMappingURL=filter.pipe.js.map

@@ -18,6 +18,7 @@ var ProductDetailsModalComponent = (function () {
         this._productService = _productService;
         this._authService = _authService;
         this._toasterService = _toasterService;
+        this.addToBascketEvent = new core_1.EventEmitter();
     }
     ProductDetailsModalComponent.prototype.showChildModal = function () {
         this.childModal.show();
@@ -32,6 +33,7 @@ var ProductDetailsModalComponent = (function () {
         this._productService.addProductToBasket(product)
             .subscribe(function (data) {
             _this._toasterService.activate('Product was added to basket!', true);
+            _this.addToBascketEvent.emit(data);
         }, function (err) {
             _this._toasterService.activate(err, false);
         });
@@ -47,6 +49,10 @@ var ProductDetailsModalComponent = (function () {
         core_1.Input(), 
         __metadata('design:type', Number)
     ], ProductDetailsModalComponent.prototype, "product", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], ProductDetailsModalComponent.prototype, "addToBascketEvent", void 0);
     ProductDetailsModalComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
