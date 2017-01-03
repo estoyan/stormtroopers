@@ -18,6 +18,9 @@ var GET_USER_PUBLICATIONS_URL = '/api/user/publications';
 var GET_USER_PAST_ORDERS_URL = '/api/user/pastorders';
 var GET_USER_BASKET_URL = '/api/user/basket';
 var PROCEED_USER_ORDERS_URL = '/api/user/basket/proceed';
+var REMOVE_USER_BASKET_URL = '/api/user/basket/remove';
+var GET_USER_PROCEEDING_URL = '/api/user/basket/proceeding';
+var PAY_PROCEEDING_ORDERS_URL = '/api/user/basket/payment';
 var UserService = (function () {
     function UserService(_requester, _localeStorageService) {
         this._requester = _requester;
@@ -43,7 +46,6 @@ var UserService = (function () {
         return this._requester
             .getJsonAuthorized(GET_USER_PUBLICATIONS_URL);
     };
-    // TODO get Order[]
     UserService.prototype.getPastOrders = function () {
         return this._requester
             .getJsonAuthorized(GET_USER_PAST_ORDERS_URL);
@@ -53,8 +55,28 @@ var UserService = (function () {
             .getJsonAuthorized(GET_USER_BASKET_URL);
     };
     UserService.prototype.proceedUserOrders = function (orders) {
+        var bodyObj = { orders: JSON.stringify(orders) };
+        var body = this._requester.createBody(bodyObj);
         return this._requester
-            .getJsonAuthorized(PROCEED_USER_ORDERS_URL);
+            .postAuthorized(PROCEED_USER_ORDERS_URL, body);
+    };
+    UserService.prototype.removeUserOrdersFromBasket = function (orders) {
+        var bodyObj = { orders: JSON.stringify(orders) };
+        var body = this._requester.createBody(bodyObj);
+        return this._requester
+            .postAuthorized(REMOVE_USER_BASKET_URL, body);
+    };
+    UserService.prototype.getUserProceedingOrders = function () {
+        return this._requester
+            .getJsonAuthorized(GET_USER_PROCEEDING_URL);
+    };
+    UserService.prototype.payUserProceedingOrders = function (orders, deliveryDetails) {
+        var bodyObj = {
+            orders: JSON.stringify(orders),
+            deliveryDetails: JSON.stringify(deliveryDetails)
+        }, body = this._requester.createBody(bodyObj);
+        return this._requester
+            .postAuthorized(PAY_PROCEEDING_ORDERS_URL, body);
     };
     UserService = __decorate([
         core_1.Injectable(), 

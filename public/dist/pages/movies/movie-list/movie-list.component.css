@@ -1,6 +1,6 @@
 h2 {
     color: gold;
-    margin-bottom: 30px;
+    margin-bottom: 1em;
 }
 
 img {
@@ -18,8 +18,6 @@ img {
 .movie-container {
     margin-bottom: 30px;
     background-color: #282727;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
 }
 
 .info {
@@ -29,13 +27,13 @@ img {
 .category {
     color: white;
 }
-.pagination li{
-    background-color: black;
+.link-title{
+    color: inherit; 
 }
-/*.info-container h4 a{
-    color: white;
-    text-decoration: none;  
-}*/
+.pagination  {
+    display: block;
+}
+
 li {
     list-style: none;
 }

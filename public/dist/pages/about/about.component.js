@@ -9,19 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var character_component_1 = require('./character.component');
-var CharacterModule = (function () {
-    function CharacterModule() {
+var AboutComponent = (function () {
+    function AboutComponent() {
     }
-    CharacterModule = __decorate([
-        core_1.NgModule({
-            imports: [],
-            declarations: [character_component_1.CharacterComponent],
-            exports: [character_component_1.CharacterComponent]
+    AboutComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            templateUrl: './about.component.html',
+            styleUrls: ['./about.component.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], CharacterModule);
-    return CharacterModule;
+    ], AboutComponent);
+    return AboutComponent;
 }());
-exports.CharacterModule = CharacterModule;
-//# sourceMappingURL=character.module.js.map
+exports.AboutComponent = AboutComponent;
+//# sourceMappingURL=about.component.js.map

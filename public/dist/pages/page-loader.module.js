@@ -16,6 +16,7 @@ var login_module_1 = require('./login/login.module');
 var character_modul_1 = require('./characters/character.modul');
 var register_component_1 = require('./register/register.component');
 var page_not_fount_component_1 = require('./page-not-fount/page-not-fount.component');
+var about_component_1 = require('./about/about.component');
 var character_service_1 = require('../services/character/character.service');
 var user_service_1 = require('../services/user/user.service');
 var PageLoaderModule = (function () {
@@ -24,7 +25,7 @@ var PageLoaderModule = (function () {
     PageLoaderModule = __decorate([
         core_1.NgModule({
             imports: [forms_1.FormsModule, common_1.CommonModule, home_module_1.HomeModule, login_module_1.LoginModule],
-            declarations: [register_component_1.RegisterComponent, page_not_fount_component_1.PageNotFoundComponent],
+            declarations: [register_component_1.RegisterComponent, page_not_fount_component_1.PageNotFoundComponent, about_component_1.AboutComponent],
             providers: [character_service_1.CharacterService, user_service_1.UserService],
             exports: [home_module_1.HomeModule, login_module_1.LoginModule, register_component_1.RegisterComponent, page_not_fount_component_1.PageNotFoundComponent, character_modul_1.CharacterModule]
         }), 

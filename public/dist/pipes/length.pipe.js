@@ -9,17 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var CharacterComponent = (function () {
-    function CharacterComponent() {
+var LengthPipe = (function () {
+    function LengthPipe() {
     }
-    CharacterComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            template: "<h1>Characters Page</h1>"
-        }), 
+    LengthPipe.prototype.transform = function (value, args) {
+        if (args === void 0) { args = null; }
+        return value.map(function (t) {
+            return {
+                item: t,
+                parent: value
+            };
+        });
+    };
+    LengthPipe = __decorate([
+        core_1.Pipe({ name: 'length' }), 
         __metadata('design:paramtypes', [])
-    ], CharacterComponent);
-    return CharacterComponent;
+    ], LengthPipe);
+    return LengthPipe;
 }());
-exports.CharacterComponent = CharacterComponent;
-//# sourceMappingURL=cahracter.component.js.map
+exports.LengthPipe = LengthPipe;
+
+//# sourceMappingURL=length.pipe.js.map

@@ -23,7 +23,7 @@ export class ProductListComponent implements OnInit {
   public totalPublications: number;
   public currentPage: number = 1;
   public maxSize: number = 10;
-  public itemsPerPage: number = 10;
+  public itemsPerPage: number = 8;
   public firstItemToShow: number;
   public lastItemToShow: number;
   constructor(private _productService: ProductsService,
@@ -35,6 +35,10 @@ export class ProductListComponent implements OnInit {
     this.sortCriteria = 'category';
     this.filterProp = ['title', 'description'];
     this.sortProp = [
+      {
+        queryParam: 'category true',
+        displayValue: 'Category  '
+      },
       {
         queryParam: 'price true',
         displayValue: 'Price: Low to High'

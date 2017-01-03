@@ -11,18 +11,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var publications_service_1 = require('../../services/publications/publications.service');
 var products_service_1 = require('../../services/products/products.service');
+var toast_service_1 = require('../../services/shared/toast.service');
 var HomeComponent = (function () {
-    function HomeComponent(_publicatonsService, _productService) {
+    function HomeComponent(_publicatonsService, _productService, _toaster) {
         this._publicatonsService = _publicatonsService;
         this._productService = _productService;
+        this._toaster = _toaster;
         this.fullPath = 'static/app/assets/imgs/rougeone.png';
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._productService.getRecentProducts()
-            .subscribe(function (x) { return _this.recentProducts = x; });
+            .subscribe(function (x) { return _this.recentProducts = x; }, function (err) { return _this._toaster.activate(err, false); });
         this._publicatonsService.getTopPublications()
-            .subscribe(function (x) { return _this.topPublications = x; });
+            .subscribe(function (x) { return _this.topPublications = x; }, function (err) { return _this._toaster.activate(err, false); });
     };
     HomeComponent = __decorate([
         core_1.Component({
@@ -30,7 +32,7 @@ var HomeComponent = (function () {
             templateUrl: './home.component.html',
             styleUrls: ['./home.component.css']
         }), 
-        __metadata('design:paramtypes', [publications_service_1.PublicatonsService, products_service_1.ProductsService])
+        __metadata('design:paramtypes', [publications_service_1.PublicatonsService, products_service_1.ProductsService, toast_service_1.ToastService])
     ], HomeComponent);
     return HomeComponent;
 }());

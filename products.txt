@@ -26,3 +26,17 @@ db.products.insertMany([{
     imageUrl: 'http://www.bobafettfanclub.com/multimedia/galleries/albums/userpics/10001/boba-fett-mug~0.jpg',
     color: 'green'
 }])
+
+
+// new
+
+{
+    title: 'Beast Kingdom Chrome Stormtrooper EAA (SDCC Exclusive)',
+    price: 124.99  ,
+    quantity: 40,
+    description: "This SDCC 2016 Exclusive has disregarded the concept of camouflage and instead the classic Star Wars character has opted for standing out from the crowd. This figure from the Egg Attack Action line comes with 24 points of articulation and a display stand specifically designed to make sure this little guy doesn't go unnoticed. And with something so cool, how could he (or she)? The Beast Kingdom Chrome Stormtrooper EAA features the Empire's classic soldier from the original Star Wars trilogy cast in eye-catching chrome color electroplating armor and helmet. We wouldn't want the poor guy running in unarmed so this collectible is featured with two of his classic weapons, the E-11 Blaster and the DLT-19 heavy blaster. After all, if he didn't have any weapons, we couldn't tease him about being off target all the time!",
+    category: 'toys',
+    imageUrl: 'https://www.thinkgeek.com/images/products/frontsquare/jmjh_chrome_stormtrooper_eaa_sdcc.jpg',
+    color: 'white'
+},
+

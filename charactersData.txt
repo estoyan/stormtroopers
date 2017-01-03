@@ -134,4 +134,56 @@ db.characters.insertMany([{
         'Resistance'
     ],
     image: 'http://vignette2.wikia.nocookie.net/starwars/images/e/eb/ArtooTFA2-Fathead.png/revision/latest/scale-to-width-down/500?cb=20161108040914'
+}, {
+    name: 'C-3PO',
+    homeland: 'Tatooine',
+    born: 'Prior to 32 BBY',
+    dead: '3 ABY',
+    story: 'C-3PO is a droid programmed for etiquette and protocol, built by the heroic Jedi Anakin Skywalker, and a constant companion to astromech R2-D2. Over the years, he was involved in some of the galaxy’s most defining moments and thrilling battles -- and is fluent in more than seven million forms of communication.',
+    species: 'Droid',
+    affiliation: [
+        'Confederacy of Independent Systems',
+        'Skywalker family',
+        'House of Organa',
+        'Resistance',
+'New Republic'
+    ],
+    image: 'http://vignette2.wikia.nocookie.net/starwars/images/7/7e/ThreepioTFA-Fathead.png/revision/latest?cb=20161109035240'
+}, {
+    name: 'Han Solo',
+    homeland: 'Corellia',
+    born: 'After 30 BBY',
+    dead: '34 ABY',
+    story: 'Smuggler. Scoundrel. Hero. Han Solo, captain of the Millennium Falcon, was one of the great leaders of the Rebel Alliance. He and his co-pilot Chewbacca came to believe in the cause of galactic freedom, joining Luke Skywalker and Princess Leia Organa in the fight against the Empire. But after the Battle of Endor, Han would face difficult times in a galaxy plagued by chaos and uncertainty.',
+    species: 'Human',
+    affiliation: [
+        'Alliance Fleet',
+        'Alliance to Restore the Republic',
+        'Alliance Special Forces',
+        'New Republic',
+	'Resistance'
+    ],
+    image: 'http://vignette2.wikia.nocookie.net/starwars/images/e/e2/TFAHanSolo.png/revision/latest?cb=20160208055002'
+}, {
+    name: 'Rey',
+    homeland: 'Jahhu',
+    born: '15 ABY',
+    dead: 'N/A',
+    story: 'Rey is a Jakku scavenger, a survivor toughened by life on a harsh desert planet. When the fugitive droid BB-8 appeals to her for help, Rey finds herself drawn into a galaxy-spanning conflict. Despite dismissing herself as “no one,” she learns that her life is being shaped by the mysterious power of the Force.',
+    species: 'Human',
+    affiliation: [
+	'Resistance'
+    ],
+    image: 'http://vignette2.wikia.nocookie.net/starwars/images/b/b4/Rey_infobox.png/revision/latest?cb=20160122041020'
+}, {
+    name: 'Leia Organa',
+    homeland: 'Alderaan',
+    born: '19 BBY',
+    dead: 'N/A',
+    story: 'Rey is a Jakku scavenger, a survivor toughened by life on a harsh desert planet. When the fugitive droid BB-8 appeals to her for help, Rey finds herself drawn into a galaxy-spanning conflict. Despite dismissing herself as “no one,” she learns that her life is being shaped by the mysterious power of the Force.',
+    species: 'Human',
+    affiliation: [
+	'Resistance'
+    ],
+    image: 'https://s-media-cache-ak0.pinimg.com/564x/5c/3c/9f/5c3c9f21bfa7c26fc1d057ee99d84fc9.jpg'
 }])

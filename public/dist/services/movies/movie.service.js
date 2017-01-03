@@ -11,15 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var exception_service_1 = require('../shared/exception.service');
-// import { CONFIG, ExceptionService, MessageService, SpinnerService } from '../../core';
-var omdbapi = 'http://www.omdbapi.com/';
+var omdbapi = 'https://www.omdbapi.com/';
 var starWarsmoviesSearch = '?s=%22Star%20Wars%22&type=movie';
 var MovieService = (function () {
-    // onDbReset = this.messageService.state;
     function MovieService(http, exceptionService) {
         this.http = http;
         this.exceptionService = exceptionService;
-        // this.messageService.state.subscribe(state => this.getVehicles());
     }
     MovieService.prototype.extractData = function (res) {
         if (res.status < 200 || res.status >= 300) {
@@ -29,7 +26,6 @@ var MovieService = (function () {
         var results;
         if (body.Search) {
             results = body && body.Search || {};
-            ;
         }
         else {
             results = body;
@@ -38,14 +34,12 @@ var MovieService = (function () {
         return [results, total];
     };
     MovieService.prototype.getMovies = function (page) {
-        // this.spinnerService.show();
         var _this = this;
         if (page === void 0) { page = 1; }
         return this.http
             .get(omdbapi + starWarsmoviesSearch + ("&page=" + page))
             .map(function (res) { return _this.extractData(res); })
             .catch(this.exceptionService.catchBadResponse);
-        //   .finally(() => this.spinnerService.hide());
     };
     MovieService.prototype.searchMovies = function (pattern) {
         var _this = this;
@@ -60,7 +54,6 @@ var MovieService = (function () {
             .get(omdbapi + "?t=" + title + "&plot=full")
             .map(function (res) { return res = res.json(); })
             .catch(this.exceptionService.catchBadResponse);
-        //   .finally(() => this.spinnerService.hide());
     };
     MovieService = __decorate([
         core_1.Injectable(), 

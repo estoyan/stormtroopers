@@ -4,11 +4,16 @@
     </div>
 </div>
 <div class="row">
+    <st-filter (changed)="filterChanged($event)"></st-filter>
+    <st-sort (sort)="sortCollection($event)" [sortProp]="sortProp"></st-sort>
+</div>
+<div class="row">
+    <div class="text-center head">
+        <button class="btn btn-lg" routerLink="/publications/create" routerLinkActive="active">ADD PUBLICATION</button>
+    </div>
     <div class="col-md-12">
-        <div class="head">
-            <button class="btn btn-lg" routerLink="/publications/create" routerLinkActive="active">ADD PUBLICATION</button>
-        </div>
-        <div *ngFor="let publication of showedPublications;" class="row col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 row col-xs-8 col-xs-offset-2">
+        <div *ngFor="let publication of publications |customFilter:searchText:filterProp | customSort :sortCriteria | slice:[firstItemToShow]:[lastItemToShow]"
+            class="row col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 row col-xs-8 col-xs-offset-2">
             <div class="publications">
                 <st-publication-overview [publication]="publication"></st-publication-overview>
             </div>
@@ -17,9 +22,9 @@
             No publications were found trooper!
             <br> Be the first to create...
         </h2>
-
-
     </div>
 </div>
-  <pagination [itemsPerPage]="itemsPerPage" [totalItems]="totalPublications" [(ngModel)]="currentPage" [maxSize]="maxSize"
-            class="pagination, pagination-sm" [boundaryLinks]="true" [rotate]="false" (pageChanged)="pageChanged($event)"></pagination>
+<div class="row text-center">
+    <pagination [itemsPerPage]="itemsPerPage" [totalItems]="totalPublications" [(ngModel)]="currentPage" [maxSize]="maxSize"
+        class="pagination pagination-sm" [boundaryLinks]="true" [rotate]="false" (pageChanged)="pageChanged($event)"></pagination>
+</div>

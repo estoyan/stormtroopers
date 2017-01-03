@@ -12,18 +12,20 @@ var core_1 = require('@angular/core');
 var filter_pipe_1 = require('./filter.pipe');
 var sort_pipe_1 = require('./sort.pipe');
 var sum_pipe_1 = require('./sum.pipe');
+var length_pipe_1 = require('./length.pipe');
 var PipeModule = (function () {
     function PipeModule() {
     }
     PipeModule = __decorate([
         core_1.NgModule({
             imports: [],
-            declarations: [filter_pipe_1.CustomFilterPipe, sort_pipe_1.CustomSortPipe, sum_pipe_1.SumPipe],
-            exports: [filter_pipe_1.CustomFilterPipe, sort_pipe_1.CustomSortPipe, sum_pipe_1.SumPipe]
+            declarations: [filter_pipe_1.CustomFilterPipe, sort_pipe_1.CustomSortPipe, sum_pipe_1.SumPipe, length_pipe_1.LengthPipe],
+            exports: [filter_pipe_1.CustomFilterPipe, sort_pipe_1.CustomSortPipe, sum_pipe_1.SumPipe, length_pipe_1.LengthPipe]
         }), 
         __metadata('design:paramtypes', [])
     ], PipeModule);
     return PipeModule;
 }());
 exports.PipeModule = PipeModule;
+
 //# sourceMappingURL=pipe.module.js.map

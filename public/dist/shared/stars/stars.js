@@ -21,7 +21,6 @@ var AcStars = (function () {
         this._localStorageService = _localStorageService;
         this._rating = this.rating;
         this.stars = [1, 2, 3, 4, 5];
-        var count = this.starCount < 0 ? 5 : this.starCount;
     }
     AcStars.prototype.ngOnInit = function () {
         var loggedUser = this._localStorageService.getUser() || {};
@@ -36,11 +35,11 @@ var AcStars = (function () {
         var _this = this;
         var isLoggedIn = this._authService.isLoggedIn();
         if (!isLoggedIn) {
-            this._toastService.activate("Please login!", false);
+            this._toastService.activate('Please login!', false);
             event.stopPropagation();
         }
         else if (this.isOwner) {
-            this._toastService.activate("Invalid operation!", false);
+            this._toastService.activate('Invalid operation!', false);
             event.stopPropagation();
         }
         else {

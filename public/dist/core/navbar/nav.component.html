@@ -15,7 +15,7 @@
                 <li><a color={{side}} routerLink="/products" routerLinkActive="active">PRODUCTS</a></li>
                 <li><a color={{side}} routerLink="/characters" routerLinkActive="active">CHARACTERS</a></li>
                 <li><a color={{side}} routerLink="/movies" routerLinkActive="active">MOVIES</a></li>
-                <li><a color={{side}} routerLink="/characters" routerLinkActive="active">ABOUT</a></li>
+                <li><a color={{side}} routerLink="/about" routerLinkActive="active">ABOUT</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right" [hidden]=_authService.isLoggedIn()>
                 <li><a routerLink="/login" routerLinkActive="active">LOGIN</a></li>
@@ -29,12 +29,18 @@
                     </a>
                     <ul dropdownMenu role="menu" aria-labelledby="single-button" class="inner-menu">
                         <li role="menuitem"><a class="dropdown-item" routerLink="/user/{{username}}">PROFILE</a></li>
-                        <li role="menuitem"><a class="dropdown-item" routerLink="/basket">BASKET</a></li>
                         <li role="menuitem"><a class="dropdown-item" routerLink="/home" (click)=_authService.logout()>LOG OUT</a></li>
                     </ul>
                 </li>
                 <li>
-                    <img src={{avatar}} alt="avatar image" id="avatar-image">
+                    <a class="avatar" routerLink="/user/{{username}}">
+                        <img src={{avatar}} alt="avatar image" id="avatar-image">
+                    </a>
+                </li>
+                <li>
+                    <a class="basket-container" routerLink="/basket">
+                        <img class="basket" src="static/app/assets/imgs/shopping-cart.png" alt="shopping cart">
+                    </a>
                 </li>
             </ul>
         </div>
