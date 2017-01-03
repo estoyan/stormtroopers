@@ -3,7 +3,7 @@ import { DropdownModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from '../../shared/shared.module';
+import { ProductOverviewModule } from '../../shared/product-overview/product-overview.module';
 import { BasketRoutingModule, routedComponents } from './basket-routing.module';
 
 import { StickFirstChildDirective } from '../../directives/stick-first-child.directive';
@@ -15,7 +15,7 @@ import { ProductsService } from '../../services/products/products.service';
         CommonModule,
         FormsModule,
         BasketRoutingModule,
-        SharedModule,
+        ProductOverviewModule,
         DropdownModule.forRoot()
     ],
     declarations: [
