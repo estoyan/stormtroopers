@@ -24,6 +24,7 @@ var appRoutes = [
     { path: 'publications', loadChildren: 'app/pages/publications/publications.module#PublicationsModule' },
     { path: 'products', loadChildren: 'app/pages/products/products.module#ProductsModule' },
     { path: 'basket', loadChildren: 'app/pages/basket/basket.module#BasketModule', canActivate: [authGuard_1.AuthGuard] },
+    { path: 'about', component: index_1.pages.about },
     { path: '**', pathMatch: 'full', component: index_1.pages.pageNotFound }
 ];
 var AppRoutingModule = (function () {
@@ -33,8 +34,6 @@ var AppRoutingModule = (function () {
         core_1.NgModule({
             imports: [router_1.RouterModule.forRoot(appRoutes, { useHash: true, preloadingStrategy: router_1.PreloadAllModules })],
             exports: [router_1.RouterModule],
-            // imports: [RouterModule.forRoot(appRoutes, { useHash: true, preloadingStrategy: PreloadAllModules })],
-            // exports: [RouterModule],
             providers: []
         }), 
         __metadata('design:paramtypes', [])

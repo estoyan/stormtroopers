@@ -16,7 +16,7 @@ var CustomSortPipe = (function () {
         if (!value || !value.sort) {
             return value;
         }
-        var temp = filter.split(" ");
+        var temp = filter.split(' ');
         var filterCriteria = temp[0];
         var isAscending = temp[1];
         var result = value.sort(function (a, b) {

@@ -15,6 +15,7 @@ var filter_module_1 = require('../../shared/filter/filter.module');
 var sort_module_1 = require('../../shared/sort/sort.module');
 var product_overview_module_1 = require('../../shared/product-overview/product-overview.module');
 var pipe_module_1 = require('../../pipes/pipe.module');
+var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var products_routing_module_1 = require('./products-routing.module');
 var ProductsModule = (function () {
     function ProductsModule() {
@@ -29,6 +30,7 @@ var ProductsModule = (function () {
                 sort_module_1.SortModule,
                 product_overview_module_1.ProductOverviewModule,
                 pipe_module_1.PipeModule,
+                ng2_bootstrap_1.PaginationModule.forRoot()
             ],
             declarations: [
                 products_routing_module_1.routedComponents,

@@ -26,3 +26,17 @@ db.products.insertMany([{
     imageUrl: 'http://www.bobafettfanclub.com/multimedia/galleries/albums/userpics/10001/boba-fett-mug~0.jpg',
     color: 'green'
 }])
+
+
+// new
+
+{
+    title: 'Star Wars Lighted Yoda Tree Topper',
+    price: 24.99,
+    quantity: 100,
+    description: "A perfect finishing touch to your Star Wars-themed holiday, this Kurt Adler Yoda tree topper puts the Jedi Master, wielding his light-up green LED lightsaber, where he can watch over your family this holiday season. At 12" tall and wearing a festive outfit consisting of a long, white robe and red garment underneath, even the youngest padawans will be able to look up to Yoda. Yoda's wisdom is universal, so his ever-present calm protection is the ideal decoration for after the holidays as well. His lightsaber's gentle green light emits the ideal glow to get younglings to the bathroom in the middle of the night, or just to show them that they aren't alone.",
+    category: 'toys',
+    imageUrl: 'https://www.thinkgeek.com/images/products/frontsquare/jhkp_sw_lighted_yoda_tree_topper.jpg',
+    color: 'white'
+},
+

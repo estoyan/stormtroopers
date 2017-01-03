@@ -12,7 +12,6 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var products_component_1 = require('./products.component');
 var product_list_component_1 = require('./products-list/product-list.component');
-// import { ProductDetailsComponent } from './product-details/product-details.component';
 var routes = [
     {
         path: '',
@@ -21,7 +20,7 @@ var routes = [
             {
                 path: '',
                 component: product_list_component_1.ProductListComponent
-            },
+            }
         ]
     }
 ];

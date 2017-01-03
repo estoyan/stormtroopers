@@ -12,7 +12,7 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var basket_component_1 = require('./basket.component');
 var basket_list_component_1 = require('./basket-list/basket-list.component');
-var basket_buy_component_1 = require('./basket-buy/basket-buy.component');
+var basket_proceed_component_1 = require('./basket-proceed/basket-proceed.component');
 var routes = [
     {
         path: '',
@@ -23,8 +23,8 @@ var routes = [
                 component: basket_list_component_1.BasketListComponent
             },
             {
-                path: 'buy',
-                component: basket_buy_component_1.BasketBuyComponent
+                path: 'proceed',
+                component: basket_proceed_component_1.BasketProceedComponent
             }
         ]
     }
@@ -44,7 +44,7 @@ var BasketRoutingModule = (function () {
 exports.BasketRoutingModule = BasketRoutingModule;
 exports.routedComponents = [
     basket_component_1.BasketComponent,
-    basket_buy_component_1.BasketBuyComponent,
+    basket_proceed_component_1.BasketProceedComponent,
     basket_list_component_1.BasketListComponent
 ];
 //# sourceMappingURL=basket-routing.module.js.map

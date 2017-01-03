@@ -16,6 +16,8 @@ var publications_overview_module_1 = require('../../shared/publication-overview/
 var pipe_module_1 = require('../../pipes/pipe.module');
 var stars_module_1 = require('../../shared/stars/stars.module');
 var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
+var filter_module_1 = require('../../shared/filter/filter.module');
+var sort_module_1 = require('../../shared/sort/sort.module');
 var publications_service_1 = require('../../services/publications/publications.service');
 var PublicationsModule = (function () {
     function PublicationsModule() {
@@ -25,6 +27,8 @@ var PublicationsModule = (function () {
             imports: [
                 forms_1.FormsModule,
                 common_1.CommonModule,
+                filter_module_1.FilterModule,
+                sort_module_1.SortModule,
                 publications_routing_module_1.PublicationsRoutingModule,
                 publications_overview_module_1.PublicationsOverviewModule,
                 pipe_module_1.PipeModule,

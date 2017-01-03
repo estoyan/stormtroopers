@@ -19,9 +19,16 @@ var ProductListComponent = (function () {
         this._toasterService = _toasterService;
         this.products = [];
         this.isLogedIn = false;
+        this.currentPage = 1;
+        this.maxSize = 10;
+        this.itemsPerPage = 10;
         this.sortCriteria = 'category';
         this.filterProp = ['title', 'description'];
         this.sortProp = [
+            {
+                queryParam: 'category true',
+                displayValue: 'Category  '
+            },
             {
                 queryParam: 'price true',
                 displayValue: 'Price: Low to High'
@@ -33,9 +40,11 @@ var ProductListComponent = (function () {
             {
                 queryParam: 'title',
                 displayValue: 'Product Title'
-            },
+            }
         ];
         this.searchText = '';
+        this.firstItemToShow = 0;
+        this.lastItemToShow = this.itemsPerPage;
     }
     ProductListComponent.prototype.filterChanged = function (searchText) {
         this.searchText = searchText;
@@ -50,12 +59,23 @@ var ProductListComponent = (function () {
         this._productService.addProductToBasket(product)
             .subscribe(function (data) {
             _this._toasterService.activate('Product was added to basket!', true);
+        }, function (err) {
+            _this._toasterService.activate(err, false);
         });
+    };
+    ProductListComponent.prototype.pageChanged = function (event) {
+        this.firstItemToShow = (event.page - 1) * this.itemsPerPage;
+        this.lastItemToShow = this.firstItemToShow + this.itemsPerPage;
     };
     ProductListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._productService.getAllProducts()
-            .subscribe(function (x) { return _this.products = x; });
+            .subscribe(function (x) {
+            _this.totalPublications = x.length;
+            _this.products = x;
+        }, function (err) {
+            _this._toasterService.activate(err, false);
+        });
         this.isLogedIn = this._authService.isLoggedIn();
     };
     ProductListComponent = __decorate([

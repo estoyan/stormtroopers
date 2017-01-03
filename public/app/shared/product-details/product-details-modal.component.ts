@@ -8,7 +8,7 @@ import { AuthService } from '../../services/authentication/auth.service';
 
 @Component({
     moduleId: module.id,
-    selector: 'modal-product',
+    selector: 'st-modal-product',
     templateUrl: './product-details-modal.component.html',
     styleUrls: ['./product-details-modal.component.css']
 

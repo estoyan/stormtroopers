@@ -10,29 +10,65 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var publications_service_1 = require('../../../services/publications/publications.service');
+var toast_service_1 = require('../../../services/shared/toast.service');
 var PublicationListPageComponent = (function () {
-    function PublicationListPageComponent(_publicationService) {
+    function PublicationListPageComponent(_publicationService, _toastService) {
         this._publicationService = _publicationService;
+        this._toastService = _toastService;
+        this.publications = [];
         this.currentPage = 1;
         this.maxSize = 10;
         this.itemsPerPage = 5;
-        // this.totalPublications = 11;
+        this.sortCriteria = 'createdAt false';
+        this.filterProp = ['title'];
+        this.sortProp = [
+            {
+                queryParam: 'createdAt false',
+                displayValue: 'Newest'
+            },
+            {
+                queryParam: 'createdAt true',
+                displayValue: 'Oldest'
+            },
+            {
+                queryParam: 'overalRating true',
+                displayValue: 'Rating: Low to High'
+            },
+            {
+                queryParam: 'overalRating false',
+                displayValue: 'Rating: High to Low'
+            }
+        ];
+        this.searchText = '';
+        this.firstItemToShow = 0;
+        this.lastItemToShow = this.itemsPerPage;
     }
+    PublicationListPageComponent.prototype.filterChanged = function (searchText) {
+        this.searchText = searchText;
+    };
+    PublicationListPageComponent.prototype.sortCollection = function (sortCriteria) {
+        this.sortCriteria = sortCriteria;
+    };
     PublicationListPageComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._publicationService.getAllPublications()
             .subscribe(function (x) {
+            for (var _i = 0, x_1 = x; _i < x_1.length; _i++) {
+                var publication = x_1[_i];
+                var ratingSum = 0;
+                for (var _a = 0, _b = publication.rating; _a < _b.length; _a++) {
+                    var rate = _b[_a];
+                    ratingSum += rate.rate;
+                }
+                publication['overalRating'] = ratingSum / publication.rating.length;
+            }
             _this.totalPublications = x.length;
             _this.publications = x;
-            _this.showedPublications = _this.publications.slice(0, _this.itemsPerPage);
-        });
-    };
-    PublicationListPageComponent.prototype.setNewRate = function (event) {
-        console.log('new Rate is: ', event);
+        }, function (err) { return _this._toastService.activate(err, false); });
     };
     PublicationListPageComponent.prototype.pageChanged = function (event) {
-        var currentItem = (event.page - 1) * this.itemsPerPage;
-        this.showedPublications = this.publications.slice(currentItem, this.itemsPerPage + currentItem);
+        this.firstItemToShow = (event.page - 1) * this.itemsPerPage;
+        this.lastItemToShow = this.firstItemToShow + this.itemsPerPage;
     };
     PublicationListPageComponent = __decorate([
         core_1.Component({
@@ -40,7 +76,7 @@ var PublicationListPageComponent = (function () {
             templateUrl: './publication-list-page.component.html',
             styleUrls: ['./publication-list-page.component.css']
         }), 
-        __metadata('design:paramtypes', [publications_service_1.PublicatonsService])
+        __metadata('design:paramtypes', [publications_service_1.PublicatonsService, toast_service_1.ToastService])
     ], PublicationListPageComponent);
     return PublicationListPageComponent;
 }());

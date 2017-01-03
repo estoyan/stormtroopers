@@ -14,7 +14,6 @@ var SortComponent = (function () {
         this.sort = new core_1.EventEmitter();
     }
     SortComponent.prototype.sortCollection = function (event) {
-        // event.preventDefault();
         this.sort.emit(this.sortCriteria);
     };
     __decorate([

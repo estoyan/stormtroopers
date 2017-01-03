@@ -23,7 +23,6 @@ var MoviesModule = (function () {
     }
     MoviesModule = __decorate([
         core_1.NgModule({
-            // ,PaginationModule.forRoot()
             imports: [movies_routing_module_1.MovieRoutingModule, forms_1.FormsModule, forms_2.ReactiveFormsModule, common_1.CommonModule, ng2_bootstrap_1.PaginationModule.forRoot(), filter_module_1.FilterModule],
             declarations: [movies_routing_module_1.routedComponents, movie_component_1.MovieComponent, movie_list_component_1.MovieListComponent],
             providers: [movie_service_1.MovieService]

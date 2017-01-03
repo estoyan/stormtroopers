@@ -9,19 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var character_component_1 = require('./character.component');
-var CharacterModule = (function () {
-    function CharacterModule() {
+var LengthPipe = (function () {
+    function LengthPipe() {
     }
-    CharacterModule = __decorate([
-        core_1.NgModule({
-            imports: [],
-            declarations: [character_component_1.CharacterComponent],
-            exports: [character_component_1.CharacterComponent]
-        }), 
+    LengthPipe.prototype.transform = function (value, args) {
+        if (args === void 0) { args = null; }
+        return value.map(function (t) {
+            return {
+                item: t,
+                parent: value
+            };
+        });
+    };
+    LengthPipe = __decorate([
+        core_1.Pipe({ name: 'length' }), 
         __metadata('design:paramtypes', [])
-    ], CharacterModule);
-    return CharacterModule;
+    ], LengthPipe);
+    return LengthPipe;
 }());
-exports.CharacterModule = CharacterModule;
-//# sourceMappingURL=character.module.js.map
+exports.LengthPipe = LengthPipe;
+//# sourceMappingURL=length.pipe.js.map

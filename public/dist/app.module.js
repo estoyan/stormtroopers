@@ -8,12 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-// import { RouterModule } from '@angular/router';
 var http_1 = require('@angular/http');
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
-// import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 var app_routing_module_1 = require('./routing/app-routing.module');
 var core_module_1 = require('./core/core.module');
 var page_loader_module_1 = require('./pages/page-loader.module');
@@ -35,7 +33,6 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 http_1.HttpModule,
-                // Ng2BootstrapModule,
                 core_module_1.CoreModule,
                 app_routing_module_1.AppRoutingModule,
                 page_loader_module_1.PageLoaderModule

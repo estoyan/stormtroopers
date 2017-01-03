@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
-var products_service_1 = require("../../services/products/products.service");
+var products_service_1 = require('../../services/products/products.service');
 var toast_service_1 = require('../../services/shared/toast.service');
 var auth_service_1 = require('../../services/authentication/auth.service');
 var ProductDetailsModalComponent = (function () {
@@ -32,6 +32,8 @@ var ProductDetailsModalComponent = (function () {
         this._productService.addProductToBasket(product)
             .subscribe(function (data) {
             _this._toasterService.activate('Product was added to basket!', true);
+        }, function (err) {
+            _this._toasterService.activate(err, false);
         });
     };
     ProductDetailsModalComponent.prototype.ngOnInit = function () {
@@ -48,7 +50,7 @@ var ProductDetailsModalComponent = (function () {
     ProductDetailsModalComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'modal-product',
+            selector: 'st-modal-product',
             templateUrl: './product-details-modal.component.html',
             styleUrls: ['./product-details-modal.component.css']
         }), 

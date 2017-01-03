@@ -14,12 +14,13 @@ var forms_1 = require('@angular/forms');
 var character_component_1 = require('./character.component');
 var pipe_module_1 = require('../../pipes/pipe.module');
 var filter_module_1 = require('../../shared/filter/filter.module');
+var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var CharacterModule = (function () {
     function CharacterModule() {
     }
     CharacterModule = __decorate([
         core_1.NgModule({
-            imports: [common_1.CommonModule, forms_1.FormsModule, pipe_module_1.PipeModule, filter_module_1.FilterModule],
+            imports: [common_1.CommonModule, forms_1.FormsModule, pipe_module_1.PipeModule, filter_module_1.FilterModule, ng2_bootstrap_1.PaginationModule.forRoot()],
             declarations: [character_component_1.CharacterComponent],
         }), 
         __metadata('design:paramtypes', [])

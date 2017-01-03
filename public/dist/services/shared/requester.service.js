@@ -23,7 +23,6 @@ var RequesterService = (function () {
     }
     RequesterService.prototype.createBody = function (obj) {
         var body = '';
-        var keys = Object.keys(obj);
         Object.keys(obj).forEach(function (key) { return body += key + "=" + obj[key] + "&"; });
         return body.slice(0, body.length - 1);
     };

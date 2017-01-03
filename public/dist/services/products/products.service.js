@@ -12,7 +12,6 @@ var core_1 = require('@angular/core');
 var requester_service_1 = require('../shared/requester.service');
 var RECENT_PRODUCTS_URL = '/api/recentproducts';
 var PRODUCTS_URL = '/api/allProducts';
-var PRODUCTS_FROM_BASKET_URL = '/api/products/basket';
 var ADD_PRODUCT_TO_BASKET_URL = '/api/user/addproduct';
 var ProductsService = (function () {
     function ProductsService(_requester) {

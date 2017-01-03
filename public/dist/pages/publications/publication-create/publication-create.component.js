@@ -28,7 +28,7 @@ var PublicationCreateComponent = (function () {
             .subscribe(function (data) {
             _this._toastService.activate('Successfully added publication!', true);
             _this._router.navigate(['publications']);
-        });
+        }, function (err) { return _this._toastService.activate(err, false); });
     };
     PublicationCreateComponent = __decorate([
         core_1.Component({

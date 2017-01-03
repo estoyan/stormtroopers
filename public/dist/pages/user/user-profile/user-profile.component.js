@@ -11,9 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var user_service_1 = require('../../../services/user/user.service');
+var toast_service_1 = require('../../../services/shared/toast.service');
 var UserProfileComponent = (function () {
-    function UserProfileComponent(_userService, _router, _activatedRoute) {
+    function UserProfileComponent(_userService, _toastService, _router, _activatedRoute) {
         this._userService = _userService;
+        this._toastService = _toastService;
         this._router = _router;
         this._activatedRoute = _activatedRoute;
         this.currentUser = {};
@@ -26,7 +28,7 @@ var UserProfileComponent = (function () {
                 _this._router.navigate(['/wronguser']);
             }
             _this.currentUser = x;
-        });
+        }, function (err) { return _this._toastService.activate(err, false); });
     };
     UserProfileComponent = __decorate([
         core_1.Component({
@@ -34,7 +36,7 @@ var UserProfileComponent = (function () {
             templateUrl: './user-profile.component.html',
             styleUrls: ['./user-profile.component.css']
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService, router_1.Router, router_1.ActivatedRoute])
+        __metadata('design:paramtypes', [user_service_1.UserService, toast_service_1.ToastService, router_1.Router, router_1.ActivatedRoute])
     ], UserProfileComponent);
     return UserProfileComponent;
 }());
