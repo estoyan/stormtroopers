@@ -42,4 +42,5 @@ var CustomSortPipe = (function () {
     return CustomSortPipe;
 }());
 exports.CustomSortPipe = CustomSortPipe;
+
 //# sourceMappingURL=sort.pipe.js.map
