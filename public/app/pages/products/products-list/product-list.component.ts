@@ -23,7 +23,7 @@ export class ProductListComponent implements OnInit {
   public totalPublications: number;
   public currentPage: number = 1;
   public maxSize: number = 10;
-  public itemsPerPage: number = 10;
+  public itemsPerPage: number = 8;
   public firstItemToShow: number;
   public lastItemToShow: number;
   constructor(private _productService: ProductsService,
