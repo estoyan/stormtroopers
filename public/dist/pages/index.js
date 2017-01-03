@@ -17,5 +17,4 @@ exports.pages = {
     register: register_component_1.RegisterComponent,
     about: about_component_1.AboutComponent
 };
-
 //# sourceMappingURL=index.js.map

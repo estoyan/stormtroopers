@@ -27,4 +27,5 @@ var PipeModule = (function () {
     return PipeModule;
 }());
 exports.PipeModule = PipeModule;
+
 //# sourceMappingURL=pipe.module.js.map
