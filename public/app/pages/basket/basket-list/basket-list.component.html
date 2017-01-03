@@ -30,7 +30,7 @@
     <div *ngFor="let order of orders, let i = index">
         <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <div id=" order">
-                <st-product-overview class="text-center left" [product]="order.product"></st-product-overview>
+                <st-product-overview class="text-center left" [product]="order.product" (addToBascketEvent)="onAddToBasket($event)"></st-product-overview>
                 <div class="order-info">
                     <div class="form-group">
                         <label for="qty">Quantity:</label>

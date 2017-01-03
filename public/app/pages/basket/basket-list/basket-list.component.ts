@@ -31,16 +31,7 @@ export class BasketListComponent implements OnInit {
     }
 
     ngOnInit() {
-        this._userService.getUserOrdersFromBasket()
-            .subscribe(orders => {
-                this.orders = orders;
-                orders.forEach(o => {
-                    this.selections.push({
-                        isSelected: true
-                    });
-                });
-            },
-            err => this._toastService.activate(err, false));
+        this.loadOrders();
 
         for (let i = 1; i <= SELECTION_COUNT; i += 1) {
             this.quantityOptions.push(i);
@@ -94,6 +85,28 @@ export class BasketListComponent implements OnInit {
                 this._router.navigate(['/basket/proceed']);
             },
             err => this._toastService.activate(err, false));
+    }
+
+    onAddToBasket(orders: any) {
+        this.loadOrders();
+    }
+
+    private loadOrders() {
+        this._userService.getUserOrdersFromBasket()
+            .subscribe(orders => {
+                this.orders = orders;
+                this.populatSelections(this.orders);
+            },
+            err => this._toastService.activate(err, false));
+    }
+
+    private populatSelections(orders: Order[]) {
+        this.selections = [];
+        orders.forEach(o => {
+            this.selections.push({
+                isSelected: true
+            });
+        });
     }
 
     private getSelectedOrders(): Order[] {

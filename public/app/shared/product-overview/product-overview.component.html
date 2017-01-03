@@ -10,6 +10,6 @@
         <div class="price">
             <span>Price </span>{{product.price|currency:'EUR':true}}
         </div>
-        <st-modal-product [product]="product"></st-modal-product>
+        <st-modal-product [product]="product" (addToBascketEvent)="onAddToBasket($event)"></st-modal-product>
     </div>
 </div>

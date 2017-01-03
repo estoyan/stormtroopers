@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../../models/product.model';
 
 @Component({
@@ -9,6 +9,11 @@ import { Product } from '../../models/product.model';
 })
 export class ProductOverviewComponent {
   @Input() product: Product;
+  @Output() addToBascketEvent = new EventEmitter()
 
   constructor() { }
+
+  onAddToBasket(data: any) {
+    this.addToBascketEvent.emit(data);
+  }
 }

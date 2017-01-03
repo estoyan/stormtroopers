@@ -1,4 +1,4 @@
-import { Component, ViewChild, Input, OnInit } from '@angular/core';
+import { Component, ViewChild, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ModalDirective } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { ProductsService } from '../../services/products/products.service';
@@ -16,6 +16,7 @@ import { AuthService } from '../../services/authentication/auth.service';
 export class ProductDetailsModalComponent implements OnInit {
     @ViewChild('childModal') public childModal: ModalDirective;
     @Input() product: number;
+    @Output() addToBascketEvent = new EventEmitter();
 
     public isLogedIn: boolean;
 
@@ -37,6 +38,7 @@ export class ProductDetailsModalComponent implements OnInit {
         this._productService.addProductToBasket(product)
             .subscribe(data => {
                 this._toasterService.activate('Product was added to basket!', true);
+                this.addToBascketEvent.emit(data);
             },
             err => {
                 this._toasterService.activate(err, false);
