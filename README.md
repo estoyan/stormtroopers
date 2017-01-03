@@ -21,9 +21,9 @@ Stormtroopers is a Single-page Application devoted to the Star Wars movies fans.
 |  10  | About |   | Product Details | | | |
 
 ## Screenshots
-<img src="https://github.com/ZmeiDev/stormtroopers/tree/master/files/screenshots/home.jpg?raw=true" width="240"/>
-<img src="https://github.com/ZmeiDev/stormtroopers/tree/master/files/screenshots/publications.jpg?raw=true" width="240"/>
-<img src="https://github.com/ZmeiDev/stormtroopers/tree/master/files/screenshots/products.jpg?raw=true" width="240"/>
+<img src="https://github.com/ZmeiDev/stormtroopers/blob/master/files/screenshots/home.jpg?raw=true" width="240"/>
+<img src="https://github.com/ZmeiDev/stormtroopers/blob/master/files/screenshots/publications.jpg?raw=true" width="240"/>
+<img src="https://github.com/ZmeiDev/stormtroopers/blob/master/files/screenshots/products.jpg?raw=true" width="240"/>
 
 ## Team Members
 * George Georgiev
